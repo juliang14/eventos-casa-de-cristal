@@ -33,16 +33,16 @@ Surge la necesidad de crear un medio web confiable seguro y  de calidad al momen
 
 ##### ALCANCES
  
-    1.	creación y sistematización de información  
-    2.	seguridad de información en las ventas que se realizarán por medio de la página web
-    3.	Se desarrollara la página web 
-    4.	Se implementara la base de datos 
-    5.	Se realizara actualizaciones a la página web
+    1.creación y sistematización de información  
+    2.seguridad de información en las ventas que se realizarán por medio de la página web
+    3.Se desarrollara la página web 
+    4.Se implementara la base de datos 
+    5.Se realizara actualizaciones a la página web
 
 ##### LIMITACIONES
 
-    1.	Solo será implementado a nivel de Bogotá 
-    2.	Se desarrollara en lenguaje Español
+    1.Solo será implementado a nivel de Bogotá 
+    2.Se desarrollara en lenguaje Español
 
 
 
