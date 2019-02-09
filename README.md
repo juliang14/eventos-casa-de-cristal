@@ -9,6 +9,7 @@ Crear y brindar al público un servicio diferente, cómodo, óptimo y profesiona
     3.15 años 
 
 
+
 ### PROBLEMA A SOLUCIONAR
 
 Brindar solución a los clientes que buscan servicios que cumpla con sus expectativas, donde puedan elegir y/o solicitar 
@@ -27,6 +28,7 @@ Surge la necesidad de crear un medio web confiable seguro y  de calidad al momen
     5. Rápida respuesta a tus necesidades
 
 
+
 ### ALCANCES Y LIMITACIONES
 
 ##### ALCANCES
@@ -41,6 +43,7 @@ Surge la necesidad de crear un medio web confiable seguro y  de calidad al momen
 
     1.	Solo será implementado a nivel de Bogotá 
     2.	Se desarrollara en lenguaje Español
+
 
 
 ### INTEGRANTES
