@@ -185,7 +185,7 @@ REFERENCES Cargo(Id_cargo);
 
 ALTER TABLE Empleado 
 DROP PRIMARY KEY,
-ADD PRIMARY KEY (`Id_empleado`,`Rolid_Rol`, `CargoId_cargo`,`Tipo_documentoId_documento`);
+ADD PRIMARY KEY (`Id_empleado`,`Tipo_documentoId_documento`);
 
 
 
@@ -200,7 +200,7 @@ REFERENCES Tipo_documento(Id_documento);
 
 ALTER TABLE usuario 
 DROP PRIMARY KEY,
-ADD PRIMARY KEY (`Id_usuario`,`Rolid_Rol`, `Tipo_documentoId_documento`);
+ADD PRIMARY KEY (`Id_usuario`,`Tipo_documentoId_documento`);
 ;
 
 
