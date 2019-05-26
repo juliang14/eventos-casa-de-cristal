@@ -35,7 +35,7 @@ Primer_nombre 						varchar (40) not null,
 Segundo_nombre 						varchar (40) 	 null,
 Primer_apellido 					varchar (40) not null,
 Segundo_apellido 					varchar (40) 	 null,
-Tipo_documentoId_documento			varchar (10) not null,
+Tipo_documentoId_documento			int		(10) not null,
 Numero_documento					varchar (20) not null,
 CargoId_cargo						int		(10) not null,
 Edad								int 	(5)  not null,
@@ -175,10 +175,17 @@ ALTER TABLE Empleado
 ADD FOREIGN KEY (Rolid_Rol)
 REFERENCES Rol(Id_rol);
 
+ALTER TABLE Empleado
+ADD FOREIGN KEY (Tipo_documentoId_documento)
+REFERENCES Tipo_documento(Id_documento);
+
+ALTER TABLE Empleado
+ADD FOREIGN KEY (CargoId_cargo)
+REFERENCES Cargo(Id_cargo);
 
 ALTER TABLE Empleado 
 DROP PRIMARY KEY,
-ADD PRIMARY KEY (`Id_empleado`,`Rolid_Rol`, `Tipo_documentoId_documento`);
+ADD PRIMARY KEY (`Id_empleado`,`Rolid_Rol`, `CargoId_cargo`,`Tipo_documentoId_documento`);
 
 
 
