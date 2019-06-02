@@ -4,7 +4,7 @@ create database eventos_casa_de_cristal;
 create table Tipo_documento(
 Id_documento 						int (10) not null,
 Siglas 								varchar (10)  not null,
-Nombre_tipo_documento 				varchar (30) not null,
+Nombre_tipo_documento 				varchar (50) not null,
 primary key (ID_documento)
 );
 create table Cargo(
@@ -22,7 +22,7 @@ Segundo_apellido 					varchar (40) 	 null,
 Tipo_documentoId_documento			int		(10) not null,
 Numero_documento					varchar (20) not null,
 Edad								int 	(5)  not null,
-Telefono							int 	(20) not null,
+Telefono							bigint 	(20) not null,
 Direccion							varchar (50) not null,
 Email 								varchar (50) not null unique,
 RolId_rol 							int 	(15) not null,
@@ -39,7 +39,7 @@ Tipo_documentoId_documento			int		(10) not null,
 Numero_documento					varchar (20) not null,
 CargoId_cargo						int		(10) not null,
 Edad								int 	(5)  not null,
-Telefono							int 	(20) not null,
+Telefono							bigint 	(20) not null,
 Direccion							varchar (50) not null,
 Email 								varchar (50) not null unique,
 RolId_rol 							int 	(15) not null,
@@ -65,7 +65,8 @@ create table Turno(
 Id_turno 							Int 	(10) not null,
 Turno 								int 	(10) not null,
 fecha_de_turno						date		 not null,
-Hora_de_turno						time		 not null,
+Hora_de_turno_inicio				time		 not null,
+Hora_de_turno_fin					time		 not null,
 primary key (Id_turno)
 );
 
@@ -141,7 +142,7 @@ primary key (Id_tarjeta_Debito)
 create table Efectivo(
 Id_Efectivo							INT 	(10) not null,
 Numero_de_celular					int 	(15) not null,
-Valor_de_recarga					int 	(7)  not null,
+Valor_de_pago						int 	(7)  not null,
 FacturaId_factura					int 	(2)  not null,
 primary key (Id_Efectivo)
 );
@@ -149,9 +150,9 @@ primary key (Id_Efectivo)
 create table Log_de_errores(
 Id_error							INT 	(10) not null,
 Fecha_de_error						date	 	 not null,
-Request								varchar (100)not null,
-Response							varchar	(100)not null,
-Descripcion_de_error				varchar	(30) not null,
+Request								varchar (200)not null,
+Response							varchar	(200)not null,
+Descripcion_de_error				varchar	(200) not null,
 primary key (Id_error)
 );
 
