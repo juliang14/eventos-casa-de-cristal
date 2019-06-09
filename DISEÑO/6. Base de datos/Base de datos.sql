@@ -1,3 +1,4 @@
+
 create database eventos_casa_de_cristal;
         use eventos_casa_de_cristal;
 
@@ -56,6 +57,7 @@ create table Usuario_sistema(
 Id_Usuariosistema					int 	(10) not null,
 Nombre_usuario 						varchar (15) not null,
 Clave 								varchar (20) not null,
+Avatar                              blob        	 null,
 UsuarioId_usuario 					int 	(15) 	 null,
 EmpleadoId_empleado					int 	(15) 	 null,
 primary key (Id_Usuariosistema)
@@ -279,6 +281,3 @@ REFERENCES Paquete(Id_paquete);
 ALTER TABLE Inventario_paquete
 ADD PRIMARY KEY (`InventarioId_inventario`, `PaqueteId_paquete`)
 ;
-
-
-
