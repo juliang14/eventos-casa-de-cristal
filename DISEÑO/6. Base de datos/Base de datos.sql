@@ -3,13 +3,13 @@ create database eventos_casa_de_cristal;
         use eventos_casa_de_cristal;
 
 create table Tipo_documento(
-Id_documento 						int (10) not null,
-Siglas 								varchar (10)  not null,
+Id_documento 						int (10) 	 not null,
+Siglas 								varchar (10) not null,
 Nombre_tipo_documento 				varchar (50) not null,
 primary key (ID_documento)
 );
 create table Cargo(
-Id_cargo	 						int (10) not null,
+Id_cargo	 						int (10) 	 not null,
 Nombre_de_cago		 				varchar (30) not null,
 primary key (Id_cargo)
 );
@@ -265,7 +265,6 @@ REFERENCES Usuario(Id_usuario);
 ALTER TABLE Pedido
 ADD FOREIGN KEY (EventoId_evento)
 REFERENCES Evento(Id_evento);
-
 
 
 
