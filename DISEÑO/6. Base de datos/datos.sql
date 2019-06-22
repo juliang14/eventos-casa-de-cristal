@@ -217,7 +217,7 @@ values
 (7,	5);
 
 
-insert into Pedido(Id_pedido, PaqueteId_paquete, UsuarioId_usuario, EventoId_evento)
+insert into Pedido(Id_pedido, Paquete_Idpaquete, UsuarioId_usuario, EventoId_evento)
 values 
 (1,		6,	6,	01),
 (2,		5,	5,	02),
@@ -257,49 +257,6 @@ values
 
 
 
-insert into Tarjeta_Credito(Id_tarjeta_credito, Titular_de_la_tarjeta, Numero_de_tarjeta, Fecha_de_vencimiento, CVV, FacturaId_factura)
-values
-(1,  'Leonel_Vargas',   10236981, '2020-05-02', 4589, 01),
-(2,  'Milena_Forero',   59831127, '2020-08-25', 8956, 02),
-(3,  'Bryan_Ladino' ,   12457863, '2020-10-06', 8452, 03),
-(4,  'Johanna_Ramirez', 78523694, '2020-11-09', 2365, 04),
-(5,  'Tatiana_Gomez',   12365978, '2020-04-12', 1254, 05),
-(6,  'Brenda_Lombana',  15478932, '2020-05-15', 3698, 06),
-(7,  'Claudia_Lopez',   14785236, '2020-03-08', 2548, 07),
-(8,  'Lorena_Perdomo',  15698742, '2020-11-12', 3287, 08),
-(9,  'Cristan_Rubiano', 13659874, '2020-12-15', 0145, 09),
-(10, 'Camilo_Sanchez',  18967542, '2020-01-07', 3615, 10);
-
-
-
-insert into Tarjeta_Debito(Id_tarjeta_Debito, Titular_de_la_tarjeta_Debito, Numero_de_tarjeta, Fecha_de_vencimiento, FacturaId_factura)
-values
-(01, 'Leonel_Vargas',   12345678, '2020-11-23', 01),
-(02, 'Milena_Forero',   25638945, '2020-10-07', 02),
-(03, 'Bryan_Ladino',    58964522, '2020-12-06', 03),
-(04, 'Johanna_Ramirez', 56982136, '2020-05-15', 04),
-(05, 'Tatiana_Gomez',   12356986, '2020-06-23', 05),
-(06, 'Brenda_Lombana',  15896323, '2020-08-26', 06),
-(07, 'Claudia_Lopez',   25639848, '2020-08-25', 07),
-(08, 'Lorena_Perdomo',  98653254, '2020-07-08', 08),
-(09, 'Cristan_Rubiano', 89653269, '2020-05-03', 09),
-(10, 'Camilo_Sanchez',  36589445, '2020-10-10', 10);
-
-
-insert into Efectivo(Id_Efectivo, Numero_de_celular, Valor_de_pago, FacturaId_factura)
-values
-(1,  31087150, 16900, 01),
-(2,  32087771, 32900, 02),
-(3,  31151023, 24900, 03),
-(4,  32156893, 32900, 04),
-(5,  32056987, 32900, 05),
-(6,  31256931, 16900, 06),
-(7,  30058962, 24900, 07),
-(8,  31125849, 24900, 08),
-(9,  31059630, 16900, 09),
-(10, 32145789, 32900, 10);
-
-
 insert into Log_de_errores(Id_error, Fecha_de_error, Request, Response, Descripcion_de_error)
 values
 (1,  '2020-06-06', 'telefono:3198745289, nombre:Leonel Alexander Vargas Rodriguez, pedido:1', 	'Error al realizar la transacción', 'error al realizar el pago'),
@@ -331,4 +288,29 @@ values
 (12,	'2020-06-15',	'2020-06-15',	'EVENTOS_CASA_DE_CRISTAL@GMAIL.COM',	'feliperuiz1234567@gmail.com',	'ENVIADO');  
 
 
+insert into Tipos_de_pago( id_tipo_pago, nombre_pago)
+values
+(1, 'Efectivo'),
+(2, 'Tarjeta_de_regalo'),
+(3, 'Tarjeta_Debito'),
+(4, 'Tarjeta_Credito');
 
+insert into pagos( Id_pago, UsuarioId_usuario, PedidoId_pedido, Tipos_de_pagoId_tipo_pago)
+values
+(1,		1,	01,	4),
+(2,		2,	02,	4),
+(3,		3,	03,	4),
+(4,		4,	04,	4),
+(5,		5,	05,	1),
+(6,		6,	06,	3),
+(7,		7,	07,	3),
+(8,		8,	08,	3),
+(9,		9,	09,	2),
+(10,	10,	10,	1),
+(11,	11,	11,	2),
+(12,	12,	12,	1),
+(13,	13,	13,	2),
+(14,	14,	14,	3),
+(15,	15,	15,	4),
+(16,	16,	16,	2)
+;

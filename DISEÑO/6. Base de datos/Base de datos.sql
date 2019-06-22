@@ -1,4 +1,4 @@
-
+drop database eventos_casa_de_cristal;
 create database eventos_casa_de_cristal;
         use eventos_casa_de_cristal;
 
@@ -79,7 +79,7 @@ TurnoId_turno		 				int 	(10) not null
 
 create table Pedido(
 Id_pedido 							int 	(10) not null,
-PaqueteId_paquete					int 	(10) not null,
+Paquete_Idpaquete					int 	(10) not null,
 UsuarioId_usuario 					int		(10) not null,
 EventoId_evento 					int		(10) not null,
 primary key (Id_pedido)
@@ -122,32 +122,21 @@ Tipo_de_evento	 					varchar	(50) not null,
 primary key (Id_evento)
 );
 
-create table Tarjeta_Credito(
-Id_tarjeta_credito					int 	(10) not null,
-Titular_de_la_tarjeta 				varchar (25) not null,
-Numero_de_tarjeta 					int 	(15) not null,
-Fecha_de_vencimiento 				date  		 not null,
-CVV					 				int 	(5)	 not null,
-FacturaId_factura					int 	(2)	 not null,
-primary key (Id_tarjeta_Credito)
+create table pagos(
+Id_pago								Int (4) 	 not null,
+Usuarioid_usuario					Int (4) 	 not null,
+PedidoID_pedido		 				Int (4) 	 not null,
+Tipos_de_pagoId_tipo_pago			Int (4) 	 not null,
+primary key (Id_pago)
 );
 
-create table Tarjeta_Debito(
-Id_tarjeta_Debito					int 	(10) not null,
-Titular_de_la_tarjeta_Debito		varchar (25) not null,
-Numero_de_tarjeta 					int 	(15) not null,
-Fecha_de_vencimiento 				date  		 not null,
-FacturaId_factura					int 	(2)	 not null,
-primary key (Id_tarjeta_Debito)
+
+create table Tipos_de_pago(
+id_tipo_pago						Int (4) 	 not null,
+nombre_pago			 				varchar (50) not null,
+primary key (id_tipo_pago)
 );
 
-create table Efectivo(
-Id_Efectivo							INT 	(10) not null,
-Numero_de_celular					int 	(15) not null,
-Valor_de_pago						int 	(7)  not null,
-FacturaId_factura					int 	(2)  not null,
-primary key (Id_Efectivo)
-);
 
 create table Log_de_errores(
 Id_error							INT 	(10) not null,
@@ -233,18 +222,6 @@ ADD PRIMARY KEY (`EmpleadoId_empleado`, `TurnoId_turno`)
 ;
 
 
-ALTER TABLE Tarjeta_Credito
-ADD FOREIGN KEY (FacturaId_factura)
-REFERENCES Factura(Id_factura);
-
-ALTER TABLE Tarjeta_Debito
-ADD FOREIGN KEY (FacturaId_factura)
-REFERENCES Factura(Id_factura);
-
-ALTER TABLE Efectivo
-ADD FOREIGN KEY (FacturaId_factura)
-REFERENCES Factura(Id_factura);
-
 
 
 ALTER TABLE factura
@@ -255,7 +232,7 @@ REFERENCES Pedido(Id_pedido);
 
 
 ALTER TABLE Pedido
-ADD FOREIGN KEY (PaqueteId_paquete)
+ADD FOREIGN KEY (Paquete_Idpaquete)
 REFERENCES Paquete(Id_paquete);
 
 ALTER TABLE Pedido
@@ -265,8 +242,6 @@ REFERENCES Usuario(Id_usuario);
 ALTER TABLE Pedido
 ADD FOREIGN KEY (EventoId_evento)
 REFERENCES Evento(Id_evento);
-
-
 
 
 ALTER TABLE Inventario_paquete
@@ -280,3 +255,17 @@ REFERENCES Paquete(Id_paquete);
 ALTER TABLE Inventario_paquete
 ADD PRIMARY KEY (`InventarioId_inventario`, `PaqueteId_paquete`)
 ;
+
+
+ALTER TABLE pagos
+ADD FOREIGN KEY (Usuarioid_usuario)
+REFERENCES Usuario(id_usuario);
+
+ALTER TABLE pagos
+ADD FOREIGN KEY (Tipos_de_pagoId_tipo_pago)
+REFERENCES Tipos_de_pago(Id_tipo_pago);
+
+ALTER TABLE pagos
+DROP primary KEY,
+ADD PRIMARY KEY (`Id_pago`,`Usuarioid_usuario`, `Tipos_de_pagoId_tipo_pago`)
+
