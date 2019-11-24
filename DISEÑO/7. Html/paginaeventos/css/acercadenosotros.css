@@ -1,0 +1,21 @@
+#video-acercadenosotros{
+	text-align: center;
+}
+.centrar{
+	text-align: center;
+}
+.justify{
+	text-align: justify;
+}
+.margin{
+	margin: 5% 0;
+}
+h3{
+	text-align: center;
+}
+#text{
+	margin: auto;
+	width: 70%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+}

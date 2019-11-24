@@ -1,0 +1,56 @@
+main{
+	margin-top: 5% ;
+	margin-left: 1% ;
+	margin-right: 1% ;
+}
+main h1{
+	text-align: center;
+}
+#pag{
+	padding-bottom: 2%;
+}
+
+#cajon{
+	border-top: solid 10px gray;
+	margin: 0;
+	padding: 2% 3%;
+}
+#parte{
+ 	margin-top: 2%;
+ 	padding: 0; 
+}
+#parte > .row > div{
+	display: inline-flex;
+}
+.medio{
+	width: 60%;
+}
+.centrar{
+	text-align: center;
+	margin: auto 0;
+}
+#det-factura{
+	text-align: center;
+	background: #FFB27FFF;
+	padding: 2%;
+}
+#det-factura input{
+	width: 100%;	
+}
+
+#verde{
+	background: green;
+	border-color: green;
+	width: 100%;
+}
+#verde:hover{
+	background: #FFF;
+	border-color: green;
+	color: green;
+	width: 100%;
+}
+#azul{
+	background: #1D31E1FF;
+	border-color: #1D31E1FF;
+	width: 100%;
+}
