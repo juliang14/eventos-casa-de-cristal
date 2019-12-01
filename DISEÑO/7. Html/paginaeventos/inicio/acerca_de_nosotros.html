@@ -17,18 +17,19 @@
 		<div class="container-fluid" id="pag">
 			<div class="row">
 				<div class="col-lg-12">
+					
 					<div class="container-fluid">
 						<div class="row">
 
-							<div class="col-lg-2" STYLE="">
-								<IMG SRC="../img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+							<div class="col-lg-2 esp-bajo" STYLE="text-align:center;">
+								<IMG SRC="../img/Logo.jpeg" id="img-logo"></IMG>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
 									<div class="col-lg-2" STYLE="">
 									</div>
-									<div class="col-lg-4" STYLE="">
+									<div class="col-lg-4 esp-bajo" STYLE="">
 										<div class="input-group" id="bus">
 											<input type="text" class="form-control" placeholder="BUSCADOR">
 											<div class="input-group-append">
@@ -36,52 +37,53 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-2" id="inicio-personal">
-										<a href="login_empleados.html">
-											<IMG SRC="../img/usuario.png" STYLE="width: 24%;" title="Login empleado"></IMG>
+									<div class="col-lg-2 esp-bajo" id="inicio-personal">
+										<a href="inicio/login_empleados.html">
+											<IMG class="img-login" SRC="../img/usuario.png"  title="Login empleado"></IMG>
 										</a>
 
-										<a href="login_administrador.html">
-											<IMG SRC="../img/espia.png" STYLE="width: 24%;" title="Login administrador">
+										<a href="inicio/login_administrador.html">
+											<IMG class="img-login" SRC="../img/espia.png"  title="Login administrador">
 										</IMG>
 									</a>
 								</div>
-								<div class="col-lg-4" id="inicio-usuarios">
+								<div class="col-lg-4 esp-bajo" id="inicio-usuarios">
 									<a href="login_usuario.html">
 										<button type="button" class="btn btn-primary">Iniciar sesion</button>
 									</a>
 									<a href="formulario_registro.html">
-										<button type="button" class="btn btn-primary">Registro</button>
-									</a>
+										<button type="button" class="btn btn-primary">Registro</button></a>
+									</div>
 								</div>
+								<div class="row" style="height: 15%;">
+								</div>
+								<div id="div-menu" onclick="menu();">
+									<img src="../img/menu.png">
+								</div>
+								<nav class="men" id="men">
+									<ul class="menu-pincipal">
+										<li class="">
+											<a href="../index.html">Inicio</a>
+										</li>
+										<li class="active">
+											<a href="Eventos.html">Eventos</a>
+										</li>
+										<li class="">
+											<a href="acerca_de_nosotros.html">Acerca de nosotros</a>
+										</li>
+										<li class="">
+											<a href="contactos.html">Contactenos</a>
+										</li>
+									</ul>
+								</nav>
+								
 							</div>
-							<div class="row" style="height: 15%;">
-							</div>
-							<div id="div-menu" onclick="menu();">
-								<img src="../img/menu.png">
-							</div>
-							<nav class="men" id="men">
-								<ul class="menu-pincipal">
-									<li class="">
-										<a href="../index.html">Inicio</a>
-									</li>
-									<li class="">
-										<a href="Eventos.html">Eventos</a>
-									</li>
-									<li class="active">
-										<a href="acerca_de_nosotros.html">Acerca de nosotros</a>
-									</li>
-									<li class="">
-										<a href="contactos.html">Contactenos</a>
-									</li>
-								</ul>
-							</nav>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" id="todoElContenido">
 			<div class="col-lg-12">
 				<div class="row" id="event_2">
 					<div class="col-lg-12" STYLE="">
@@ -98,7 +100,7 @@
 				</div>
 				<div class="row margin" >
 					<div class="col-lg-3">
-						<img src="../img/Logo.jpeg" style="width: 90%;">
+						<img src="../img/Logo.jpeg" style="" id="imagenes">
 					</div>
 					<div class="col-lg-7 justify">
 						<h3>HOLA</h3>
@@ -117,7 +119,7 @@
 						</p>
 					</div>
 					<div class="col-lg-3">
-						<img src="../img/Logo.jpeg" style="width: 90%;">
+						<img src="../img/Logo.jpeg" style="" id="imagenes">
 					</div>
 				</div>
 				
@@ -128,5 +130,19 @@
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/generales.js"></script>
+<script type="text/javascript">
+				$('#div-menu').click(function(){
+				   
+					var menu = document.getElementById("men"),
+						estilo = document.head.appendChild(document.createElement("style"));
+
+					if (menu.className =="men ocultar_menu") {
+						estilo.innerHTML = "#todoElContenido{margin-top: 5%;}";
+					}else if(menu.className =="men"){
+						estilo.innerHTML = "#todoElContenido{margin-top: 50%;}";
+					}
+
+				});
+			</script>
 </body>
 </html>

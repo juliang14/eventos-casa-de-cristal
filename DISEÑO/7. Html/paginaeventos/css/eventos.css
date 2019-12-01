@@ -53,3 +53,31 @@ ul li img:hover{
  	margin:3% 5%;
  }
 
+#contenidoEventos{
+	margin-top: 3%;
+}
+
+
+/*-------------- RESPONSIVE --------------*/
+
+@media screen and (min-width: 300px) and (max-width: 575px){
+
+	#contenidoEventos{
+		margin-top: 50%;
+	}
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+	
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+
+
+}
+@media screen and (min-width: 1200px) {
+
+
+}

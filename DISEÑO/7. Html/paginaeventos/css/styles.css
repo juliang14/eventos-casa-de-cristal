@@ -13,6 +13,12 @@ a{
     margin-left: 10%;
     background-color: white;
 }
+#img-logo{
+	width: 90%;
+}
+.img-login{
+	width: 24%;
+}
 .active{
 	background: pink;
 }
@@ -164,11 +170,15 @@ a{
 #mapa{
 	margin: 5% 20%;
 }
+.esp-bajo{
+	margin-bottom: 0%;
+}
+
 
 
 /*-------------- RESPONSIVE --------------*/
 
-@media screen and (min-width: 300px) and (max-width: 750px){
+@media screen and (min-width: 300px) and (max-width: 575px){
 	/* BOTON MENU */	
 	#div-menu img{
 		display: block;
@@ -203,5 +213,105 @@ a{
 	#sliderbar{
 		margin-top: 60%;
 	}
+	#img-logo{
+		width: 20%;
+	}
+	.img-login{
+		width: 10%;
+	}
+	.esp-bajo{
+		margin-bottom: 2%;
+	}
+	#inicio-usuarios,#inicio-personal{
+		text-align: center;
+	}
+	#demo {
+	    height: 150px;
+	}
 
 }
+@media screen and (min-width: 576px) and (max-width: 767px){
+	#img-logo{
+		width: 20%;
+	}
+	.img-login{
+		width: 10%;
+	}
+	.esp-bajo{
+		margin-bottom: 2%;
+	
+	}
+	.men{
+		width: 100%;
+		margin: 0%;
+		padding: 0%;
+		font-size: 14px;
+	}
+	.ocultar_menu{
+		margin-left: 0%!important;
+	}
+	#sliderbar{
+		margin-top: 0%!important;
+	}
+	#inicio-usuarios,#inicio-personal{
+		text-align: center;
+	}
+	#demo {
+	    height: 150px;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+	#img-logo{
+		width: 20%;
+	}
+	.men{
+		width: 100%;
+		margin: 0%;
+		padding: 0%;
+	}
+	.img-login{
+		width: 10%;
+	}
+	.esp-bajo{
+		margin-bottom: 2%;
+	}
+	.ocultar_menu{
+		margin-left: 0%!important;
+	}
+	#sliderbar{
+		margin-top: 0%!important;
+	}
+	#inicio-usuarios,#inicio-personal{
+		text-align: center;
+	}
+	#demo {
+	    height: 200px;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+	.men{
+		width: 100%;
+		margin: 0%;
+		padding: 0%;
+		 margin-left: 0%;
+	}
+	.ocultar_menu{
+		margin-left: 0%!important;
+	}
+	#sliderbar{
+		margin-top: 0%!important;
+	}
+
+}
+@media screen and (min-width: 1200px) {
+
+	#sliderbar{
+		margin-top: 0%!important;
+	}
+	.men{
+		 margin-left: 0%!important;
+	}
+
+}
+    
