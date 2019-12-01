@@ -65,10 +65,10 @@
 										<li class="">
 											<a href="../index.html">Inicio</a>
 										</li>
-										<li class="active">
+										<li class="">
 											<a href="Eventos.html">Eventos</a>
 										</li>
-										<li class="">
+										<li class="active">
 											<a href="acerca_de_nosotros.html">Acerca de nosotros</a>
 										</li>
 										<li class="">
@@ -131,18 +131,18 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/generales.js"></script>
 <script type="text/javascript">
-				$('#div-menu').click(function(){
-				   
-					var menu = document.getElementById("men"),
-						estilo = document.head.appendChild(document.createElement("style"));
+	$('#div-menu').click(function(){
+		
+		var menu = document.getElementById("men"),
+		estilo = document.head.appendChild(document.createElement("style"));
 
-					if (menu.className =="men ocultar_menu") {
-						estilo.innerHTML = "#todoElContenido{margin-top: 5%;}";
-					}else if(menu.className =="men"){
-						estilo.innerHTML = "#todoElContenido{margin-top: 50%;}";
-					}
+		if (menu.className =="men ocultar_menu") {
+			estilo.innerHTML = "#todoElContenido{margin-top: 5%;}";
+		}else if(menu.className =="men"){
+			estilo.innerHTML = "#todoElContenido{margin-top: 50%;}";
+		}
 
-				});
-			</script>
+	});
+</script>
 </body>
 </html>

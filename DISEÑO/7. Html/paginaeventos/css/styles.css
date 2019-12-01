@@ -173,7 +173,9 @@ a{
 .esp-bajo{
 	margin-bottom: 0%;
 }
-
+.imgFormularios{
+	width: 90%;
+}
 
 
 /*-------------- RESPONSIVE --------------*/
@@ -228,7 +230,10 @@ a{
 	#demo {
 	    height: 150px;
 	}
-
+	.imgFormularios{
+		width: 50%;
+		margin: auto;
+	}
 }
 @media screen and (min-width: 576px) and (max-width: 767px){
 	#img-logo{
@@ -259,6 +264,10 @@ a{
 	#demo {
 	    height: 150px;
 	}
+	.imgFormularios{
+		width: 50%;
+		margin: auto;
+	}
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
 	#img-logo{
@@ -286,6 +295,9 @@ a{
 	}
 	#demo {
 	    height: 200px;
+	}
+	.imgFormularios {
+	   	width: 40%;
 	}
 }
 

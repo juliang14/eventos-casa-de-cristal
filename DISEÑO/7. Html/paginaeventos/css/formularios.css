@@ -27,21 +27,11 @@ main{
 	width: 100%;
 }
 
-#parte-1,#parte-2,
-#parte-3,#parte-4,
-#parte-5,#parte-6,
-#parte-7,#parte-8,
-#parte-11{
-	width: 100%;
-	display: inline-flex;
-	margin-top: 5%;
-}
-#parte-1 div,#parte-2 div,
-#parte-3 div,#parte-4 div{
-	display: inline-block;	
+.centrar{
+	text-align: center;
 }
 
-#parte-3 > div > div{
+#typesDoc > div > div{
 	margin-right: 3%;
 }
 #parte-6,#btn-cancelar input[type='text'],
@@ -54,11 +44,14 @@ main{
 #btn-registrarse{
 	text-align: center;
 }
-#formulario_registrousuario input[type='text'],
-#btn-cancelar input[type='text']{
+#btn-cancelar input[type='text'],
+#btn-Registrarse input[type='text']{
 	width: 80%!important;
 }
-
+#typesDoc input[type=radio] {
+    width: 40px;
+    height: 25px;
+}
 #btn-registrarse input[type='text']{
 	background: white;
 	color: green;
@@ -153,4 +146,66 @@ h3{
 #olvide > a{
 	color: #3350CBFF!important;
 	text-decoration: underline;
+}
+.seccion{
+	margin-bottom: 5%;
+}
+
+
+/*-------------- RESPONSIVE --------------*/
+
+@media screen and (min-width: 300px) and (max-width: 575px){
+
+	#todoElContenido{
+		margin-top: 50%;
+		text-align: center;
+	}
+	#contactoImg{
+		text-align: center;
+	}
+	iframe{
+		height: 200px;
+	}
+	#contenedor-login {
+	    padding: 3% 1%;
+	}
+	.seccion{
+		margin-bottom: 15%;
+	}
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+	#todoElContenido{
+		margin-top: 5%;
+	}
+	iframe{
+		height: 300px;
+	}
+	.seccion{
+		margin-bottom: 10%;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+	#todoElContenido{
+		margin-top: 5%;
+	}
+	iframe{
+		height: 400px;
+	}
+	.seccion{
+		margin-bottom: 10%;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+	#todoElContenido{
+		margin-top: 5%;
+	}
+	
+
+}
+@media screen and (min-width: 1200px) {
+	#todoElContenido{
+		margin-top: 3%;
+	}
+
 }
