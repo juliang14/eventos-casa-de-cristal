@@ -91,3 +91,26 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/*-------------- RESPONSIVE --------------*/
+
+@media screen and (min-width: 300px) and (max-width: 575px){
+
+  .men{
+    width: 100%;
+  }
+
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+
+}
+@media screen and (min-width: 1200px) {
+
+}
