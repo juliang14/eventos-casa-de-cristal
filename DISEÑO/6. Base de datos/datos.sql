@@ -6,9 +6,9 @@ values
 (3, 'NIT', 'Numero_de_Identificación_Tributaria');
 
 
------------------------------------------
+-- ---------------------------------------
 insert into Cargo
-(Id_cargo, Nombre_de_cago)
+(Id_cargo, Nombre_de_cargo)
 values
 (1, 'Mesero'),
 (2, 'Cocinero'),
@@ -19,7 +19,7 @@ values
 (7, 'Director_de_Marketing'),
 (8, 'Presidente');
 
-----------------------------------------
+-- ---------------------------------------
 insert into Rol
 (Id_rol, Nombre_rol)
 values 
@@ -28,7 +28,7 @@ values
 (3, 'Administrador');
 
 
----------------------------------------------
+-- ---------------------------------------
 
 insert into Usuario
 (Id_usuario, Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, RolId_rol)
@@ -58,7 +58,7 @@ values
 (23, 'Stefany',  NULL, 			'Lopez', 	'Castro', 		1, 	'1235697784', 	52, 3154785263, 'Avenida 39 #12h-9', 		'stefalopez23@gmail.com', 		1),
 (24, 'Aylin', 	'Camila', 		'Novoa', 	'Calvo', 		1, 	'1056236995', 	46, 3165896242, 'Carrera 17g bis #74a28', 	'aylin2324@hotmail.com', 		1);
 
--------------------------------------------
+-- ---------------------------------------
 insert into Empleado
 (Id_empleado, Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Tipo_documentoId_documento, Numero_documento, CargoId_cargo, Edad, Telefono, Direccion, Email, RolId_rol)
 values
@@ -78,7 +78,7 @@ values
 (14,  'Socorro',   null,    'Arias',   'Rodríguez', 1, '1004876948', 1, 40, 3112589632, 'Calle 72 #25-6', 		'socorroar12@gmail.com', 		3);
 
 
---------------------
+-- ---------------------------------------
 insert into Usuario_sistema
 (Id_Usuariosistema, Nombre_usuario, Clave, Avatar, UsuarioId_usuario, EmpleadoId_empleado)
 values
@@ -122,13 +122,13 @@ values
 (038, 'socorroar12', 		'socorroar12', 		null, null, 14);
 
 
-----------------------------------------------------
+-- ---------------------------------------
 insert into Turno(Id_turno, Turno, fecha_de_turno, Hora_de_turno_inicio, Hora_de_turno_fin)
 values 
 (01,1,	'2025-05-20',	'06:00:00',	'14:00:00'),
 (02,2,	'2025-05-20',	'14:00:00',	'22:00:00'),
 (03,3,	'2025-05-20',	'22:00:00',	'06:00:00');
-
+-- ---------------------------------------
 insert into Empleado_turno( EmpleadoId_empleado, TurnoId_turno)
 values 
 (1,		01),
@@ -146,7 +146,7 @@ values
 (13,	01),
 (14,	02)
 ;
-
+-- -------------------------------------------------------------------------
 insert into Evento(Id_evento, Tipo_de_evento)
 values
 (01,	'Matrimonio'),
@@ -155,7 +155,7 @@ values
 (04,	'Despedida de soltero'),
 (05,	'Primeras comuniones'),
 (06,	'Grados');
-
+-- -------------------------------------------------------------------------
 
 insert into Paquete(Id_paquete, valor_paquete, Tipo_de_paquete)
 values
@@ -166,7 +166,7 @@ values
 (5,	4000000,	'15 Años'),
 (6,	3000000,	'Grados');
 	   
-	   
+-- -------------------------------------------------------------------------	   
 insert into Inventario(Id_inventario, Inventario, Cantidad, Categoria)
 values 
 (6,	'centros_de_mesa',	50,		'utileria'),
@@ -177,7 +177,7 @@ values
 (1,	'ollas',			20,		'utileria'),
 (7,	'Equipos_sonido',	4,		'utileria');
 
-
+-- -------------------------------------------------------------------------
 insert into Inventario_paquete(InventarioId_inventario, PaqueteId_paquete)
 values  
 (1,	1),
@@ -216,7 +216,7 @@ values
 (7,	4),
 (7,	5);
 
-
+-- -------------------------------------------------------------------------
 insert into Pedido(Id_pedido, Paquete_Idpaquete, UsuarioId_usuario, EventoId_evento)
 values 
 (1,		6,	6,	01),
@@ -236,7 +236,7 @@ values
 (15,	2,	14,	03),
 (16,	1,	15,	04);
 
-
+-- -------------------------------------------------------------------------
 insert into Factura(Id_factura, Valor_sin_iva, Iva, Valor_Total, Tipo_de_factura, Descripcion_factura, PedidoId_pedido)
 values 
 (1,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado',					1),
@@ -255,7 +255,7 @@ values
 (14,	3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado',					15),
 (15,	6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio',			16);
 
-
+-- -------------------------------------------------------------------------
 
 insert into Log_de_errores(Id_error, Fecha_de_error, Request, Response, Descripcion_de_error)
 values
@@ -270,7 +270,7 @@ values
 (9,  '2020-06-15', 'telefono:3198745297, nombre:Angie Lorena Perdomo Zapata, pedido:9',   		'time out', 'error al realizar el pago'),
 (10, '2020-06-16', 'telefono:3198745298, nombre:Cristian Andres Rubiano Ruiz, pedido:10', 		'Error al realizar la transacción', 'error al realizar el pago') ;
 
-
+-- -------------------------------------------------------------------------
 insert into Servidor_de_correo(Id, Fecha_de_registro, Fecha_de_envio, Enviado_de, Enviado_A, Estado)
 values
 (01,	'2020-06-02',	'2020-06-02',	'EVENTOS_CASA_DE_CRISTAL@GMAIL.COM',	'leonelvargas@hotmail.com',		'ENVIADO'),
@@ -287,14 +287,14 @@ values
 (11,	'2020-06-12',	'2020-06-12',	'EVENTOS_CASA_DE_CRISTAL@GMAIL.COM',	'cristian367@hotmail.com',		'ENVIADO'),
 (12,	'2020-06-15',	'2020-06-15',	'EVENTOS_CASA_DE_CRISTAL@GMAIL.COM',	'feliperuiz1234567@gmail.com',	'ENVIADO');  
 
-
+-- -------------------------------------------------------------------------
 insert into Tipos_de_pago( id_tipo_pago, nombre_pago)
 values
 (1, 'Efectivo'),
 (2, 'Tarjeta_de_regalo'),
 (3, 'Tarjeta_Debito'),
 (4, 'Tarjeta_Credito');
-
+-- -------------------------------------------------------------------------
 insert into pagos( Id_pago, UsuarioId_usuario, PedidoId_pedido, Tipos_de_pagoId_tipo_pago)
 values
 (1,		1,	01,	4),
@@ -314,3 +314,4 @@ values
 (15,	15,	15,	4),
 (16,	16,	16,	2)
 ;
+-- -------------------------------------------------------------------------
