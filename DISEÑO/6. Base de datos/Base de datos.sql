@@ -1,4 +1,3 @@
-
 create database eventos_casa_de_cristal;
         use eventos_casa_de_cristal;
 
@@ -323,38 +322,6 @@ Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, 
 values(null, now(), current_user(), 'ELIMINADO', old.Id_usuario, old.Primer_nombre, old.Segundo_nombre, old.Primer_apellido, old.Segundo_apellido,
 old.Tipo_documentoId_documento, old.Numero_documento, old.Edad, old.Telefono, old.Direccion, old.Email, old.RolId_rol)
 ;
-
-/*    PROCEDIMIENTOS ALMACENADOS */
-
-
-create procedure ver_usuarios()
-select * from USUARIO;
-
-
-create procedure crear_usuario( Primer_nombre varchar (40), Segundo_nombre varchar (40), Primer_apellido varchar (40), Segundo_apellido varchar (40),
-Tipo_documentoId_documento int(10), Numero_documento varchar (20), Edad int (5), Telefono bigint (20), Direccion varchar (50), Email  varchar (50), RolId_rol  int 	(15))
-insert into Usuario
-(Id_usuario, Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, RolId_rol) 
-values
-(null, Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, RolId_rol)
-;
-
-create procedure actualizar_cargo(codigo int, nombre varchar(30))
-update cargo set nombre_de_Cargo=nombre where id_cargo= codigo;
-
-
-
-DELIMITER //
-DROP PROCEDURE if exists calcular_Edad;CREATE PROCEDURE calcular_Edad(p_azo_nacimiento int)
-	BEGIN 	-- inicia bloque de ejecucion
-		DECLARE v_azo_actual 	int default 2020;
-        DECLARE v_edad 			int ;
-        
-        set v_edad = v_azo_actual - p_azo_nacimiento;
-        
-        select v_edad;
-    END //	-- termina bloque de ejecucion
- DELIMITER ;
 
 
 -- CREAR TRIGGER DE CONTROL ---

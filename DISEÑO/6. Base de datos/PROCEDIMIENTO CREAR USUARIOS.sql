@@ -18,6 +18,7 @@ BEGIN
     DECLARE V_NUMERO_ALEATORIO_USUARIO     	BIGINT	(20);
     DECLARE V_NUMERO_ALEATORIO_CLAVE     	BIGINT	(20);
     DECLARE V_USUARIO_SISTEMA             	VARCHAR (50);
+    DECLARE V_ULTIMO_REGISTRO				INT		(10);
     
     -- Generar número aleatorio
     SELECT VALOR_ALEATORIO INTO V_NUMERO_ALEATORIO_USUARIO FROM( SELECT FLOOR(RAND()*(10000-1+1))+1 AS VALOR_ALEATORIO)  AS NUMERO_ALEATORIO_USUARIO;
@@ -31,11 +32,14 @@ BEGIN
     (Id_usuario, Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, RolId_rol) 
     VALUES
     (NULL, V_PRIMER_NOMBRE, V_SEGUNDO_NOMBRE, V_PRIMER_APELLIDO, V_SEGUNDO_APELLIDO, V_TIPO_DOCUMENTOID_DOCUMENTO, V_NUMERO_DOCUMENTO, V_EDAD, V_TELEFONO, V_DIRECCION, V_EMAIL, V_ROLID_ROL);
-
+	
+    -- Validar ultimo registro en la tabla usuario
+    SELECT ULTIMO_ID_USUARIO INTO V_ULTIMO_REGISTRO FROM (select MAX(ID_USUARIO) AS ULTIMO_ID_USUARIO from USUARIO) AS ULTIMO_ID_USUARIO;
+    
     -- crear usuario para login
     INSERT INTO USUARIO_SISTEMA
 	(Id_Usuariosistema, Nombre_usuario, Clave, Avatar, UsuarioId_usuario, EmpleadoId_empleado)
 	VALUES
-	(NULL, V_USUARIO_SISTEMA, V_NUMERO_ALEATORIO_CLAVE, NULL, V_ROLID_ROL, NULL);
+	(NULL, V_USUARIO_SISTEMA, V_NUMERO_ALEATORIO_CLAVE, NULL, V_ULTIMO_REGISTRO, NULL);
     
 END &
