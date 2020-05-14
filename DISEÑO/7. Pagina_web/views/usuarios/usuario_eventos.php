@@ -5,12 +5,16 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/usuario.css">
-	<link rel="stylesheet" type="text/css" href="../css/eventos.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
 
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/usuario.css">
+	<link rel="stylesheet" type="text/css" href="views/css/eventos.css">
 
 </head>
 <body>
@@ -23,14 +27,14 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<IMG SRC="../img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								<IMG SRC="views/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
 									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
-										<a href="usuario_carrito_de_compras.html">
-											<IMG SRC="../img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
+										<a href="?class=IndexHome&method=usuarioCarritoDeCompras">
+											<IMG SRC="views/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
 										</a>
 									</div>
 									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
@@ -47,7 +51,7 @@
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
 											<p>Julian Stiven Gomez Avila</p>
-											<img src="../img/silueta-de-multiples-usuarios.png">
+											<img src="views/img/silueta-de-multiples-usuarios.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
 											<p>cerrar sesion</p>
@@ -61,24 +65,24 @@
 								<div class="row" style="height: 15%;">
 								</div>
 								<div id="div-menu" onclick="menu();">
-									<img src="../img/menu.png">
+									<img src="views/img/menu.png">
 								</div>
 								<nav class="men" id="men">
 									<ul class="menu-pincipal">
 										<li class="">
-											<a href="usuario.html">Inicio</a>
+											<a href="?class=IndexHome&method=usuario">Inicio</a>
 										</li>
 										<li class="active">
-											<a href="usuario_eventos.html">Eventos</a>
+											<a href="?class=IndexHome&method=usuarioEventos">Eventos</a>
 										</li>
 										<li class="">
-											<a href="usuario_acerca_de_nosotros.html">Acerca de nosotros</a>
+											<a href="?class=IndexHome&method=usuarioAcercaDeNosotros">Acerca de nosotros</a>
 										</li>
 										<li class="">
-											<a href="usuario_contactos.html">Contactenos</a>
+											<a href="?class=IndexHome&method=usuarioContactos">Contactenos</a>
 										</li>
 										<li class="">
-											<a href="usuario_pedidos.html">Pedidos</a>
+											<a href="?class=IndexHome&method=usuarioPedidos">Pedidos</a>
 										</li>
 									</ul>
 								</nav>
@@ -95,30 +99,32 @@
 								<ul>
 									<li>
 										<P>Bautizo</P>
-										<img src="../img/Bautizo.jpg"
+										<img src="views/img/Bautizo.jpg"
 										></li>
-										<li>	
-											<p>Boda</p>
-											<img src="../img/Boda.jpg">
-										</li>
+										<a href="?class=IndexHome&method=usuarioPaquetesMatrimonio">
+											<li>	
+												<p>Boda</p>
+												<img src="views/img/Boda.jpg">
+											</li>
+										</a>
 										<li>
 											<p>15 años</p>
-											<img src="../img/15.jpg"></li>
+											<img src="views/img/15.jpg"></li>
 										</ul>
 									</div>
 									<div>
 										<ul>
 											<li>
 												<p>Grados</p>
-												<img src="../img/Grados.jpg">
+												<img src="views/img/Grados.jpg">
 											</li>
 											<li>
 												<p>Primera Comunion</p>
-												<img src="../img/Primera Comunion.jpg">
+												<img src="views/img/Primera Comunion.jpg">
 											</li>
 											<li>
 												<p>Despedida de solteros</p>
-												<img src="../img/eventos2.jpg"></li>
+												<img src="views/img/eventos2.jpg"></li>
 											</ul>
 
 										</div>
@@ -128,8 +134,11 @@
 						</main>
 					</div>
 				</div>
-				<script src="../js/jquery-3.4.1.min.js"></script>
-				<script src="../bootstrap/js/bootstrap.min.js"></script>
-				<script type="text/javascript" src="../js/generales.js"></script>
+				<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+				<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+			    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+				<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+				<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+				<script type="text/javascript" src="views/js/generales.js"></script>
 			</body>
 			</html>

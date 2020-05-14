@@ -83,7 +83,7 @@
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-11">
 							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="btn-registrarse">
-								<a href="../usuarios/usuario.html">
+								<a href="?class=IndexHome&method=usuario">
 									<input type="text" name="Ingresar" value="Ingresar">
 								</a>
 							</div>

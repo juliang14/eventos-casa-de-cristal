@@ -5,11 +5,15 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/usuario.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
 
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/usuario.css">
 
 </head>
 <body>
@@ -22,14 +26,14 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<IMG SRC="../img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								<IMG SRC="views/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
 									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
-										<a href="usuario_carrito_de_compras.html">
-											<IMG SRC="../img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
+										<a href="?class=IndexHome&method=usuarioCarritoDeCompras">
+											<IMG SRC="views/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
 										</a>
 									</div>
 									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
@@ -46,7 +50,7 @@
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
 											<p>Julian Stiven Gomez Avila</p>
-											<img src="../img/silueta-de-multiples-usuarios.png">
+											<img src="views/img/silueta-de-multiples-usuarios.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
 											<p>cerrar sesion</p>
@@ -60,24 +64,24 @@
 								<div class="row" style="height: 15%;">
 								</div>
 								<div id="div-menu" onclick="menu();">
-									<img src="../img/menu.png">
+									<img src="views/img/menu.png">
 								</div>
 								<nav class="men" id="men">
 									<ul class="menu-pincipal">
 										<li class="active">
-											<a href="usuario.html">Inicio</a>
+											<a href="?class=IndexHome&method=usuario">Inicio</a>
 										</li>
 										<li class="">
-											<a href="usuario_eventos.html">Eventos</a>
+											<a href="?class=IndexHome&method=usuarioEventos">Eventos</a>
 										</li>
 										<li class="">
-											<a href="usuario_acerca_de_nosotros.html">Acerca de nosotros</a>
+											<a href="?class=IndexHome&method=usuarioAcercaDeNosotros">Acerca de nosotros</a>
 										</li>
 										<li class="">
-											<a href="usuario_contactos.html">Contactenos</a>
+											<a href="?class=IndexHome&method=usuarioContactos">Contactenos</a>
 										</li>
 										<li class="">
-											<a href="usuario_pedidos.html">Pedidos</a>
+											<a href="?class=IndexHome&method=usuarioPedidos">Pedidos</a>
 										</li>
 									</ul>
 								</nav>
@@ -103,13 +107,13 @@
 								<!-- The slideshow -->
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="../img/69.jpg" alt="Los Angeles">
+										<img src="views/img/69.jpg" alt="Los Angeles">
 									</div>
 									<div class="carousel-item">
-										<img src="../img/96.jpg" alt="Chicago">
+										<img src="views/img/96.jpg" alt="Chicago">
 									</div>
 									<div class="carousel-item">
-										<img src="../img/churque.jpg" alt="New York">
+										<img src="views/img/churque.jpg" alt="New York">
 									</div>
 								</div>
 
@@ -141,8 +145,11 @@
 			</main>
 		</div>
 	</div>
-	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/generales.js"></script>
+	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="views/js/generales.js"></script>
 </body>
 </html>

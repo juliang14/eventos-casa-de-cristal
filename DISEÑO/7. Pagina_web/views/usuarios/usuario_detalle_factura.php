@@ -1,16 +1,20 @@
 <html>
 <head>
 	<title>
-		Usuario detalle factura compra
+		Usuario detalle factura
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/usuario.css">
-	<link rel="stylesheet" type="text/css" href="../css/facturas.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
 
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/usuario.css">
+	<link rel="stylesheet" type="text/css" href="views/css/facturas.css">
 
 </head>
 <body>
@@ -23,11 +27,66 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<IMG SRC="../img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								<IMG SRC="views/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
-								
+								<div class="row" id="busc">
+									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
+										<a href="?class=IndexHome&method=usuarioCarritoDeCompras">
+											<IMG SRC="views/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
+										</a>
+									</div>
+									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
+										<div class="input-group" id="bus">
+											<input type="text" class="form-control" placeholder="BUSCADOR">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" type="button">IR</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1" id="inicio-personal">
+
+									</div>
+									<div class="col-lg-4" id="inicio-usuarios">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
+											<p>Julian Stiven Gomez Avila</p>
+											<img src="views/img/silueta-de-multiples-usuarios.png">
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
+											<p>cerrar sesion</p>
+											<label class="switch">
+												<input type="checkbox" onclick="cerrarSesion();">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="height: 15%;">
+								</div>
+								<div id="div-menu" onclick="menu();">
+									<img src="views/img/menu.png">
+								</div>
+								<nav class="men" id="men">
+									<ul class="menu-pincipal">
+										<li class="">
+											<a href="?class=IndexHome&method=usuario">Inicio</a>
+										</li>
+										<li class="">
+											<a href="?class=IndexHome&method=usuarioEventos">Eventos</a>
+										</li>
+										<li class="">
+											<a href="?class=IndexHome&method=usuarioAcercaDeNosotros">Acerca de nosotros</a>
+										</li>
+										<li class="">
+											<a href="?class=IndexHome&method=usuarioContactos">Contactenos</a>
+										</li>
+										<li class="active">
+											<a href="?class=IndexHome&method=usuarioPedidos">Pedidos</a>
+										</li>
+									</ul>
+								</nav>
+
 							</div>
 						</div>
 					</div>
@@ -66,7 +125,7 @@
 								<input type="number" name="number" value="" placeholder="">
 							</div>
 							<div class="col-sm-1 col-md-1 col-lg-1 col-xl-1">
-								<img src="../img/email.png">
+								<img src="views/img/email.png">
 							</div>
 							<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 ">
 								<p class="centrar" >eventoscasadecristal@gmail.com</p>
@@ -163,24 +222,25 @@
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
-						<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 						</div>
-						<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
-							<a href="Usuario_pago.html">
-								<button type="button" class="btn btn-primary" id="verde" style="margin-left: 5%;">Pagar</button>
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 centrar">
+							<a href="?class=IndexHome&method=usuarioPedidos">
+								<img src="views/img/volver.png">
 							</a>
 						</div>
-						<div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
-							<button type="button" class="btn btn-primary" id="azul" style="margin-left: 5%;">Descargar factura</button>
-							
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 						</div>
 					</div>
 				</div>
 			</main>
 		</div>
 	</div>
-	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/generales.js"></script>
+	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="views/js/generales.js"></script>
 </body>
 </html>

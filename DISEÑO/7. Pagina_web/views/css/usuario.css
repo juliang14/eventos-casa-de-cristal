@@ -25,7 +25,9 @@
 .men{
 	width: 70%;
 }
-
+#mapa iframe{
+  margin: auto;
+}
 
 
 

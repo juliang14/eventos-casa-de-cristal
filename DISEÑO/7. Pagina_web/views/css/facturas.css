@@ -13,7 +13,7 @@ main h1{
 #cajon{
 	border-top: solid 10px gray;
 	margin: 0;
-	padding: 2% 3%;
+	padding: 3%;
 }
 #parte{
  	margin-top: 2%;
@@ -23,7 +23,7 @@ main h1{
 	display: inline-flex;
 }
 .medio{
-	width: 60%;
+	width: 55%;
 }
 .centrar{
 	text-align: center;

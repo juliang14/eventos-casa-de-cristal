@@ -97,33 +97,37 @@
 							<li>
 								<P>Bautizo</P>
 								<img src="views/img/Bautizo.jpg"
-								></li>
+								>
+							</li>
+							<a href="?class=IndexHome&method=paquetesMatrimonio">
 								<li>	
 									<p>Boda</p>
 									<img src="views/img/Boda.jpg">
 								</li>
-								<li>
-									<p>15 años</p>
-									<img src="views/img/15.jpg"></li>
-								</ul>
-							</div>
-							<div>
-								<ul>
-									<li>
-										<p>Grados</p>
-										<img src="views/img/Grados.jpg">
-									</li>
-									<li>
-										<p>Primera Comunion</p>
-										<img src="views/img/Primera Comunion.jpg">
-									</li>
-									<li>
-										<p>Despedida de solteros</p>
-										<img src="views/img/eventos2.jpg"></li>
-									</ul>
+							</a>
+							<li>
+								<p>15 años</p>
+								<img src="views/img/15.jpg">
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>
+								<p>Grados</p>
+								<img src="views/img/Grados.jpg">
+							</li>
+							<li>
+								<p>Primera Comunion</p>
+								<img src="views/img/Primera Comunion.jpg">
+							</li>
+							<li>
+								<p>Despedida de solteros</p>
+								<img src="views/img/eventos2.jpg"></li>
+							</ul>
 
-								</div>
-							</div>
+						</div>
+					</div>
 						</div>
 					</div>
 

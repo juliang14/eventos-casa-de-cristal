@@ -35,7 +35,7 @@ function modal(){
 
 
 function cerrarSesion(){
-  location.href="../index.html"
+  location.href="?class=IndexHome&method=index"
 }
 
 $('#num-empleados').click(function(){
