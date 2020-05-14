@@ -129,7 +129,7 @@
 						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 							<div class="row centrar">
 								<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 seccion" id="btn-registrarse">
-									<a href="registro_exitoso.html">
+									<a href="?class=IndexHome&method=registroExitoso">
 										<input type="text" name="Registrarse" value="Registrarse">
 									</a>
 								</div>

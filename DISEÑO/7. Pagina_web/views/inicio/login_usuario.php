@@ -5,10 +5,15 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/formularios.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
+
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/formularios.css">
 
 
 </head>
@@ -21,7 +26,7 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="text-align: center;">
-								<IMG SRC="../img/Logo.jpeg" class="imgFormularios"></IMG>
+								<IMG SRC="views/img/Logo.jpeg" class="imgFormularios"></IMG>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
@@ -51,8 +56,8 @@
 			<div class="row">
 				<main id="login-usuario">
 					<div class="btn-cerrar">
-						<a href="../index.html">
-							<img src="../img/cancelar.png" id="cerrar">
+						<a href="?class=IndexHome&method=index">
+							<img src="views/img/cancelar.png" id="cerrar">
 						</a>
 					</div>
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="inicio-de-sesion">
@@ -72,7 +77,7 @@
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="olvide">
-							<a href="restablecer_contraseña.html">
+							<a href="?class=IndexHome&method=restablecerContrasena">
 								Olvide mi contraseña
 							</a>
 						</div>
@@ -88,8 +93,13 @@
 			</div>
 		</div>
 	</div>
-			<script src="../js/jquery-3.4.1.min.js"></script>
-			<script src="../bootstrap/js/bootstrap.min.js"></script>
-			<script type="text/javascript" src="../js/generales.js"></script>
+
+
+	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="views/js/generales.js"></script>
 </body>
 </html>
