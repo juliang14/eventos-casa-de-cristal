@@ -5,11 +5,15 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/administrador.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
 
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/administrador.css">
 
 </head>
 <body>
@@ -44,7 +48,7 @@
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
 											<p>Admin Eventos</p>
-											<img src="../img/silueta-de-multiplesusuarios.png">
+											<img src="views/img/silueta-de-multiplesusuarios.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
 											<p>cerrar sesion</p>
@@ -62,7 +66,7 @@
 			</div>
 			<main>
 				<div class="logo-central">
-					<img src="../img/logo.jpeg" style="width:20%; margin-top: 10%">
+					<img src="views/img/logo.jpeg" id="img_home_administrador">
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
@@ -107,11 +111,10 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
 						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" 
-					id="turno"	style="margin-right: 3%;">
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="turno">
 							<p id="Turnos">Turnos</p>
 						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="inventario" style="margin-left: 3%;">
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="inventario">
 							<p id="Inventarios">Inventarios</p>
 						</div>
 						<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
@@ -121,8 +124,11 @@
 			</main>
 		</div>
 	</div>
-	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/generales.js"></script>
+	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="views/js/generales.js"></script>
 </body>
 </html>

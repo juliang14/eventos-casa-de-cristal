@@ -39,23 +39,23 @@ function cerrarSesion(){
 }
 
 $('#num-empleados').click(function(){
-    window.location.href="../administrador/administrador_empleados.html";
+    window.location.href="?class=IndexHome&method=administradorEmpleados";
 });
 $('#num-usuarios').click(function(){
-    window.location.href="../administrador/administrador_usuarios.html";
+    window.location.href="?class=IndexHome&method=administradorUsuarios";
 });
 $('#num-pedidos').click(function(){
-    window.location.href="../administrador/administrador_pedidos.html";
+    window.location.href="?class=IndexHome&method=administradorPedidos";
 });
 $('#inventario').click(function(){
-    window.location.href="../administrador/administrador_inventarios.html";
+    window.location.href="?class=IndexHome&method=administradorInventarios";
 });
 $('#turno').click(function(){
-    window.location.href="../administrador/administrador_turnos.html";
+    window.location.href="?class=IndexHome&method=administradorTurnos";
 });
 $('#num-Reportes').click(function(){
-    window.location.href="../administrador/administrador_reportes.html";
+    window.location.href="?class=IndexHome&method=administradorReportes";
 });
 $('#num-Paquetes').click(function(){
-    window.location.href="../administrador/administrador_paquetes.html";
+    window.location.href="?class=IndexHome&method=administradorPaquetes";
 });

@@ -100,6 +100,96 @@ class IndexHomeController extends indexConection{
 		require_once('views/usuarios/usuario_pedidos.php');
 	}
 
+	// *******************  SECCION ADMINISTRADOR  **********************************************//
+	//Pagina inicio administrador
+	public function administrador(){
+		require_once('views/administrador/administrador.php');
+	}
+	//Pagina administrador empleados
+	public function administradorEmpleados(){
+		require_once('views/administrador/administrador_empleados.php');
+	}
+	//Pagina administrador empleados crear
+	public function administradorEmpleadosCrear(){
+		require_once('views/administrador/administrador_empleados_crear.php');
+	}
+	//Pagina administrador empleados editar
+	public function administradorEmpleadosEditar(){
+		require_once('views/administrador/administrador_empleados_editar.php');
+	}
+	//Pagina administrador empleados eliminar
+	public function administradorEmpleadosEliminar(){
+		require_once('views/administrador/administrador_empleados_eliminar.php');
+	}
+	//Pagina administrador factura editar
+	public function administradorFacturaEditar(){
+		require_once('views/administrador/administrador_factura_editar.php');
+	}
+	//Pagina administrador factura eliminar
+	public function administradorFacturaEliminar(){
+		require_once('views/administrador/administrador_factura_eliminar.php');
+	}
+	//Pagina administrador inventarios
+	public function administradorInventarios(){
+		require_once('views/administrador/administrador_inventarios.php');
+	}
+	//Pagina administrador inventarios crear
+	public function administradorInventariosCrear(){
+		require_once('views/administrador/administrador_inventarios_crear.php');
+	}
+	//Pagina administrador inventarios editar eliminar
+	public function administradorInventariosEditarEliminar(){
+		require_once('views/administrador/administrador_inventarios_editar_eliminar.php');
+	}
+	//Pagina administrador paquetes
+	public function administradorPaquetes(){
+		require_once('views/administrador/administrador_paquetes.php');
+	}
+	//Pagina administrador paquetes crear
+	public function administradorPaquetesCrear(){
+		require_once('views/administrador/administrador_paquetes_crear.php');
+	}
+	//Pagina administrador paquetes editar
+	public function administradorPaquetesEditar(){
+		require_once('views/administrador/administrador_paquetes_editar.php');
+	}
+	//Pagina administrador pedidos
+	public function administradorPedidos(){
+		require_once('views/administrador/administrador_pedidos.php');
+	}
+	//Pagina administrador reportes
+	public function administradorReportes(){
+		require_once('views/administrador/administrador_reportes.php');
+	}
+	//Pagina administrador turno crear
+	public function administradorTurnoCrear(){
+		require_once('views/administrador/administrador_turno_crear.php');
+	}
+	//Pagina administrador turno editar eliminar
+	public function administradorTurnoEditarEliminar(){
+		require_once('views/administrador/administrador_turno_editar_eliminar.php');
+	}
+	//Pagina administrador turnos
+	public function administradorTurnos(){
+		require_once('views/administrador/administrador_turnos.php');
+	}
+	//Pagina administrador usuarios
+	public function administradorUsuarios(){
+		require_once('views/administrador/administrador_usuarios.php');
+	}
+	//Pagina administrador usuarios crear
+	public function administradorUsuariosCrear(){
+		require_once('views/administrador/administrador_usuarios_crear.php');
+	}
+	//Pagina administrador usuarios editar
+	public function administradorUsuariosEditar(){
+		require_once('views/administrador/administrador_usuarios_editar.php');
+	}
+	//Pagina administrador usuarios eliminar
+	public function administradorUsuariosEliminar(){
+		require_once('views/administrador/administrador_usuarios_eliminar.php');
+	}
+
 }
 
  ?>

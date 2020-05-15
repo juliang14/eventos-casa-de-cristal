@@ -25,12 +25,23 @@
 .men{
 	width: 70%;
 }
-
+#img_home_administrador{
+  margin: 0 41%;
+  width:20%; 
+  margin-top: 8%
+}
 .logo-central{
   position: absolute;
   text-align: center;
+  width: 77%;
 }
 
+#turno{
+  margin-right: 1.5%;
+}
+#inventario{
+  margin-left: 1.5%;
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -256,4 +267,60 @@ tbody img{
 .menpaquetes li:hover{
   background: #fff;
   border-radius: 0;
+}
+
+
+/*-------------- RESPONSIVE --------------*/
+
+@media screen and (min-width: 300px) and (max-width: 575px){
+  
+  #img_home_administrador{
+    margin: 0 20%;
+    width: 40%;
+    margin-top: 30%;
+  }
+  #turno{
+    margin-right: 0;
+  }
+  #inventario{
+    margin-left: 0;
+  }
+
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+
+  #img_home_administrador{
+    margin: 0 20%;
+    width: 40%;
+    margin-top: 30%;
+  }
+  #turno{
+    margin-right: 0;
+  }
+  #inventario{
+    margin-left: 0;
+  }
+
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+
+  #img_home_administrador{
+    margin-top: 26%
+  }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+
+  #img_home_administrador{
+    margin-top: 20%
+  }
+
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+
+  #img_home_administrador{
+    margin-top: 15%
+  }
+
 }
