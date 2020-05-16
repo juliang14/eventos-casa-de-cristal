@@ -13,5 +13,5 @@ FROM 		USUARIO 		AS A
 INNER JOIN 	TIPO_DOCUMENTO 	AS B		ON A.Tipo_documentoId_documento = B.id_documento
 INNER JOIN 	USUARIO_SISTEMA AS C		ON C.USUARIOID_USUARIO 			= A.id_usuario
 INNER JOIN 	ROL 			AS D		ON D.id_rol 					= A.rolId_rol
--- WHERE ID_USUARIO = 1
+WHERE C.ESTADO = 'ACTIVO'
 ;

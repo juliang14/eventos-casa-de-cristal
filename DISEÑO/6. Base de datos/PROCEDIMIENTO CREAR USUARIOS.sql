@@ -15,6 +15,7 @@ BEGIN
     DECLARE V_DIRECCION 					VARCHAR (50) DEFAULT UPPER(P_DIRECCION); 
     DECLARE V_EMAIL  						VARCHAR (50) DEFAULT UPPER(P_EMAIL);
     DECLARE V_ROLID_ROL  					INT		(15) DEFAULT 1;
+    DECLARE V_ESTADO  						VARCHAR (30) DEFAULT 'ACTIVO';
     DECLARE V_NUMERO_ALEATORIO_USUARIO     	BIGINT	(20);
     DECLARE V_NUMERO_ALEATORIO_CLAVE     	BIGINT	(20);
     DECLARE V_USUARIO_SISTEMA             	VARCHAR (50);
@@ -38,8 +39,8 @@ BEGIN
     
     -- crear usuario para login
     INSERT INTO USUARIO_SISTEMA
-	(Id_Usuariosistema, Nombre_usuario, Clave, Avatar, UsuarioId_usuario, EmpleadoId_empleado)
+	(Id_Usuariosistema, Nombre_usuario, Clave, Avatar, Estado, UsuarioId_usuario, EmpleadoId_empleado)
 	VALUES
-	(NULL, V_USUARIO_SISTEMA, V_NUMERO_ALEATORIO_CLAVE, NULL, V_ULTIMO_REGISTRO, NULL);
+	(NULL, V_USUARIO_SISTEMA, V_NUMERO_ALEATORIO_CLAVE, NULL, V_ESTADO, V_ULTIMO_REGISTRO, NULL);
     
 END &

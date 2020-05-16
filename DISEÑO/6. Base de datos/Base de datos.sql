@@ -57,6 +57,7 @@ Id_Usuariosistema					int 	(10) auto_increment not null,
 Nombre_usuario 						varchar (15) not null,
 Clave 								varchar (20) not null,
 Avatar                              blob        	 null,
+Estado								varchar (20) not null,
 UsuarioId_usuario 					int 	(15) 	 null,
 EmpleadoId_empleado					int 	(15) 	 null,
 primary key (Id_Usuariosistema)
