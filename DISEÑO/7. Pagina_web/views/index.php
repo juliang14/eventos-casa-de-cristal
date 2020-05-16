@@ -106,10 +106,13 @@
 									<img src="views/img/69.jpg" alt="Los Angeles">
 								</div>
 								<div class="carousel-item">
-									<img src="views/img/96.jpg" alt="Chicago">
+									<img src="views/img/961.jpg" alt="Chicago">
 								</div>
 								<div class="carousel-item">
 									<img src="views/img/churque.jpg" alt="New York">
+								</div>
+								<div class="carousel-item">
+									<img src="views/img/962.jpg" alt="New York">
 								</div>
 							</div>
 
@@ -132,7 +135,7 @@
 						<div style="text-align: center;">
 							<p style="margin: 2%; font-size: 25px;">Bienvenidos</p>
 							<p style="margin-left: 20%; margin-right: 20%;">
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+								Somos una empresa dispuesta a cumplir la fiesta de tus sueños y hacer la realidad de tus dulces momentos.
 							</p>
 						</div>
 					</div>

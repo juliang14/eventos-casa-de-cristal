@@ -22,7 +22,7 @@
 		<div class="container-fluid" id="pag">
 			<div class="row">
 				<div class="col-lg-12">
-					
+					x
 					<div class="container-fluid">
 						<div class="row">
 
@@ -97,22 +97,23 @@
 						<div style="text-align: center;">
 							<h2>EVENTOS CASA DE CRISTAL</h2>
 							<p class="center" id="text">
-								Lorem ipsum dolor sit amet consectetur adipiscing elit mattis egestas nisl, lacinia rhoncus mus commodo faucibus parturient porta tristique placerat aenean, hendrerit sodales nec ultricies sed vitae cubilia feugiat arcu. 	
+								Eventos casa de cristal es una compañía que vela por la organización y creatividad de eventos sociales, familiares y empresariales sin dejar de lado los intereses y gustos de nuestro clientes 	
 							</p>
 						</div>
 					</div>
 				</div>
 				<div id="video-acercadenosotros">
-					<iframe width="500" height="250" src="https://www.youtube.com/embed/2Dy9EKslnkw?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="500" height="250" src="https://www.youtube.com/embed/6EllTOaYgqg?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="row margin" >
 					<div class="col-lg-3">
-						<img src="views/img/Logo.jpeg" style="" id="imagenes">
+						<img src="views/img/novios.jpg" style="" id="imagenes">
 					</div>
 					<div class="col-lg-7 justify">
-						<h3>HOLA</h3>
+						<h3>CAPTURAMOS MOMENTOS INOLVIDABLES...</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipiscing elit mattis egestas nisl, lacinia rhoncus mus commodo faucibus parturient porta tristique placerat aenean, hendrerit sodales nec ultricies sed vitae cubilia feugiat arcu. Sociosqu mi nisi dapibus penatibus himenaeos tellus nascetur, velit magnis venenatis magna nostra mus, primis inceptos taciti enim elementum fames.
+							¡Sus momentos merecen siempre la mejor presentación!. Nos encargamos de que espectaculares imágenes reflejen todos los sentimientos y sean captados durante la celebración.
+							En cada evento nos encargamos de ofrecer fotos únicas en donde todos los momentos se convertirán en inolvidables y esos detalles se trasformaran en grandes y hermosos recuerdos 
 						</p>
 					</div>
 					<div class="col-lg-2"></div>
@@ -120,13 +121,15 @@
 				<div class="row margin" >
 					<div class="col-lg-2"></div>
 					<div class="col-lg-7 justify">
-						<h3>HOLA</h3>
+						<h3>DECORACIÓN Y AMBIENTACIÓN</h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipiscing elit mattis egestas nisl, lacinia rhoncus mus commodo faucibus parturient porta tristique placerat aenean, hendrerit sodales nec ultricies sed vitae cubilia feugiat arcu. Sociosqu mi nisi dapibus penatibus himenaeos tellus nascetur, velit magnis venenatis magna nostra mus, primis inceptos taciti enim elementum fames.
+							Nos comprometemos a crear juntos a los mejores profesionales el mundo de la de la ambientación y escenarios llenos de emociones que harán de sus eventos momentos inolvidables.
+
+							Decoraciones de lujo, fantasía y creatividad acompañaran tus mejores momentos, si tienes alguna idea especial, buscaremos la forma de complementarla para que sea única
 						</p>
 					</div>
 					<div class="col-lg-3">
-						<img src="views/img/Logo.jpeg" style="" id="imagenes">
+						<img src="views/img/decoracion.jpg" style="" id="imagenes">
 					</div>
 				</div>
 				
