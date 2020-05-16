@@ -196,6 +196,10 @@ class IndexHomeController extends indexConection{
 		parent::deleteCliente($_GET['ID_USUARIO']);
 		header('location:?class=IndexHome&method=administradorUsuarios');
 	}
+	//Pagina administrador usuarios ver
+	public function administradorUsuariosVer(){
+		require_once('views/administrador/administrador_usuarios_ver.php');
+	}
 
 	// *******************  SECCION EMPLEADOS  **********************************************//
 	//Pagina inicio empleados

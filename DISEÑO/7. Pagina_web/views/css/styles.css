@@ -77,7 +77,17 @@ a{
 #inicio-usuarios button{
 	margin-left: 3%;
 }
+/* modal */
+.modal-header{
+	background: #000;
+	color: #fff;
+}
+.modal-header .close{
+    background: rgb(255,255,255);
+	background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(4,4,4,1) 100%, rgba(0,212,255,1) 100%);
+}
 
+/**/
 /*  BOTON MENU  */
 #div-menu{
 	background: linear-gradient(
