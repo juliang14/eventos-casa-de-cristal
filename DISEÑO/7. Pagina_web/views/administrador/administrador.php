@@ -64,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-			<main>
+			<main class="main-admin">
 				<div class="logo-central">
 					<img src="views/img/logo.jpeg" id="img_home_administrador">
 				</div>

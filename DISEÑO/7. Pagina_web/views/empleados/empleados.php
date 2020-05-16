@@ -5,11 +5,15 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="../img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<link rel="stylesheet" type="text/css" href="../css/empleados.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="views/img/icon.ico" />
 
+	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="views/css/empleados.css">
 
 </head>
 <body>
@@ -22,8 +26,8 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<a href="empleados.html">
-									<IMG SRC="../img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								<a href="?class=IndexHome&method=empleados">
+									<IMG SRC="views/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 								</a>
 							</div>
 
@@ -45,7 +49,7 @@
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
 											<p>Andrea Novoa</p>
-											<img src="../img/emple.png">
+											<img src="views/img/emple.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
 											<p>cerrar sesion</p>
@@ -59,15 +63,15 @@
 								<div class="row" style="height: 15%;">
 								</div>
 								<div id="div-menu" onclick="menu();">
-									<img src="../img/menu.png">
+									<img src="views/img/menu.png">
 								</div>
 								<nav class="men" id="men">
 									<ul class="menu-pincipal">
 										<li class="active">
-											<a href="empleados.html">Inicio</a>
+											<a href="?class=IndexHome&method=empleados">Inicio</a>
 										</li>
 										<li class="">
-											<a href="empleados_turnos.html">Turnos</a>
+											<a href="?class=IndexHome&method=empleadosTurnos">Turnos</a>
 										</li>
 									</ul>
 								</nav>
@@ -82,9 +86,9 @@
 					<div class="col-lg-12">
 						<div class="row" id="event">
 							<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5" style="padding: 10%;text-align: center;">
-								<img src="../img/Despedida.jpg" width="300px">
+								<img src="views/img/Despedida.jpg" width="300px">
 							</div>
-														<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
+							<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
 							</div>
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 								<div class="row sombra" style="text-align: left;">
@@ -141,8 +145,11 @@
 			</main>
 		</div>
 	</div>
-	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/generales.js"></script>
+	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="views/js/generales.js"></script>
 </body>
 </html>

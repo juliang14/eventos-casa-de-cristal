@@ -190,6 +190,15 @@ class IndexHomeController extends indexConection{
 		require_once('views/administrador/administrador_usuarios_eliminar.php');
 	}
 
+	// *******************  SECCION EMPLEADOS  **********************************************//
+	//Pagina inicio empleados
+	public function empleados(){
+		require_once('views/empleados/empleados.php');
+	}
+	//Pagina inicio empleados turno
+	public function empleadosTurnos(){
+		require_once('views/empleados/empleados_turnos.php');
+	}
 }
 
  ?>
