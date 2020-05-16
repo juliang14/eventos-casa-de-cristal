@@ -34,13 +34,39 @@ SELECT * FROM VW_VER_USUARIOS;
 CALL PR_ACTUALIZAR_CARGO(4,'Programador'); -- < Actualiza los cargos
 CALL PR_VER_USUARIOS(); -- <-- Lista todos los usuarios
 CALL PR_CREAR_USUARIO( 'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co');  -- <--crear usuarios desde aqui
+CALL PR_ELIMINAR_USUARIO(32); -- Elimina el registro del usuario
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad
-
-
+DELETE FROM USUARIO WHERE id_usuario = 32;
 
 -- --------------------------------------------------------------------------------------------------------------------
+
+-- DESCRIBE TABLAS --------------------------------------------------------------------------------------------------------------------
+
+DESCRIBE CARGO;
+DESCRIBE EMPLEADO;
+DESCRIBE EMPLEADO_TURNO;
+DESCRIBE EVENTO;
+DESCRIBE FACTURA;
+DESCRIBE INVENTARIO;
+DESCRIBE INVENTARIO_PAQUETE;
+DESCRIBE LOG_DE_ERRORES;
+DESCRIBE PAGOS;
+DESCRIBE PAQUETE;
+DESCRIBE PEDIDO;
+DESCRIBE ROL;
+DESCRIBE SERVIDOR_DE_CORREO;
+DESCRIBE TIPO_DOCUMENTO;
+DESCRIBE TIPO__DE_PAGO;
+DESCRIBE TURNO;
+DESCRIBE USUARIO;
+DESCRIBE USUARIO_LOG;
+DESCRIBE USUARIO_SISTEMA;
+
+
+
+
 -- OTROS ---
 select A.id_usuario,
 	   CONCAT(A.Primer_nombre, ' ',A.Segundo_nombre, ' ',A.Primer_apellido, ' ',A.Segundo_apellido) NOMBRE,

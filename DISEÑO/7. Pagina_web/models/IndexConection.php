@@ -59,7 +59,7 @@ class indexConection extends DB{
 	//Borrar cliente
 	public function deleteCliente($Id_usuario){
 		try {
-			$query = parent::conectDatabase()->prepare('DELETE FROM USUARIO WHERE id_usuario= ?');
+			$query = parent::conectDatabase()->prepare('CALL PR_ELIMINAR_USUARIO(?)');
 			//
 			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
 			// Ejecutar sentencia
