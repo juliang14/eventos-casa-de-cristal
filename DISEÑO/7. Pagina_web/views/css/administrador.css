@@ -176,14 +176,14 @@ input:checked + .slider:before {
 table{
   margin: 5% auto;
   width: 80%;
-  border:2px solid;
+  /*border:2px solid;*/
 }
 thead{
-  background: gray;
-  border:2px solid;
+  background: #d2d2d2;
+  /*border:2px solid;*/
 }
 th,td{
-  border-left:2px solid;
+  /*border-left:2px solid;*/
 }
 tbody img{
   padding-left: 5%;
@@ -271,6 +271,45 @@ tbody img{
   background: #fff;
   border-radius: 0;
 }
+
+
+/* Inicio tabla usuarios*/
+#section_table{
+  width: 90%; 
+  margin: 5% auto;
+}
+#section_table h2{
+  text-align: center;
+}
+#tabla_clientes{
+  width:100% ;
+  border-color: #808080;
+  border-radius: 10px;
+  border: 5px solid gray; 
+  padding: 5px;
+}
+#tabla_clientes th,
+#tabla_clientes td{
+  text-align: center;
+}
+#tabla_clientes_filter input{
+  border-radius: 20px;
+    text-align: center;
+}
+#seccion_boton_crear_usuario{
+  margin: 3% auto;
+}
+.color_red{
+  color: red;
+}
+.color_blue{
+  color: blue;
+}
+.color_orange{
+  color: orange;
+}
+
+/* Fin tabla usuarios*/
 
 
 /*-------------- RESPONSIVE --------------*/

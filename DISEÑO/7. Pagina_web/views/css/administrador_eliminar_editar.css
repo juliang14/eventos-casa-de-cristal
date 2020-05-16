@@ -14,7 +14,6 @@
 
 input{
 	background: gray;
-	color:white!important; 
 	text-align: center;
 }
 label,input{
@@ -68,3 +67,27 @@ select{
 #ver-cargo:hover{
 	cursor: no-drop;
 }
+
+/* Inicio estilos formularios*/
+#section_forms{
+	width: 50%;
+	margin: 5% auto;
+	padding: 2% 5% 2% 5%;
+    background: linear-gradient(to right, rgb(245, 240, 240), pink);
+    border: 2px solid;
+    border-radius: 20px;
+}
+#tituloCrearUsuario{
+	margin-bottom: 6%;
+}
+#botonCrearUsuario,
+#botonNoCrearUsuario{
+	margin-top: 5%;
+}
+#contenedorFormularioVerUsuario input{
+	background: #fff;
+}
+#contenedorFormularioVerUsuario .form-control:disabled{
+	cursor: auto;
+}
+/* Fin estilos formularios*/

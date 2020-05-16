@@ -181,13 +181,20 @@ class IndexHomeController extends indexConection{
 	public function administradorUsuariosCrear(){
 		require_once('views/administrador/administrador_usuarios_crear.php');
 	}
+	//Crear usuario
+	public function insertCrearUsuario(){
+		parent::createCliente( $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email']);
+		header('location:?class=IndexHome&method=administradorUsuarios');
+	}
+
 	//Pagina administrador usuarios editar
 	public function administradorUsuariosEditar(){
 		require_once('views/administrador/administrador_usuarios_editar.php');
 	}
-	//Pagina administrador usuarios eliminar
-	public function administradorUsuariosEliminar(){
-		require_once('views/administrador/administrador_usuarios_eliminar.php');
+	//Borrar usuario
+	public function deleteUsuario(){
+		parent::deleteCliente($_GET['ID_USUARIO']);
+		header('location:?class=IndexHome&method=administradorUsuarios');
 	}
 
 	// *******************  SECCION EMPLEADOS  **********************************************//

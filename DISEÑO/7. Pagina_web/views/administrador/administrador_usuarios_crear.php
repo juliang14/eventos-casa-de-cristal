@@ -66,124 +66,87 @@
 				</div>
 			</div>
 			<main>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row" id="event_2">
-							<div class="col-lg-12" STYLE="">
-								<div style="text-align: center; margin-top: 5%;">
-									<h2>Crear usuario</h2>
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar">
-										<div class="row sombra" style="text-align: center;">
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Primer Nombre
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Primer Nombre">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Segundo Nombre
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Segundo Nombre">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Primer Apellido
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Primer Apellido">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo margen-abajo" >
-												<label>
-													Segundo Apellido
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Segundo Apellido">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo margen-abajo" >
-												<label>
-													Tipo de documento
-												</label>
-												<br>
-												<div style="display: inline-flex; width: 100%">
-													C.C <input type="radio" name="" style="margin-top: 3%;">
-													NIT <input type="radio" name="" style="margin-top: 3%;">
-													C.E <input type="radio" name="" style="margin-top: 3%;">
-												</div>
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Numero de documento
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Numero de documento">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													EDAD
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Edad">
-											</div>
-											<br>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Telefono
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Numero de telefono">
-											</div>
-											<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 margen-abajo" style="text-align: center;">
-												<label>
-													Correo
-												</label>
-												<br>
-												<input type="email" name="" placeholder="correo electronico">
-											</div>
-											
-											
-										</div>
-										<br><br>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="row">
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 margen-abajo" style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuarios">
-														<button class="btn verde">Crear</button>
-													</a>
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-											</div>
-										</div>
-										<div cla
-										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
-										<div class="row">
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<a href="?class=IndexHome&method=administradorUsuarios">
-													<img src="views/img/izquierda.png">
-												</a>
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4" style="text-align: center;">
-												<a href="?class=IndexHome&method=administrador">
-													<img src="views/img/casa.png">
-												</a>
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-
-											</div>
-
-										</div>
-									</div>
-
+				<!-----------------------   INICIO FORMULARIOS  ------------------------------------>
+				<section class="" id="section_forms">
+					<div class="contenedorFormularioCrearUsuario" id="contenedorFormularioCrearUsuario">
+						<h2 class="text-center" id="tituloCrearUsuario">Crear usuario</h2>
+						<form mane="" action="?class=indexConection&method=insertCrearUsuario" method="POST">
+							<div class="row">
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Primer_nombre">Primer Nombre</label><br>
+									<input type="text" class="form-control" name="Primer_nombre" id="Primer_nombre" placeholder="Primer nombre" value="" required>
 								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Segundo_nombre">Segundo Nombre</label><br>
+									<input type="text" class="form-control" name="Segundo_nombre" id="Segundo_nombre" placeholder="Segundo nombre" value="">
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Primer_apellido">Primer Apellido</label><br>
+									<input type="text" class="form-control" name="Primer_apellido" id="Primer_apellido" placeholder="Primer apellido" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Segundo_apellido">Segundo Apellido</label><br>
+									<input type="text" class="form-control" name="Segundo_apellido" id="Segundo_apellido" placeholder="Segundo apellido" value="">
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
+									<div style="display: inline-flex; width: 100%">
+										C.C <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearCC" style="height: 20px; margin-top: 1%;" value=1 required>
+										NIT <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearNIT" style="height: 20px; margin-top: 1%;" value=3 required>
+										C.E <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearCE" style="height: 20px; margin-top: 1%;" value=2 required>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Numero_documento">Numero de documento</label><br>
+									<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" placeholder="Numero de documento" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
+									<label for="Edad">EDAD</label><br>
+									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="" required>
+								</div>
+								<br>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+									<label for="Telefono">Telefono</label><br>
+									<input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="Telefono" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+									<label for="Direccion">Direccion</label><br>
+									<input type="text" class="form-control" name="Direccion" id="Direccion" placeholder="Direccion" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+									<label for="Email">Correo</label><br>
+									<input type="email" class="form-control" name="Email" id="Email" placeholder="Correo electronico" value="" required>
+								</div>
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
+								    <a href="">	
+								    	<button class="btn btn-primary" id="botonCrearUsuario" type="submit">Crear usuario</button>
+							    	</a>
+							    </div>
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
+								    <a href="?class=IndexHome&method=administradorUsuarios" class="btn btn-danger" id="botonNoCrearUsuario" >Cancelar operacion</a>
+							    </div>
 							</div>
+						</form>
+					</div>
+				</section>
+				<!-----------------------   FIN FORMULARIOS  ------------------------------------>
+				<!-----------------------   INICIO BOTONES FINALES  ------------------------------------>
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;" id="section_buttom_finaly">
+					<div class="row">
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+							<a href="?class=IndexHome&method=administradorUsuarios">
+								<img src="views/img/izquierda.png">
+							</a>
 						</div>
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+							<a href="?class=IndexHome&method=administrador">
+								<img src="views/img/casa.png">
+							</a>
+						</div>
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
 					</div>
 				</div>
+				<!-----------------------   FIN BOTONES FINALES  ------------------------------------>
 			</main>
 		</div>
 	</div>

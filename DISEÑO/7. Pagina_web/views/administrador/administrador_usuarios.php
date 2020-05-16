@@ -66,175 +66,90 @@
 				</div>
 			</div>
 			<main>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row" id="event_2">
-							<div class="col-lg-12" STYLE="">
-								<div style="text-align: center; margin-top: 5%;">
-									<h2>Usuarios</h2>
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-										<div class="row">
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<div class="row">
-													<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8" style="text-align: right;">
-														<p>Agregar</p>
-													</div>
-													<div class="col-sm-12 col-md-4x col-lg-4 col-xl-4" style="text-align: left;">
-														<a href="?class=IndexHome&method=administradorUsuariosCrear">
-															<img src="views/img/signo-mas-en-circulo.png">
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<table>
-										<thead>
-											<tr>
-												<th>Nombres</th>
-												<th>Apellidos</th>
-												<th>Cedula</th>
-												<th>Edad</th>
-												<th>Cargo</th>
-												<th>Telefono</th>
-												<th>Usuario</th>
-												<th>Accion</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Camila</td>
-												<td>Fernandez Ovalle</td>
-												<td>1016369338</td>
-												<td>21</td>
-												<td>cocinera</td>
-												<td>3104443355</td>
-												<td>CFERNANDEZ</td>
-												<td style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorUsuariosEditar">
-														<img src="views/img/lapiz.png">
-													</a>
-													<a href="?class=IndexHome&method=administradorUsuariosEliminar">
-														<img src="views/img/error.png">
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-									<div cla
-									ss="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-									<div class="row">
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<img src="views/img/izquierda.png">
-										</div>
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<a href="?class=IndexHome&method=administrador">
-												<img src="views/img/casa.png">
-											</a>
-										</div>
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<img src="views/img/derecha.png">
-										</div>
+				<!-----------------------   INICIO TABLA CLIENTES  ------------------------------------>
+				<section id="section_table">
+					<h2>DATOS CLIENTES</h2>
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="seccion_boton_crear_usuario">
+						<div class="row">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+							</div>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+							</div>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+								<a href="?class=IndexHome&method=administradorUsuariosCrear">
+									<button type="button" class="btn btn-success">
+										Crear usuario <i class="fas fa-plus-circle"></i>
+									</button>
 
-									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</main>
+					<table id="tabla_clientes" class="display responsive nowrap">
+						<thead> 
+							<tr style="color: #eb028b;">
+								<th>ID</th>
+		                        <th>NOMBRES</th>
+		                        <th>APELLIDOS</th>
+		                        <th>DOCUMENTO</th>
+		                        <th>EDAD</th>
+		                        <th>TELEFONO</th>
+		                        <th>EMAIL</th>							                        
+		                        <th>USUARIO_SISTEMA</th>
+		                        <th>CLAVE</th>
+		                        <th>ACCION</th>
+		                    </tr>
+						</thead>
+						<tbody id="body_tabla_clientes">  
+							<?php   foreach (parent::getClientes() as $responseGetClientes){ ?>
+					                       
+		                        <tr>
+		                        	<td><?php echo $responseGetClientes->ID_USUARIO ?></td>
+		                            <td><?php echo $responseGetClientes->NOMBRES ?></td>
+		                            <td><?php echo $responseGetClientes->APELLIDOS ?></td>
+		                            <td><?php echo $responseGetClientes->DOCUMENTO ?></td>
+		                            <td><?php echo $responseGetClientes->EDAD ?></td>
+		                            <td><?php echo $responseGetClientes->TELEFONO ?></td>
+		                            <td><?php echo $responseGetClientes->EMAIL ?></td>							                            
+		                            <td><?php echo $responseGetClientes->USUARIO_SISTEMA ?></td>
+		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
+		                            <td>
+		                            	<a href="?class=IndexHome&method=verUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            	</a>
+		                            	&nbsp;&nbsp;
+		                            	<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            	&nbsp;&nbsp;
+		                            	<a href="?class=IndexHome&method=deleteUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            		<i class="fas fa-trash-alt color_red" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            	</a>
+		                            </td>
+		                        </tr>
+					            
+					        <?php   } ?>             
+						</tbody>
+					</table>
+				</section>
+				<!-----------------------   FIN TABLA CLIENTES  ------------------------------------>
+
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					<div class="row">
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+							<img src="views/img/izquierda.png">
+						</div>
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+							<a href="?class=IndexHome&method=administrador">
+								<img src="views/img/casa.png">
+							</a>
+						</div>
+						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+							<img src="views/img/derecha.png">
+						</div>
+					</div>
+				</div>		
+			</main>
+		</div>
 	</div>
-</div>
 	<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
     <script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
