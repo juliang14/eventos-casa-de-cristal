@@ -101,6 +101,18 @@ var generales = {
         "iDisplayLenght": 5,
 
       });
+  },
+  validarEdad: function(){
+
+    var edad = $('#Edad').val();
+
+    if (edad >=18) {
+      $('#botonCrearUsuario').attr('disabled', false);
+    }else{
+      $('#botonCrearUsuario').attr('disabled', true);
+      alert('No eres mayor de edad, no es posible crear el usuario.');
+    }
+    
   }
 
 }

@@ -102,7 +102,7 @@
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
 									<label for="Edad">EDAD</label><br>
-									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="" required>
+									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="" required onblur="generales.validarEdad();">
 								</div>
 								<br>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
