@@ -66,6 +66,37 @@
 				</div>
 			</div>
 			<main>
+				<!-----------------------   INICIO MODAL  ------------------------------------>
+				<!-- Button trigger modal -->
+				<!--
+					$('#modalCenter').modal('show'); // abrir
+					$('#modalCenter').modal('hide'); // cerrar
+				-->
+				<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+				  Launch demo modal
+				</button-->
+
+				<!-- Modal -->
+				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <!--button type="button" class="btn btn-primary">Save changes</button-->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!-----------------------   FIN MODAL  ------------------------------------>
 				<!-----------------------   INICIO TABLA CLIENTES  ------------------------------------>
 				<section id="section_table">
 					<h2>DATOS CLIENTES</h2>
@@ -114,7 +145,7 @@
 		                            <td><?php echo $responseGetClientes->USUARIO_SISTEMA ?></td>
 		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
 		                            <td>
-		                            	<a href="?class=IndexHome&method=verUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            	<a href="?class=IndexHome&method=administradorUsuariosVer&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
 		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;

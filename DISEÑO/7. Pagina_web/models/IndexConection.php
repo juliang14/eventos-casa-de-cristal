@@ -20,7 +20,7 @@ class indexConection extends DB{
 	public function getCliente($Id_usuario){
 		try {
 			//Preparar la comsulta que se va a realizar
-			$query = parent::conectDatabase()->prepare(" SELECT * FROM USUARIO WHERE Id_usuario=?");
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_USUARIOS WHERE Id_usuario=?");
 			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
 			//ejecutar consulta o sentencia
 			$query->execute();

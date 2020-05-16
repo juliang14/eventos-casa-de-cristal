@@ -102,6 +102,17 @@ var generales = {
 
       });
   },
+  textosModal: function(text,numero){
+
+    var textoDeModal = '';
+    $('.modal-body').html('');
+
+    if (text='BORRAR_USUARIO') {
+        textoDeModal = 'Se INACTIVO el id_usuario '+numero;
+        $('.modal-body').append(textoDeModal);
+    }
+  },
+
   validarEdad: function(){
 
     var edad = $('#Edad').val();
