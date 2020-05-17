@@ -66,50 +66,88 @@
 				</div>
 			</div>
 			<main>
+				<?php
+					$Response = parent::getCliente($_GET['ID_USUARIO']);
+				?>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row" id="event_2">
 							<div class="col-lg-12" STYLE="">
 								<div style="text-align: center; margin-top: 5%;">
-									<h2>Editar usuario</h2>
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar">
-										<label>
-											Nombres
-										</label>
-										<br>
-										<input type="text" name="" disabled="disabled" value="Javier andres">
-										<br>
-										<label>
-											Apellidos
-										</label>
-										<br>
-										<input type="text" name="" disabled="disabled" value=" Lopez Avella">
-										<br>
-										<label>
-											Tipo de documento
-										</label>
-										<br>
-										<input type="text" name="" disabled="disabled" value=" C.C">
-										<br>
-										<label>
-											Numero de documento
-										</label>
-										<br>
-										<input type="text" name="" disabled="disabled" value="1012364803">
-									</div>
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-										<div class="row">
-											<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
-											</div>
-											<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
-												<a href="?class=IndexHome&method=administradorUsuarios">
-													<button class="btn azul">Actualizar</button>
-												</a>
-											</div>
-											<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
-											</div>
+									<section class="" id="section_forms">
+										<?php
+											$Response = parent::getCliente($_GET['ID_USUARIO']);
+										?>
+										<div class="contenedorFormularioVerUsuario" id="contenedorFormularioVerUsuario">
+											<h2 class="text-center" id="tituloCrearUsuario">Ver usuario <?php echo $Response->ID_USUARIO ?></h2>
+											<form mane="" action="?class=indexConection&method=updateUsuario" method="POST">
+												<div class="row">
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ocultar" >
+														<input type="number" class="form-control" name="Id_usuario" id="Id_usuario" value="<?php echo $Response->ID_USUARIO ?>">
+													</div>
+												    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Primer_nombre">Primer Nombre</label><br>
+														<input type="text" class="form-control" name="Primer_nombre" id="Primer_nombre" value="<?php echo $Response->PRIMER_NOMBRE ?>">
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Segundo_nombre">Segundo Nombre</label><br>
+														<input type="text" class="form-control" name="Segundo_nombre" id="Segundo_nombre" value="<?php echo $Response->SEGUNDO_NOMBRE ?>">
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Primer_apellido">Primer Apellido</label><br>
+														<input type="text" class="form-control" name="Primer_apellido" id="Primer_apellido" value="<?php echo $Response->PRIMER_APELLIDO ?>">
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Segundo_apellido">Segundo Apellido</label><br>
+														<input type="text" class="form-control" name="Segundo_apellido" id="Segundo_apellido" value="<?php echo $Response->SEGUNDO_APELLIDO ?>">
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
+														<!--input type="text" class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento" value="<?php echo $Response->DOCUMENTO ?>" -->
+														<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento" >
+															<option value="<?php echo $Response->DOCUMENTO ?>"><?php echo $Response->DOCUMENTO ?></option>
+															<?php foreach (parent::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+																<option value="<?php echo $responseGetTipoDocumento->Siglas ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+															<?php } ?>
+														</select>
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Numero_documento">Numero de documento</label><br>
+														<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" value="<?php echo $Response->NUMERO_DOCUMENTO ?>">
+														
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Edad">EDAD</label><br>
+														<input type="number" class="form-control" name="Edad" id="Edad" value="<?php echo $Response->EDAD ?>">
+													</div>
+													<br>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="Telefono">Telefono</label><br>
+														<input type="number" class="form-control" name="Telefono" id="Telefono" value="<?php echo $Response->TELEFONO ?>" >
+													</div>
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+														<label for="Direccion">Direccion</label><br>
+														<input type="text" class="form-control" name="Direccion" id="Direccion" value="<?php echo $Response->DIRECCION ?>" >
+													</div>
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+														<label for="Email">Correo</label><br>
+														<input type="email" class="form-control" name="Email" id="Email" value="<?php echo $Response->EMAIL ?>" >
+													</div>
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5">
+														<div class="row">
+															<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
+															</div>
+															<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
+																<button class="btn azul" type="submit">Actualizar</button>
+															</div>
+															<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
 										</div>
-									</div>
+									</section>
 									<div cla
 									ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 									<div class="row">

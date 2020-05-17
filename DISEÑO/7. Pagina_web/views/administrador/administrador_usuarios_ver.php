@@ -79,49 +79,58 @@
 											$Response = parent::getCliente($_GET['ID_USUARIO']);
 										?>
 										<div class="contenedorFormularioVerUsuario" id="contenedorFormularioVerUsuario">
-											<h2 class="text-center" id="tituloCrearUsuario">Ver usuario <?php echo $Response->Id_usuario ?></h2>
+											<h2 class="text-center" id="tituloCrearUsuario">Ver usuario <?php echo $Response->ID_USUARIO ?></h2>
 											<form >
 												<div class="row">
 												    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verPrimer_nombre">Primer Nombre</label><br>
-														<input type="text" class="form-control" name="verPrimer_nombre" id="verPrimer_nombre" value="<?php echo $Response->Primer_nombre ?>" disabled>
+														<input type="text" class="form-control" name="verPrimer_nombre" id="verPrimer_nombre" value="<?php echo $Response->PRIMER_NOMBRE ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verSegundo_nombre">Segundo Nombre</label><br>
-														<input type="text" class="form-control" name="verSegundo_nombre" id="verSegundo_nombre" value="<?php echo $Response->Segundo_nombre ?>" disabled>
+														<input type="text" class="form-control" name="verSegundo_nombre" id="verSegundo_nombre" value="<?php echo $Response->SEGUNDO_NOMBRE ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verPrimer_apellido">Primer Apellido</label><br>
-														<input type="text" class="form-control" name="verPrimer_apellido" id="verPrimer_apellido" value="<?php echo $Response->Primer_apellido ?>" disabled>
+														<input type="text" class="form-control" name="verPrimer_apellido" id="verPrimer_apellido" value="<?php echo $Response->PRIMER_APELLIDO ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verSegundo_apellido">Segundo Apellido</label><br>
-														<input type="text" class="form-control" name="verSegundo_apellido" id="verSegundo_apellido" value="<?php echo $Response->Segundo_apellido ?>" disabled>
+														<input type="text" class="form-control" name="verSegundo_apellido" id="verSegundo_apellido" value="<?php echo $Response->SEGUNDO_APELLIDO ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verTipo_documentoId_documento">Tipo de documento</label><br>
-														<input type="text" class="form-control" name="verTipo_documentoId_documento" id="verTipo_documentoId_documento" value="<?php echo $Response->Tipo_documentoId_documento ?>" disabled>
+														<input type="text" class="form-control" name="verTipo_documentoId_documento" id="verTipo_documentoId_documento" value="<?php echo $Response->DOCUMENTO ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verNumero_documento">Numero de documento</label><br>
-														<input type="number" class="form-control" name="verNumero_documento" id="verNumero_documento" value="<?php echo $Response->Numero_documento ?>" disabled>
+														<input type="number" class="form-control" name="verNumero_documento" id="verNumero_documento" value="<?php echo $Response->NUMERO_DOCUMENTO ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verEdad">EDAD</label><br>
-														<input type="number" class="form-control" name="verEdad" id="verEdad" value="<?php echo $Response->Edad ?>" disabled>
+														<input type="number" class="form-control" name="verEdad" id="verEdad" value="<?php echo $Response->EDAD ?>" disabled>
 													</div>
 													<br>
 													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 														<label for="verTelefono">Telefono</label><br>
-														<input type="number" class="form-control" name="verTelefono" id="verTelefono" value="<?php echo $Response->Telefono ?>" disabled>
+														<input type="number" class="form-control" name="verTelefono" id="verTelefono" value="<?php echo $Response->TELEFONO ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
 														<label for="verDireccion">Direccion</label><br>
-														<input type="text" class="form-control" name="verDireccion" id="verDireccion" value="<?php echo $Response->Direccion ?>" disabled>
+														<input type="text" class="form-control" name="verDireccion" id="verDireccion" value="<?php echo $Response->DIRECCION ?>" disabled>
 													</div>
 													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
 														<label for="verEmail">Correo</label><br>
-														<input type="email" class="form-control" name="verEmail" id="verEmail" value="<?php echo $Response->Email ?>" disabled>
+														<input type="email" class="form-control" name="verEmail" id="verEmail" value="<?php echo $Response->EMAIL ?>" disabled>
+													</div>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="verUsuarioSistema">Usuario sistema</label><br>
+														<input type="text" class="form-control" name="verUsuarioSistema" id="verUsuarioSistema" value="<?php echo $Response->USUARIO_SISTEMA ?>" disabled>
+													</div>
+													<br>
+													<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
+														<label for="verClave">Clave</label><br>
+														<input type="text" class="form-control" name="verClave" id="verClave" value="<?php echo $Response->CLAVE ?>" disabled>
 													</div>
 												</div>
 											</form>

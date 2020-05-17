@@ -20,7 +20,7 @@ class indexConection extends DB{
 	public function getCliente($Id_usuario){
 		try {
 			//Preparar la comsulta que se va a realizar
-			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_USUARIOS WHERE Id_usuario=?");
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_USUARIOS WHERE ID_USUARIO=?");
 			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
 			//ejecutar consulta o sentencia
 			$query->execute();
@@ -64,6 +64,46 @@ class indexConection extends DB{
 			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
 			// Ejecutar sentencia
 			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+	// Crear cliente
+	public function editCliente( $Id_usuario, $Primer_nombre, $Segundo_nombre, $Primer_apellido, $Segundo_apellido, $Tipo_documentoId_documento, $Numero_documento, $Edad, $Telefono, $Direccion, $Email){
+
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_ACTUALIZAR_USUARIO( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			//CALL PR_ACTUALIZAR_USUARIO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co');
+			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
+			$query->bindParam(2,$Primer_nombre,PDO::PARAM_STR);
+			$query->bindParam(3,$Segundo_nombre,PDO::PARAM_STR);
+			$query->bindParam(4,$Primer_apellido,PDO::PARAM_STR);
+			$query->bindParam(5,$Segundo_apellido,PDO::PARAM_STR);
+			$query->bindParam(6,$Tipo_documentoId_documento,PDO::PARAM_STR);
+			$query->bindParam(7,$Numero_documento,PDO::PARAM_INT);
+			$query->bindParam(8,$Edad,PDO::PARAM_INT);
+			$query->bindParam(9,$Telefono,PDO::PARAM_INT);
+			$query->bindParam(10,$Direccion,PDO::PARAM_STR);
+			$query->bindParam(11,$Email,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+	// Obtener todos los tipos de documento
+	public function getTipoDocumento(){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" CALL PR_TIPO_DOCUMENTO()");
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
 		} catch (Exception $e) {
 			die('Error: '.$e->getMessage());
 			echo 'Linea: '.$e->getLine();

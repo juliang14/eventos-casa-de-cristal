@@ -149,11 +149,13 @@
 		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=deleteUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
-		                            		<i class="fas fa-trash-alt color_red" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            	<a href="?class=IndexHome&method=administradorUsuariosEditar&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
 		                            	</a>
+		                            	&nbsp;&nbsp;
+		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>"-->
+		                            		<i class="fas fa-trash-alt color_red btn-borrarUsuario" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            	<!--/a-->
 		                            </td>
 		                        </tr>
 					            

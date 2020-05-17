@@ -90,11 +90,11 @@
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
-									<div style="display: inline-flex; width: 100%">
-										C.C <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearCC" style="height: 20px; margin-top: 1%;" value=1 required>
-										NIT <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearNIT" style="height: 20px; margin-top: 1%;" value=3 required>
-										C.E <input type="radio" class="form-control" name="Tipo_documentoId_documento" id="crearCE" style="height: 20px; margin-top: 1%;" value=2 required>
-									</div>
+									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento" >
+										<?php foreach (parent::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+											<option value="<?php echo $responseGetTipoDocumento->Id_documento ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+										<?php } ?>
+									</select>
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 									<label for="Numero_documento">Numero de documento</label><br>

@@ -177,6 +177,13 @@ class IndexHomeController extends indexConection{
 	public function administradorUsuarios(){
 		require_once('views/administrador/administrador_usuarios.php');
 	}
+	public function detailsClient(){
+
+		$user = parent::getCliente(1);
+		$dataHtml ='<p>Hola ajax</p>';
+	}
+
+
 	//Pagina administrador usuarios crear
 	public function administradorUsuariosCrear(){
 		require_once('views/administrador/administrador_usuarios_crear.php');
@@ -191,6 +198,13 @@ class IndexHomeController extends indexConection{
 	public function administradorUsuariosEditar(){
 		require_once('views/administrador/administrador_usuarios_editar.php');
 	}
+	//Editar usuario
+	public function updateUsuario(){
+		parent::editCliente($_POST['Id_usuario'], $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email']);
+		header('location:?class=IndexHome&method=administradorUsuarios');
+
+	}
+
 	//Borrar usuario
 	public function deleteUsuario(){
 		parent::deleteCliente($_GET['ID_USUARIO']);

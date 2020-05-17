@@ -68,6 +68,20 @@ $('#num-Paquetes').click(function(){
 });
 
 
+$('.btn-borrarUsuario').click(function(){
+
+  $.ajax({
+      type: 'GET',
+      url : '?class=IndexHome&method=detailsClient',
+      data: {},
+      success(response){
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      }
+  });
+
+});
+
 var generales = {
 
   cargarDataTable: function(){    
