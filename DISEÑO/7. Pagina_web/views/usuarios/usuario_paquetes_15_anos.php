@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Usuario Paquetes Boda
+		Usuario Paquetes 15 años 
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,7 +109,7 @@
 									<div style="border: solid black 3px; text-align: center; border-radius: 14px; background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 80 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$5.000.000</h1>
+										<h1 class="text-danger">$3.900.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -127,7 +127,7 @@
 									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 100 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$7.500.000</h1>
+										<h1 class="text-danger">$4.500.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -144,7 +144,7 @@
 									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 120 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$9.400.000</h1>
+										<h1 class="text-danger">$5.400.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -163,7 +163,7 @@
 									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 140 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$11.200.000</h1>
+										<h1 class="text-danger">$6.200.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -179,7 +179,7 @@
 									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 150 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$13.400.000</h1>
+										<h1 class="text-danger">$6.400.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -197,7 +197,7 @@
 
 										<h3 class="font-italic">PLAN TODO INCLUIDO 200 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$20.000.000</h1>
+										<h1 class="text-danger">$8.000.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>

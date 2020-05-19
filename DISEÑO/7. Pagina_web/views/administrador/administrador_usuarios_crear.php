@@ -100,7 +100,7 @@
 									<label for="Numero_documento">Numero de documento</label><br>
 									<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" placeholder="Numero de documento" value="" required>
 								</div>
-								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" >
 									<label for="Edad">EDAD</label><br>
 									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="" required onblur="generales.validarEdad();">
 								</div>

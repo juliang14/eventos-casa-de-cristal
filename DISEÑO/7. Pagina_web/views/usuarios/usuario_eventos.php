@@ -97,34 +97,45 @@
 						<div class="col-lg-12" id="eventos">
 							<div>
 								<ul>
+									<a href="?class=IndexHome&method=usuarioPaquetesbautizo">
 									<li>
 										<P>Bautizo</P>
 										<img src="views/img/Bautizo.jpg"
 										></li>
+									</a>
 										<a href="?class=IndexHome&method=usuarioPaquetesMatrimonio">
 											<li>	
 												<p>Boda</p>
 												<img src="views/img/Boda.jpg">
 											</li>
 										</a>
-										<li>
-											<p>15 años</p>
-											<img src="views/img/15.jpg"></li>
+										<a href="?class=IndexHome&method=usuarioPaquetes15Anos">
+											<li>
+												<p>15 años</p>
+												<img src="views/img/15.jpg">
+											</li>
+										</a>
 										</ul>
 									</div>
 									<div>
 										<ul>
+											<a href="?class=IndexHome&method=usuarioPaquetesGrados">
 											<li>
 												<p>Grados</p>
 												<img src="views/img/Grados.jpg">
 											</li>
+										    </a>
+										    <a href="?class=IndexHome&method=usuarioPaquetesPrimeracounion">
 											<li>
 												<p>Primera Comunion</p>
 												<img src="views/img/Primera Comunion.jpg">
 											</li>
+											</a>
+											<a href="?class=IndexHome&method=usuarioPaquetesdespedidadesolteros">
 											<li>
 												<p>Despedida de solteros</p>
 												<img src="views/img/eventos2.jpg"></li>
+											</a>
 											</ul>
 
 										</div>

@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Editar usuario empleado
+		Ver usuario empleado
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,107 +72,110 @@
 				<!-----------------------   INICIO FORMULARIOS  ------------------------------------>
 				<section class="" id="section_forms">
 					<div class="contenedorFormularioVerEmpleado" id="contenedorFormularioVerEmpleado">
-						<h2 class="text-center" id="tituloVerEmpleado">Editar  empleado <?php echo $Response->ID_EMPLEADO ?></h2>
-						<form mane="" action="?class=indexConection&method=updateEmpleado" method="POST">
+						<h2 class="text-center" id="tituloVerEmpleado">Ver empleado <?php echo $Response->ID_EMPLEADO ?></h2>
+						<form>
 							<div class="row">
-								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ocultar" >
-									<input type="number" class="form-control" name="Id_empleado" id="Id_empleado" value="<?php echo $Response->ID_EMPLEADO ?>">
-								</div>
 							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Primer_nombre">Primer Nombre</label><br>
-									<input type="text" class="form-control" name="Primer_nombre" id="Primer_nombre" placeholder="Primer nombre" value="<?php echo $Response->PRIMER_NOMBRE ?>">
+									<input type="text" class="form-control" name="Primer_nombre" id="Primer_nombre" placeholder="Primer nombre" value="<?php echo $Response->PRIMER_NOMBRE ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Segundo_nombre">Segundo Nombre</label><br>
-									<input type="text" class="form-control" name="Segundo_nombre" id="Segundo_nombre" placeholder="Segundo nombre" value="<?php echo $Response->SEGUNDO_NOMBRE ?>">
+									<input type="text" class="form-control" name="Segundo_nombre" id="Segundo_nombre" placeholder="Segundo nombre" value="<?php echo $Response->SEGUNDO_NOMBRE ?>" disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Primer_apellido">Primer Apellido</label><br>
-									<input type="text" class="form-control" name="Primer_apellido" id="Primer_apellido" placeholder="Primer apellido" value="<?php echo $Response->PRIMER_APELLIDO ?>">
+									<input type="text" class="form-control" name="Primer_apellido" id="Primer_apellido" placeholder="Primer apellido" value="<?php echo $Response->PRIMER_APELLIDO ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Segundo_apellido">Segundo Apellido</label><br>
-									<input type="text" class="form-control" name="Segundo_apellido" id="Segundo_apellido" placeholder="Segundo apellido" value="<?php echo $Response->SEGUNDO_APELLIDO ?>">
+									<input type="text" class="form-control" name="Segundo_apellido" id="Segundo_apellido" placeholder="Segundo apellido" value="<?php echo $Response->SEGUNDO_APELLIDO ?>" disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
-									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento">
-										<option value="<?php echo $Response->DOCUMENTO ?>"><?php echo $Response->DOCUMENTO ?></option>
+									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento"  disabled="disabled">
+										<option><?php echo $Response->DOCUMENTO ?></option>
 										<?php foreach (parent::getTipoDocumento() as $responseGetTipoDocumento){ ?>
-											<option value="<?php echo $responseGetTipoDocumento->Siglas ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+											<option value="<?php echo $responseGetTipoDocumento->Id_documento ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
 										<?php } ?>
 									</select>
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Numero_documento">Numero de documento</label><br>
-									<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" placeholder="Numero de documento" value="<?php echo $Response->NUMERO_DOCUMENTO ?>">
+									<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" placeholder="Numero de documento" value="<?php echo $Response->NUMERO_DOCUMENTO ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
 									<label for="CargoId_cargo">Cargo empleado</label><br>
-									<select class="form-control" name="CargoId_cargo" id="CargoId_cargo">
-										<option value="<?php echo $Response->CARGO ?>"><?php echo $Response->CARGO ?></option>
+									<select class="form-control" name="CargoId_cargo" id="CargoId_cargo"  disabled="disabled">
+										<option><?php echo $Response->CARGO ?></option>
 										<?php foreach (parent::getCargos() as $responseGetCargos){ ?>
-											<option value="<?php echo $responseGetCargos->Nombre_de_cargo ?>"><?php echo $responseGetCargos->Nombre_de_cargo ?></option>
+											<option value="<?php echo $responseGetCargos->Id_cargo ?>"><?php echo $responseGetCargos->Nombre_de_cargo ?></option>
 										<?php } ?>
 									</select>
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Edad">EDAD</label><br>
-									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="<?php echo $Response->EDAD ?>" required onblur="generales.validarEdad();">
+									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="<?php echo $Response->EDAD ?>" required onblur="generales.validarEdad();" disabled="disabled">
 								</div>
 								<br>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Telefono">Telefono</label><br>
-									<input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="Telefono" value="<?php echo $Response->TELEFONO ?>">
+									<input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="Telefono" value="<?php echo $Response->TELEFONO ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3">
 									<label for="Direccion">Direccion</label><br>
-									<input type="text" class="form-control" name="Direccion" id="Direccion" placeholder="Direccion" value="<?php echo $Response->DIRECCION ?>">
+									<input type="text" class="form-control" name="Direccion" id="Direccion" placeholder="Direccion" value="<?php echo $Response->DIRECCION ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3">
 									<label for="Email">Correo</label><br>
-									<input type="email" class="form-control" name="Email" id="Email" placeholder="Correo electronico" value="<?php echo $Response->EMAIL ?>">
+									<input type="email" class="form-control" name="Email" id="Email" placeholder="Correo electronico" value="<?php echo $Response->EMAIL ?>"  disabled="disabled">
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
 									<label for="RolId_rol">Rol empleado</label><br>
-									<select class="form-control" name="RolId_rol" id="RolId_rol">
-										<option value="<?php echo $Response->ROL ?>"><?php echo $Response->ROL ?></option>
+									<select class="form-control" name="RolId_rol" id="RolId_rol"  disabled="disabled">
+										<option><?php echo $Response->ROL ?></option>
 										<?php foreach (parent::getRoles() as $responseGetRolId_rol){ ?>
-											<option value="<?php echo $responseGetRolId_rol->Nombre_rol ?>"><?php echo $responseGetRolId_rol->Nombre_rol ?></option>
+											<option value="<?php echo $responseGetRolId_rol->Id_rol ?>"><?php echo $responseGetRolId_rol->Nombre_rol ?></option>
 										<?php } ?>
 									</select>
 								</div>
-								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-5">
-								    <a href="">	
-								    	<button class="btn btn-primary" id="botonEditarEmpleado" type="submit">Actualizar empleado</button>
-							    	</a>
-							    </div>
-							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-5">
-								    <a href="?class=IndexHome&method=administradorEmpleados" class="btn btn-danger" id="" >Cancelar operacion</a>
-							    </div>
 							</div>
 						</form>
 					</div>
 				</section>
-				<!-----------------------   FIN FORMULARIOS  ------------------------------------>	
-				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
+				<!-----------------------   FIN FORMULARIOS  ------------------------------------>				
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-							<a href="?class=IndexHome&method=administradorEmpleados">
-							<img src="views/img/izquierda.png">
-						</a>
+						<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
 						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
-							<a href="?class=IndexHome&method=administrador">
-								<img src="views/img/casa.png">
+						<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2 text-center">
+							<a href="?class=IndexHome&method=administradorEmpleados">
+								<button class="btn rojo">Volver</button>
 							</a>
 						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							
+						<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
 						</div>
-
 					</div>
 				</div>
+				<div cla
+				ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
+				<div class="row">
+					<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+						<a href="?class=IndexHome&method=administradorEmpleados">
+						<img src="views/img/izquierda.png">
+					</a>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+						<a href="?class=IndexHome&method=administrador">
+							<img src="views/img/casa.png">
+						</a>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+						
+					</div>
+
+				</div>
+			</div>
 		</main>
 	</div>
 </div>

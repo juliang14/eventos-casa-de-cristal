@@ -103,9 +103,9 @@
 					<div class="row" id="event_2">
 					 	<div class="col-lg-4" STYLE="">
 					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
-					 			<h3 class="font-italic">PLAN TODO INCLUIDO 80 PERSONAS</h3>
+					 			<h3 class="font-italic">PLAN TODO INCLUIDO 40 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$5.000.000</h1>
+										<h1 class="text-danger">$2.500.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -120,9 +120,9 @@
 						</div>
 						<div class="col-lg-4" STYLE="">
 					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
-					 			<h3 class="font-italic">PLAN TODO INCLUIDO 100 PERSONAS</h3>
+					 			<h3 class="font-italic">PLAN TODO INCLUIDO 50 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$7.500.000</h1>
+										<h1 class="text-danger">$2.800.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -157,9 +157,9 @@
 					<div class="row" id="event_2">
 						<div class="col-lg-4" STYLE="">
 					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
-					 			<h3 class="font-italic">PLAN TODO INCLUIDO 140 PERSONAS</h3>
+					 			<h3 class="font-italic">PLAN TODO INCLUIDO 60 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$11.200.000</h1>
+										<h1 class="text-danger">$3.100.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -174,9 +174,9 @@
 						</div>
 						<div class="col-lg-4" STYLE="">
 					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
-					 			<h3 class="font-italic">PLAN TODO INCLUIDO 150 PERSONAS</h3>
+					 			<h3 class="font-italic">PLAN TODO INCLUIDO 70 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$13.400.000</h1>
+										<h1 class="text-danger">$3.400.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>
@@ -191,9 +191,9 @@
 						</div>
 						<div class="col-lg-4" STYLE="">
 					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
-					 			<h3 class="font-italic">PLAN TODO INCLUIDO 200 PERSONAS</h3>
+					 			<h3 class="font-italic">PLAN TODO INCLUIDO 80 PERSONAS</h3>
 										<br>
-										<h1 class="text-danger">$20.000.000</h1>
+										<h1 class="text-danger">$4.000.000</h1>
 										<br>
 										<h5 >NUESTRO PLAN INCLUYE
 										<hr>

@@ -29,20 +29,28 @@ select * from VW_PAGO_PREFERIDO;
 select * from VW_PRODUCTOS_VENDIDOS;
 select * from VW_REPORTE_VENTAS;
 SELECT * FROM VW_VER_USUARIOS;
+SELECT * FROM VW_VER_EMPLEADOS;
 
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
-CALL PR_ACTUALIZAR_CARGO(4,'Programador'); -- < Actualiza los cargos
+CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles
+CALL PR_ROLES(); -- <-- Lista todos los roles distintos a usuario
+CALL PR_CARGOS();-- <-- Lista todos los cargos
 CALL PR_VER_USUARIOS(); -- <-- Lista todos los usuarios
+CALL PR_VER_EMPLEADOS(); -- <-- Lista todos los empleados
+CALL PR_ACTUALIZAR_CARGO(4,'Programador'); -- < Actualiza los cargos
 CALL PR_CREAR_USUARIO( 'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co');  -- <--crear usuarios desde aqui
 CALL PR_ELIMINAR_USUARIO(32); -- Elimina el registro del usuario
-CALL PR_ACTUALIZAR_USUARIO( 1,'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co');  -- <--crear usuarios desde aqui
+CALL PR_ACTUALIZAR_USUARIO( 1,'KAROL', '', 'gomez', 'avila', 'NIT', 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co');  -- <--Actualizar usuarios desde aqui
+CALL PR_CREAR_EMPLEADO( 'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co','2');  -- <--crear empleados desde aqui
+CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'DJ', 25, 3108023148, 'carrera 94', 'KAROL887@MISENA.EDU.CO','ADMINISTRADOR');  -- <--Actualizar usuarios desde aqui
+CALL PR_ELIMINAR_EMPLEADO(2);-- Elimina el registro del empleado
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad
 DELETE FROM USUARIO WHERE id_usuario = 32;
 
 -- --------------------------------------------------------------------------------------------------------------------
-
+SELECT ID_CARGO FROM CARGO WHERE NOMBRE_DE_CARGO ='DJ';
 -- DESCRIBE TABLAS --------------------------------------------------------------------------------------------------------------------
 
 DESCRIBE CARGO;
@@ -64,7 +72,6 @@ DESCRIBE TURNO;
 DESCRIBE USUARIO;
 DESCRIBE USUARIO_LOG;
 DESCRIBE USUARIO_SISTEMA;
-
 
 
 

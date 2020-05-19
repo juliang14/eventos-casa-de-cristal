@@ -1,9 +1,12 @@
+/*AL CARGAR LA PAGINA*/
 window.onload = function() {
 
     //INICIAR TABLAS JQUERY 
     generales.cargarDataTable();
       
     }
+
+/* FIN DE CARGAR PAGINA*/
 
 
 function menu(){
@@ -41,10 +44,12 @@ function modal(){
 };
 
 
+
 function cerrarSesion(){
   location.href="?class=IndexHome&method=index"
 }
 
+/* INICIO REDIRECCION BOTONES MENU INICIO ADMINISTRADOR */
 $('#num-empleados').click(function(){
     window.location.href="?class=IndexHome&method=administradorEmpleados";
 });
@@ -66,14 +71,17 @@ $('#num-Reportes').click(function(){
 $('#num-Paquetes').click(function(){
     window.location.href="?class=IndexHome&method=administradorPaquetes";
 });
+/* FIN REDIRECCION BOTONES MENU INICIO ADMINISTRADOR */
 
-
+/* INICIO EJECUCION BOTON CON AJAX */
 $('.btn-borrarUsuario').click(function(){
+
+  var id_control = $(this).attr('data-control-user');
 
   $.ajax({
       type: 'GET',
-      url : '?class=IndexHome&method=detailsClient',
-      data: {},
+      url : '?class=IndexHome&method=deleteUsuario',
+      data: { userId: id_control},
       success(response){
         $('.modal-body').html(response);
         $('#modalCenter').modal('show');
@@ -82,6 +90,25 @@ $('.btn-borrarUsuario').click(function(){
 
 });
 
+$('.btn-borrarEmpleado').click(function(){
+
+  var id_control = $(this).attr('data-control-user');
+
+  $.ajax({
+      type: 'GET',
+      url : '?class=IndexHome&method=deleteEmpleado',
+      data: { userId: id_control},
+      success(response){
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      }
+  });
+
+});
+/* FIN EJECUCION BOTON CON AJAX */
+
+
+/*  INICIO CONSULTAS GENERALES*/
 var generales = {
 
   cargarDataTable: function(){    
@@ -116,16 +143,6 @@ var generales = {
 
       });
   },
-  textosModal: function(text,numero){
-
-    var textoDeModal = '';
-    $('.modal-body').html('');
-
-    if (text='BORRAR_USUARIO') {
-        textoDeModal = 'Se INACTIVO el id_usuario '+numero;
-        $('.modal-body').append(textoDeModal);
-    }
-  },
 
   validarEdad: function(){
 
@@ -138,6 +155,9 @@ var generales = {
       alert('No eres mayor de edad, no es posible crear el usuario.');
     }
     
+  },
+  refrescarPagina: function(){
+    location.reload();
   }
 
 }

@@ -75,9 +75,6 @@
 							<div class="col-lg-12" STYLE="">
 								<div style="text-align: center; margin-top: 5%;">
 									<section class="" id="section_forms">
-										<?php
-											$Response = parent::getCliente($_GET['ID_USUARIO']);
-										?>
 										<div class="contenedorFormularioVerUsuario" id="contenedorFormularioVerUsuario">
 											<h2 class="text-center" id="tituloCrearUsuario">Ver usuario <?php echo $Response->ID_USUARIO ?></h2>
 											<form >

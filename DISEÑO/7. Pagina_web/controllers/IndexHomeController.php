@@ -40,6 +40,26 @@ class IndexHomeController extends indexConection{
 	public function paquetesMatrimonio(){
 		require_once('views/inicio/paquetes_matrimonio.php');
 	}
+	//Pagina de paquetes Bautizo
+	public function paquetesbautizo(){
+		require_once('views/inicio/paquetes_bautizo.php');
+	}
+	//Pagina de paquetes Primera comunion
+	public function paquetesprimeracomunion(){
+		require_once('views/inicio/paquetes_primera_comunion.php');
+	}
+	//Pagina de paquetes 15 años
+	public function paquetes15anos(){
+		require_once('views/inicio/paquetes_15_anos.php');
+	}
+	//Pagina de paquetes Grados
+	public function paquetesGrados(){
+		require_once('views/inicio/paquetes_Grados.php');
+	}
+	//Pagina de paquetes Despedida de solteros
+	public function paquetesdespedidasolteros(){
+		require_once('views/inicio/paquetes_despedida_de_solteros.php');
+	}
 	//Pagina de registro exitoso
 	public function registroExitoso(){
 		require_once('views/inicio/registro_exitoso.php');
@@ -91,6 +111,26 @@ class IndexHomeController extends indexConection{
 	public function usuarioPaquetesMatrimonio(){
 		require_once('views/usuarios/usuario_paquetes_matrimonio.php');
 	}
+	//Pagina usuario paquetes 15 años
+	public function usuarioPaquetes15Anos(){
+		require_once('views/usuarios/usuario_paquetes_15_anos.php');
+	}
+	//Pagina usuario paquetes Bautizo
+	public function usuarioPaquetesbautizo(){
+		require_once('views/usuarios/usuario_paquetes_bautizo.php');
+	}
+	//Pagina usuario paquetes Grados
+	public function usuarioPaquetesGrados(){
+		require_once('views/usuarios/usuario_paquetes_Grados.php');
+	}
+	//Pagina usuario paquetes Primera counion
+	public function usuarioPaquetesPrimeracounion(){
+		require_once('views/usuarios/usuario_paquetes_Primera_comunion.php');
+	}
+	//Pagina usuario paquetes Despedida de solteros
+	public function usuarioPaquetesdespedidadesolteros(){
+		require_once('views/usuarios/usuario_paquetes_despedida_de _solteros.php');
+	}
 	//Pagina usuario pedido generado
 	public function usuarioPedidoGenerado(){
 		require_once('views/usuarios/usuario_pedido_generado.php');
@@ -113,13 +153,32 @@ class IndexHomeController extends indexConection{
 	public function administradorEmpleadosCrear(){
 		require_once('views/administrador/administrador_empleados_crear.php');
 	}
+	//Crear empleado
+	public function insertCrearEmpleado(){
+		parent::createEmpleado( $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['CargoId_cargo'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email'], $_POST['RolId_rol']);
+		header('location:?class=IndexHome&method=administradorEmpleados');
+	}
+	//Editar empleado
+	public function updateEmpleado(){
+		parent::editEmpleado($_POST['Id_empleado'], $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['CargoId_cargo'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email'], $_POST['RolId_rol']);
+		header('location:?class=IndexHome&method=administradorEmpleados');
+	}
+
+	//Borrar empleado
+	public function deleteEmpleado(){
+		//header('location:?class=IndexHome&method=administradorUsuarios');
+		$user = parent::getEmpleado($_REQUEST['userId']);
+		parent::borrarEmpleado($_REQUEST['userId']);
+		require_once('views/inicio/mensajes_modal.php');
+	}
+
 	//Pagina administrador empleados editar
 	public function administradorEmpleadosEditar(){
 		require_once('views/administrador/administrador_empleados_editar.php');
 	}
-	//Pagina administrador empleados eliminar
-	public function administradorEmpleadosEliminar(){
-		require_once('views/administrador/administrador_empleados_eliminar.php');
+	//Pagina administrador empleados ver
+	public function administradorEmpleadosVer(){
+		require_once('views/administrador/administrador_empleados_ver.php');
 	}
 	//Pagina administrador factura editar
 	public function administradorFacturaEditar(){
@@ -177,13 +236,6 @@ class IndexHomeController extends indexConection{
 	public function administradorUsuarios(){
 		require_once('views/administrador/administrador_usuarios.php');
 	}
-	public function detailsClient(){
-
-		$user = parent::getCliente(1);
-		$dataHtml ='<p>Hola ajax</p>';
-	}
-
-
 	//Pagina administrador usuarios crear
 	public function administradorUsuariosCrear(){
 		require_once('views/administrador/administrador_usuarios_crear.php');
@@ -202,13 +254,14 @@ class IndexHomeController extends indexConection{
 	public function updateUsuario(){
 		parent::editCliente($_POST['Id_usuario'], $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email']);
 		header('location:?class=IndexHome&method=administradorUsuarios');
-
 	}
 
 	//Borrar usuario
 	public function deleteUsuario(){
-		parent::deleteCliente($_GET['ID_USUARIO']);
-		header('location:?class=IndexHome&method=administradorUsuarios');
+		//header('location:?class=IndexHome&method=administradorUsuarios');
+		$user = parent::getCliente($_REQUEST['userId']);
+		parent::deleteCliente($_REQUEST['userId']);
+		require_once('views/inicio/mensajes_modal.php');
 	}
 	//Pagina administrador usuarios ver
 	public function administradorUsuariosVer(){

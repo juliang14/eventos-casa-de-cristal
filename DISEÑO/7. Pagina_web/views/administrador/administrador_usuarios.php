@@ -77,12 +77,12 @@
 				</button-->
 
 				<!-- Modal -->
-				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="generales.refrescarPagina();">
 				  <div class="modal-dialog modal-dialog-centered" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="generales.refrescarPagina();">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
@@ -90,7 +90,7 @@
 				        ...
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="generales.refrescarPagina();">Cerrar</button>
 				        <!--button type="button" class="btn btn-primary">Save changes</button-->
 				      </div>
 				    </div>
@@ -154,7 +154,7 @@
 		                            	</a>
 		                            	&nbsp;&nbsp;
 		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>"-->
-		                            		<i class="fas fa-trash-alt color_red btn-borrarUsuario" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
+		                            		<i class="fas fa-trash-alt color_red btn-borrarUsuario" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>" data-control-user=<?php echo $responseGetClientes->ID_USUARIO ?>></i>
 		                            	<!--/a-->
 		                            </td>
 		                        </tr>

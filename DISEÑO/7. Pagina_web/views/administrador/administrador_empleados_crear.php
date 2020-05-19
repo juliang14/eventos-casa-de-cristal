@@ -66,113 +66,92 @@
 				</div>
 			</div>
 			<main>
+				<!-----------------------   INICIO FORMULARIOS  ------------------------------------>
+				<section class="" id="section_forms">
+					<div class="contenedorFormularioCrearEmpleado" id="contenedorFormularioCrearEmpleado">
+						<h2 class="text-center" id="tituloCrearEmpleado">Crear empleado</h2>
+						<form mane="" action="?class=indexConection&method=insertCrearEmpleado" method="POST">
+							<div class="row">
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Primer_nombre">Primer Nombre</label><br>
+									<input type="text" class="form-control" name="Primer_nombre" id="Primer_nombre" placeholder="Primer nombre" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Segundo_nombre">Segundo Nombre</label><br>
+									<input type="text" class="form-control" name="Segundo_nombre" id="Segundo_nombre" placeholder="Segundo nombre" value="">
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Primer_apellido">Primer Apellido</label><br>
+									<input type="text" class="form-control" name="Primer_apellido" id="Primer_apellido" placeholder="Primer apellido" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Segundo_apellido">Segundo Apellido</label><br>
+									<input type="text" class="form-control" name="Segundo_apellido" id="Segundo_apellido" placeholder="Segundo apellido" value="">
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
+									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento" >
+										<?php foreach (parent::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+											<option value="<?php echo $responseGetTipoDocumento->Id_documento ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Numero_documento">Numero de documento</label><br>
+									<input type="number" class="form-control" name="Numero_documento" id="Numero_documento" placeholder="Numero de documento" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
+									<label for="CargoId_cargo">Cargo empleado</label><br>
+									<select class="form-control" name="CargoId_cargo" id="CargoId_cargo" >
+										<?php foreach (parent::getCargos() as $responseGetCargos){ ?>
+											<option value="<?php echo $responseGetCargos->Id_cargo ?>"><?php echo $responseGetCargos->Nombre_de_cargo ?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Edad">EDAD</label><br>
+									<input type="number" class="form-control" name="Edad" id="Edad" placeholder="Edad" value="" required onblur="generales.validarEdad();">
+								</div>
+								<br>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
+									<label for="Telefono">Telefono</label><br>
+									<input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="Telefono" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3">
+									<label for="Direccion">Direccion</label><br>
+									<input type="text" class="form-control" name="Direccion" id="Direccion" placeholder="Direccion" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3">
+									<label for="Email">Correo</label><br>
+									<input type="email" class="form-control" name="Email" id="Email" placeholder="Correo electronico" value="" required>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
+									<label for="RolId_rol">Rol empleado</label><br>
+									<select class="form-control" name="RolId_rol" id="RolId_rol" >
+										<?php foreach (parent::getRoles() as $responseGetRolId_rol){ ?>
+											<option value="<?php echo $responseGetRolId_rol->Id_rol ?>"><?php echo $responseGetRolId_rol->Nombre_rol ?></option>
+										<?php } ?>
+									</select>
+								</div>
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-5">
+								    <a href="">	
+								    	<button class="btn btn-primary" id="botonCrearUsuario" type="submit">Crear empleado</button>
+							    	</a>
+							    </div>
+							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-5">
+								    <a href="?class=IndexHome&method=administradorEmpleados" class="btn btn-danger" id="botonNoCrearUsuario" >Cancelar operacion</a>
+							    </div>
+							</div>
+						</form>
+					</div>
+				</section>
+				<!-----------------------   FIN FORMULARIOS  ------------------------------------>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row" id="event_2">
 							<div class="col-lg-12" STYLE="">
 								<div style="text-align: center; margin-top: 5%;">
-									<h2>Crear empleado</h2>
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar">
-										<div class="row sombra" style="text-align: center;">
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Primer Nombre
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Primer Nombre">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Segundo Nombre
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Segundo Nombre">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Primer Apellido
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Primer Apellido">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo margen-abajo" >
-												<label>
-													Segundo Apellido
-												</label>
-												<br>
-												<input type="text" name="" placeholder="Segundo Apellido">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo margen-abajo" >
-												<label>
-													Tipo de documento
-												</label>
-												<br>
-												<div style="display: inline-flex; width: 100%">
-													C.C <input type="radio" name="" style="margin-top: 3%;">
-													NIT <input type="radio" name="" style="margin-top: 3%;">
-													C.E <input type="radio" name="" style="margin-top: 3%;">
-												</div>
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Numero de documento
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Numero de documento">
-											</div>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													EDAD
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Edad">
-											</div>
-											<br>
-											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo" >
-												<label>
-													Telefono
-												</label>
-												<br>
-												<input type="number" name="" placeholder="Numero de telefono">
-											</div>
-											<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 margen-abajo" style="text-align: center;">
-												<label>
-													Correo
-												</label>
-												<br>
-												<input type="email" name="" placeholder="correo electronico">
-											</div>
-											<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="text-align: center;">
-												<label>
-													Cargo
-												</label>
-												<br>
-												<select style="width: 70%; text-align-last: center;">
-													<option>selecciona un cargo</option>
-													<option>Mesero</option>
-													<option>Cocinero</option>
-													<option>Decorador</option>
-												</select>
-											</div>
-											
-											
-										</div>
-										<br><br>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="row">
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 margen-abajo" style="text-align: center;">
-													<a href="?class=IndexHome&method=administradorEmpleados">
-														<button class="btn verde">Crear</button>
-													</a>
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-											</div>
-										</div>
-										<div cla
-										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 										<div class="row">
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 												<a href="?class=IndexHome&method=administradorEmpleados">

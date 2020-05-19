@@ -84,7 +84,9 @@ select{
 #botonNoCrearUsuario{
 	margin-top: 5%;
 }
-#contenedorFormularioVerUsuario input{
+#contenedorFormularioVerUsuario input,
+#contenedorFormularioVerEmpleado input,
+#contenedorFormularioVerEmpleado select{
 	background: #fff;
 }
 #contenedorFormularioVerUsuario .form-control:disabled{
