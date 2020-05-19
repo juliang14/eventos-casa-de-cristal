@@ -30,6 +30,7 @@ select * from VW_PRODUCTOS_VENDIDOS;
 select * from VW_REPORTE_VENTAS;
 SELECT * FROM VW_VER_USUARIOS;
 SELECT * FROM VW_VER_EMPLEADOS;
+SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN;
 
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
 CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles

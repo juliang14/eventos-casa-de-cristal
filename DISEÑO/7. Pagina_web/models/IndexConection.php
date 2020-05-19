@@ -1,6 +1,7 @@
 <?php
 
 class indexConection extends DB{
+ // ********************************** CONSULTAS MODULO ADMINISTRADOR ************************************************************//
  // ------------------------------- CONSULTAS PARA DATOS DE LOS CLIENTES ---------------------------------------------------//
 	// Obtener todos los clientes de la Base de datos
 	public function getClientes(){
@@ -111,6 +112,19 @@ class indexConection extends DB{
 	}
 // ------------------------------- FIN CONSULTAS PARA DATOS DE LOS CLIENTES ---------------------------------------------------//
 // -------------------------------  CONSULTAS PARA DATOS DE LOS EMPLEADOS  ---------------------------------------------------//
+	// Obtener cantidad de datos inicio
+	public function getInicioAdminCantidad(){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN");
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 	// Obtener empleado
 	public function getEmpleado($Id_empleado){
 		try {
@@ -234,6 +248,9 @@ class indexConection extends DB{
 	}
 
 // ------------------------------- FIN CONSULTAS PARA DATOS DE LOS EMPLEADOS ---------------------------------------------------//
+ // ********************************** FIN CONSULTAS MODULO ADMINISTRADOR ************************************************************//
+
+
 }
 
 ?>

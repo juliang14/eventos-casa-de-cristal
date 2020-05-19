@@ -130,8 +130,15 @@ input:checked + .slider:before {
   height: 100%;
   margin: 0;
 }
-#Cantidad-empleados:after,
-#Cantidad-usuarios:after,
+.datosCantidades{
+  border: 1px solid;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-left: 10%;
+  background: orange;
+}
+/*#Cantidad-empleados:after,
+#Cantidad-usuarios:after,*/
 #Cantidad-pedidos:after,
 #Paquetes:after,
 #Reportes:after,
@@ -142,13 +149,13 @@ input:checked + .slider:before {
   border-radius: 50%;
   border: 1px solid;
   padding: 10px 20px;
-}
+}/*
 #Cantidad-empleados:after{
   content:"50";
 }
 #Cantidad-usuarios:after{
   content:"300";
-}
+}*/
 #Cantidad-pedidos:after{
   content:"1000";
 }

@@ -17,6 +17,9 @@
 
 </head>
 <body>
+	<?php
+		$Response = parent::getInicioAdminCantidad();
+	?>
 	<div class="center">
 		<div class="container-fluid" id="pag">
 			<div class="row" >
@@ -74,7 +77,7 @@
 						</div>
 						
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="num-empleados">
-							<p id="Cantidad-empleados">Cantidad de empleados</p>
+							<p id="Cantidad-empleados">Cantidad de empleados <strong class="datosCantidades"><?php echo $Response->CANTIDAD_EMPLEADOS ?></strong></p>
 						</div>
 
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -85,7 +88,7 @@
 					<div class="row">
 						
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="num-usuarios">
-							<p id="Cantidad-usuarios">Cantidad usuarios</p>
+							<p id="Cantidad-usuarios">Cantidad usuarios <strong class="datosCantidades"><?php echo $Response->CANTIDAD_USUARIOS ?></strong></p>
 						</div>
 						
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
