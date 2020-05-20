@@ -111,6 +111,21 @@ $('.btn-borrarEmpleado').click(function(){
 /*  INICIO CONSULTAS GENERALES*/
 var generales = {
 
+  validarEdad: function(){
+
+    var edad = $('#Edad').val();
+
+    if (edad >=18) {
+      $('#botonCrearUsuario').attr('disabled', false);
+    }else{
+      $('#botonCrearUsuario').attr('disabled', true);
+      alert('No eres mayor de edad, no es posible crear el usuario.');
+    }
+    
+  },
+  refrescarPagina: function(){
+    location.reload();
+  },
   cargarDataTable: function(){    
       //$('#table-Fac').DataTable();
       //$('#tabla-facturas').DataTable();
@@ -142,22 +157,63 @@ var generales = {
         "iDisplayLenght": 5,
 
       });
-  },
+      $('#tabla_empleados').DataTable({
+          "language":{
+          "empyTable":  "<i>No hay datos disponibles en la tabla.</i>",
+          "info":  "Del _START_ al _END_ de _TOTAL_ ",
+          "infoEmpty": "Mostrando 0 registros de un total de 0.",
+          "infoFiltered":  "(filtrados de un total de _MAX_ registros)",
+          "infoPostFix":  "(actualizados)",
+          "lengthMenu":  "Mostrar _MENU_ registros",
+          "loadingRecords":  "Cargando...",
+          "processing":  "Procesando...",
+          "search":  "<span style='font-size:15px;'>Buscar:</span>",
+          "searchPlaceholder":  "Dato para buscar",
+          "zeroRecords":  "No se han encontrado registros",
+          "paginate": { 
+            "first":  "Primera",
+            "last":  "Última",
+            "next":  "Siguiente", 
+            "previous":  "Anterior"
+          },
+          "aria":  {
+            "sortAscending":  "Ordenación ascendente",
+            "sortDescending":  "Ordenación descendente"
+          }
+        },
+        "lengthMenu": [[5, 10, 20, 50],[5, 10, 20, 50,"Todos"]],
+        "iDisplayLenght": 5,
 
-  validarEdad: function(){
+      });
+      $('#tabla_pedidos').DataTable({
+          "language":{
+          "empyTable":  "<i>No hay datos disponibles en la tabla.</i>",
+          "info":  "Del _START_ al _END_ de _TOTAL_ ",
+          "infoEmpty": "Mostrando 0 registros de un total de 0.",
+          "infoFiltered":  "(filtrados de un total de _MAX_ registros)",
+          "infoPostFix":  "(actualizados)",
+          "lengthMenu":  "Mostrar _MENU_ registros",
+          "loadingRecords":  "Cargando...",
+          "processing":  "Procesando...",
+          "search":  "<span style='font-size:15px;'>Buscar:</span>",
+          "searchPlaceholder":  "Dato para buscar",
+          "zeroRecords":  "No se han encontrado registros",
+          "paginate": { 
+            "first":  "Primera",
+            "last":  "Última",
+            "next":  "Siguiente", 
+            "previous":  "Anterior"
+          },
+          "aria":  {
+            "sortAscending":  "Ordenación ascendente",
+            "sortDescending":  "Ordenación descendente"
+          }
+        },
+        "lengthMenu": [[5, 10, 20, 50],[5, 10, 20, 50,"Todos"]],
+        "iDisplayLenght": 5,
 
-    var edad = $('#Edad').val();
-
-    if (edad >=18) {
-      $('#botonCrearUsuario').attr('disabled', false);
-    }else{
-      $('#botonCrearUsuario').attr('disabled', true);
-      alert('No eres mayor de edad, no es posible crear el usuario.');
-    }
-    
-  },
-  refrescarPagina: function(){
-    location.reload();
+      });
   }
+
 
 }

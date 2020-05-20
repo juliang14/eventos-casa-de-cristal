@@ -194,11 +194,17 @@ thead{
 }
 th,td{
   /*border-left:2px solid;*/
+  text-align: center;
 }
 tbody img{
   padding-left: 5%;
 }
-
+.child{
+  text-align: center;
+}
+.dtr-details{
+  width: 100%;
+}
 .rojo{
 	color: red!important;
 	border-color: red!important;

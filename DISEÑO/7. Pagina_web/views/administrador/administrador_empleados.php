@@ -97,7 +97,7 @@
 				  </div>
 				</div>
 				<!-----------------------   FIN MODAL  ------------------------------------>
-				<!-----------------------   INICIO TABLA CLIENTES  ------------------------------------>
+				<!-----------------------   INICIO TABLA EMPLEADOS  ------------------------------------>
 				<section id="section_table">
 					<h2>DATOS EMPLEADOS</h2>
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="seccion_boton_crear_usuario">
@@ -116,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<table id="tabla_clientes" class="display responsive nowrap">
+					<table id="tabla_empleados" class="display responsive nowrap">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
@@ -163,7 +163,7 @@
 						</tbody>
 					</table>
 				</section>
-				<!-----------------------   FIN TABLA CLIENTES  ------------------------------------>
+				<!-----------------------   FIN TABLA EMPLEADOS  ------------------------------------>
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">

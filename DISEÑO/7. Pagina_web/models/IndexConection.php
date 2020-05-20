@@ -246,6 +246,19 @@ class indexConection extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	// Obtener todos los empleados de la Base de datos
+	public function getPedidos(){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" CALL PR_VER_PEDIDOS()");
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 
 // ------------------------------- FIN CONSULTAS PARA DATOS DE LOS EMPLEADOS ---------------------------------------------------//
  // ********************************** FIN CONSULTAS MODULO ADMINISTRADOR ************************************************************//

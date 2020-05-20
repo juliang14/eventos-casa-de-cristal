@@ -77,18 +77,27 @@ EmpleadoId_empleado					Int 	(10) not null,
 TurnoId_turno		 				int 	(10) not null
 );
 
+create table Estado_pedido(
+Id_estadopedido						Int 	(10) auto_increment not null,
+estado				 				varchar	(30) not null,
+primary key (Id_estadopedido)
+);
+
 create table Pedido(
 Id_pedido 							int 	(10) auto_increment not null,
 Paquete_Idpaquete					int 	(10) not null,
 UsuarioId_usuario 					int		(10) not null,
-EventoId_evento 					int		(10) not null,
+EstadopedidoId_estadopedido			int		(10) not null,
 primary key (Id_pedido)
 );
 
 create table Paquete(
 Id_paquete 							int 	(10) auto_increment not null,
 valor_paquete	 					int 	(10) not null,
-Tipo_de_paquete						varchar (20) not null,
+valor_iva							int		(10) not null,
+valor_total							int		(10) not null,
+Tipo_de_paquete						varchar (50) not null,
+EventoId_evento 					int		(10) not null,
 primary key (Id_paquete)
 );
 
@@ -240,8 +249,19 @@ ADD FOREIGN KEY (UsuarioId_usuario)
 REFERENCES Usuario(Id_usuario);
 
 ALTER TABLE Pedido
+ADD FOREIGN KEY (EstadopedidoId_estadopedido)
+REFERENCES estado_pedido(Id_estadopedido);
+
+
+
+
+
+ALTER TABLE paquete
 ADD FOREIGN KEY (EventoId_evento)
 REFERENCES Evento(Id_evento);
+
+
+
 
 
 ALTER TABLE Inventario_paquete

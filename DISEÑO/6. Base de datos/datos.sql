@@ -149,22 +149,22 @@ values
 -- -------------------------------------------------------------------------
 insert into Evento(Id_evento, Tipo_de_evento)
 values
-(01,	'Matrimonio'),
-(02,	'Bautizo'),
-(03,	'15 Años'),
-(04,	'Despedida de soltero'),
-(05,	'Primeras comuniones'),
-(06,	'Grados');
+(1,	'Matrimonio'),
+(2,	'Bautizo'),
+(3,	'15 Años'),
+(4,	'Despedida de soltero'),
+(5,	'Primeras comuniones'),
+(6,	'Grados');
 -- -------------------------------------------------------------------------
 
-insert into Paquete(Id_paquete, valor_paquete, Tipo_de_paquete)
+insert into Paquete(Id_paquete, valor_paquete, valor_iva, valor_total, Tipo_de_paquete, EventoId_evento)
 values
-(1,	6000000,	'matrimonio'),
-(2,	3000000,	'despedida_de_soltero' ),
-(3,	1000000,	'Bautizo'),
-(4,	2000000,	'primera_comunion'),
-(5,	4000000,	'15 Años'),
-(6,	3000000,	'Grados');
+(1,	6000000,	1140000,	7140000,	'matrimonio 1',				1),
+(2,	3000000,	 570000,	3570000,	'despedida_de_soltero 1',	4),
+(3,	1000000,	 190000,	1190000,	'Bautizo 1',				2),
+(4,	2000000,	 380000,	2380000,	'primera_comunion 1',		5),
+(5,	4000000,	 760000,	4760000,	'15 Años 1',				3),
+(6,	3000000,	 570000,	3570000,	'Grados 1',					6);
 	   
 -- -------------------------------------------------------------------------	   
 insert into Inventario(Id_inventario, Inventario, Cantidad, Categoria)
@@ -215,26 +215,32 @@ values
 (7,	3),
 (7,	4),
 (7,	5);
+-- -------------------------------------------------------------------------
+insert into Estado_pedido( Id_estadopedido, estado)
+values
+(1, 'Por realizar'),
+(2, 'Realizado')
+;
 
 -- -------------------------------------------------------------------------
-insert into Pedido(Id_pedido, Paquete_Idpaquete, UsuarioId_usuario, EventoId_evento)
+insert into Pedido(Id_pedido, Paquete_Idpaquete, UsuarioId_usuario, EstadopedidoId_estadopedido)
 values 
-(1,		6,	6,	01),
-(2,		5,	5,	02),
-(3,		4,	4,	03),
-(4,		3,	3,	04),
-(5,		2,	2,	05),
-(6,		1,	1,	06),
-(7,		2,	6,	01),
-(8,		3,	7,	02),
-(9,		4,	8,	03),
-(10,	5,	9,	04),
-(11,	6,	10,	05),
-(12,	5,	11,	06),
-(13,	4,	12,	01),
-(14,	3,	13,	02),
-(15,	2,	14,	03),
-(16,	1,	15,	04);
+(1,		6,	6,	1),
+(2,		5,	5,	1),
+(3,		4,	4,	1),
+(4,		3,	3,	1),
+(5,		2,	2,	1),
+(6,		1,	1,	1),
+(7,		2,	6,	1),
+(8,		3,	7,	1),
+(9,		4,	8,	1),
+(10,	5,	9,	1),
+(11,	6,	10,	1),
+(12,	5,	11,	1),
+(13,	4,	12,	1),
+(14,	3,	13,	1),
+(15,	2,	14,	1),
+(16,	1,	15,	1);
 
 -- -------------------------------------------------------------------------
 insert into Factura(Id_factura, Valor_sin_iva, Iva, Valor_Total, Tipo_de_factura, Descripcion_factura, PedidoId_pedido)
