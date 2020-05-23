@@ -69,11 +69,22 @@ class IndexHomeController extends indexConection{
 		require_once('views/inicio/restablecer_contraseña.php');
 	}
 
+
 	// *******************  SECCION USUARIOS  **********************************************//
 
 	//Pagina inicio usuario
-	public function usuario(){
-		require_once('views/usuarios/usuario.php');
+	public function usuarioooo(){
+		$ResponseAutenticate = parent::autenticarUsuario($_POST['usuario'],$_POST['password']);
+		if(!$ResponseAutenticate){
+			header('location:?class=IndexHome&method=loginUsuario');
+		}else if($ResponseAutenticate->Clave ==$_POST['password']){
+			//var_dump($ResponseAutenticate);
+			require_once('views/usuarios/usuario.php');
+		}else{
+			header('location:?class=IndexHome&method=loginUsuario');
+		}
+		
+		//require_once('views/usuarios/usuario.php');
 	}
 	//Pagina usuario acerca de nosotros
 	public function usuarioAcercaDeNosotros(){
@@ -183,6 +194,12 @@ class IndexHomeController extends indexConection{
 	//Pagina administrador factura editar
 	public function administradorFacturaEditar(){
 		require_once('views/administrador/administrador_factura_editar.php');
+	}
+	//Actualizar pedido
+	public function updatePedido(){
+		$user = parent::getPedido($_REQUEST['userId']);
+		parent::editPaquete( $_REQUEST['userId'],$_REQUEST['userData']);
+		require_once('views/inicio/mensajes_modal.php');
 	}
 	//Pagina administrador factura eliminar
 	public function administradorFacturaEliminar(){

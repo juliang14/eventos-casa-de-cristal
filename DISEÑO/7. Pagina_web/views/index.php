@@ -52,7 +52,7 @@
 										</a>
 									</div>
 									<div class="col-lg-4 esp-bajo" id="inicio-usuarios">
-										<a href="?class=IndexHome&method=loginUsuario">
+										<a href="?class=security&method=loginEmpleados">
 											<button type="button" class="btn btn-primary">Iniciar sesion</button>
 										</a>
 										<a href="?class=IndexHome&method=formularioRegistro">

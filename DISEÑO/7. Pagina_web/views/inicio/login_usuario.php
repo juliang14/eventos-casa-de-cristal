@@ -63,32 +63,32 @@
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="inicio-de-sesion">
 						<h2>Iniciar sesion</h2>
 					</div>
-					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="contenedor-login">
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-10">
-							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-								<label>Usuario</label><br>
-								<input type="text" name="primer-nombre">
+					<form action="?class=UserSesion&method=usuario" method="POST">
+						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="contenedor-login">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-10">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+									<label>Usuario</label><br>
+									<input type="text" name="usuario">
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-10">
-							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-								<label>Contraseña</label><br>
-								<input type="password" name="password">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-10">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+									<label>Contraseña</label><br>
+									<input type="password" name="password">
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="olvide">
-							<a href="?class=IndexHome&method=restablecerContrasena">
-								Olvide mi contraseña
-							</a>
-						</div>
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-11">
-							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="btn-registrarse">
-								<a href="?class=IndexHome&method=usuario">
-									<input type="text" name="Ingresar" value="Ingresar">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="olvide">
+								<a href="?class=IndexHome&method=restablecerContrasena">
+									Olvide mi contraseña
 								</a>
 							</div>
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte-11">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="btn-registrarse">
+									<input type="submit" name="Ingresar" value="Ingresar">
+								</div>
+							</div>
 						</div>
-					</div>
+					</form>
 				</main>	
 			</div>
 		</div>

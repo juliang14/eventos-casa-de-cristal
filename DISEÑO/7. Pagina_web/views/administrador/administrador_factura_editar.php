@@ -67,7 +67,240 @@
 				</div>
 			</div>
 			<main>
-				<h1>FACTURA</h1>
+				<!-----------------------   INICIO MODAL  ------------------------------------>
+				<!-- Button trigger modal -->
+				<!--
+					$('#modalCenter').modal('show'); // abrir
+					$('#modalCenter').modal('hide'); // cerrar
+				-->
+				<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+				  Launch demo modal
+				</button-->
+
+				<!-- Modal -->
+				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="redirectPageController('administradorPedidos');">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="redirectPageController('administradorPedidos');">Cerrar</button>
+				        <!--button type="button" class="btn btn-primary">Save changes</button-->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!-----------------------   FIN MODAL  ------------------------------------>
+				<?php
+					$Response = parent::getPedido($_GET['ID_PEDIDO']);
+				?>
+				<!---------------------------------- INICIO FACTURA -------------------------------------------------------------->
+				<h1>FACTURA <?php echo $Response->ID_FACTURA ?></h1>
+				<section class="seccionVerFactura cajon">
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 pl-5 pr-5 contenedorVerFactura">
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center mt-4">
+								<img src="views/img/Logo.jpeg" class="logo_factura">
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center mt-4">
+								<div class="logo_factura"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center mt-2" id="columna-1">
+								<div class="row">
+									<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-2 text-right">
+										<i class="far fa-keyboard"></i>
+									</div>
+									<div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-2 text-left">Eventos casa de cristal</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-2 text-right">
+										<i class="fas fa-phone"></i>
+									</div>
+									<div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-2 text-left">305 766 93 71</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-2 text-right">
+										<i class="far fa-envelope"></i>
+									</div>
+									<div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-2 text-left">eventoscasadecristal@gmail.com</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-2 text-right">
+										<i class="fas fa-desktop"></i>
+									</div>
+									<div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-2 text-left">www.eventoscasadecristal.com</div>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 text-center"></div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center mt-2" id="columna-2">
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-right">
+										<label>Nombres</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-center">
+										<input class="boton_desabilitado" type="text" name="" placeholder="Nombres" disabled="disabled" value="<?php echo $Response->NOMBRES ?>">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-right">
+										<label>Apellidos</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-center">
+										<input class="boton_desabilitado" type="text" name="" placeholder="Apellidos" disabled="disabled" value="<?php echo $Response->APELLIDOS ?>">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-right">
+										<label>Documento</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-center">
+										<input class="boton_desabilitado" type="text" name="" placeholder="Documento" disabled="disabled" value="<?php echo $Response->DOCUMENTO ?>">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-right">
+										<label>Tipo factura</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2 text-center">
+										<input class="boton_desabilitado" type="text" name="" placeholder="Tipo factura" disabled="disabled" value="<?php echo $Response->TIPO_DE_FACTURA ?>">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+											<label>Pedido</label>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+											<input class="boton_desabilitado text-center" type="text" name="" placeholder="Pedido" disabled="disabled" value="<?php echo $Response->ID_PEDIDO ?>">
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-2">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+											<label>Factura</label>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+											<input class="boton_desabilitado text-center" type="text" name="" placeholder="Factura" disabled="disabled" value="<?php echo $Response->ID_FACTURA ?>">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3 mb-3">
+								<div class="body-datos-factura">
+									<div class="row">
+										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">PAQUETE</div>
+										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">DESCRIPCION</div>
+										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">CANTIDAD</div>
+										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">VALOR</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-5 text-center">
+								<div class="body-factura p-3">
+									<table id="tabla_factura" class="">
+										<thead> 
+										</thead>
+										<tbody id="body_tabla_factura">  
+									    <?php   foreach (parent::getPaquete($_GET['ID_PAQUETE']) as $responseGetPaquete){ ?>
+					                        <tr>
+					                        	<td><?php echo $responseGetPaquete->TIPO_DE_PAQUETE ?></td>
+					                            <td><?php echo $responseGetPaquete->INVENTARIO ?></td>
+					                            <td>No aplica</td>
+					                            <td>No aplica</td>
+					                        </tr>
+						                <?php   } ?>  
+										</tbody>
+									</table>
+
+									<div class="row">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+											<div class="spacio-vacio"></div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 mb-2 text-center"></div>
+										<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-right">
+											<b>Precio sin iva:</b>
+										</div>
+										<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-left">
+											<input class="boton_desabilitado" type="text" name="" placeholder="Precio sin iva" disabled="disabled" value="<?php echo $Response->VALOR_PAQUETE ?>">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 mb-2 text-center"></div>
+										<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-right">
+											<b>Iva:</b>
+										</div>
+										<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-left">
+											<input class="boton_desabilitado" type="text" name="" placeholder="Precio sin iva" disabled="disabled" value="<?php echo $Response->IVA ?>">
+										</div>
+									</div>
+									<div class="fin-body-factura">
+										<div class="row">
+
+											<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-2 text-center"></div>
+											<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mt-2 text-right">
+												<b>Total:</b>
+											</div>
+											<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mt-2 text-left">
+												<input class="boton_desabilitado" type="text" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->VALOR_TOTAL ?>">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+
+											<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 mb-2 text-center"></div>
+											<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-right">
+												<b>Fecha:</b>
+											</div>
+											<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2 text-left">
+												<input class="boton_desabilitado" type="text" name="" placeholder="FECHA" disabled="disabled" value="<?php echo $Response->FECHA_PEDIDO ?>">
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="row">
+							<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
+							<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 pr-0 text-right estado-pedido">
+								Estado:
+							</div>
+							<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-left estado-pedido">
+								<select class="boton_desabilitado" type="text" name="" placeholder="total" id="actualizar_Estado_Pedido">
+									<option value="<?php echo $Response->ESTADO ?>"><?php echo $Response->ESTADO ?></option> 
+									<?php foreach (parent::getEstadoPedido() as $responseGetEstadoPedido){ ?>
+										<option value="<?php echo $responseGetEstadoPedido->estado ?>"><?php echo $responseGetEstadoPedido->estado ?></option>
+									<?php } ?>
+								</select>
+							</div>
+							<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-5 text-right">
+								<button class="btn azul actualizacion_datos" data-control-user="<?php echo $Response->ID_PEDIDO ?>" type="submit"> Actualizar </button>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-5 text-left">
+								<a href="?class=IndexHome&method=administradorPedidos">
+									<button class="btn rojo">Volver</button>
+								</a>
+							</div>
+						</div>
+				</section>
+				<!---------------------------------- FIN FACTURA -------------------------------------------------------------->
+				<!--h1>FACTURA</h1>
 				<br>
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="cajon">
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="parte">
@@ -209,7 +442,7 @@
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 						</div>
 					</div>
-				</div>
+				</div-->
 			</main>
 		</div>
 	</div>

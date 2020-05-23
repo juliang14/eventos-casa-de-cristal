@@ -49,6 +49,8 @@ CALL PR_CREAR_EMPLEADO( 'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 310802
 CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'DJ', 25, 3108023148, 'carrera 94', 'KAROL887@MISENA.EDU.CO','ADMINISTRADOR');  -- <--Actualizar usuarios desde aqui
 CALL PR_ELIMINAR_EMPLEADO(2);-- Elimina el registro del empleado
 CALL PR_VER_PEDIDOS(); -- Ver pedidos
+CALL PR_ESTADO_PEDIDO(); -- Listar estados de pedido disponibles
+CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

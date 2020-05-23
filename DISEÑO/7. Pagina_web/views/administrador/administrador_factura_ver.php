@@ -242,6 +242,16 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
+						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 pr-0 text-right estado-pedido">
+							Estado:
+						</div>
+						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 pl-0 text-left estado-pedido">
+							<input class="boton_desabilitado" type="text" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->ESTADO ?>">
+						</div>
+						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
+					</div>
 				</section>
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">

@@ -1,6 +1,22 @@
 <?php
 
 class indexConection extends DB{
+
+	public function autenticarUsuario($Usuario,$Clave){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" select * from USUARIO_SISTEMA WHERE NOMBRE_USUARIO= ? AND CLAVE= ?");
+			$query->bindParam(1,$Usuario, PDO::PARAM_STR);
+			$query->bindParam(2,$Clave, PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
  // ********************************** CONSULTAS MODULO ADMINISTRADOR ************************************************************//
  // ------------------------------- CONSULTAS PARA DATOS DE LOS CLIENTES ---------------------------------------------------//
 	// Obtener todos los clientes de la Base de datos
@@ -285,6 +301,35 @@ class indexConection extends DB{
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_OBJ);
 		}catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+	// Editar paquete
+	public function editPaquete( $Id_pedido, $Estado){
+
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_ACTUALIZAR_PEDIDO( ?, ?);");
+			//CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
+			$query->bindParam(1,$Id_pedido,PDO::PARAM_INT);
+			$query->bindParam(2,$Estado,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+	//Obtener estado de los pedidos
+	public function getEstadoPedido(){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" CALL PR_ESTADO_PEDIDO()");
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
 			die('Error: '.$e->getMessage());
 			echo 'Linea: '.$e->getLine();
 		}

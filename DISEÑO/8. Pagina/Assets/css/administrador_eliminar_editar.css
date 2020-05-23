@@ -1,0 +1,95 @@
+#eliminar{
+	width: 40%; 
+	margin: 5% auto;
+	padding: 0;
+	text-align: left;
+}
+
+#eliminar2{
+	width: 60%;
+	margin: 5% auto;
+	padding: 0;
+	text-align: center; 
+}
+
+input{
+	background: gray;
+	text-align: center;
+}
+label,input{
+	width: 100%;
+}
+
+.rojo{
+	color: red!important;
+	border-color: red!important;
+}
+.rojo:hover{
+	color: white!important;
+	border-color: red!important;
+	background: red;
+}
+
+.azul{
+	color: blue!important;
+	border-color: blue!important;
+}
+.azul:hover{
+	color: white!important;
+	border-color: blue!important;
+	background: blue;
+}
+.verde{
+	color: green!important;
+	border-color: green!important;
+}
+.verde:hover{
+	color: white!important;
+	border-color: green!important;
+	background: green;
+}
+
+.margen-abajo{
+	margin-bottom: 5%;
+}
+
+::placeholder { color: white; }
+
+.sombra{
+	box-shadow: -5px -5px 30px 5px pink, 5px 5px 30px 5px pink;
+	border: 3px solid;
+	padding: 5%;
+}
+select{
+	width: 100%;
+	text-align-last: center;
+}
+#ver-cargo:hover{
+	cursor: no-drop;
+}
+
+/* Inicio estilos formularios*/
+#section_forms{
+	width: 50%;
+	margin: 5% auto;
+	padding: 2% 5% 2% 5%;
+    background: linear-gradient(to right, rgb(245, 240, 240), pink);
+    border: 2px solid;
+    border-radius: 20px;
+}
+#tituloCrearUsuario{
+	margin-bottom: 6%;
+}
+#botonCrearUsuario,
+#botonNoCrearUsuario{
+	margin-top: 5%;
+}
+#contenedorFormularioVerUsuario input,
+#contenedorFormularioVerEmpleado input,
+#contenedorFormularioVerEmpleado select{
+	background: #fff;
+}
+#contenedorFormularioVerUsuario .form-control:disabled{
+	cursor: auto;
+}
+/* Fin estilos formularios*/

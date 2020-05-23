@@ -21,10 +21,17 @@
 		<?php 
 
 			if (isset($user)) {
-				if($user->ROL=="Cliente"){
-					echo "Eliminaste el usuario: <br><br>".$user->RESPUESTA_MODAL." ".$user->PRIMER_NOMBRE." ".$user->SEGUNDO_NOMBRE." ".$user->PRIMER_APELLIDO." ".$user->SEGUNDO_APELLIDO;
+				$Respuesta_modal = substr($user->RESPUESTA_MODAL, 0,9);
+				$ValorId		 = substr($user->RESPUESTA_MODAL, 9);
+
+				if($Respuesta_modal=="Cliente -"){
+					echo "Eliminaste el usuario: <br><br>".$ValorId." ".$user->DESCRIPCION_MODAL;
+				}else if($Respuesta_modal=="Empleado"){
+					echo "Eliminaste el empleado: <br><br>".$ValorId." - ".$user->DESCRIPCION_MODAL;
+				}else if($Respuesta_modal == 'Pedido  -'){
+					echo "Actualizaste el pedido: <br><br>".$ValorId." del cliente ".$user->DESCRIPCION_MODAL;
 				}else{
-					echo "Eliminaste el empleado: <br><br>".$user->RESPUESTA_MODAL." - ".$user->PRIMER_NOMBRE." ".$user->SEGUNDO_NOMBRE." ".$user->PRIMER_APELLIDO." ".$user->SEGUNDO_APELLIDO;
+					echo "Respuesta no controlada";
 				}
 
 			}else{
