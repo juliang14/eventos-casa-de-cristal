@@ -116,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<table id="tabla_empleados" class="display responsive nowrap">
+					<table id="tabla_empleados" class="display responsive nowrap tabla-jquery">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
@@ -146,11 +146,11 @@
 		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
 		                            <td>
 		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
 		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
 		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>"-->

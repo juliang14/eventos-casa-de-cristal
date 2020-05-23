@@ -10,10 +10,8 @@ main h1{
 	padding-bottom: 2%;
 }
 
-#cajon{
+.cajon{
 	border-top: solid 10px gray;
-	margin: 0;
-	padding: 3%;
 }
 #parte{
  	margin-top: 2%;
@@ -53,4 +51,46 @@ main h1{
 	background: #1D31E1FF;
 	border-color: #1D31E1FF;
 	width: 100%;
+}
+
+.seccionVerFactura{
+		padding: 5%;
+}
+.contenedorVerFactura{
+	background: pink;
+}
+.logo_factura{
+	width: 200px;
+    border-radius: 35px;
+}
+#columna-2 input{
+	width: 100%;
+}
+.body-factura,
+.body-datos-factura{
+	background: #fff;
+	border-radius: 20px;
+}
+#columna-1 i{
+	font-size: 25px;
+}
+#tabla_factura{
+	margin: 0;
+	width: 100%;
+}
+.spacio-vacio{
+	padding: 5%;
+}
+.fin-body-factura{
+	border-top: 2px solid;
+}
+#body_tabla_factura tr{
+	border-bottom: 2px dotted;
+}
+.boton_desabilitado{
+	background: white;
+    color: black;
+	border: 0;
+	border-radius: 20px;
+	padding-left: 20px;
 }

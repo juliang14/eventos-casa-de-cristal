@@ -188,6 +188,10 @@ class IndexHomeController extends indexConection{
 	public function administradorFacturaEliminar(){
 		require_once('views/administrador/administrador_factura_eliminar.php');
 	}
+	//Pagina administrador factura ver
+	public function administradorFacturaVer(){
+		require_once('views/administrador/administrador_factura_ver.php');
+	}
 	//Pagina administrador inventarios
 	public function administradorInventarios(){
 		require_once('views/administrador/administrador_inventarios.php');

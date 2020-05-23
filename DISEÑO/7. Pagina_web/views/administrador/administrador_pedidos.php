@@ -116,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<table id="tabla_pedidos" class="display responsive nowrap">
+					<table id="tabla_pedidos" class="display responsive nowrap tabla-jquery">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
@@ -149,16 +149,16 @@
 		                            <td><?php echo $responseGetPedidos->VALOR_TOTAL ?></td>
 		                            <td><?php echo $responseGetPedidos->ESTADO ?></td>
 		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>">
-		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
+		                            	<a href="?class=IndexHome&method=administradorFacturaVer&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>&ID_PAQUETE=<?php echo $responseGetPedidos->ID_PAQUETE ?>">
+		                            		<i class="fas fa-info color_orange" title="Ver pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
+		                            	<a href="?class=IndexHome&method=administradorFacturaEditar&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>&ID_PAQUETE=<?php echo $responseGetPedidos->ID_PAQUETE ?>">
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
 		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado <?php echo $responseGetPedidos->ID_PEDIDO ?>" data-control-user=<?php echo $responseGetPedidos->ID_PEDIDO ?>></i>
+		                            	<!--i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>" data-control-user=<?php echo $responseGetPedidos->ID_PEDIDO ?>></i-->
 		                            	<!--/a-->
 		                            </td>
 		                        </tr>

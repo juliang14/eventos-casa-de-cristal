@@ -129,63 +129,7 @@ var generales = {
   cargarDataTable: function(){    
       //$('#table-Fac').DataTable();
       //$('#tabla-facturas').DataTable();
-      $('#tabla_clientes').DataTable({
-          "language":{
-          "empyTable":  "<i>No hay datos disponibles en la tabla.</i>",
-          "info":  "Del _START_ al _END_ de _TOTAL_ ",
-          "infoEmpty": "Mostrando 0 registros de un total de 0.",
-          "infoFiltered":  "(filtrados de un total de _MAX_ registros)",
-          "infoPostFix":  "(actualizados)",
-          "lengthMenu":  "Mostrar _MENU_ registros",
-          "loadingRecords":  "Cargando...",
-          "processing":  "Procesando...",
-          "search":  "<span style='font-size:15px;'>Buscar:</span>",
-          "searchPlaceholder":  "Dato para buscar",
-          "zeroRecords":  "No se han encontrado registros",
-          "paginate": { 
-            "first":  "Primera",
-            "last":  "Última",
-            "next":  "Siguiente", 
-            "previous":  "Anterior"
-          },
-          "aria":  {
-            "sortAscending":  "Ordenación ascendente",
-            "sortDescending":  "Ordenación descendente"
-          }
-        },
-        "lengthMenu": [[5, 10, 20, 50],[5, 10, 20, 50,"Todos"]],
-        "iDisplayLenght": 5,
-
-      });
-      $('#tabla_empleados').DataTable({
-          "language":{
-          "empyTable":  "<i>No hay datos disponibles en la tabla.</i>",
-          "info":  "Del _START_ al _END_ de _TOTAL_ ",
-          "infoEmpty": "Mostrando 0 registros de un total de 0.",
-          "infoFiltered":  "(filtrados de un total de _MAX_ registros)",
-          "infoPostFix":  "(actualizados)",
-          "lengthMenu":  "Mostrar _MENU_ registros",
-          "loadingRecords":  "Cargando...",
-          "processing":  "Procesando...",
-          "search":  "<span style='font-size:15px;'>Buscar:</span>",
-          "searchPlaceholder":  "Dato para buscar",
-          "zeroRecords":  "No se han encontrado registros",
-          "paginate": { 
-            "first":  "Primera",
-            "last":  "Última",
-            "next":  "Siguiente", 
-            "previous":  "Anterior"
-          },
-          "aria":  {
-            "sortAscending":  "Ordenación ascendente",
-            "sortDescending":  "Ordenación descendente"
-          }
-        },
-        "lengthMenu": [[5, 10, 20, 50],[5, 10, 20, 50,"Todos"]],
-        "iDisplayLenght": 5,
-
-      });
-      $('#tabla_pedidos').DataTable({
+      $('.tabla-jquery').DataTable({
           "language":{
           "empyTable":  "<i>No hay datos disponibles en la tabla.</i>",
           "info":  "Del _START_ al _END_ de _TOTAL_ ",

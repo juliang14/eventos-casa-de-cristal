@@ -214,52 +214,61 @@ values
 (7,	2),
 (7,	3),
 (7,	4),
-(7,	5);
+(7,	5),
+(1,	6),
+(2,	6),
+(3,	6),
+(4,	6),
+(5,	6),
+(6,	6),
+(7,	6);
 -- -------------------------------------------------------------------------
 insert into Estado_pedido( Id_estadopedido, estado)
 values
 (1, 'Por realizar'),
-(2, 'Realizado')
+(2, 'Realizado'),
+(3, 'Cancelado')
 ;
 
 -- -------------------------------------------------------------------------
-insert into Pedido(Id_pedido, Paquete_Idpaquete, UsuarioId_usuario, EstadopedidoId_estadopedido)
+insert into Factura(Id_factura, Valor_sin_iva, Iva, Valor_Total, Tipo_de_factura, Descripcion_factura)
 values 
-(1,		6,	6,	1),
-(2,		5,	5,	1),
-(3,		4,	4,	1),
-(4,		3,	3,	1),
-(5,		2,	2,	1),
-(6,		1,	1,	1),
-(7,		2,	6,	1),
-(8,		3,	7,	1),
-(9,		4,	8,	1),
-(10,	5,	9,	1),
-(11,	6,	10,	1),
-(12,	5,	11,	1),
-(13,	4,	12,	1),
-(14,	3,	13,	1),
-(15,	2,	14,	1),
-(16,	1,	15,	1);
+(1,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado'),
+(2,		4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años'),
+(3,		2000000,	2000000/0.19,	210526,	'fisica',		'evento_primera_comunion'),
+(4,		1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo'),
+(5,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_despedida_de_soltero'),
+(6,		6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio'),
+(7,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado'),
+(8,		4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años'),
+(9,		6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio'),
+(10,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo'),
+(11,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo'),
+(12,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo'),
+(13,	4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años'),
+(14,	3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado'),
+(15,	6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio'),
+(16,	6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio');
 
 -- -------------------------------------------------------------------------
-insert into Factura(Id_factura, Valor_sin_iva, Iva, Valor_Total, Tipo_de_factura, Descripcion_factura, PedidoId_pedido)
+insert into Pedido(Id_pedido, Fecha_pedido, Paquete_Idpaquete, UsuarioId_usuario, EstadopedidoId_estadopedido, FacturaId_factura)
 values 
-(1,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado',					1),
-(2,		4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años',				2),
-(3,		2000000,	2000000/0.19,	210526,	'fisica',		'evento_primera_comunion',		3),
-(4,		1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo',				4),
-(5,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_despedida_de_soltero',	6),
-(6,		6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio',			7),
-(7,		3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado',					8),
-(8,		4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años',				9),
-(9,		6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio',			10),
-(10,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo',				11),
-(11,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo',				12),
-(12,	1000000,	1000000/0.19,	15263,	'electronica',	'evento_Bautizo',				13),
-(13,	4000000,	4000000/0.19,	421052,	'electronica',	'evento_15_años',				14),
-(14,	3000000,	3000000/0.19,	315789,	'fisica',		'evento_Grado',					15),
-(15,	6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio',			16);
+(1,		sysdate(),		6,	6,	1,	1),
+(2,		sysdate(),		5,	5,	1,	2),
+(3,		sysdate(),		4,	4,	1,	3),
+(4,		sysdate(),		3,	3,	1,	4),
+(5,		sysdate(),		2,	2,	1,	5),
+(6,		sysdate(),		1,	1,	1,	6),
+(7,		sysdate(),		2,	6,	1,	7),
+(8,		sysdate(),		3,	7,	1,	8),
+(9,		sysdate(),		4,	8,	1,	9),
+(10,	sysdate(),		5,	9,	1,	10),
+(11,	sysdate(),		6,	10,	1,	11),
+(12,	sysdate(),		5,	11,	1,	12),
+(13,	sysdate(),		4,	12,	1,	13),
+(14,	sysdate(),		3,	13,	1,	14),
+(15,	sysdate(),		2,	14,	1,	15),
+(16,	sysdate(),		1,	15,	1,	16);
 
 -- -------------------------------------------------------------------------
 

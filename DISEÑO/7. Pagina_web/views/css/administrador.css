@@ -208,6 +208,7 @@ tbody img{
 .rojo{
 	color: red!important;
 	border-color: red!important;
+  width: 150px;
 }
 .rojo:hover{
 	color: white!important;
@@ -218,6 +219,7 @@ tbody img{
 .azul{
 	color: blue!important;
 	border-color: blue!important;
+  width: 150px;
 }
 .azul:hover{
 	color: white!important;

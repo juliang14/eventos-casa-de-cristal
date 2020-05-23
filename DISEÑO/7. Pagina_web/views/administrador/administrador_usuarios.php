@@ -116,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<table id="tabla_clientes" class="display responsive nowrap">
+					<table id="tabla_clientes" class="display responsive nowrap tabla-jquery">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>

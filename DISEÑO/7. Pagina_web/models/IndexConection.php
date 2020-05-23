@@ -246,7 +246,9 @@ class indexConection extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
-	// Obtener todos los empleados de la Base de datos
+// ------------------------------- FIN CONSULTAS PARA DATOS DE LOS EMPLEADOS ---------------------------------------------------//
+// ------------------------------- INICIO CONSULTAS PARA DATOS DE LOS PEDIDOS ---------------------------------------------------//
+	// Obtener todos los pedidos de la Base de datos
 	public function getPedidos(){
 		try {
 			//Preparar la comsulta que se va a realizar
@@ -259,8 +261,36 @@ class indexConection extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	// Obtener pedido
+	public function getPedido($Id_pedido){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_PEDIDOS WHERE ID_PEDIDO=?");
+			$query->bindParam(1,$Id_pedido,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		}catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+	// Obtener paquete
+	public function getPaquete($Id_paquete){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_PAQUETE WHERE ID_PAQUETE=?");
+			$query->bindParam(1,$Id_paquete,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
+		}catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 
-// ------------------------------- FIN CONSULTAS PARA DATOS DE LOS EMPLEADOS ---------------------------------------------------//
+// ------------------------------- FIN CONSULTAS PARA DATOS DE LOS PEDIDOS ---------------------------------------------------//
  // ********************************** FIN CONSULTAS MODULO ADMINISTRADOR ************************************************************//
 
 

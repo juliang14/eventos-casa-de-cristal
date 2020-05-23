@@ -5,6 +5,7 @@ use eventos_casa_de_cristal;
 SELECT * FROM CARGO;
 SELECT * FROM EMPLEADO;
 SELECT * FROM EMPLEADO_TURNO;
+SELECT * FROM ESTADO_PEDIDO;
 SELECT * FROM EVENTO;
 SELECT * FROM FACTURA;
 SELECT * FROM INVENTARIO;
@@ -16,7 +17,7 @@ SELECT * FROM PEDIDO;
 SELECT * FROM ROL;
 select * from SERVIDOR_DE_CORREO;
 select * from TIPO_DOCUMENTO;
-select * from TIPO__DE_PAGO;
+select * from TIPOS_DE_PAGO;
 SELECT * FROM TURNO;
 select * from USUARIO;
 select * from USUARIO_LOG;
@@ -31,6 +32,8 @@ select * from VW_REPORTE_VENTAS;
 SELECT * FROM VW_VER_USUARIOS;
 SELECT * FROM VW_VER_EMPLEADOS;
 SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN;
+SELECT * FROM VW_VER_PEDIDOS;
+SELECT * FROM VW_VER_PAQUETE;
 
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
 CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles
@@ -45,6 +48,7 @@ CALL PR_ACTUALIZAR_USUARIO( 1,'KAROL', '', 'gomez', 'avila', 'NIT', 1015452884, 
 CALL PR_CREAR_EMPLEADO( 'KAROL', '', 'gomez', 'avila', 1, 1015452884, 25, 3108023148, 'carrera 94', 'KAROL887@misena.edu.co','2');  -- <--crear empleados desde aqui
 CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'DJ', 25, 3108023148, 'carrera 94', 'KAROL887@MISENA.EDU.CO','ADMINISTRADOR');  -- <--Actualizar usuarios desde aqui
 CALL PR_ELIMINAR_EMPLEADO(2);-- Elimina el registro del empleado
+CALL PR_VER_PEDIDOS(); -- Ver pedidos
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

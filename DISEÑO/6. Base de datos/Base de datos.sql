@@ -85,9 +85,11 @@ primary key (Id_estadopedido)
 
 create table Pedido(
 Id_pedido 							int 	(10) auto_increment not null,
+Fecha_pedido						date		 not null,
 Paquete_Idpaquete					int 	(10) not null,
 UsuarioId_usuario 					int		(10) not null,
 EstadopedidoId_estadopedido			int		(10) not null,
+FacturaId_factura					int		(10) not null,
 primary key (Id_pedido)
 );
 
@@ -121,7 +123,6 @@ Iva									int		(10) not null,
 Valor_Total							int		(10) not null,
 Tipo_de_factura	 					varchar	(15) not null,
 Descripcion_factura					varchar	(50) not null,
-PedidoId_pedido						int		(10) not null,
 primary key (Id_factura)
 );
 
@@ -233,9 +234,9 @@ ADD PRIMARY KEY (`EmpleadoId_empleado`, `TurnoId_turno`)
 
 
 
-ALTER TABLE factura
-ADD FOREIGN KEY (PedidoId_pedido)
-REFERENCES Pedido(Id_pedido);
+ALTER TABLE pedido
+ADD FOREIGN KEY (facturaId_factura)
+REFERENCES factura(Id_factura);
 
 
 
