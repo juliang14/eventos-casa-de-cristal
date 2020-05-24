@@ -1,13 +1,11 @@
 <?php
 
-   define('APP_URL','http://localhost/proyecto-eventos-casa-de-cristal-1/DISE%C3%91O/nuevoproyecto/');
+   //define('APP_URL','http://localhost/proyecto-eventos-casa-de-cristal-1/DISEÑO/8.%20Pagina/');
 
    //llamar Conexion BD
-   /*require_once('models/Database/DB.php');
-   require_once('models/IndexConection.php');
-
+   require_once('models/DataBase/DB.php');
    require_once('models/Security.php');
-   require_once('models/UserSesion.php');*/
+
 
    /*-----------------------------------------------------*/
 
