@@ -1,4 +1,71 @@
-<main>
+<html>
+<head>
+	<title>
+		Administrador empleados
+	</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="Assets/img/icon.ico" />
+
+	<!--link rel="stylesheet" type="text/css" href="Assets/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="Assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/acercadenosotros.css">
+
+</head>
+<body>
+	<div class="center">
+		<div class="container-fluid" id="pag">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="col-lg-2" STYLE="">
+								<a href="?class=administrador&method=index">
+									<IMG SRC="Assets/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								</a>
+							</div>
+
+							<div class="col-lg-10" STYLE="background-color: WHITE;">
+								<div class="row" id="busc">
+									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
+									</div>
+									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
+										<div class="input-group" id="bus">
+											<input type="text" class="form-control" placeholder="BUSCADOR">
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" type="button">IR</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1" id="inicio-personal">
+
+									</div>
+									<div class="col-lg-4" id="inicio-usuarios">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
+											<p><?php echo $_SESSION['UserAutenticate']->NOMBRE; ?></p>
+											<img src="Assets/img/silueta-de-multiplesusuarios.png">
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
+											<p>cerrar sesion</p>
+											<label class="switch">
+												<input type="checkbox" onclick="cerrarSesion();">
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<main>
 				<!-----------------------   INICIO MODAL  ------------------------------------>
 				<!-- Button trigger modal -->
 				<!--
@@ -40,7 +107,7 @@
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							</div>
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-								<a href="?class=IndexHome&method=administradorEmpleadosCrear">
+								<a href="?class=empleado&method=empleadoCrear">
 									<button type="button" class="btn btn-success">
 										Crear empleado <i class="fas fa-plus-circle"></i>
 									</button>
@@ -65,371 +132,34 @@
 		                    </tr>
 						</thead>
 						<tbody id="body_tabla_clientes">  
-												                       
+							<?php   foreach (parent::getEmpleados() as $responseGetClientes){ ?>
+					                       
 		                        <tr>
-		                        	<td>1</td>
-		                            <td>Maria Mireya</td>
-		                            <td>Acevedo Manríquez</td>
-		                            <td>CC-1354689712</td>
-		                            <td>3157845689</td>
-		                            <td>Empleado</td>		
-		                            <td>Mesero</td>					                            
-		                            <td>AcevedoMM</td>
-		                            <td>AcevedoMM</td>
+		                        	<td><?php echo $responseGetClientes->ID_EMPLEADO ?></td>
+		                            <td><?php echo $responseGetClientes->NOMBRES ?></td>
+		                            <td><?php echo $responseGetClientes->APELLIDOS ?></td>
+		                            <td><?php echo $responseGetClientes->DOCUMENTO ?></td>
+		                            <td><?php echo $responseGetClientes->TELEFONO ?></td>
+		                            <td><?php echo $responseGetClientes->ROL ?></td>		
+		                            <td><?php echo $responseGetClientes->CARGO ?></td>					                            
+		                            <td><?php echo $responseGetClientes->USUARIO_SISTEMA ?></td>
+		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
 		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=1">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 1"></i>
+		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
+		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=1">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 1"></i>
+		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=1"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 1" data-control-user=1></i>
+		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>"-->
+		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>" data-control-user=<?php echo $responseGetClientes->ID_EMPLEADO ?>></i>
 		                            	<!--/a-->
 		                            </td>
 		                        </tr>
 					            
-					        					                       
-		                        <tr>
-		                        	<td>2</td>
-		                            <td>Enrique </td>
-		                            <td>Acevedo Mejia</td>
-		                            <td>CC-1512365874</td>
-		                            <td>1023856989</td>
-		                            <td>Empleado</td>		
-		                            <td>Mesero</td>					                            
-		                            <td>Mejia14</td>
-		                            <td>Mejia14</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=2">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 2"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=2">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 2"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=2"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 2" data-control-user=2></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>3</td>
-		                            <td>Carolina </td>
-		                            <td>Acevedo Ruiz</td>
-		                            <td>CC-1265328496</td>
-		                            <td>3198745289</td>
-		                            <td>Empleado</td>		
-		                            <td>Cocinero</td>					                            
-		                            <td>CarolinaRui</td>
-		                            <td>CarolinaRui</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=3">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 3"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=3">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 3"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=3"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 3" data-control-user=3></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>4</td>
-		                            <td>Tomas Jose</td>
-		                            <td>Acosta Canto</td>
-		                            <td>CC-745368791</td>
-		                            <td>3125698745</td>
-		                            <td>Empleado</td>		
-		                            <td>Presidente</td>					                            
-		                            <td>tomas59jose</td>
-		                            <td>tomas59jose</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=4">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 4"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=4">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 4"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=4"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 4" data-control-user=4></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>5</td>
-		                            <td>Celina </td>
-		                            <td>Acosta Gomez</td>
-		                            <td>CC-102356833</td>
-		                            <td>312568974</td>
-		                            <td>Empleado</td>		
-		                            <td>Organizador</td>					                            
-		                            <td>celina1111</td>
-		                            <td>celina1111</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=5">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 5"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=5">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 5"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=5"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 5" data-control-user=5></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>6</td>
-		                            <td>Irma </td>
-		                            <td>Aguilar Dorantes</td>
-		                            <td>CC-1027520041</td>
-		                            <td>3102589663</td>
-		                            <td>Empleado</td>		
-		                            <td>Organizador</td>					                            
-		                            <td>irma788</td>
-		                            <td>irma788</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=6">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 6"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=6">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 6"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=6"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 6" data-control-user=6></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>7</td>
-		                            <td>Maria celia</td>
-		                            <td>Aguilar Lemus</td>
-		                            <td>CC-1253458963</td>
-		                            <td>3215896259</td>
-		                            <td>Empleado</td>		
-		                            <td>Dj</td>					                            
-		                            <td>maria12</td>
-		                            <td>maria12</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=7">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 7"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=7">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 7"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=7"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 7" data-control-user=7></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>8</td>
-		                            <td>Marcela </td>
-		                            <td>Aguilar Loranca</td>
-		                            <td>CC-1065320855</td>
-		                            <td>34589654878</td>
-		                            <td>Empleado</td>		
-		                            <td>Dj</td>					                            
-		                            <td>marcelaaguil89</td>
-		                            <td>marcelaaguil89</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=8">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 8"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=8">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 8"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=8"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 8" data-control-user=8></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>9</td>
-		                            <td>Pascual Gerardo</td>
-		                            <td>Alonso Ibarra</td>
-		                            <td>CC-847982549</td>
-		                            <td>3215896258</td>
-		                            <td>Empleado</td>		
-		                            <td>Cocinero</td>					                            
-		                            <td>mendoza56</td>
-		                            <td>mendoza56</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=9">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 9"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=9">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 9"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=9"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 9" data-control-user=9></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>10</td>
-		                            <td>Oscar </td>
-		                            <td>Alvarado Mendoza</td>
-		                            <td>CC-1352087496</td>
-		                            <td>3256985689</td>
-		                            <td>Empleado</td>		
-		                            <td>Organizador</td>					                            
-		                            <td>felipe7</td>
-		                            <td>felipe7</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=10">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 10"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=10">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 10"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=10"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 10" data-control-user=10></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>11</td>
-		                            <td>Felipe </td>
-		                            <td>Alvarez Medellin</td>
-		                            <td>CC-1166335508</td>
-		                            <td>3102568994</td>
-		                            <td>Empleado</td>		
-		                            <td>Animador</td>					                            
-		                            <td>pascualger</td>
-		                            <td>pascualger</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=11">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 11"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=11">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 11"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=11"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 11" data-control-user=11></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>12</td>
-		                            <td>Oscar </td>
-		                            <td>Alvarado Mendoza</td>
-		                            <td>CC-1299852490</td>
-		                            <td>3105895214</td>
-		                            <td>Empleado</td>		
-		                            <td>Director_de_Marketing</td>					                            
-		                            <td>osalvarado65</td>
-		                            <td>osalvarado65</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=12">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 12"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=12">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 12"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=12"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 12" data-control-user=12></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>13</td>
-		                            <td>Gustavo </td>
-		                            <td>Aquiles Caigo</td>
-		                            <td>CC-1015879623</td>
-		                            <td>3125689586</td>
-		                            <td>Administrador</td>		
-		                            <td>Fotografos</td>					                            
-		                            <td>gustavo26</td>
-		                            <td>gustavo26</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=13">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 13"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=13">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 13"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=13"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 13" data-control-user=13></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					        					                       
-		                        <tr>
-		                        	<td>14</td>
-		                            <td>Socorro </td>
-		                            <td>Arias Rodríguez</td>
-		                            <td>CC-1004876948</td>
-		                            <td>3112589632</td>
-		                            <td>Administrador</td>		
-		                            <td>Mesero</td>					                            
-		                            <td>socorroar12</td>
-		                            <td>socorroar12</td>
-		                            <td>
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosVer&ID_EMPLEADO=14">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado 14"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<a href="?class=IndexHome&method=administradorEmpleadosEditar&ID_EMPLEADO=14">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado 14"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<!--a href="?class=IndexHome&method=deleteUsuario&ID_EMPLEADO=14"-->
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado 14" data-control-user=14></i>
-		                            	<!--/a-->
-		                            </td>
-		                        </tr>
-					            
-					                     
+					        <?php   } ?>             
 						</tbody>
 					</table>
 				</section>
@@ -437,16 +167,26 @@
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-							<img src="views/img/izquierda.png">
+							<img src="Assets/img/izquierda.png">
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
-							<a href="?class=IndexHome&method=administrador">
-								<img src="views/img/casa.png">
+							<a href="?class=administrador&method=index">
+								<img src="Assets/img/casa.png">
 							</a>
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
-							<img src="views/img/derecha.png">
+							<img src="Assets/img/derecha.png">
 						</div>
 					</div>
 				</div>
 			</main>
+		</div>
+	</div>
+	<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/js/generales.js"></script>
+</body>
+</html>

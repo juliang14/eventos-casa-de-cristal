@@ -55,12 +55,12 @@ function redirectPageController(page){
 
 
 function cerrarSesion(){
-  location.href="?class=IndexHome&method=index"
+  location.href="?class=Security&method=closeSesion"
 }
 
 /* INICIO REDIRECCION BOTONES MENU INICIO ADMINISTRADOR */
 $('#num-empleados').click(function(){
-    window.location.href="?class=IndexHome&method=administradorEmpleados";
+    window.location.href="?class=Empleado&method=Index";
 });
 $('#num-usuarios').click(function(){
     window.location.href="?class=IndexHome&method=administradorUsuarios";

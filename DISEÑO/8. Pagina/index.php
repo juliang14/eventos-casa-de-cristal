@@ -2,9 +2,19 @@
 
    //define('APP_URL','http://localhost/proyecto-eventos-casa-de-cristal-1/DISEÑO/8.%20Pagina/');
 
-   //llamar Conexion BD
+
+   session_start();
+
+   //llamar modelos
    require_once('models/DataBase/DB.php');
    require_once('models/Security.php');
+   require_once('models/Administrador.php');
+   require_once('models/TipoDocumento.php');
+   require_once('models/Cargo.php');
+   require_once('models/Roles.php');
+   require_once('models/Usuario.php');
+   require_once('models/Empleado.php');
+   require_once('models/EmpleadoTurno.php');
 
 
    /*-----------------------------------------------------*/

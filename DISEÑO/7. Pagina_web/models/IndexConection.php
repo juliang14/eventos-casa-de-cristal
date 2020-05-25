@@ -150,7 +150,7 @@ class indexConection extends DB{
 			//ejecutar consulta o sentencia
 			$query->execute();
 			return $query->fetch(PDO::FETCH_OBJ);
-		} catch (Exception $e) {
+		}catch (Exception $e) {
 			die('Error: '.$e->getMessage());
 			echo 'Linea: '.$e->getLine();
 		}

@@ -44,12 +44,12 @@
 										</div>
 									</div>
 									<div class="col-lg-2 esp-bajo" id="inicio-personal">
-										<a href="?class=IndexHome&method=loginEmpleados">
+										<a href="?class=security&method=loginEmpleado">
 											<!--IMG class="img-login" SRC="Assets/img/usuario.png"  title="Login empleado"></IMG-->
 											<i class="fas fa-user"></i>
 										</a>
 
-										<a href="?class=IndexHome&method=loginAdministrador">
+										<a href="?class=security&method=loginAdministrador">
 											<!--IMG class="img-login" SRC="Assets/img/espia.png"  title="Login administrador"-->
 											<i class="fas fa-user-secret"></i>
 										</a>
@@ -58,7 +58,7 @@
 										<a href="?class=security&method=loginUsuario">
 											<button type="button" class="btn btn-primary">Iniciar sesion</button>
 										</a>
-										<a href="?class=IndexHome&method=formularioRegistro">
+										<a href="?class=security&method=formularioRegistro">
 											<button type="button" class="btn btn-primary">Registro</button>
 										</a>
 									</div>

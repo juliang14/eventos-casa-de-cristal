@@ -56,13 +56,15 @@ main{
     width: 40px;
     height: 25px;
 }
-#btn-registrarse input[type='text']{
+#btn-registrarse input[type='submit']{
 	background: white;
 	color: green;
 	border: 2px solid green;
+	width: 250px;
+	margin-top: 5%;
 	cursor: pointer;
 }
-#btn-registrarse input[type='text']:hover{
+#btn-registrarse input[type='submit']:hover{
 	background: green;
 	color: white;
 	border: 2px solid green;

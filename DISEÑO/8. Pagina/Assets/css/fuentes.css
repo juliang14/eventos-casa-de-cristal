@@ -1,0 +1,8 @@
+@font-face{
+	font-family: 'Righteous', cursive;
+	src: url(Assets/Fonts/Righteous-Regular.ttf);
+}
+.main-admin p{
+	font-family: 'Righteous', cursive;
+	font-size: 25px;
+}
