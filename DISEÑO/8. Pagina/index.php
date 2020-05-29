@@ -15,6 +15,11 @@
    require_once('models/Usuario.php');
    require_once('models/Empleado.php');
    require_once('models/EmpleadoTurno.php');
+   require_once('models/Pedidos.php');
+   require_once('models/Facturas.php');
+   require_once('models/Paquetes.php');
+   require_once('models/Eventos.php');
+   require_once('models/EstadoPedido.php');
 
 
    /*-----------------------------------------------------*/

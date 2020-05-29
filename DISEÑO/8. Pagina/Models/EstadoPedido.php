@@ -1,12 +1,12 @@
 <?php
 
-class Eventos extends DB{
+class EstadoPedido extends DB{
 
-    // Obtener todos los clientes de la Base de datos
-	public function getEventos(){
+   //Obtener estado de los pedidos
+	public function getEstadoPedido(){
 		try {
 			//Preparar la comsulta que se va a realizar
-			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_EVENTOS");
+			$query = parent::conectDatabase()->prepare(" CALL PR_ESTADO_PEDIDO()");
 			//ejecutar consulta o sentencia
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_OBJ);

@@ -5,16 +5,16 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="views/img/icon.ico" />
+	<link rel="shortcut icon" href="Assets/img/icon.ico" />
 
-	<!--link rel="stylesheet" type="text/css" href="views/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
-	<link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" type="text/css" href="views/Utilitarios/css/responsive.dataTables.min.css">
-	<link rel="stylesheet" type="text/css" href="views/Utilitarios/fontawesome-5.13.0/css/all.css">
-	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
-	<link rel="stylesheet" type="text/css" href="views/css/administrador.css">
-	<link rel="stylesheet" type="text/css" href="views/css/administrador_eliminar_editar.css">
+	<!--link rel="stylesheet" type="text/css" href="Assets/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<link rel="stylesheet" type="text/css" href="Assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/administrador_eliminar_editar.css">
 
 </head>
 <body>
@@ -26,8 +26,8 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<a href="?class=IndexHome&method=administrador">
-									<IMG SRC="views/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								<a href="?class=administrador&method=index">
+									<IMG SRC="Assets/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 								</a>
 							</div>
 
@@ -48,8 +48,8 @@
 									</div>
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
-											<p>Admin Eventos</p>
-											<img src="views/img/silueta-de-multiplesusuarios.png">
+											<p><?php echo $_SESSION['UserAutenticate']->NOMBRE; ?></p>
+											<img src="Assets/img/silueta-de-multiplesusuarios.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
 											<p>cerrar sesion</p>
@@ -73,7 +73,7 @@
 				<section class="" id="section_forms">
 					<div class="contenedorFormularioVerEmpleado" id="contenedorFormularioVerEmpleado">
 						<h2 class="text-center" id="tituloVerEmpleado">Editar  empleado <?php echo $Response->ID_EMPLEADO ?></h2>
-						<form mane="" action="?class=indexConection&method=updateEmpleado" method="POST">
+						<form mane="" action="?class=empleado&method=updateEmpleado" method="POST">
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ocultar" >
 									<input type="number" class="form-control" name="Id_empleado" id="Id_empleado" value="<?php echo $Response->ID_EMPLEADO ?>">
@@ -98,7 +98,7 @@
 									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
 									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento">
 										<option value="<?php echo $Response->DOCUMENTO ?>"><?php echo $Response->DOCUMENTO ?></option>
-										<?php foreach (parent::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+										<?php foreach (TipoDocumento::getTipoDocumento() as $responseGetTipoDocumento){ ?>
 											<option value="<?php echo $responseGetTipoDocumento->Siglas ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
 										<?php } ?>
 									</select>
@@ -111,7 +111,7 @@
 									<label for="CargoId_cargo">Cargo empleado</label><br>
 									<select class="form-control" name="CargoId_cargo" id="CargoId_cargo">
 										<option value="<?php echo $Response->CARGO ?>"><?php echo $Response->CARGO ?></option>
-										<?php foreach (parent::getCargos() as $responseGetCargos){ ?>
+										<?php foreach (Cargo::getCargos() as $responseGetCargos){ ?>
 											<option value="<?php echo $responseGetCargos->Nombre_de_cargo ?>"><?php echo $responseGetCargos->Nombre_de_cargo ?></option>
 										<?php } ?>
 									</select>
@@ -137,7 +137,7 @@
 									<label for="RolId_rol">Rol empleado</label><br>
 									<select class="form-control" name="RolId_rol" id="RolId_rol">
 										<option value="<?php echo $Response->ROL ?>"><?php echo $Response->ROL ?></option>
-										<?php foreach (parent::getRoles() as $responseGetRolId_rol){ ?>
+										<?php foreach (Roles::getRoles() as $responseGetRolId_rol){ ?>
 											<option value="<?php echo $responseGetRolId_rol->Nombre_rol ?>"><?php echo $responseGetRolId_rol->Nombre_rol ?></option>
 										<?php } ?>
 									</select>
@@ -148,7 +148,7 @@
 							    	</a>
 							    </div>
 							    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-5">
-								    <a href="?class=IndexHome&method=administradorEmpleados" class="btn btn-danger" id="" >Cancelar operacion</a>
+								    <a href="?class=empleado&method=index" class="btn btn-danger" id="" >Cancelar operacion</a>
 							    </div>
 							</div>
 						</form>
@@ -158,13 +158,13 @@
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-							<a href="?class=IndexHome&method=administradorEmpleados">
-							<img src="views/img/izquierda.png">
+							<a href="?class=empleado&method=index">
+							<img src="Assets/img/izquierda.png">
 						</a>
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
-							<a href="?class=IndexHome&method=administrador">
-								<img src="views/img/casa.png">
+							<a href="?class=administrador&method=index">
+								<img src="Assets/img/casa.png">
 							</a>
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -176,11 +176,11 @@
 		</main>
 	</div>
 </div>
-<script type="text/javascript" src="views/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="views/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
-<script type="text/javascript" src="views/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
-<script type="text/javascript" src="views/Utilitarios/Utilitarios/tether.min.js"></script>
-<script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="views/js/generales.js"></script>
+<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
+<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

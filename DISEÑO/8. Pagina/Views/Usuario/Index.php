@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Administrador empleados
+		Administrador suarios
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,7 +82,7 @@
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="generales.refrescarPagina();">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
@@ -97,9 +97,9 @@
 				  </div>
 				</div>
 				<!-----------------------   FIN MODAL  ------------------------------------>
-				<!-----------------------   INICIO TABLA EMPLEADOS  ------------------------------------>
+				<!-----------------------   INICIO TABLA CLIENTES  ------------------------------------>
 				<section id="section_table">
-					<h2>DATOS EMPLEADOS</h2>
+					<h2>DATOS CLIENTES</h2>
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="seccion_boton_crear_usuario">
 						<div class="row">
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -107,53 +107,53 @@
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							</div>
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-								<a href="?class=empleado&method=empleadoCrear">
+								<a href="?class=Usuario&method=usuariosCrear">
 									<button type="button" class="btn btn-success">
-										Crear empleado <i class="fas fa-plus-circle"></i>
+										Crear usuario <i class="fas fa-plus-circle"></i>
 									</button>
 
 								</a>
 							</div>
 						</div>
 					</div>
-					<table id="tabla_empleados" class="display responsive nowrap tabla-jquery">
+					<table id="tabla_clientes" class="display responsive nowrap tabla-jquery">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
 		                        <th>NOMBRES</th>
 		                        <th>APELLIDOS</th>
 		                        <th>DOCUMENTO</th>
+		                        <th>EDAD</th>
 		                        <th>TELEFONO</th>
-		                        <th>ROL</th>
-		                        <th>CARGO</th>							                        
+		                        <th>EMAIL</th>							                        
 		                        <th>USUARIO_SISTEMA</th>
 		                        <th>CLAVE</th>
 		                        <th>ACCION</th>
 		                    </tr>
 						</thead>
 						<tbody id="body_tabla_clientes">  
-							<?php   foreach (parent::getEmpleados() as $responseGetClientes){ ?>
+							<?php   foreach (parent::getClientes() as $responseGetClientes){ ?>
 					                       
 		                        <tr>
-		                        	<td><?php echo $responseGetClientes->ID_EMPLEADO ?></td>
+		                        	<td><?php echo $responseGetClientes->ID_USUARIO ?></td>
 		                            <td><?php echo $responseGetClientes->NOMBRES ?></td>
 		                            <td><?php echo $responseGetClientes->APELLIDOS ?></td>
 		                            <td><?php echo $responseGetClientes->DOCUMENTO ?></td>
+		                            <td><?php echo $responseGetClientes->EDAD ?></td>
 		                            <td><?php echo $responseGetClientes->TELEFONO ?></td>
-		                            <td><?php echo $responseGetClientes->ROL ?></td>		
-		                            <td><?php echo $responseGetClientes->CARGO ?></td>					                            
+		                            <td><?php echo $responseGetClientes->EMAIL ?></td>							                            
 		                            <td><?php echo $responseGetClientes->USUARIO_SISTEMA ?></td>
 		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
 		                            <td>
-		                            	<a href="?class=empleado&method=empleadosVer&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            	<a href="?class=Usuario&method=UsuariosVer&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            		<i class="fas fa-info color_orange" title="Ver usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<a href="?class=empleado&method=empleadosEditar&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            	<a href="?class=Usuario&method=UsuariosEditar&ID_USUARIO=<?php echo $responseGetClientes->ID_USUARIO ?>">
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar usuario <?php echo $responseGetClientes->ID_USUARIO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>" data-control-user=<?php echo $responseGetClientes->ID_EMPLEADO ?>></i>
+		                            	<i class="fas fa-trash-alt color_red btn-borrarUsuario" title="Borrar usuario <?php echo $responseGetClientes->ID_USUARIO ?>" data-control-user=<?php echo $responseGetClientes->ID_USUARIO ?>></i>
 		                            </td>
 		                        </tr>
 					            
@@ -161,7 +161,8 @@
 						</tbody>
 					</table>
 				</section>
-				<!-----------------------   FIN TABLA EMPLEADOS  ------------------------------------>
+				<!-----------------------   FIN TABLA CLIENTES  ------------------------------------>
+
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
@@ -176,7 +177,7 @@
 							<img src="Assets/img/derecha.png">
 						</div>
 					</div>
-				</div>
+				</div>		
 			</main>
 		</div>
 	</div>

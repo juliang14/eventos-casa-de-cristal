@@ -160,6 +160,32 @@ h3{
 	width: 90%;
 }
 
+/*********************** FORMULARIO GENIAL *******************************************/
+
+.formulario-genial{
+	width: 80%;
+	margin: 1% auto 5% auto;
+}
+.formulario-genial .paso{
+	background-color: #80808078;
+    margin: 0;
+    padding: 1%;
+}
+.formulario-genial a{
+	color: #fff!important;
+}
+.formulario-genial a:hover{
+	color: pink!important;
+	background: transparent!important;
+	border-radius: 0;
+}
+.formulario-genial .botonesEventos{
+	flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*************************************************************************************/
 
 /*-------------- RESPONSIVE --------------*/
 

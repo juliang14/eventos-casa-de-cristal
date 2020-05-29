@@ -46,14 +46,37 @@ function modal(){
 function redirectPageController(page){
 
     if (page=='administradorPedidos'){
-      location.href="?class=IndexHome&method=administradorPedidos"
+      location.href="?class=Pedidos&method=Index"
     }else{
       console.log('Pagina no configurada');
     }
 
   }
+// CONTROL FORMULARIO GENIAL //
+$('.formulario_genial').click(function(){
+    var paso = $(this).attr('id');
+    var id_control = $(this).attr('control-paso');
+    var classPaso = $(this).attr('class');
+    var datoSeleccionado = $(this).attr('data-seccion');
 
+    if(id_control=1 && datoSeleccionado =="seleccionEvento"){
+      $("#"+paso).removeClass();
+      $("#"+datoSeleccionado).removeClass();
+      if(classPaso=='fas fa-chevron-down formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-up formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion');
+      }else if(classPaso=='fas fa-chevron-up formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion ocultar');
+      }
+    }
+    
+});
 
+function seleccionarEvento(evento){
+  $('#valorEvento').val(evento);
+}
+//********************************************************************************************** */
 function cerrarSesion(){
   location.href="?class=Security&method=closeSesion"
 }
@@ -63,10 +86,10 @@ $('#num-empleados').click(function(){
     window.location.href="?class=Empleado&method=Index";
 });
 $('#num-usuarios').click(function(){
-    window.location.href="?class=IndexHome&method=administradorUsuarios";
+    window.location.href="?class=Usuario&method=Index";
 });
 $('#num-pedidos').click(function(){
-    window.location.href="?class=IndexHome&method=administradorPedidos";
+    window.location.href="?class=Pedidos&method=Index";
 });
 $('#inventario').click(function(){
     window.location.href="?class=IndexHome&method=administradorInventarios";
@@ -89,7 +112,7 @@ $('.btn-borrarUsuario').click(function(){
 
   $.ajax({
       type: 'GET',
-      url : '?class=IndexHome&method=deleteUsuario',
+      url : '?class=Usuario&method=deleteUsuario',
       data: { userId: id_control},
       success(response){
         $('.modal-body').html(response);
@@ -105,7 +128,7 @@ $('.btn-borrarEmpleado').click(function(){
 
   $.ajax({
       type: 'GET',
-      url : '?class=IndexHome&method=deleteEmpleado',
+      url : '?class=empleado&method=deleteEmpleado',
       data: { userId: id_control},
       success(response){
         $('.modal-body').html(response);
@@ -121,7 +144,7 @@ $('.actualizacion_datos').click(function(){
 
      $.ajax({
         type: 'GET',
-        url : '?class=IndexHome&method=updatePedido',
+        url : '?class=Pedidos&method=updatePedido',
         data: { userId: id_control, userData: actualizarDato},
         success(response){
           $('.modal-body').html(response);

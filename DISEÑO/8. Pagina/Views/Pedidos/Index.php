@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Administrador empleados
+		Administrador pedidos
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<a href="?class=administrador&method=index">
+								<a href="?class=administrador&method=Index">
 									<IMG SRC="Assets/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 								</a>
 							</div>
@@ -97,9 +97,9 @@
 				  </div>
 				</div>
 				<!-----------------------   FIN MODAL  ------------------------------------>
-				<!-----------------------   INICIO TABLA EMPLEADOS  ------------------------------------>
+				<!-----------------------   INICIO TABLA PEDIDOS  ------------------------------------>
 				<section id="section_table">
-					<h2>DATOS EMPLEADOS</h2>
+					<h2>DATOS PEDIDOS</h2>
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="seccion_boton_crear_usuario">
 						<div class="row">
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -107,53 +107,55 @@
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							</div>
 							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-								<a href="?class=empleado&method=empleadoCrear">
+								<a href="?class=Pedidos&method=CrearPedido">
 									<button type="button" class="btn btn-success">
-										Crear empleado <i class="fas fa-plus-circle"></i>
+										Crear pedido <i class="fas fa-plus-circle"></i>
 									</button>
 
 								</a>
 							</div>
 						</div>
 					</div>
-					<table id="tabla_empleados" class="display responsive nowrap tabla-jquery">
+					<table id="tabla_pedidos" class="display responsive nowrap tabla-jquery">
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
 		                        <th>NOMBRES</th>
 		                        <th>APELLIDOS</th>
 		                        <th>DOCUMENTO</th>
-		                        <th>TELEFONO</th>
-		                        <th>ROL</th>
-		                        <th>CARGO</th>							                        
-		                        <th>USUARIO_SISTEMA</th>
-		                        <th>CLAVE</th>
+		                        <th>ID_PAQ</th>
+		                        <th>EVENTO</th>
+		                        <th>PAQUETE</th>							                        
+		                        <th>VALOR_PAQUETE</th>
+		                        <th>IVA</th>
+		                        <th>VALOR_TOTAL</th>
+		                        <th>ESTADO</th>
 		                        <th>ACCION</th>
 		                    </tr>
 						</thead>
 						<tbody id="body_tabla_clientes">  
-							<?php   foreach (parent::getEmpleados() as $responseGetClientes){ ?>
+							<?php   foreach (parent::getPedidos() as $responseGetPedidos){ ?>
 					                       
 		                        <tr>
-		                        	<td><?php echo $responseGetClientes->ID_EMPLEADO ?></td>
-		                            <td><?php echo $responseGetClientes->NOMBRES ?></td>
-		                            <td><?php echo $responseGetClientes->APELLIDOS ?></td>
-		                            <td><?php echo $responseGetClientes->DOCUMENTO ?></td>
-		                            <td><?php echo $responseGetClientes->TELEFONO ?></td>
-		                            <td><?php echo $responseGetClientes->ROL ?></td>		
-		                            <td><?php echo $responseGetClientes->CARGO ?></td>					                            
-		                            <td><?php echo $responseGetClientes->USUARIO_SISTEMA ?></td>
-		                            <td><?php echo $responseGetClientes->CLAVE ?></td>
+		                        	<td><?php echo $responseGetPedidos->ID_PEDIDO ?></td>
+		                            <td><?php echo $responseGetPedidos->NOMBRES ?></td>
+		                            <td><?php echo $responseGetPedidos->APELLIDOS ?></td>
+		                            <td><?php echo $responseGetPedidos->DOCUMENTO ?></td>
+		                            <td><?php echo $responseGetPedidos->ID_PAQUETE ?></td>
+		                            <td><?php echo $responseGetPedidos->EVENTO ?></td>		
+		                            <td><?php echo $responseGetPedidos->PAQUETE ?></td>					                            
+		                            <td><?php echo $responseGetPedidos->VALOR_PAQUETE ?></td>
+		                            <td><?php echo $responseGetPedidos->IVA ?></td>
+		                            <td><?php echo $responseGetPedidos->VALOR_TOTAL ?></td>
+		                            <td><?php echo $responseGetPedidos->ESTADO ?></td>
 		                            <td>
-		                            	<a href="?class=empleado&method=empleadosVer&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            	<a href="?class=Facturas&method=VerFactura&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>&ID_PAQUETE=<?php echo $responseGetPedidos->ID_PAQUETE ?>">
+		                            		<i class="fas fa-info color_orange" title="Ver pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<a href="?class=empleado&method=empleadosEditar&ID_EMPLEADO=<?php echo $responseGetClientes->ID_EMPLEADO ?>">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>"></i>
+		                            	<a href="?class=Facturas&method=EditarFactura&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>&ID_PAQUETE=<?php echo $responseGetPedidos->ID_PAQUETE ?>">
+		                            		<i class="fas fa-pencil-alt color_blue" title="Editar pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
 		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado <?php echo $responseGetClientes->ID_EMPLEADO ?>" data-control-user=<?php echo $responseGetClientes->ID_EMPLEADO ?>></i>
 		                            </td>
 		                        </tr>
 					            
@@ -161,30 +163,29 @@
 						</tbody>
 					</table>
 				</section>
-				<!-----------------------   FIN TABLA EMPLEADOS  ------------------------------------>
-				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<div class="row">
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-							<img src="Assets/img/izquierda.png">
-						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
-							<a href="?class=administrador&method=index">
-								<img src="Assets/img/casa.png">
-							</a>
-						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
-							<img src="Assets/img/derecha.png">
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
+				<!-----------------------   FIN TABLA PEDIDOS  ------------------------------------>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+                        <img src="Assets/img/izquierda.png">
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                        <a href="?class=administrador&method=Index">
+                            <img src="Assets/img/casa.png">
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                        <img src="Assets/img/derecha.png">
+                    </div>
+                </div>
+		</main>
 	</div>
-	<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
-    <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
-	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
-	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="Assets/js/generales.js"></script>
+</div>
+<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
+<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

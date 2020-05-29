@@ -22,6 +22,7 @@ SELECT * FROM TURNO;
 select * from USUARIO;
 select * from USUARIO_LOG;
 select * from USUARIO_SISTEMA;
+update USUARIO_SISTEMA set estado='ACTIVO' WHERE ID_USUARIOSISTEMA >0;
 
 -- VISTAS ----------------------------------------------------------------------------------------------------------------------
 select * from VW_EVENTO_MAS_VENDIDO;
@@ -34,6 +35,7 @@ SELECT * FROM VW_VER_EMPLEADOS;
 SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN;
 SELECT * FROM VW_VER_PEDIDOS;
 SELECT * FROM VW_VER_PAQUETE;
+SELECT * FROM VW_VER_EVENTOS;
 
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
 CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles

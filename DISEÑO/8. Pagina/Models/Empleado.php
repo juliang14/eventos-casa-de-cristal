@@ -72,6 +72,47 @@ class Empleado extends DB{
 		}
 	}
 
+	// Editar empleado
+	public function editEmpleado( $Id_empleado, $Primer_nombre, $Segundo_nombre, $Primer_apellido, $Segundo_apellido, $Tipo_documentoId_documento, $Numero_documento, $CargoId_cargo, $Edad, $Telefono, $Direccion, $Email, $RolId_rol){
+
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_ACTUALIZAR_EMPLEADO( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			//CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'DJ', 25, 3108023148, 'carrera 94', 'KAROL887@MISENA.EDU.CO','ADMINISTRADOR');
+			$query->bindParam(1,$Id_empleado,PDO::PARAM_INT);
+			$query->bindParam(2,$Primer_nombre,PDO::PARAM_STR);
+			$query->bindParam(3,$Segundo_nombre,PDO::PARAM_STR);
+			$query->bindParam(4,$Primer_apellido,PDO::PARAM_STR);
+			$query->bindParam(5,$Segundo_apellido,PDO::PARAM_STR);
+			$query->bindParam(6,$Tipo_documentoId_documento,PDO::PARAM_STR);
+			$query->bindParam(7,$Numero_documento,PDO::PARAM_INT);
+			$query->bindParam(8,$CargoId_cargo,PDO::PARAM_STR);
+			$query->bindParam(9,$Edad,PDO::PARAM_INT);
+			$query->bindParam(10,$Telefono,PDO::PARAM_INT);
+			$query->bindParam(11,$Direccion,PDO::PARAM_STR);
+			$query->bindParam(12,$Email,PDO::PARAM_STR);
+			$query->bindParam(13,$RolId_rol,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+	//Borrar empleado
+	public function borrarEmpleado($Id_empleado){
+		try {
+			$query = parent::conectDatabase()->prepare('CALL PR_ELIMINAR_EMPLEADO(?)');
+			//
+			$query->bindParam(1,$Id_empleado,PDO::PARAM_INT);
+			// Ejecutar sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 
 }
 
