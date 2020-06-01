@@ -93,12 +93,7 @@
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
-									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento"  disabled="disabled">
-										<option><?php echo $Response->DOCUMENTO ?></option>
-										<?php foreach (TipoDocumento::getTipoDocumento() as $responseGetTipoDocumento){ ?>
-											<option value="<?php echo $responseGetTipoDocumento->Id_documento ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
-										<?php } ?>
-									</select>
+									<input type="text" class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento"  disabled="disabled" value="<?php echo $Response->DOCUMENTO ?>"/>
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Numero_documento">Numero de documento</label><br>
@@ -106,12 +101,8 @@
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
 									<label for="CargoId_cargo">Cargo empleado</label><br>
-									<select class="form-control" name="CargoId_cargo" id="CargoId_cargo"  disabled="disabled">
-										<option><?php echo $Response->CARGO ?></option>
-										<?php foreach (Cargo::getCargos() as $responseGetCargos){ ?>
-											<option value="<?php echo $responseGetCargos->Id_cargo ?>"><?php echo $responseGetCargos->Nombre_de_cargo ?></option>
-										<?php } ?>
-									</select>
+									<input type="text" class="form-control" name="CargoId_cargo" id="CargoId_cargo"  disabled="disabled" value="<?php echo $Response->CARGO ?>">
+
 								</div>
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center mt-3" >
 									<label for="Edad">EDAD</label><br>
@@ -132,12 +123,7 @@
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3" >
 									<label for="RolId_rol">Rol empleado</label><br>
-									<select class="form-control" name="RolId_rol" id="RolId_rol"  disabled="disabled">
-										<option><?php echo $Response->ROL ?></option>
-										<?php foreach (Roles::getRoles() as $responseGetRolId_rol){ ?>
-											<option value="<?php echo $responseGetRolId_rol->Id_rol ?>"><?php echo $responseGetRolId_rol->Nombre_rol ?></option>
-										<?php } ?>
-									</select>
+									<input type="text" class="form-control" name="RolId_rol" id="RolId_rol"  disabled="disabled" value="<?php echo $Response->ROL ?>">
 								</div>
 							</div>
 						</form>

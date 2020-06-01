@@ -91,12 +91,12 @@
 								<div class="collapse navbar-collapse" id="navbarNav">
 									<div class="navbar-nav text-center mr-auto ml-auto">
 									<?php foreach(Eventos::getEventos() AS $ResponseGetEventos){ ?>
-										<a class="nav-item nav-link" onClick="seleccionarEvento('<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>');"><?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?> <i class="fas fa-angle-down"></i></a>
+										<a class="nav-item nav-link seleccionarEvento" evento="<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>" idevento="idEvento<?php echo $ResponseGetEventos->ID_EVENTO; ?>"><?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?> <i class="fas fa-angle-down"></i></a>
 									<?php } ?>
 									</div>
 								</div>
 							</nav>
-							<div class="botonesEventos text-center">
+							<div class="botonesEventos text-center ocultar">
 									<input type="text" id="valorEvento" disabled="disabled">
 							</div>
 						</div>
@@ -107,8 +107,39 @@
 								SELECCIONAR PAQUETE
 							</div>
 							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto">
-								<i class="fas fa-chevron-down formulario_genial" control-paso="2" id="p2"></i>
+								<i class="fas fa-chevron-down formulario_genial" data-seccion="seleccionPaquete" control-paso="2" id="p2"></i>
 							</div>
+						</div>
+						<div class="body-seccion" id="seleccionPaquete">
+							<?php foreach(Eventos::getEventos() AS $CantidadEventos){ ?>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar" id="idEvento<?php echo $CantidadEventos->ID_EVENTO; ?>">
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto">
+										<h4>Paquetes <?php echo $CantidadEventos->TIPO_DE_EVENTO; ?></h4>
+									</div>
+									<div class="row">
+										<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
+											<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center m-auto">
+												<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+													<h3 class="font-italic">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
+													<br>
+													<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
+													<br>
+													<h5>NUESTRO PLAN INCLUYE</h5>
+													<br>
+													<ul class="text-muted p-0 mb-4 text-left">
+														<?php foreach(Paquetes::getPaquete($ResponseGetEventoPaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
+															<li><?php echo $ResponseGetPaquete->INVENTARIO; ?></li>
+														<?php } ?>
+													</ul>
+													<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center ml-auto mr-auto mb-1 nombre-paquete">
+														<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>
+														</div>
+												</div>
+											</div>
+										<?php } ?>
+									</div>
+								</div>	
+							<?php } ?>
 						</div>
 					</section>
 				</form>

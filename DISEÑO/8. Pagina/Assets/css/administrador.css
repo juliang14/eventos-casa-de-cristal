@@ -226,6 +226,18 @@ tbody img{
 	border-color: blue!important;
 	background: blue;
 }
+.verde{
+  background-color: #fff;
+  border: 2px solid;
+	color: green!important;
+	border-color: green!important;
+  width: 300px;
+}
+.verde:hover{
+	color: white!important;
+	border-color: green!important;
+	background: green;
+}
 
 /* REPORTES*/
 

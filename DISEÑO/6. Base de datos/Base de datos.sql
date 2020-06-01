@@ -2,70 +2,70 @@ create database eventos_casa_de_cristal;
         use eventos_casa_de_cristal;
 
 create table Tipo_documento(
-Id_documento 						int 	(10) auto_increment not null,
+Id_documento 						int 		 auto_increment not null,
 Siglas 								varchar (10) not null,
 Nombre_tipo_documento 				varchar (50) not null,
 primary key (ID_documento)
 );
 create table Cargo(
-Id_cargo	 						int 	(10) auto_increment not null,
+Id_cargo	 						int 		 auto_increment not null,
 Nombre_de_cargo		 				varchar (30) not null,
 primary key (Id_cargo)
 );
 
 create table Usuario(
-Id_usuario 							int 	(10) auto_increment not null,
+Id_usuario 							int 		 auto_increment not null,
 Primer_nombre 						varchar (40) not null,
 Segundo_nombre 						varchar (40) 	 null,
 Primer_apellido 					varchar (40) not null,
 Segundo_apellido 					varchar (40) 	 null,
-Tipo_documentoId_documento			int		(10) not null,
+Tipo_documentoId_documento			int 		 not null,
 Numero_documento					varchar (20) not null,
-Edad								int 	(5)  not null,
-Telefono							bigint 	(20) not null,
+Edad								int 		 not null,
+Telefono							bigint 		 not null,
 Direccion							varchar (50) not null,
 Email 								varchar (50) not null unique,
-RolId_rol 							int 	(15) not null,
+RolId_rol 							int 		 not null,
 primary key (Id_usuario)
 );
 
 create table Empleado(
-Id_empleado							int 	(10) auto_increment not null,
+Id_empleado							int 		 auto_increment not null,
 Primer_nombre 						varchar (40) not null,
 Segundo_nombre 						varchar (40) 	 null,
 Primer_apellido 					varchar (40) not null,
 Segundo_apellido 					varchar (40) 	 null,
-Tipo_documentoId_documento			int		(10) not null,
+Tipo_documentoId_documento			int 		 not null,
 Numero_documento					varchar (20) not null,
-CargoId_cargo						int		(10) not null,
-Edad								int 	(5)  not null,
-Telefono							bigint 	(20) not null,
+CargoId_cargo						int 		 not null,
+Edad								int 		 not null,
+Telefono							bigint 		 not null,
 Direccion							varchar (50) not null,
 Email 								varchar (50) not null unique,
-RolId_rol 							int 	(15) not null,
+RolId_rol 							int 		 not null,
 primary key (Id_empleado)
 );
 
 create table Rol(
-Id_rol 								int 	(10) auto_increment not null,
+Id_rol 								int 		 auto_increment not null,
 Nombre_rol 							varchar (25) not null,
 primary key (Id_rol)
 );
 
 create table Usuario_sistema(
-Id_Usuariosistema					int 	(10) auto_increment not null,
+Id_Usuariosistema					int 		 auto_increment not null,
 Nombre_usuario 						varchar (15) not null,
 Clave 								varchar (20) not null,
 Avatar                              blob        	 null,
 Estado								varchar (20) not null,
-UsuarioId_usuario 					int 	(15) 	 null,
-EmpleadoId_empleado					int 	(15) 	 null,
+UsuarioId_usuario 					int 		 	 null,
+EmpleadoId_empleado					int 		 	 null,
 primary key (Id_Usuariosistema)
 );
 
 create table Turno(
-Id_turno 							Int 	(10) auto_increment not null,
-Turno 								int 	(10) not null,
+Id_turno 							Int 		 auto_increment not null,
+Turno 								int 		 not null,
 fecha_de_turno						date		 not null,
 Hora_de_turno_inicio				time		 not null,
 Hora_de_turno_fin					time		 not null,
@@ -73,83 +73,92 @@ primary key (Id_turno)
 );
 
 create table Empleado_turno(
-EmpleadoId_empleado					Int 	(10) not null,
-TurnoId_turno		 				int 	(10) not null
+EmpleadoId_empleado					Int 		 not null,
+TurnoId_turno		 				int 		 not null
 );
 
 create table Estado_pedido(
-Id_estadopedido						Int 	(10) auto_increment not null,
+Id_estadopedido						Int 		 auto_increment not null,
 estado				 				varchar	(30) not null,
 primary key (Id_estadopedido)
 );
 
 create table Pedido(
-Id_pedido 							int 	(10) auto_increment not null,
-Fecha_pedido						date		 not null,
-Paquete_Idpaquete					int 	(10) not null,
-UsuarioId_usuario 					int		(10) not null,
-EstadopedidoId_estadopedido			int		(10) not null,
-FacturaId_factura					int		(10) not null,
+Id_pedido 							int 		 auto_increment not null,
+Fecha_pedido						DATETIME	 not null,
+Paquete_Idpaquete					int 		 not null,
+UsuarioId_usuario 					int 		 not null,
+EstadopedidoId_estadopedido			int 		 not null,
+FacturaId_factura					int 		 not null,
 primary key (Id_pedido)
 );
 
 create table Paquete(
-Id_paquete 							int 	(10) auto_increment not null,
-valor_paquete	 					int 	(10) not null,
-valor_iva							int		(10) not null,
-valor_total							int		(10) not null,
+Id_paquete 							int 		 auto_increment not null,
+valor_paquete	 					int 		 not null,
+valor_iva							int 		 not null,
+valor_total							int 		 not null,
 Tipo_de_paquete						varchar (50) not null,
-EventoId_evento 					int		(10) not null,
+Cantidad_Personas					int 		 not null,
+Estado								varchar (30) not null,	
+EventoId_evento 					int 		 not null,
 primary key (Id_paquete)
 );
 
 create table Inventario_paquete(
-InventarioId_inventario				Int 	(10) not null,
-PaqueteId_paquete	 				int 	(10) not null
+InventarioId_inventario				Int 		 not null,
+PaqueteId_paquete	 				int 		 not null,
+cantidad							int 		 not null,
+Valor_sin_iva 						int 		 not null,
+Iva									int 		 not null,
+Valor_Total							int 		 not null
 );
 
 create table Inventario(
-Id_inventario 						int 	(10) auto_increment not null,
+Id_inventario 						int 		 auto_increment not null,
 Inventario		 					varchar	(50) not null,
-Cantidad							int		(10) not null,
+Cantidad							int 		 not null,
+Valor_sin_iva 						int 		 not null,
+Iva									int 		 not null,
+Valor_Total							int 		 not null,
 Categoria							varchar	(30) not null,
 primary key (Id_inventario)
 );
 
 create table Factura(
-Id_factura	 						int 	(10) auto_increment not null,
-Valor_sin_iva 						int 	(10) not null,
-Iva									int		(10) not null,
-Valor_Total							int		(10) not null,
+Id_factura	 						int 		 auto_increment not null,
+Valor_sin_iva 						int 		 not null,
+Iva									int 		 not null,
+Valor_Total							int 		 not null,
 Tipo_de_factura	 					varchar	(15) not null,
 Descripcion_factura					varchar	(50) not null,
 primary key (Id_factura)
 );
 
 create table Evento(
-Id_evento	 						int 	(10) auto_increment not null,
+Id_evento	 						int 		 auto_increment not null,
 Tipo_de_evento	 					varchar	(50) not null,
 primary key (Id_evento)
 );
 
 create table pagos(
-Id_pago								Int (4) 	 auto_increment not null,
-Usuarioid_usuario					Int (4) 	 not null,
-PedidoID_pedido		 				Int (4) 	 not null,
-Tipos_de_pagoId_tipo_pago			Int (4) 	 not null,
+Id_pago								Int 		 auto_increment not null,
+Usuarioid_usuario					Int 		 not null,
+PedidoID_pedido		 				Int 	 	 not null,
+Tipos_de_pagoId_tipo_pago			Int 		 not null,
 primary key (Id_pago)
 );
 
 
 create table Tipos_de_pago(
-id_tipo_pago						Int 	(4)  auto_increment not null,
+id_tipo_pago						Int 		  auto_increment not null,
 nombre_pago			 				varchar (50) not null,
 primary key (id_tipo_pago)
 );
 
 
 create table Log_de_errores(
-Id_error							INT 	(10) auto_increment not null,
+Id_error							INT 		 auto_increment not null,
 Fecha_de_error						date	 	 not null,
 Request								varchar (200)not null,
 Response							varchar	(200)not null,
@@ -158,7 +167,7 @@ primary key (Id_error)
 );
 
 create table Servidor_de_correo(
-Id									INT 	(10) auto_increment not null,
+Id									INT 		 auto_increment not null,
 Fecha_de_registro					date	 	 not null,
 Fecha_de_envio						date	 	 not null,
 Enviado_de							varchar (50) not null,
@@ -302,22 +311,22 @@ old. = valor anterior
 */
 
 create table USUARIO_LOG(
-Id_usuario_log 						int 	(10) auto_increment not null,
+Id_usuario_log 						int 		 auto_increment not null,
 fecha_registro						datetime	 not null,
 usuario_modifico					varchar (15) not null, 
 tipo_registro						varchar (20) not null,
-Id_usuario	 						int 	(10) not null,
+Id_usuario	 						int 		 not null,
 Primer_nombre 						varchar (40) not null,
 Segundo_nombre 						varchar (40) 	 null,
 Primer_apellido 					varchar (40) not null,
 Segundo_apellido 					varchar (40) 	 null,
-Tipo_documentoId_documento			int		(10) not null,
+Tipo_documentoId_documento			int 		 not null,
 Numero_documento					varchar (20) not null,
-Edad								int 	(5)  not null,
-Telefono							bigint 	(20) not null,
+Edad								int 		 not null,
+Telefono							bigint 		 not null,
 Direccion							varchar (50) not null,
 Email 								varchar (50) not null ,
-RolId_rol 							int 	(15) not null,
+RolId_rol 							int 		 not null,
 primary key (Id_usuario_log)
 );
 

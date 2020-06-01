@@ -7,7 +7,7 @@ window.onload = function() {
     }
 
 /* FIN DE CARGAR PAGINA*/
-
+var contador  = 0;
 
 function menu(){
 
@@ -69,13 +69,41 @@ $('.formulario_genial').click(function(){
         $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
         $("#"+datoSeleccionado).addClass('body-seccion ocultar');
       }
+    }else if(id_control=2 && datoSeleccionado =="seleccionPaquete"){
+      $("#"+paso).removeClass();
+      $("#"+datoSeleccionado).removeClass();
+      if(classPaso=='fas fa-chevron-down formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-up formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion');
+      }else if(classPaso=='fas fa-chevron-up formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion ocultar');
+      }
     }
     
 });
 
-function seleccionarEvento(evento){
+$('.seleccionarEvento').click(function(){
+  var evento    = $(this).attr('evento'),
+      idevento  = $(this).attr('idevento');
+
+  $('.seleccionarEvento').removeClass('active');
+  $('.seleccionarEvento').addClass('nav-item nav-link seleccionarEvento');
+  $(this).removeClass();
+  $(this).addClass('nav-item nav-link seleccionarEvento active');
   $('#valorEvento').val(evento);
-}
+  if(contador==0){
+    contador = 1;
+    $('#p2').click();
+  }
+  seleccionarPaquetes(idevento);
+});
+
+function seleccionarPaquetes(evento){
+$('.contenCajaEvento').addClass('col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar');
+$('#'+evento).removeClass('ocultar');
+};
+
 //********************************************************************************************** */
 function cerrarSesion(){
   location.href="?class=Security&method=closeSesion"

@@ -175,14 +175,24 @@ h3{
 	color: #fff!important;
 }
 .formulario-genial a:hover{
-	color: pink!important;
+	color: #ffc0cb!important;
 	background: transparent!important;
 	border-radius: 0;
+	cursor: pointer;
+}
+.formulario-genial .active{
+	font-size: 17px;
+	background: transparent;
+	border: 0;
+	color: #ffc0cb!important;
 }
 .formulario-genial .botonesEventos{
 	flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+.formulario-genial .contenCajaEvento{
+	background-color: #fff;
 }
 
 /*************************************************************************************/

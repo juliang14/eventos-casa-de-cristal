@@ -195,30 +195,34 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-3 mb-3">
-								<div class="body-datos-factura">
-									<div class="row">
-										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">PAQUETE</div>
-										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">DESCRIPCION</div>
-										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">CANTIDAD</div>
-										<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">VALOR</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-5 text-center">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-5 text-center">
 								<div class="body-factura p-3">
 									<table id="tabla_factura" class="">
-										<thead> 
+										<thead>
+											<tr class="bg-white">
+												<th>PAQUETE</th>
+												<th>DESCRIPCION</th>
+												<th>CANTIDAD</th>
+												<th>VALOR SIN IVA</th>
+												<th>IVA</th>
+												<th>VALOR TOTAL</th>
+											</tr>
+											<tr>
+												<th colspan=6 class="espacioRosado"><br></th>
+											</tr>
+											<tr>
+												<th colspan=6 class="bg-white"><br></th>
+											</tr>
 										</thead>
 										<tbody id="body_tabla_factura">  
 									    <?php   foreach (Paquetes::getPaquete($_GET['ID_PAQUETE']) as $responseGetPaquete){ ?>
 					                        <tr>
 					                        	<td><?php echo $responseGetPaquete->TIPO_DE_PAQUETE ?></td>
 					                            <td><?php echo $responseGetPaquete->INVENTARIO ?></td>
-					                            <td>No aplica</td>
-					                            <td>No aplica</td>
+					                            <td><?php echo $responseGetPaquete->CANTIDAD ?></td>
+												<td><?php echo $responseGetPaquete->VALOR_SIN_IVA ?></td>
+												<td><?php echo $responseGetPaquete->IVA ?></td>
+					                            <td><?php echo $responseGetPaquete->VALOR_TOTAL ?></td>
 					                        </tr>
 						                <?php   } ?>  
 										</tbody>

@@ -36,7 +36,8 @@ SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN;
 SELECT * FROM VW_VER_PEDIDOS;
 SELECT * FROM VW_VER_PAQUETE;
 SELECT * FROM VW_VER_EVENTOS;
-
+SELECT * FROM VW_VER_PAQUETES_EVENTOS;
+SELECT * FROM VW_VER_PAQUETE WHERE TIPO_DE_EVENTO='Matrimonio';
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
 CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles
 CALL PR_ROLES(); -- <-- Lista todos los roles distintos a usuario

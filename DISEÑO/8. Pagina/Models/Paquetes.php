@@ -16,6 +16,20 @@ class Paquetes extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	 // Obtener Evento paquete
+	 public function getEventoPaquete($Tipo_de_evento){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_PAQUETES_EVENTOS WHERE TIPO_DE_EVENTO=?");
+			$query->bindParam(1,$Tipo_de_evento,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
+		}catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 	// Editar paquete
 	public function editPaquete( $Id_pedido, $Estado){
 
