@@ -102,7 +102,7 @@
 					<br>
 					<div class="row" id="event_2">
 					 	<div class="col-lg-4" STYLE="">
-					 		<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+					 		<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 					 			<h3 class="font-italic">PLAN TODO INCLUIDO 80 PERSONAS</h3>
 										<br>
 										<h1 class="text-danger">$3.900.000</h1>
@@ -120,7 +120,7 @@
 									<button type="button" class="btn btn-primary">Paquete 1</button>
 								</div>
 								<div class="col-lg-4" STYLE="">
-									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+									<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 100 PERSONAS</h3>
 										<br>
 										<h1 class="text-danger">$4.500.000</h1>
@@ -137,7 +137,7 @@
 									<button type="button" class="btn btn-primary">Paquete 2</button>
 								</div>
 								<div class="col-lg-4" STYLE="">
-									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+									<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 120 PERSONAS</h3>
 										<br>
 										<h1 class="text-danger">$5.400.000</h1>
@@ -156,7 +156,7 @@
 							<br>
 							<div class="row" id="event_2">
 								<div class="col-lg-4" STYLE="">
-									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+									<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 140 PERSONAS</h3>
 										<br>
 										<h1 class="text-danger">$6.200.000</h1>
@@ -172,7 +172,7 @@
 									<button type="button" class="btn btn-primary">Paquete 4</button>
 								</div>
 								<div class="col-lg-4" STYLE="">
-									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+									<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 										<h3 class="font-italic">PLAN TODO INCLUIDO 150 PERSONAS</h3>
 										<br>
 										<h1 class="text-danger">$6.400.000</h1>
@@ -189,7 +189,7 @@
 									<button type="button" class="btn btn-primary">Paquete 5</button>
 								</div>
 								<div class="col-lg-4" STYLE="">
-									<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+									<div style="border: solid black 3px;background: linear-gradient(to bottom, pink, white); text-align: center; border-radius: 14px;background-color:pink;">
 
 										<h3 class="font-italic">PLAN TODO INCLUIDO 200 PERSONAS</h3>
 										<br>
