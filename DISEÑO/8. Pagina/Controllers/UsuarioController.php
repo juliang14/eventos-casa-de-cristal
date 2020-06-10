@@ -39,6 +39,7 @@ class UsuarioController extends Usuario{
     
     //Borrar usuario
 	public function deleteUsuario(){
+		Security::validate();
 		$user = parent::getCliente($_REQUEST['userId']);
 		parent::deleteCliente($_REQUEST['userId']);
 		require_once('views/Modal/Index.php');

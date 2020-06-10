@@ -21,19 +21,36 @@
 		<?php 
 
 			if (isset($user)) {
-				$Respuesta_modal = substr($user->RESPUESTA_MODAL, 0,9);
-				$ValorId		 = substr($user->RESPUESTA_MODAL, 9);
 
-				if($Respuesta_modal=="Cliente -"){
-					echo "Eliminaste el usuario: <br><br>".$ValorId." ".$user->DESCRIPCION_MODAL;
-				}else if($Respuesta_modal=="Empleado-"){
-					echo "Eliminaste el empleado: <br><br>".$ValorId." - ".$user->DESCRIPCION_MODAL;
-				}else if($Respuesta_modal == 'Pedido  -'){
-					echo "Actualizaste el pedido: <br><br>".$ValorId." del cliente ".$user->DESCRIPCION_MODAL;
-				}else{
-					echo "Respuesta no controlada";
+				if(!empty($user->RESPUESTA_MODAL)){
+					$Respuesta_modal = substr($user->RESPUESTA_MODAL, 0,9);
+					$ValorId		 = substr($user->RESPUESTA_MODAL, 9);
+
+					if($Respuesta_modal=="Cliente -"){
+						echo "Eliminaste el usuario: <br><br>".$ValorId." ".$user->DESCRIPCION_MODAL;
+					}else if($Respuesta_modal=="Empleado-"){
+						echo "Eliminaste el empleado: <br><br>".$ValorId." - ".$user->DESCRIPCION_MODAL;
+					}else if($Respuesta_modal == 'Pedido  -'){
+						echo "Actualizaste el pedido: <br><br>".$ValorId." del cliente ".$user->DESCRIPCION_MODAL;
+					}else{
+						echo "Respuesta no controlada";
+					}
 				}
+			}else if (isset($RInventario)) {
+				if(!empty($RInventario)){
 
+					if($RInventario->ACCION=='ACTUALIZAR'){
+						echo "Actualizaste el inventario: <br><br>".$RInventario->ID_INVENTARIO." - ".$RInventario->INVENTARIO;
+					}else if($RInventario->ACCION=='ELIMINAR'){
+						echo "Eliminaste el inventario: <br><br>".$RInventario->ID_INVENTARIO." - ".$RInventario->INVENTARIO;
+					}else{
+						echo 'Accion no configurada';
+					}
+
+				}else{
+					echo "Se actualizo el registro exitosamente.";
+				}
+				
 			}else{
 				echo "Esta variable no está definida";
 			}

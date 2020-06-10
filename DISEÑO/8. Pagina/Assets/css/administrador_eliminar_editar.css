@@ -23,6 +23,7 @@ label,input{
 .rojo{
 	color: red!important;
 	border-color: red!important;
+	background-color: #fff;
 }
 .rojo:hover{
 	color: white!important;
@@ -33,6 +34,7 @@ label,input{
 .azul{
 	color: blue!important;
 	border-color: blue!important;
+	background-color: #fff;
 }
 .azul:hover{
 	color: white!important;
@@ -42,6 +44,7 @@ label,input{
 .verde{
 	color: green!important;
 	border-color: green!important;
+	background-color: #fff;
 }
 .verde:hover{
 	color: white!important;
@@ -77,8 +80,12 @@ select{
     border: 2px solid;
     border-radius: 20px;
 }
-#tituloCrearUsuario{
+#tituloCrearUsuario,
+#tituloVerInventario{
 	margin-bottom: 6%;
+}
+#contenedorFormularioVerInventario input:disabled{
+	background-color: #fff!important;
 }
 #botonCrearUsuario,
 #botonNoCrearUsuario{
@@ -92,4 +99,12 @@ select{
 #contenedorFormularioVerUsuario .form-control:disabled{
 	cursor: auto;
 }
+#contenedorFormularioCrearInventario .verde{
+	width: 150px;
+}
+#contenedorFormularioEditarInventario #Iva,
+#contenedorFormularioEditarInventario #Valor_total{
+	cursor: not-allowed;
+}
+
 /* Fin estilos formularios*/

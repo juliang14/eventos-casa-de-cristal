@@ -189,11 +189,47 @@ h3{
 .formulario-genial .botonesEventos{
 	flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
+	height: 0;
+}
+.formulario-genial .contenedorPaquetes{
+	border: solid black 3px; 
+	text-align: center; 
+	border-radius: 14px;
+	background-color:pink;
 }
 .formulario-genial .contenCajaEvento{
 	background-color: #fff;
 }
+.formulario-genial .resaltar{
+	border:  3px solid #008000;
+	-webkit-box-shadow: inset 0px 0px 50px -16px #008000;
+	-moz-box-shadow: inset 0px 0px 50px -16px #008000;
+	box-shadow: inset 0px 0px 50px -16px #008000;
+}
+.formulario-genial .formularioGenialBotonBuscar{
+ width: 40%;
+}
+.formulario-genial .formularioGenialBotonBuscar:hover,
+.formulario-genial .contenedorPaquetes:hover,
+.crearPedido:hover{
+	cursor: pointer;
+}
+.formulario-genial #seleccionUsuario input,
+.formulario-genial #seleccionUsuario select{
+	width: 50%;
+	height: 35px;
+}
+.crearPedido{
+	width: 150px!important;
+}
+#valorPaqueteGenerar,
+#IdUsuarioGenerar{
+	padding: 0.1;
+    height: 0;
+    width: 0;
+}
+
 
 /*************************************************************************************/
 

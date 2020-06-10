@@ -95,7 +95,7 @@
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="num-pedidos">
-							<p id="Cantidad-pedidos">Cantidad pedidos</p>
+							<p id="Cantidad-pedidos">Cantidad pedidos <strong class="datosCantidades"><?php echo $Response->CANTIDAD_PEDIDOS ?></strong></p>
 						</div>
 					</div>
 				</div>

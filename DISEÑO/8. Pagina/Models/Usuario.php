@@ -70,6 +70,21 @@ class Usuario extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	// Obtener cliente por su documento
+	public function getClienteDocumento($TipoDocumento,$Documento){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_USUARIOS WHERE DOCUMENTO = ? AND NUMERO_DOCUMENTO = ?");
+			$query->bindParam(1,$TipoDocumento,PDO::PARAM_STR);
+			$query->bindParam(2,$Documento,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 	
 	// Editar cliente
 	public function editCliente( $Id_usuario, $Primer_nombre, $Segundo_nombre, $Primer_apellido, $Segundo_apellido, $Tipo_documentoId_documento, $Numero_documento, $Edad, $Telefono, $Direccion, $Email){

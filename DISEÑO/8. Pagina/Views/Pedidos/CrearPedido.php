@@ -70,9 +70,40 @@
 				</div>
 			</div>
 			<main>
+				<!-----------------------   INICIO MODAL  ------------------------------------>
+				<!-- Button trigger modal -->
+				<!--
+					$('#modalCenter').modal('show'); // abrir
+					$('#modalCenter').modal('hide'); // cerrar
+				-->
+				<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+				  Launch demo modal
+				</button-->
+
+				<!-- Modal -->
+				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cerrar</button>
+				        <!--button type="button" class="btn btn-primary">Save changes</button-->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!-----------------------   FIN MODAL  ------------------------------------>
 				<h1>GENERAR PEDIDO</h1>
 				<br>
-				<form class="formulario-genial">
+				<form class="formulario-genial" action="?class=Pedidos&method=generarPedido" method="POST">
 					<section class="" id="">
 						<div class="row paso">
 							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left">
@@ -96,8 +127,8 @@
 									</div>
 								</div>
 							</nav>
-							<div class="botonesEventos text-center ocultar">
-									<input type="text" id="valorEvento" disabled="disabled">
+							<div class="botonesEventos text-center ">
+									<input class="form-control text-center ocultar" type="text" id="valorEvento" disabled="disabled">
 							</div>
 						</div>
 					</section>
@@ -113,13 +144,13 @@
 						<div class="body-seccion" id="seleccionPaquete">
 							<?php foreach(Eventos::getEventos() AS $CantidadEventos){ ?>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar" id="idEvento<?php echo $CantidadEventos->ID_EVENTO; ?>">
-									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto">
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4 mb-4">
 										<h4>Paquetes <?php echo $CantidadEventos->TIPO_DE_EVENTO; ?></h4>
 									</div>
 									<div class="row">
 										<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
 											<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center m-auto">
-												<div style="border: solid black 3px; text-align: center; border-radius: 14px;background-color:pink;">
+												<div class="contenedorPaquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
 													<h3 class="font-italic">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
 													<br>
 													<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
@@ -141,17 +172,67 @@
 								</div>	
 							<?php } ?>
 						</div>
+						<div class="botonesEventos text-center ">
+							<input type="text" class="form-control text-center" name="valorPaqueteGenerar"  id="valorPaqueteGenerar">
+						</div>
 					</section>
-				</form>
-				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					<div class="row">
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
-							<a href="?class=pedidos&method=index">
-								<button class="btn rojo">Volver</button>
-							</a>
+					<section class="" id="">
+						<div class="row paso">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left">
+								SELECCIONAR USUARIO
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto">
+								<i class="fas fa-chevron-down formulario_genial" data-seccion="seleccionUsuario" control-paso="3" id="p3"></i>
+							</div>
+						</div>
+						<div class="body-seccion" id="seleccionUsuario">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaPedido ocultar">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4 mb-4">
+									<h4>Buscar usuario</h4>
+								</div>
+								<div class="row">
+									<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-right mb-4 p-0" >
+										<label for="inputTipoDocumento">Tipo documento</label><br>
+										<select class="text-center" id="inputTipoDocumento">
+											<option value=''>Seleccionar</option>
+											<?php foreach (TipoDocumento::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+												<option value="<?php echo $responseGetTipoDocumento->Siglas ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+											<?php } ?>
+										</select>
+									</div>
+									<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center mb-4 p-0">
+										<label for="inputBuscarCliente"># Documento</label><br>
+										<input class="inputDocumento" type="text" id="inputBuscarCliente"/>
+									</div>
+									<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-left m-auto p-0">
+										<div class="btn verde formularioGenialBotonBuscar">Buscar</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right mt-4 mb-4 ocultar" id="personaPedido">
+										<b>Se generara el pedido al usuario:</b>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left mt-4 mb-4 p-0 ocultar" id="responseGetUsuario">
+										
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="botonesEventos text-center">
+							<input type="text" class="form-control text-center" name="IdUsuarioGenerar" id="IdUsuarioGenerar" />
+						</div>
+					</section>
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right " id="botonesMenuGenial">
+								
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left ">
+								<a href="?class=pedidos&method=index">
+									<button class="btn rojo">Volver</button>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</main>
 		</div>
 	</div>

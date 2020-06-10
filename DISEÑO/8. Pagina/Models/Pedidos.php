@@ -48,6 +48,23 @@ class Pedidos extends DB{
 		}
 	}
 
+	public function createPedido( $Id_paquete, $id_usuario){
+
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_CREAR_PEDIDOS( ?, ?);");
+			//CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
+			$query->bindParam(1,$Id_paquete,PDO::PARAM_INT);
+			$query->bindParam(2,$id_usuario,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+
 }
 
 ?>

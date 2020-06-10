@@ -122,6 +122,7 @@ Valor_sin_iva 						int 		 not null,
 Iva									int 		 not null,
 Valor_Total							int 		 not null,
 Categoria							varchar	(30) not null,
+Estado								varchar (30) not null,
 primary key (Id_inventario)
 );
 

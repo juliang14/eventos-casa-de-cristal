@@ -3,8 +3,16 @@ window.onload = function() {
 
     //INICIAR TABLAS JQUERY 
     generales.cargarDataTable();
-      
-    }
+    $(".inputDocumento").attr('maxlength','10');
+    $('.inputDocumento').on('input', function () { 
+      this.value = this.value.replace(/[^0-9]/g,'');
+    });
+
+    /* Habilitar maskmoney*/
+    $(".valorNumerico").maskMoney();
+    $(".valorNumerico").attr('maxlength','12');
+
+}
 
 /* FIN DE CARGAR PAGINA*/
 var contador  = 0;
@@ -47,12 +55,14 @@ function redirectPageController(page){
 
     if (page=='administradorPedidos'){
       location.href="?class=Pedidos&method=Index"
+    }else if (page=='administradorInventarios'){
+      location.href="?class=Inventarios&method=Index"
     }else{
       console.log('Pagina no configurada');
     }
 
   }
-// CONTROL FORMULARIO GENIAL //
+// CONTROL FORMULARIO GENIAL /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $('.formulario_genial').click(function(){
     var paso = $(this).attr('id');
     var id_control = $(this).attr('control-paso');
@@ -69,7 +79,17 @@ $('.formulario_genial').click(function(){
         $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
         $("#"+datoSeleccionado).addClass('body-seccion ocultar');
       }
-    }else if(id_control=2 && datoSeleccionado =="seleccionPaquete"){
+    }else if(id_control=2 && datoSeleccionado =="seleccionPaquete" && contador > 0){
+      $("#"+paso).removeClass();
+      $("#"+datoSeleccionado).removeClass();
+      if(classPaso=='fas fa-chevron-down formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-up formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion');
+      }else if(classPaso=='fas fa-chevron-up formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion ocultar');
+      }
+    }else if(id_control=3 && datoSeleccionado =="seleccionUsuario" && contador > 1){
       $("#"+paso).removeClass();
       $("#"+datoSeleccionado).removeClass();
       if(classPaso=='fas fa-chevron-down formulario_genial'){
@@ -83,6 +103,7 @@ $('.formulario_genial').click(function(){
     
 });
 
+//Menu para seleccionar los paquetes segun tipo de evento
 $('.seleccionarEvento').click(function(){
   var evento    = $(this).attr('evento'),
       idevento  = $(this).attr('idevento');
@@ -99,11 +120,35 @@ $('.seleccionarEvento').click(function(){
   seleccionarPaquetes(idevento);
 });
 
+// Mostrar paquetes segun evento seleccionado
 function seleccionarPaquetes(evento){
-$('.contenCajaEvento').addClass('col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar');
+$('.contenedorPaquetes').removeClass('resaltar');
+$('.contenCajaEvento').addClass('ocultar');
 $('#'+evento).removeClass('ocultar');
+//$('#valorPaqueteGenerar').attr('disabled', false);
+$('#valorPaqueteGenerar').focus();
+//$('#valorPaqueteGenerar').attr('disabled', true);
 };
 
+$('.contenedorPaquetes').click(function(){
+  var idPaquete    = $(this).attr('id-paquete');
+
+  $('.contenedorPaquetes').removeClass('resaltar');
+  $(this).addClass('resaltar');
+  $('#valorPaqueteGenerar').val(idPaquete);
+
+  if(contador==1){
+    contador = 2;
+    $('#p3').click();
+  }
+  $('.contenCajaPedido').removeClass('ocultar');
+  //$('#IdUsuarioGenerar').attr('disabled', false);
+  $('#IdUsuarioGenerar').focus();
+  //$('#IdUsuarioGenerar').attr('disabled', true);
+
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //********************************************************************************************** */
 function cerrarSesion(){
   location.href="?class=Security&method=closeSesion"
@@ -120,13 +165,13 @@ $('#num-pedidos').click(function(){
     window.location.href="?class=Pedidos&method=Index";
 });
 $('#inventario').click(function(){
-    window.location.href="?class=IndexHome&method=administradorInventarios";
+    window.location.href="?class=Inventarios&method=Index";
 });
 $('#turno').click(function(){
     window.location.href="?class=IndexHome&method=administradorTurnos";
 });
 $('#num-Reportes').click(function(){
-    window.location.href="?class=IndexHome&method=administradorReportes";
+    window.location.href="?class=Reportes&method=Index";
 });
 $('#num-Paquetes').click(function(){
     window.location.href="?class=IndexHome&method=administradorPaquetes";
@@ -165,6 +210,8 @@ $('.btn-borrarEmpleado').click(function(){
   });
 
 });
+
+// ACTUALIZAR PEDIDOS
 $('.actualizacion_datos').click(function(){
     var actualizarDato = $('#actualizar_Estado_Pedido').val();
     var id_control = $(this).attr('data-control-user');
@@ -180,6 +227,82 @@ $('.actualizacion_datos').click(function(){
         }
       });
 });
+//ACTUALIZAR INVENTARIO
+$('.actualizacion_inventario').click(function(){
+  var inventario  = $('#VerInventario').val();
+  var cantidad    = $('#Cantidad').val();
+  var valorSinIva = $('#Valor_sin_iva').val();
+  var categoria   = $('#Categoria').val();
+  var id_control  = $(this).attr('data-control-user');
+  //alert(actualizarDato);
+
+   $.ajax({
+      type: 'GET',
+      url : '?class=Inventarios&method=updateInventario',
+      data: { userId: id_control, inventario: inventario, cantidad: cantidad, valorSinIva: valorSinIva, categoria: categoria},
+      success(response){
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      }
+    });
+});
+$('.btn-borrarinventario').click(function(){
+
+  var id_control = $(this).attr('data-control-user');
+
+  $.ajax({
+      type: 'GET',
+      url : '?class=Inventarios&method=deleteInventario',
+      data: { userId: id_control},
+      success(response){
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      }
+  });
+
+});
+/////////////////////////////////////
+
+
+//Consultar usuario desde crear pedido
+$('.formularioGenialBotonBuscar').click(function(){
+    var tDocumento = $("#inputTipoDocumento").val();
+    var documento = $("#inputBuscarCliente").val();
+    var botonCrear   = `<button class="btn verde crearPedido" type="submit">Crear Pedido</button>`;
+
+    if(tDocumento !='' && documento !=''){
+      $.ajax({
+        type: 'GET',
+        url : '?class=Pedidos&method=getUsuario',
+        data: { userTDocument: tDocumento, userDocument: documento},
+        success(response){
+          $('#responseGetUsuario').html();
+          if(response.indexOf('No se encontraron') != 0){
+            var datosRespuesta  = response.split('-'),
+                IdUsuarioGenerar= datosRespuesta[0],
+                nombreUsuario   = datosRespuesta[1],
+                tDocumento      = datosRespuesta[2],
+                documento       = datosRespuesta[3],
+                textoRespuesta  = nombreUsuario+' con '+tDocumento+' '+documento;   
+            $('#responseGetUsuario').html(textoRespuesta);
+            $('#IdUsuarioGenerar').val(IdUsuarioGenerar);
+            $('#personaPedido').removeClass('ocultar');
+            $('#responseGetUsuario').removeClass('ocultar');
+            $('#botonesMenuGenial').append(botonCrear);
+          }else{
+            $('#responseGetUsuario').html(response);
+            $('#personaPedido').removeClass('ocultar');
+            $('#responseGetUsuario').removeClass('ocultar');
+          }
+        }
+      });
+    }else{
+      $('.modal-body').html('Verifica el campo tipo de documento y numero de documento.');
+      $('#modalCenter').modal('show');
+    }
+});
+
+
 /* FIN EJECUCION BOTON CON AJAX */
 
 

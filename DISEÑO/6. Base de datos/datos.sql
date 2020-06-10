@@ -168,15 +168,15 @@ values
 (7,	8000000,	3140000,	9140000,	'matrimonio 2',				30,	'ACTIVO',	1);
 	   
 -- -------------------------------------------------------------------------	   
-insert into Inventario(Id_inventario, Inventario, Cantidad, Valor_sin_iva, Iva, Valor_Total, Categoria)
+insert into Inventario(Id_inventario, Inventario, Cantidad, Valor_sin_iva, Iva, Valor_Total, Categoria, Estado)
 values 
-(6,	'centros_de_mesa',	50,		10000,	 1900,	11900,	'utileria'),
-(5,	'platos',			200,	25000,	 4750,	29750,	'utileria'),
-(4,	'cubiertas',		600,	 8000,	 1520,	 9520,	'utileria'),
-(3,	'mesas',			50,		30000,	 5700,	35700,	'utileria'),
-(2,	'manteles',			100,	12000,	 2280,	14280,	'utileria'),
-(1,	'ollas',			20,		35000,	 6650,	41650,	'utileria'),
-(7,	'Equipos_sonido',	4,		70000,	13300,	83300,	'utileria');
+(6,	'centros_de_mesa',	50,		10000,	 1900,	11900,	'utileria',	'ACTIVO'),
+(5,	'platos',			200,	25000,	 4750,	29750,	'utileria',	'ACTIVO'),
+(4,	'cubiertas',		600,	 8000,	 1520,	 9520,	'utileria',	'ACTIVO'),
+(3,	'mesas',			50,		30000,	 5700,	35700,	'utileria',	'ACTIVO'),
+(2,	'manteles',			100,	12000,	 2280,	14280,	'utileria',	'ACTIVO'),
+(1,	'ollas',			20,		35000,	 6650,	41650,	'utileria',	'ACTIVO'),
+(7,	'Equipos_sonido',	4,		70000,	13300,	83300,	'utileria',	'ACTIVO');
 
 -- -------------------------------------------------------------------------
 insert into Inventario_paquete(InventarioId_inventario, PaqueteId_paquete, cantidad, Valor_sin_iva, Iva, Valor_Total)

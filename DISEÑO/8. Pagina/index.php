@@ -20,6 +20,8 @@
    require_once('models/Paquetes.php');
    require_once('models/Eventos.php');
    require_once('models/EstadoPedido.php');
+   require_once('models/Reportes.php');
+   require_once('models/Inventarios.php');
 
 
    /*-----------------------------------------------------*/

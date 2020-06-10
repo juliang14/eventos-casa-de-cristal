@@ -14,6 +14,7 @@ class SecurityController extends Security{
             header('location:?class=security&method=loginUsuario');
         }else if($ResponseAutenticate->ROL =='Cliente'){
             var_dump($ResponseAutenticate);
+            //$_SESSION['UserAutenticate']=$ResponseAutenticate;
             //require_once('views/usuarios/usuario.php');
         }else{
             header('location:?class=security&method=loginUsuario');
@@ -33,15 +34,15 @@ class SecurityController extends Security{
     //Pagina inicio empleado
     public function empleado(){
         $ResponseAutenticate = Empleado::autenticarEmpleado($_POST['usuario'],$_POST['password']);
-        if(!$ResponseAutenticate){
+       if(!$ResponseAutenticate){
             header('location:?class=security&method=loginEmpleado');
         }else if($ResponseAutenticate->ROL =='Empleado'){
             //var_dump($ResponseAutenticate);
+            $_SESSION['UserAutenticate']=$ResponseAutenticate;
             header('location:?class=empleado&method=empleado&Id_empleado='.$ResponseAutenticate->ID_EMPLEADO);
-
         }else{
             header('location:?class=security&method=loginEmpleado');
-        }    
+        }   
     }
 
     //Pagina de login administrador

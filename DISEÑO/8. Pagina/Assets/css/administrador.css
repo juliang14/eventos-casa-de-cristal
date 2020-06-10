@@ -155,10 +155,10 @@ input:checked + .slider:before {
 }
 #Cantidad-usuarios:after{
   content:"300";
-}*/
+}
 #Cantidad-pedidos:after{
   content:"1000";
-}
+}*/
 #Paquetes:after{
   content:"10";
 }
@@ -206,7 +206,8 @@ tbody img{
   width: 100%;
 }
 .rojo{
-	color: red!important;
+  color: red!important;
+  background-color: #fff;
 	border-color: red!important;
   width: 150px;
 }
