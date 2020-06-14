@@ -1,5 +1,5 @@
 <?php
-
+  
    //define('APP_URL','http://localhost/proyecto-eventos-casa-de-cristal-1/DISEÑO/8.%20Pagina/');
 
 
@@ -22,7 +22,7 @@
    require_once('models/EstadoPedido.php');
    require_once('models/Reportes.php');
    require_once('models/Inventarios.php');
-
+   require_once('models/Turnos.php');
 
    /*-----------------------------------------------------*/
 
@@ -37,5 +37,6 @@
    call_user_func(array($controller,$method));
    //$controller= new $controller();
    //$controller->$method();<?php
+
 
    ?> 

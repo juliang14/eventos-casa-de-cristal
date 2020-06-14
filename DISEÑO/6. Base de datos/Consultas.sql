@@ -14,6 +14,7 @@ SELECT * FROM LOG_DE_ERRORES;
 SELECT * FROM PAGOS;
 SELECT * FROM PAQUETE;
 SELECT * FROM PEDIDO;
+Select fecha_pedido, DATE_ADD(fecha_pedido,INTERVAL 1 HOUR) from pedido;
 SELECT * FROM ROL;
 select * from SERVIDOR_DE_CORREO;
 select * from TIPO_DOCUMENTO;
@@ -56,14 +57,15 @@ CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'
 CALL PR_ELIMINAR_EMPLEADO(2);-- Elimina el registro del empleado
 CALL PR_VER_PEDIDOS(); -- Ver pedidos
 CALL PR_ESTADO_PEDIDO(); -- Listar estados de pedido disponibles
-CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
+CALL PR_ACTUALIZAR_PEDIDO( 1, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', 'Realizado',SYSDATE(),SYSDATE());
 CALL PR_OBTENER_USUARIO_SISTEMA('USUARIO','Leonel2019','Leonel2019');-- Obtener usuario sistema Usuario
 CALL PR_OBTENER_USUARIO_SISTEMA('EMPLEADO','gustavo26','gustavo26');-- Obtener usuario sistema Empleado y administrador
-CALL PR_CREAR_PEDIDOS( 5, 3 ); -- Generar pedido
+CALL PR_CREAR_PEDIDOS( 5, 3, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', SYSDATE(),SYSDATE()); -- Generar pedido
 CALL PR_VER_INVENTARIO();-- Obtener inventario
 CALL PR_CREAR_INVENTARIO('luces',30,20000,'utileria'); -- Crear pruductos de inventarios
 CALL PR_ACTUALIZAR_INVENTARIO(11,'luces',30,20000,'utileria'); -- ACTUALIZAR INVENTARIO
 CALL PR_ELIMINAR_INVENTARIO(11);-- Inactivar productos del inventario
+CALL PR_VER_TURNOS(); -- Obtener turnos
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

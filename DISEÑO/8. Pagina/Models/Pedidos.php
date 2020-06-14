@@ -31,15 +31,20 @@ class Pedidos extends DB{
 		}
 	}
 
-	// Editar paquete
-	public function editPaquete( $Id_pedido, $Estado){
+	// Editar pedido
+	public function editPedido( $Id_pedido, $Ciudad, $Barrio, $Direccion, $Estado, $FechaInicioEvento, $FechaFinEvento){
 
 		try {
 			//Preparar la comsulta que se va a realizar
-			$query = parent::conectDatabase()->prepare("CALL PR_ACTUALIZAR_PEDIDO( ?, ?);");
+			$query = parent::conectDatabase()->prepare("CALL PR_ACTUALIZAR_PEDIDO( ?, ?, ?, ?, ?, ?, ?);");
 			//CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
 			$query->bindParam(1,$Id_pedido,PDO::PARAM_INT);
-			$query->bindParam(2,$Estado,PDO::PARAM_STR);
+			$query->bindParam(2,$Ciudad,PDO::PARAM_STR);
+			$query->bindParam(3,$Barrio,PDO::PARAM_STR);
+			$query->bindParam(4,$Direccion,PDO::PARAM_STR);
+			$query->bindParam(5,$Estado,PDO::PARAM_STR);
+			$query->bindParam(6,$FechaInicioEvento,PDO::PARAM_STR);
+			$query->bindParam(7,$FechaFinEvento,PDO::PARAM_STR);
 			//ejecutar consulta o sentencia
 			$query->execute();
 		} catch (Exception $e) {
@@ -48,14 +53,19 @@ class Pedidos extends DB{
 		}
 	}
 
-	public function createPedido( $Id_paquete, $id_usuario){
+	public function createPedido( $Id_paquete, $id_usuario, $Ciudad, $Barrio, $Direccion, $FechaInicioEvento, $FechaFinEvento){
 
 		try {
 			//Preparar la comsulta que se va a realizar
-			$query = parent::conectDatabase()->prepare("CALL PR_CREAR_PEDIDOS( ?, ?);");
+			$query = parent::conectDatabase()->prepare("CALL PR_CREAR_PEDIDOS( ?, ?, ?, ?, ?, ?, ?);");
 			//CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
 			$query->bindParam(1,$Id_paquete,PDO::PARAM_INT);
 			$query->bindParam(2,$id_usuario,PDO::PARAM_STR);
+			$query->bindParam(3,$Ciudad,PDO::PARAM_STR);
+			$query->bindParam(4,$Barrio,PDO::PARAM_STR);
+			$query->bindParam(5,$Direccion,PDO::PARAM_STR);
+			$query->bindParam(6,$FechaInicioEvento,PDO::PARAM_STR);
+			$query->bindParam(7,$FechaFinEvento,PDO::PARAM_STR);
 			//ejecutar consulta o sentencia
 			$query->execute();
 		} catch (Exception $e) {

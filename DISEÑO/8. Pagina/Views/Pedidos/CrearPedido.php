@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/facturas.css">
@@ -220,6 +221,73 @@
 							<input type="text" class="form-control text-center" name="IdUsuarioGenerar" id="IdUsuarioGenerar" />
 						</div>
 					</section>
+					<section class="" id="">
+						<div class="row paso">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left">
+								SELECCIONAR FECHA EVENTO
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto">
+								<i class="fas fa-chevron-down formulario_genial" data-seccion="seleccionFecha" control-paso="4" id="p4"></i>
+							</div>
+						</div>
+						<div class="body-seccion" id="seleccionFecha">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaFecha ocultar">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4 mb-4">
+									<h4>Fecha de evento</h4>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right mb-4" >
+										<label for="inputFechaInicioEvento">Fecha inicio evento</label><br>
+										<input type="text" class="datepicker text-center form-control validacionFechas" name="inputFechaInicioEvento" id="inputFechaInicioEvento">
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left mb-4">
+										<label for="inputFechaFinEvento">Fecha fin evento</label><br>
+										<input type="text" class="datepicker text-center form-control validacionFechas" name="inputFechaFinEvento" id="inputFechaFinEvento">
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="" id="">
+						<div class="row paso">
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left">
+								SELECCIONAR DIRECCION EVENTO
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto">
+								<i class="fas fa-chevron-down formulario_genial" data-seccion="seleccionUbicacion" control-paso="5" id="p5"></i>
+							</div>
+						</div>
+						<div class="body-seccion" id="seleccionUbicacion">
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaUbicacion ocultar">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4 mb-4">
+									<h4>Ubicacion del evento</h4>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto" >
+										<i class="fas fa-city"></i>
+										<label for="inputCiudadEvento">Ciudad</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto" >
+										<input type="text" class="text-center form-control" name="inputCiudadEvento" id="inputCiudadEvento" required>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto" >
+										<i class="fas fa-home"></i>
+										<label for="inputBarrioEvento">Barrio</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left m-auto">
+										<input type="text" class="text-center form-control" name="inputBarrioEvento" id="inputBarrioEvento" required>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right m-auto" >
+										<i class="fas fa-map-marker-alt"></i>
+										<label for="inputDireccionEvento">Direccion</label>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left m-auto">
+										<input type="text" class="text-center form-control" name="inputDireccionEvento" id="inputDireccionEvento" required>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
 						<div class="row">
 							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right " id="botonesMenuGenial">
@@ -241,6 +309,8 @@
     <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
 	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
 	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/acercadenosotros.css">
@@ -130,6 +131,11 @@
 		                        <th>IVA</th>
 		                        <th>VALOR_TOTAL</th>
 		                        <th>ESTADO</th>
+								<th>FECHA INICIO EVENTO</th>
+								<th>FECHA FIN EVENTO</th>
+								<th>CIUDAD DE EVENTO</th>
+								<th>BARRIO DE EVENTO</th>
+								<th>DIRECCION DE EVENTO</th>
 		                        <th>ACCION</th>
 		                    </tr>
 						</thead>
@@ -148,6 +154,11 @@
 		                            <td><?php echo $responseGetPedidos->IVA ?></td>
 		                            <td><?php echo $responseGetPedidos->VALOR_TOTAL ?></td>
 		                            <td><?php echo $responseGetPedidos->ESTADO ?></td>
+									<td><?php echo $responseGetPedidos->FECHA_INICIO_EVENTO ?></td>
+									<td><?php echo $responseGetPedidos->FECHA_FIN_EVENTO ?></td>
+									<td><?php echo $responseGetPedidos->CIUDAD_EVENTO ?></td>
+									<td><?php echo $responseGetPedidos->BARRIO_EVENTO ?></td>
+									<td><?php echo $responseGetPedidos->DIRECCION_EVENTO ?></td>
 		                            <td>
 		                            	<a href="?class=Facturas&method=VerFactura&ID_PEDIDO=<?php echo $responseGetPedidos->ID_PEDIDO ?>&ID_PAQUETE=<?php echo $responseGetPedidos->ID_PAQUETE ?>">
 		                            		<i class="fas fa-info color_orange" title="Ver pedido <?php echo $responseGetPedidos->ID_PEDIDO ?>"></i>
@@ -181,11 +192,13 @@
 		</main>
 	</div>
 </div>
-<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
-<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
-<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
-<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="Assets/js/generales.js"></script>
+	<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ class PedidosController extends Pedidos{
 	public function updatePedido(){
         security::validate();
 		$user = parent::getPedido($_REQUEST['userId']);
-		parent::editPaquete( $_REQUEST['userId'],$_REQUEST['userData']);
+		parent::editPedido( $_REQUEST['userId'], $_REQUEST['userCiudad'], $_REQUEST['userBarrio'], $_REQUEST['userDireccion'], $_REQUEST['userData'], $_REQUEST['userDateIni'], $_REQUEST['userDateFin']);
 		require_once('views/Modal/Index.php');
     }
     
@@ -32,7 +32,7 @@ class PedidosController extends Pedidos{
     //Crear pedido
 	public function generarPedido(){
         Security::validate();
-        parent::createPedido( $_POST['valorPaqueteGenerar'],$_POST['IdUsuarioGenerar']);
+        parent::createPedido( $_POST['valorPaqueteGenerar'], $_POST['IdUsuarioGenerar'], $_POST['inputCiudadEvento'], $_POST['inputBarrioEvento'], $_POST['inputDireccionEvento'], $_POST['inputFechaInicioEvento'], $_POST['inputFechaFinEvento']);
         header('location:?class=Pedidos&method=Index');
     }
 

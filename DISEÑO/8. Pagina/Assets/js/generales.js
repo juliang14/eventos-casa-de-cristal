@@ -99,6 +99,26 @@ $('.formulario_genial').click(function(){
         $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
         $("#"+datoSeleccionado).addClass('body-seccion ocultar');
       }
+    }else if(id_control=4 && datoSeleccionado =="seleccionFecha" && contador > 2){
+      $("#"+paso).removeClass();
+      $("#"+datoSeleccionado).removeClass();
+      if(classPaso=='fas fa-chevron-down formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-up formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion');
+      }else if(classPaso=='fas fa-chevron-up formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion ocultar');
+      }
+    }else if(id_control=5 && datoSeleccionado =="seleccionUbicacion" && contador > 3){
+      $("#"+paso).removeClass();
+      $("#"+datoSeleccionado).removeClass();
+      if(classPaso=='fas fa-chevron-down formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-up formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion');
+      }else if(classPaso=='fas fa-chevron-up formulario_genial'){
+        $("#"+paso).addClass('fas fa-chevron-down formulario_genial');
+        $("#"+datoSeleccionado).addClass('body-seccion ocultar');
+      }
     }
     
 });
@@ -148,6 +168,69 @@ $('.contenedorPaquetes').click(function(){
 
 });
 
+//Consultar usuario desde crear pedido
+$('.formularioGenialBotonBuscar').click(function(){
+  var tDocumento = $("#inputTipoDocumento").val();
+  var documento = $("#inputBuscarCliente").val();
+  
+  if(tDocumento !='' && documento !=''){
+    $.ajax({
+      type: 'GET',
+      url : '?class=Pedidos&method=getUsuario',
+      data: { userTDocument: tDocumento, userDocument: documento},
+      success(response){
+        $('#responseGetUsuario').html();
+        if(response.indexOf('No se encontraron') != 0){
+          var datosRespuesta  = response.split('-'),
+              IdUsuarioGenerar= datosRespuesta[0],
+              nombreUsuario   = datosRespuesta[1],
+              tDocumento      = datosRespuesta[2],
+              documento       = datosRespuesta[3],
+              textoRespuesta  = nombreUsuario+' con '+tDocumento+' '+documento;   
+          $('#responseGetUsuario').html(textoRespuesta);
+          $('#IdUsuarioGenerar').val(IdUsuarioGenerar);
+          $('#personaPedido').removeClass('ocultar');
+          $('#responseGetUsuario').removeClass('ocultar');
+          seleccionarFechaEvento();
+        }else{
+          $('#responseGetUsuario').html(response);
+          $('#personaPedido').removeClass('ocultar');
+          $('#responseGetUsuario').removeClass('ocultar');
+        }
+      }
+    });
+  }else{
+    $('.modal-body').html('Verifica el campo tipo de documento y numero de documento.');
+    $('#modalCenter').modal('show');
+  }
+});
+
+function seleccionarFechaEvento(){
+  if(contador==2){
+    contador = 3;
+    $('#p4').click();
+  }
+  $('.contenCajaFecha').removeClass('ocultar');
+  $('#inputFechaInicioEvento').focus();
+}
+$('.validacionFechas').blur(function(){
+  var fechaInicio   = $('#inputFechaInicioEvento').val(),
+      fechaFin      = $('#inputFechaFinEvento').val(),
+      botonCrear    = `<button class="btn verde crearPedido" type="submit">Crear Pedido</button>`;
+
+  if(fechaInicio.length >2 && fechaFin.length >2){
+    if(contador==3){
+      contador = 4;
+      $('#p5').click();
+    }
+    $('.contenCajaUbicacion').removeClass('ocultar');
+    $('#inputCiudadEvento').focus();
+    $('#botonesMenuGenial').append(botonCrear);
+  }
+});
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //********************************************************************************************** */
 function cerrarSesion(){
@@ -168,7 +251,7 @@ $('#inventario').click(function(){
     window.location.href="?class=Inventarios&method=Index";
 });
 $('#turno').click(function(){
-    window.location.href="?class=IndexHome&method=administradorTurnos";
+    window.location.href="?class=Turnos&method=Index";
 });
 $('#num-Reportes').click(function(){
     window.location.href="?class=Reportes&method=Index";
@@ -213,14 +296,19 @@ $('.btn-borrarEmpleado').click(function(){
 
 // ACTUALIZAR PEDIDOS
 $('.actualizacion_datos').click(function(){
-    var actualizarDato = $('#actualizar_Estado_Pedido').val();
     var id_control = $(this).attr('data-control-user');
+    var actualizarCiudad    = $('#inputCiudadEvento').val();
+    var actualizarBarrio    = $('#inputBarrioEvento').val();
+    var actualizarDireccion = $('#inputDireccionEvento').val();
+    var actualizarDato      = $('#actualizar_Estado_Pedido').val();
+    var actualizarFechaIni  = $('#inputFechaInicioEvento').val();
+    var actualizarFechaFin  = $('#inputFechaFinEvento').val();
     //alert(actualizarDato);
 
      $.ajax({
         type: 'GET',
         url : '?class=Pedidos&method=updatePedido',
-        data: { userId: id_control, userData: actualizarDato},
+        data: { userId: id_control, userCiudad: actualizarCiudad, userBarrio: actualizarBarrio, userDireccion: actualizarDireccion, userData: actualizarDato, userDateIni: actualizarFechaIni, userDateFin: actualizarFechaFin},
         success(response){
           $('.modal-body').html(response);
           $('#modalCenter').modal('show');
@@ -264,48 +352,21 @@ $('.btn-borrarinventario').click(function(){
 /////////////////////////////////////
 
 
-//Consultar usuario desde crear pedido
-$('.formularioGenialBotonBuscar').click(function(){
-    var tDocumento = $("#inputTipoDocumento").val();
-    var documento = $("#inputBuscarCliente").val();
-    var botonCrear   = `<button class="btn verde crearPedido" type="submit">Crear Pedido</button>`;
-
-    if(tDocumento !='' && documento !=''){
-      $.ajax({
-        type: 'GET',
-        url : '?class=Pedidos&method=getUsuario',
-        data: { userTDocument: tDocumento, userDocument: documento},
-        success(response){
-          $('#responseGetUsuario').html();
-          if(response.indexOf('No se encontraron') != 0){
-            var datosRespuesta  = response.split('-'),
-                IdUsuarioGenerar= datosRespuesta[0],
-                nombreUsuario   = datosRespuesta[1],
-                tDocumento      = datosRespuesta[2],
-                documento       = datosRespuesta[3],
-                textoRespuesta  = nombreUsuario+' con '+tDocumento+' '+documento;   
-            $('#responseGetUsuario').html(textoRespuesta);
-            $('#IdUsuarioGenerar').val(IdUsuarioGenerar);
-            $('#personaPedido').removeClass('ocultar');
-            $('#responseGetUsuario').removeClass('ocultar');
-            $('#botonesMenuGenial').append(botonCrear);
-          }else{
-            $('#responseGetUsuario').html(response);
-            $('#personaPedido').removeClass('ocultar');
-            $('#responseGetUsuario').removeClass('ocultar');
-          }
-        }
-      });
-    }else{
-      $('.modal-body').html('Verifica el campo tipo de documento y numero de documento.');
-      $('#modalCenter').modal('show');
-    }
-});
-
-
 /* FIN EJECUCION BOTON CON AJAX */
 
-
+/***************INICIO DATEPICKER **********************************/
+$('.datepicker').datetimepicker({
+    timepicker: true,
+    datepicker: true,
+    format: 'Y-m-d H:i:s', // formatTime
+    //value: '2020-6-13 09:45:00', //defaultTime
+    hours12: false, //false for 24 hours
+    step:  30,
+    yearStart: 2020,
+    yearEnd: 2025//,
+    //language: 'es'
+});
+/***************** FIN DATEPICKER **********************************/
 /*  INICIO CONSULTAS GENERALES*/
 var generales = {
 

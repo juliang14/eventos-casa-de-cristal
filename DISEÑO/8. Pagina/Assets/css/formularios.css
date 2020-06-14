@@ -229,7 +229,15 @@ h3{
     height: 0;
     width: 0;
 }
-
+#seleccionFecha .form-control{
+	width: 50%;
+}
+#seleccionFecha #inputFechaInicioEvento{
+	margin-left: 50%;
+}
+.formulario-genial #seleccionUbicacion input{
+	width: 50%;
+}
 
 /*************************************************************************************/
 

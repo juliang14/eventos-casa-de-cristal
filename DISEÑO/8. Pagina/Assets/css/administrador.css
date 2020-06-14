@@ -342,6 +342,23 @@ tbody img{
 
 /* Fin tabla usuarios*/
 
+.informacionPedido{
+  border: 1px solid pink;
+  background-color: pink;
+  border-radius: 20px;
+  margin: 3% auto;
+}
+
+.informacionPedido label{
+	font-size: 18px;
+}
+.informacionPedido input,
+.informacionPedido select{
+  width: 90%;
+  border: 1px solid pink;
+  border-radius: 10px;
+}
+
 
 /*-------------- RESPONSIVE --------------*/
 

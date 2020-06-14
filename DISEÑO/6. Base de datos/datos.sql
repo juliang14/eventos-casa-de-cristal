@@ -121,31 +121,6 @@ values
 (037, 'gustavo26', 			'gustavo26', 		null, 'ACTIVO', null, 13),
 (038, 'socorroar12', 		'socorroar12', 		null, 'ACTIVO', null, 14);
 
-
--- ---------------------------------------
-insert into Turno(Id_turno, Turno, fecha_de_turno, Hora_de_turno_inicio, Hora_de_turno_fin)
-values 
-(01,1,	'2025-05-20',	'06:00:00',	'14:00:00'),
-(02,2,	'2025-05-20',	'14:00:00',	'22:00:00'),
-(03,3,	'2025-05-20',	'22:00:00',	'06:00:00');
--- ---------------------------------------
-insert into Empleado_turno( EmpleadoId_empleado, TurnoId_turno)
-values 
-(1,		01),
-(2,		02),
-(3,		03),
-(4,		01),
-(5,		02),
-(6,		03),
-(7,		01),
-(8,		02),
-(9,		03),
-(10,	01),
-(11,	02),
-(12,	03),
-(13,	01),
-(14,	02)
-;
 -- -------------------------------------------------------------------------
 insert into Evento(Id_evento, Tipo_de_evento)
 values
@@ -260,24 +235,63 @@ values
 (16,	6000000,	6000000/0.19,	631578,	'electronica',	'evento_matrimonio');
 
 -- -------------------------------------------------------------------------
-insert into Pedido(Id_pedido, Fecha_pedido, Paquete_Idpaquete, UsuarioId_usuario, EstadopedidoId_estadopedido, FacturaId_factura)
+insert into Pedido(Id_pedido, Fecha_pedido, Fecha_inicio_evento, Fecha_fin_evento, Ciudad_evento, Barrio_evento, Direccion_evento, Paquete_Idpaquete, UsuarioId_usuario, EstadopedidoId_estadopedido, FacturaId_factura)
 values 
-(1,		sysdate(),		6,	6,	1,	1),
-(2,		sysdate(),		5,	5,	1,	2),
-(3,		sysdate(),		4,	4,	1,	3),
-(4,		sysdate(),		3,	3,	1,	4),
-(5,		sysdate(),		2,	2,	1,	5),
-(6,		sysdate(),		1,	1,	1,	6),
-(7,		sysdate(),		2,	6,	1,	7),
-(8,		sysdate(),		3,	7,	1,	8),
-(9,		sysdate(),		4,	8,	1,	9),
-(10,	sysdate(),		5,	9,	1,	10),
-(11,	sysdate(),		6,	10,	1,	11),
-(12,	sysdate(),		5,	11,	1,	12),
-(13,	sysdate(),		4,	12,	1,	13),
-(14,	sysdate(),		3,	13,	1,	14),
-(15,	sysdate(),		2,	14,	1,	15),
-(16,	sysdate(),		1,	15,	1,	16);
+(1,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Chico Norte',	' carrera 11 #93-92',		6,	6,	1,	1),
+(2,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'San Isidro',	' carrera 12 #93-92',		5,	5,	1,	2),
+(3,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Estrada',		' carrera 13 #93-92',		4,	4,	1,	3),
+(4,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Acapulco',		' carrera 14 #93-92',		3,	3,	1,	4),
+(5,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'El Salitre',	' carrera 15 #93-92',		2,	2,	1,	5),
+(6,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Bosque Popular',' carrera 16 #93-92',		1,	1,	1,	6),
+(7,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Bonanza',		' carrera 17 #93-92',		2,	6,	1,	7),
+(8,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Metrópolis',	' carrera 18 #93-92',		3,	7,	1,	8),
+(9,		sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Las Ferias',	' carrera 19 #93-92',		4,	8,	1,	9),
+(10,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Aures',		' carrera 20 #93-92',		5,	9,	1,	10),
+(11,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Las Flores',	' carrera 21 #93-92',		6,	10,	1,	11),
+(12,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'San Jorge',	' carrera 22 #93-92',		5,	11,	1,	12),
+(13,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Tibabuyes',	' carrera 23 #93-92',		4,	12,	1,	13),
+(14,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'El Rubí',		' carrera 24 #93-92',		3,	13,	1,	14),
+(15,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Niza',			' carrera 25 #93-92',		2,	14,	1,	15),
+(16,	sysdate(), DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	'Bogota',	'Villa Cindy',	' carrera 26 #93-92',		1,	15,	1,	16);
+
+-- ---------------------------------------
+insert into Turno(Id_turno, Fecha_inicio_turno, Fecha_fin_turno, PedidoId_pedido)
+values 
+(1,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	1),
+(2,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	2),
+(3,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	3),
+(4,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	4),
+(5,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	5),
+(6,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	6),
+(7,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	7),
+(8,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	8),
+(9,		DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	9),
+(10,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	10),
+(11,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	11),
+(12,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	12),
+(13,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	13),
+(14,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	14),
+(15,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	15),
+(16,	DATE_ADD(sysdate(),INTERVAL 90 DAY), DATE_ADD(DATE_ADD(sysdate(),INTERVAL 90 DAY),INTERVAL 12 HOUR),	16);
+
+-- ---------------------------------------
+insert into Empleado_turno( EmpleadoId_empleado, TurnoId_turno)
+values 
+(1,		01),
+(2,		02),
+(3,		03),
+(4,		01),
+(5,		02),
+(6,		03),
+(7,		01),
+(8,		02),
+(9,		03),
+(10,	01),
+(11,	02),
+(12,	03),
+(13,	01),
+(14,	02)
+;
 
 -- -------------------------------------------------------------------------
 

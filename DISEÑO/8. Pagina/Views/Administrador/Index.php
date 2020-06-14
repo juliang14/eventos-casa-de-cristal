@@ -8,10 +8,12 @@
 	<link rel="shortcut icon" href="Assets/img/icon.ico" />
 
 	<!--link rel="stylesheet" type="text/css" href="Assets/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css"-->
+	<!--link rel="stylesheet" type="text/css" href="<--?php echo APP_URL ?>Assets/bootstrap/css/bootstrap.min.css"-->
 	<link rel="stylesheet" type="text/css" href="Assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/fuentes.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
@@ -133,6 +135,8 @@
     <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
 	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
 	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

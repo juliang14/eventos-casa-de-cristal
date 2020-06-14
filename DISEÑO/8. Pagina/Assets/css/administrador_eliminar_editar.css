@@ -108,3 +108,11 @@ select{
 }
 
 /* Fin estilos formularios*/
+
+/* Turnos administrador */
+.boton-desplegable{
+	background-color: #ffc0cb;
+	border-radius: 10px;
+	height: 40px;
+}
+/************************/

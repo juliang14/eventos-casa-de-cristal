@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>Assets/Utilitarios/css/responsive.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>Assets/css/administrador.css">
    <!--style>

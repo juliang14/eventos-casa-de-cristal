@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/facturas.css">
@@ -70,6 +71,75 @@
 				<?php
 					$Response = Pedidos::getPedido($_GET['ID_PEDIDO']);
 				?>
+				<div class="col-sm-11 col-md-11 col-lg-11 col-xl-11 P-4 informacionPedido">
+					<h2 class="text-center">INFORMACION PEDIDO</h2><br><br>
+					<div class='row'>
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputCiudadEvento">Ciudad</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="text" id="inputCiudadEvento" disabled="disabled" value="<?php echo $Response->CIUDAD_EVENTO ?>"/>					
+								</div>
+							</div>
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputBarrioEvento">Barrio</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="datatime" id="inputBarrioEvento" disabled="disabled" value="<?php echo $Response->BARRIO_EVENTO ?>" />
+								</div>
+							</div>
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputDireccionEvento">Direccion</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="text" id="inputDireccionEvento" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->DIRECCION_EVENTO ?>">
+								</div>
+							</div>
+						</div>	
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputFechaInicioEvento">Fecha inicio evento</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="text" id="inputFechaInicioEvento" disabled="disabled" value="<?php echo $Response->FECHA_INICIO_EVENTO ?>"/>					
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+							</div>
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputFechaFinEvento">Fecha fin evento</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="datatime" id="inputFechaFinEvento" disabled="disabled" value="<?php echo $Response->FECHA_FIN_EVENTO ?>" />
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+							</div>
+							<div class='row'>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<label for="inputEstado">Estado</label>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+									<input class="boton_desabilitado" type="text" id="inputEstado" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->ESTADO ?>">
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+								</div>
+							</div>
+						</div>							
+					</div>
+				</div>
 				<!---------------------------------- INICIO FACTURA -------------------------------------------------------------->
 				<h1>FACTURA <?php echo $Response->ID_FACTURA ?></h1>
 				<section class="seccionVerFactura cajon">
@@ -246,16 +316,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
-						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 pr-0 text-right estado-pedido">
-							Estado:
-						</div>
-						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 pl-0 text-left estado-pedido">
-							<input class="boton_desabilitado" type="text" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->ESTADO ?>">
-						</div>
-						<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 text-center"></div>
-					</div>
 				</section>
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
@@ -400,6 +460,8 @@
     <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
 	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
 	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
 </html>

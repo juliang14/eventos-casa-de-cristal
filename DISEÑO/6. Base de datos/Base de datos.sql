@@ -65,10 +65,9 @@ primary key (Id_Usuariosistema)
 
 create table Turno(
 Id_turno 							Int 		 auto_increment not null,
-Turno 								int 		 not null,
-fecha_de_turno						date		 not null,
-Hora_de_turno_inicio				time		 not null,
-Hora_de_turno_fin					time		 not null,
+Fecha_inicio_turno					DATETIME	 not null,
+Fecha_fin_turno						DATETIME	 not null,
+PedidoId_pedido							int			 not null,
 primary key (Id_turno)
 );
 
@@ -86,6 +85,11 @@ primary key (Id_estadopedido)
 create table Pedido(
 Id_pedido 							int 		 auto_increment not null,
 Fecha_pedido						DATETIME	 not null,
+Fecha_inicio_evento					DATETIME	 not null,
+Fecha_fin_evento					DATETIME	 not null,
+Ciudad_evento						varchar	(60) not null,
+Barrio_evento						varchar	(60) not null,
+Direccion_evento					varchar	(100)not null,
 Paquete_Idpaquete					int 		 not null,
 UsuarioId_usuario 					int 		 not null,
 EstadopedidoId_estadopedido			int 		 not null,
@@ -183,6 +187,7 @@ primary key (Id)
 
 
 
+
 ALTER TABLE Empleado
 ADD FOREIGN KEY (Rolid_Rol)
 REFERENCES Rol(Id_rol);
@@ -243,7 +248,6 @@ ADD PRIMARY KEY (`EmpleadoId_empleado`, `TurnoId_turno`)
 
 
 
-
 ALTER TABLE pedido
 ADD FOREIGN KEY (facturaId_factura)
 REFERENCES factura(Id_factura);
@@ -263,7 +267,9 @@ ALTER TABLE Pedido
 ADD FOREIGN KEY (EstadopedidoId_estadopedido)
 REFERENCES estado_pedido(Id_estadopedido);
 
-
+ALTER TABLE turno
+ADD FOREIGN KEY (PedidoId_pedido)
+REFERENCES Pedido(Id_pedido);
 
 
 
@@ -286,6 +292,7 @@ REFERENCES Paquete(Id_paquete);
 ALTER TABLE Inventario_paquete
 ADD PRIMARY KEY (`InventarioId_inventario`, `PaqueteId_paquete`)
 ;
+
 
 
 ALTER TABLE pagos
