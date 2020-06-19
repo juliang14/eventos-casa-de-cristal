@@ -66,6 +66,7 @@ CALL PR_CREAR_INVENTARIO('luces',30,20000,'utileria'); -- Crear pruductos de inv
 CALL PR_ACTUALIZAR_INVENTARIO(11,'luces',30,20000,'utileria'); -- ACTUALIZAR INVENTARIO
 CALL PR_ELIMINAR_INVENTARIO(11);-- Inactivar productos del inventario
 CALL PR_VER_TURNOS(); -- Obtener turnos
+CALL PR_CREAR_TURNO(1,'CC',1065320855); -- CREAR TURNO
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

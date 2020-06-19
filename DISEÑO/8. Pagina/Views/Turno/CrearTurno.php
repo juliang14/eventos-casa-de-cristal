@@ -67,126 +67,169 @@
 					</div>
 				</div>
 				<main>
-					<section class="section-turnos">
-						<div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 m-auto text-center sombra">
-							<h3>Asocia personal al evento</h3>
-							<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto boton-desplegable">
-								<p>Pedido</p>
-							</div>
-						</div>
-					</section>
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="row" id="event_2">
-								<div class="col-lg-12" STYLE="">
-									<div style="text-align: center; margin-top: 5%;">
-										<h2>Crear Turno</h2>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar2">
-											<div class="row sombra">
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Fecha Inicio
-													</label>
-													<br>
-													<input type="datetime-local" name="" placeholder="Nombre inventario">
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Fecha fin
-													</label>
-													<br>
-													<input type="datetime-local" name="">
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														turno
-													</label>
-													<br>
-													<select>
-														<option>Selecciona turno</option>
-														<option> 1 </option>
-														<option> 2 </option>
-														<option> 3 </option>
-													</select>
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Empleado
-													</label>
-													<br>
-													<select>
-														<option>Seleccionar empleado</option>
-														<option> empleado 1 </option>
-														<option> empleado 2 </option>
-														<option> empleado 3 </option>
-													</select>
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														cargo
-													</label>
-													<br>
-													<input type="text" name="" disabled="disabled" value="" placeholder="aqui se visualiza el cargo" id="ver-cargo">
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														pedido
-													</label>
-													<br>
-													<input type="number" name="" placeholder="0">
-												</div>
-												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 margen-abajo" style="text-align:center;">
-													<label>
-														Categoria
-													</label>
-													<br>
-													<select>
-														<option>Selecciona una opcion</option>
-														<option>Matrimonio</option>
-														<option>Bautizo</option>
-														<option>Quince años</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="row">
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-													<a href="?class=turnos&method=index">
-														<button class="btn verde">Crear</button>
-													</a>
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-											</div>
-										</div>
-										<div cla
-										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
-										<div class="row">
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<a href="?class=turnos&method=index">
-													<img src="Assets/img/izquierda.png">
-												</a>
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<a href="?class=administrador&method=index">
-													<img src="Assets/img/casa.png">
-												</a>
-											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												
-											</div>
+					<!-----------------------   INICIO MODAL  ------------------------------------>
+					<!-- Button trigger modal -->
+					<!--
+						$('#modalCenter').modal('show'); // abrir
+						$('#modalCenter').modal('hide'); // cerrar
+					-->
+					<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+					Launch demo modal
+					</button-->
 
+					<!-- Modal -->
+					<div class="modal fade refrescarPagina" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+							<button type="button" class="close refrescarPagina" data-dismiss="modal" aria-label="Close" >
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							...
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary refrescarPagina" data-dismiss="modal">Cerrar</button>
+							<!--button type="button" class="btn btn-primary">Save changes</button-->
+						</div>
+						</div>
+					</div>
+					</div>
+					<!-----------------------   FIN MODAL  ------------------------------------>
+					<section class="section-turnos">
+						<div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 m-auto sombra">
+							<h3 class="text-center mb-4">Asocia personal al evento</h3>
+							<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  boton-desplegable" control="TurnoPedidos">
+										<i class="fas fa-bars"></i>
+										<strong>Pedido</strong>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 body-desplegable text-center ocultar" id="TurnoPedidos">
+									<label for="inputIdPedidoTurno">Id del pedido</label>
+									<input type="text" class="text-center form-control inputDocumento" name="inputIdPedidoTurno" id="inputIdPedidoTurno" required>
+									<div class="row ocultar" id="fechasDelPedido">
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4">
+											<div class='row'>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<label for="inputCiudadEvento">Ciudad</label>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<input class="boton_desabilitado" type="text" id="inputCiudadEvento" disabled="disabled"/>					
+												</div>
+											</div>
+											<div class='row'>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<label for="inputBarrioEvento">Barrio</label>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<input class="boton_desabilitado" type="datatime" id="inputBarrioEvento" disabled="disabled"/>
+												</div>
+											</div>
+											<div class='row'>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<label for="inputDireccionEvento">Direccion</label>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<input class="boton_desabilitado" type="text" id="inputDireccionEvento" disabled="disabled">
+												</div>
+											</div>
+										</div>	
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-4">
+											<div class='row'>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<label for="inputFechaInicioEvento">Fecha inicio evento</label>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<input type="text" class="datepicker text-center" id="inputFechaInicioEvento" disabled="disabled">
+												</div>
+											</div>
+											<div class='row'>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<label for="inputFechaFinEvento">Fecha fin evento</label>
+												</div>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+													<input type="text" class="datepicker text-center" id="inputFechaFinEvento" disabled="disabled">
+												</div>
+											</div>
+										</div>	
+									</div>
+									<div class="row ocultar" id="contenedorMensajeError">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 text-center">
+											<input type="text" class="text-center form-control" id="mensajeError" disabled="disabled">
 										</div>
 									</div>
-
+								</div>
+							</div>
+							<br>
+							<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 boton-desplegable" control="TurnoEmpleado">
+										<i class="fas fa-bars"></i>
+										<strong>Empleados</strong>
+								</div>
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 body-desplegable text-center ocultar" id="TurnoEmpleado">
+									<div class='row'>
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 m-auto text-right">
+											<label class="m-auto" for="inputTipoDocumento">Tipo documento</label>
+										</div>
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+											<select class="text-center" id="inputTipoDocumento">
+												<option value=''>Seleccionar</option>
+												<?php foreach (TipoDocumento::getTipoDocumento() as $responseGetTipoDocumento){ ?>
+													<option value="<?php echo $responseGetTipoDocumento->Siglas ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
+												<?php } ?>
+											</select>
+										</div>
+									</div>
+									<br>
+									<div class='row'>
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 m-auto text-right">
+											<label class="m-auto" for="inputEmpleadoTurno">Numero de documento</label>
+										</div>
+										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+											<input type="text" class="text-center form-control inputDocumento" name="inputEmpleadoTurno" id="inputEmpleadoTurno" required>
+										</div>
+									</div>
+									<div class="row ocultar" id="contenedorMensaje">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 text-center">
+											<input type="text" class="text-center form-control" id="mensaje" disabled="disabled">
+										</div>
+									</div>
+								</div>
+							</div>
+							<br><br>
+							<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto">
+								<div class='row'>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right" id="botonCrearTurno">
+									<button class="btn verde crearTurno" id="crearTurno"> Crear turno </button>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-left">
+										<a href="?class=turnos&method=index">
+											<button class="btn rojo"> Volver </button>
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
+					</section>
+					
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
+						<div class="row">
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+								<a href="?class=turnos&method=index">
+									<img src="Assets/img/izquierda.png">
+								</a>
+							</div>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+								<a href="?class=administrador&method=index">
+									<img src="Assets/img/casa.png">
+								</a>
+							</div>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+							</div>
+						</div>
 					</div>
-				</div>
 			</main>
 		</div>
 	</div>

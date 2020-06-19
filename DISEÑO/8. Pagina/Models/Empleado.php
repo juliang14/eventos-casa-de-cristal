@@ -31,6 +31,21 @@ class Empleado extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	// Obtener empleado
+	public function getEmpleadoDocumento($Tipo_documento, $Numero_documento){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_EMPLEADOS WHERE DOCUMENTO = ? AND NUMERO_DOCUMENTO = ?");
+			$query->bindParam(1,$Tipo_documento,PDO::PARAM_STR);
+			$query->bindParam(2,$Numero_documento,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 	// Obtener todos los empleados de la Base de datos
 	public function getEmpleados(){
 		try {

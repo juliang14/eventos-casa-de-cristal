@@ -121,11 +121,14 @@
 						<thead> 
 							<tr style="color: #eb028b;">
 								<th>ID</th>
-		                        <th>FECHA INICIO EVENTO</th>
-		                        <th>FECHA FIN EVENTO</th>
-		                        <th>NOMBRE</th>
+		                        <th>NOMBRE EMPLEADO</th>
 		                        <th>CARGO</th>							                        
-		                        <th>PEDIDO</th>
+								<th>PEDIDO</th>
+								<th>FECHA INICIO EVENTO</th>
+								<th>FECHA FIN EVENTO</th>
+								<th>CIUDAD</th>
+								<th>BARRIO</th>
+		                        <th>DIRECCION</th>
 		                        <th>ACCION</th>
 		                    </tr>
 						</thead>
@@ -134,13 +137,16 @@
 					                       
 		                        <tr>
 		                        	<td><?php echo $responseGetTurnos->ID_TURNO ?></td>
-		                            <td><?php echo $responseGetTurnos->FECHA_INICIO_EVENTO ?></td>
-		                            <td><?php echo $responseGetTurnos->FECHA_FIN_EVENTO ?></td>
 		                            <td><?php echo $responseGetTurnos->NOMBRE ?></td>		
 		                            <td><?php echo $responseGetTurnos->NOMBRE_DE_CARGO ?></td>					                            
-		                            <td><?php echo $responseGetTurnos->ID_PEDIDO ?></td>
+									<td><?php echo $responseGetTurnos->ID_PEDIDO ?></td>
+									<td><?php echo $responseGetTurnos->FECHA_INICIO_EVENTO ?></td>
+									<td><?php echo $responseGetTurnos->FECHA_FIN_EVENTO ?></td>
+									<td><?php echo $responseGetTurnos->CIUDAD_EVENTO ?></td>
+									<td><?php echo $responseGetTurnos->BARRIO_EVENTO ?></td>
+		                            <td><?php echo $responseGetTurnos->DIRECCION_EVENTO ?></td>
 		                            <td>
-		                            	<a href="?class=empleado&method=empleadosVer&ID_TURNO=<?php echo $responseGetTurnos->ID_TURNO ?>">
+		                            	<a href="?class=Turnos&method=verTurno&ID_TURNO=<?php echo $responseGetTurnos->ID_TURNO ?>">
 		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetTurnos->ID_TURNO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;

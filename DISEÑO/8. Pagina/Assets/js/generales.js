@@ -354,6 +354,133 @@ $('.btn-borrarinventario').click(function(){
 
 /* FIN EJECUCION BOTON CON AJAX */
 
+//-------------------------------- SECCION TURNOS -----------------------------------
+$('.boton-desplegable').click(function(){
+  var control = $(this).attr('control');
+  if($('#'+control).hasClass("ocultar") == true){
+    $(this).addClass('bordeInferior');
+    $('#'+control).removeClass("ocultar");
+  }else if($('#'+control).hasClass("ocultar") == false){
+    $(this).removeClass('bordeInferior');
+    $('#'+control).addClass("ocultar");
+  }
+});
+
+//Consultar pedido para generar turno
+$('#inputIdPedidoTurno').blur(function(){
+  var Id_pedido     = $("#inputIdPedidoTurno").val();
+
+  $('#fechasDelPedido').addClass('ocultar');
+  $('#contenedorMensajeError').addClass('ocultar');
+ 
+  if(Id_pedido !=''){
+    $.ajax({
+      type: 'GET',
+      url : '?class=Turnos&method=getPedido',
+      data: { userPedido: Id_pedido},
+      success(response){
+        if(response.indexOf('No se encontraron') != 0){
+          var datosRespuesta  = response.split('_'),
+              IdPedido        = datosRespuesta[0],
+              Ciudad          = datosRespuesta[1],
+              Barrio          = datosRespuesta[2],
+              Direccion       = datosRespuesta[3],
+              FechaInicio     = datosRespuesta[4],
+              fechaFin        = datosRespuesta[5];
+
+          $('#inputCiudadEvento').val(Ciudad);
+          $('#inputBarrioEvento').val(Barrio);
+          $('#inputDireccionEvento').val(Direccion);
+          $('#inputFechaInicioEvento').val(FechaInicio);
+          $('#inputFechaFinEvento').val(fechaFin);  
+          $('#fechasDelPedido').removeClass('ocultar');
+        }else{
+          $('#inputFechaInicioEvento').val('');
+          $('#mensajeError').val(response);
+          $('#contenedorMensajeError').removeClass('ocultar');
+          
+        }
+        generarBotonTurnos();
+      }
+    });
+  }else{
+    $('.modal-body').html('Verifica el campo id pedido.');
+    $('#modalCenter').modal('show');
+  }
+});
+//Consultar empleado para generar turno
+$('#inputEmpleadoTurno').blur(function(){
+    var tipoDocumento     = $("#inputTipoDocumento").val(),
+        documentoEmpleado = $("#inputEmpleadoTurno").val();
+
+  $('#contenedorMensaje').addClass('ocultar');
+ 
+  if(tipoDocumento !='' && documentoEmpleado !=''){
+    $.ajax({
+      type: 'GET',
+      url : '?class=Turnos&method=getEmpleado',
+      data: { userTipoDocumento: tipoDocumento, userDocumento: documentoEmpleado},
+      success(response){
+        if(response.indexOf('No se encontraron') != 0){
+          $('#mensaje').val('Empleado: '+response); 
+          $('#contenedorMensaje').removeClass('ocultar');      
+        }else{
+          $('#mensaje').val(response);
+          $('#contenedorMensaje').removeClass('ocultar');
+        }
+        generarBotonTurnos();
+      }
+    });
+  }else{
+    $('.modal-body').html('Verifica los campos Tipo documento y número documento.');
+    $('#modalCenter').modal('show');
+  }
+});
+
+function generarBotonTurnos(){
+  var boton     = `<button class="btn verde" id="crearTurno" onClick="crearTurnoAdmin();"> Crear turno </button>`,
+      pedido    = $('#inputFechaInicioEvento').val(),
+      empleado  = $('#mensaje').val();
+
+  $('#botonCrearTurno').html('');
+  if(pedido.length > 5 && empleado.indexOf('No se encontraron') != 0 && empleado.length >5){
+    $('#botonCrearTurno').html(boton);
+  }
+}
+
+//CREAR turno
+function crearTurnoAdmin(){
+console.log('respondiendo desde crear turno');
+  var idPedido          = $("#inputIdPedidoTurno").val(),
+      tipoDocumento     = $("#inputTipoDocumento").val(),
+      documentoEmpleado = $("#inputEmpleadoTurno").val();
+console.log(idPedido+' '+tipoDocumento+' '+documentoEmpleado);
+if(idPedido!='' && tipoDocumento !='' && documentoEmpleado !=''){
+  $.ajax({
+    type: 'GET',
+    url : '?class=Turnos&method=insertCrearTurno',
+    data: { userIdPedido: idPedido, userTipoDocumento: tipoDocumento, userDocumento: documentoEmpleado},
+    success: function (response) {
+      $('.modal-body').html('Se creo el turno exitosamente.');
+      $('.refrescarPagina').attr('onClick', "window.location.href='?class=turnos&method=index'");
+      $('#modalCenter').modal('show');
+      //console.log('Responde el ajax con Exito!!!');
+      //console.log('rta:' + response);
+    },
+    error: function (response) {
+        console.log('Responde el ajax con Error!!!');
+        console.log(response);
+    }
+  });
+  /**/
+
+}else{
+  $('.modal-body').html('Verifica todos los campos del formulario.');
+  $('#modalCenter').modal('show');
+}
+};
+//-----------------------------------------------------------------------------------
+
 /***************INICIO DATEPICKER **********************************/
 $('.datepicker').datetimepicker({
     timepicker: true,
@@ -367,6 +494,9 @@ $('.datepicker').datetimepicker({
     //language: 'es'
 });
 /***************** FIN DATEPICKER **********************************/
+
+
+/*************************************************************************************************************************************** */
 /*  INICIO CONSULTAS GENERALES*/
 var generales = {
 
