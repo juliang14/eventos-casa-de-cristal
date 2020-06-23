@@ -78,12 +78,12 @@
 				</button-->
 
 				<!-- Modal -->
-				<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="generales.refrescarPagina();">
+				<div class="modal fade accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
 				  <div class="modal-dialog modal-dialog-centered" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				        <button type="button" class="close accionEvento" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
@@ -91,7 +91,7 @@
 				        ...
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="generales.refrescarPagina();">Cerrar</button>
+				        <button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>
 				        <!--button type="button" class="btn btn-primary">Save changes</button-->
 				      </div>
 				    </div>
@@ -147,14 +147,10 @@
 		                            <td><?php echo $responseGetTurnos->DIRECCION_EVENTO ?></td>
 		                            <td>
 		                            	<a href="?class=Turnos&method=verTurno&ID_TURNO=<?php echo $responseGetTurnos->ID_TURNO ?>">
-		                            		<i class="fas fa-info color_orange" title="Ver empleado <?php echo $responseGetTurnos->ID_TURNO ?>"></i>
+		                            		<i class="fas fa-info color_orange" title="Ver turno <?php echo $responseGetTurnos->ID_TURNO ?>"></i>
 		                            	</a>
 		                            	&nbsp;&nbsp;
-		                            	<a href="?class=empleado&method=empleadosEditar&ID_TURNO=<?php echo $responseGetTurnos->ID_TURNO ?>">
-		                            		<i class="fas fa-pencil-alt color_blue" title="Editar empleado <?php echo $responseGetTurnos->ID_TURNO ?>"></i>
-		                            	</a>
-		                            	&nbsp;&nbsp;
-		                            	<i class="fas fa-trash-alt color_red btn-borrarEmpleado" title="Borrar empleado <?php echo $responseGetTurnos->ID_TURNO ?>" data-control-user=<?php echo $responseGetTurnos->ID_TURNO ?>></i>
+		                            	<i class="fas fa-trash-alt color_red btn-borrarTurno" title="Borrar turno <?php echo $responseGetTurnos->ID_TURNO ?>" onClick="borrarTurno(1,<?php echo $responseGetTurnos->ID_EMPLEADO ?>,<?php echo $responseGetTurnos->ID_TURNO ?>);"></i>
 		                            </td>
 		                        </tr>
 					            

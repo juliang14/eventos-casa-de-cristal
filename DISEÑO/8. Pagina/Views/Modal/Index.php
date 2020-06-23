@@ -52,6 +52,32 @@
 					echo "Se actualizo el registro exitosamente.";
 				}
 				
+			}else if (isset($RTurnos)) {
+				if(!empty($RTurnos)){
+
+					if($RTurnos->ACCION=='ELIMINAR'){
+						echo "Eliminaste el empleado: ".$RTurnos->ID_EMPLEADO." - ".$RTurnos->NOMBRE." del turno ".$RTurnos->ID_TURNO;
+					}else{
+						echo 'Accion no configurada';
+					}
+
+				}else{
+					echo "No hay datos en la respuesta.";
+				}
+				
+			}else if (isset($REventos)) {
+				if(!empty($REventos)){
+
+					if($REventos->ACCION=='ELIMINAR'){
+						echo "Se elimino el evento: ".$REventos->ID_EVENTO." - ".$REventos->TIPO_DE_EVENTO;
+					}else{
+						echo 'Accion no configurada';
+					}
+
+				}else{
+					echo "No hay datos en la respuesta.";
+				}
+				
 			}else{
 				echo "Esta variable no está definida";
 			}

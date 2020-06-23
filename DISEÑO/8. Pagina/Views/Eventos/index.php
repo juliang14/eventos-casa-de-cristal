@@ -1,39 +1,46 @@
 <html>
+
 <head>
 	<title>
-		Eventos
+		Administrador paquetes
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="Assets/img/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="Assets/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/bootstrap-4.0.0/css/bootstrap.min.css">
+	<!--link rel="stylesheet" type="text/css" href="Assets/bootstrap/css/bootstrap.min.css"-->
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/css/responsive.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/fontawesome-5.13.0/css/all.css">
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
-	<link rel="stylesheet" type="text/css" href="Assets/css/eventos.css">
-
+	<link rel="stylesheet" type="text/css" href="Assets/css/administrador.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/formularios.css">
+	<link rel="stylesheet" type="text/css" href="Assets/css/fuentes.css">
+	
 
 </head>
+
 <body>
 	<div class="center">
 		<div class="container-fluid" id="pag">
 			<div class="row">
 				<div class="col-lg-12">
-					
 					<div class="container-fluid">
 						<div class="row">
 
-							<div class="col-lg-2 esp-bajo" STYLE="text-align:center;">
-								<IMG SRC="Assets/img/Logo.jpeg" id="img-logo"></IMG>
+							<div class="col-lg-2" STYLE="">
+								<a href="?class=administrador&method=index">
+									<IMG SRC="Assets/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
+								</a>
 							</div>
 
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
-									<div class="col-lg-2" STYLE="">
+									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
 									</div>
-									<div class="col-lg-4 esp-bajo" STYLE="">
+									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
 										<div class="input-group" id="bus">
 											<input type="text" class="form-control" placeholder="BUSCADOR">
 											<div class="input-group-append">
@@ -41,132 +48,225 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-2 esp-bajo" id="inicio-personal">
-										<a href="?class=security&method=loginEmpleado">
-											<!--IMG class="img-login" SRC="Assets/img/usuario.png"  title="Login empleado"></IMG-->
-											<i class="fas fa-user"></i>
-										</a>
+									<div class="col-lg-1" id="inicio-personal">
 
-										<a href="?class=security&method=loginAdministrador">
-											<!--IMG class="img-login" SRC="Assets/img/espia.png"  title="Login administrador"-->
-											<i class="fas fa-user-secret"></i>
-										</a>
 									</div>
-									<div class="col-lg-4 esp-bajo" id="inicio-usuarios">
-										<a href="?class=security&method=loginUsuario">
-											<button type="button" class="btn btn-primary">Iniciar sesion</button>
-										</a>
-										<a href="?class=security&method=formularioRegistro">
-											<button type="button" class="btn btn-primary">Registro</button>
-										</a>
+									<div class="col-lg-4" id="inicio-usuarios">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
+											<p><?php echo $_SESSION['UserAutenticate']->NOMBRE; ?></p>
+											<img src="Assets/img/silueta-de-multiplesusuarios.png">
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
+											<p>cerrar sesion</p>
+											<label class="switch">
+												<input type="checkbox" onclick="cerrarSesion();">
+												<span class="slider round"></span>
+											</label>
+										</div>
 									</div>
 								</div>
-								<div class="row" style="height: 15%;">
-								</div>
-								<div id="div-menu" onclick="menu();">
-									<img src="Assets/img/menu.png">
-								</div>
-								<nav class="men" id="men">
-									<ul class="menu-pincipal">
-										<li class="">
-											<a href="?class=Index&method=index">Inicio</a>
-										</li>
-										<li class="active">
-											<a href="?class=Eventos&method=eventos">Eventos</a>
-										</li>
-										<li class="">
-											<a href="?class=Index&method=acercaDeNosotros">Acerca de nosotros</a>
-										</li>
-										<li class="">
-											<a href="?class=Index&method=contactos">Contactenos</a>
-										</li>
-									</ul>
-								</nav>
-								
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>	
+		</div>
+	</div>
+	<!-----------------------   INICIO MODAL  ------------------------------------>
+	<!-- Button trigger modal -->
+	<!--
+		$('#modalCenter').modal('show'); // abrir
+		$('#modalCenter').modal('hide'); // cerrar
+	-->
+	<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+		Launch demo modal
+	</button-->
+
+	<!-- Modal -->
+	<div class="modal fade accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+			<button type="button" class="close accionEvento" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+			...
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>
+			<!--button type="button" class="btn btn-primary">Save changes</button-->
 			</div>
 		</div>
-
-		<div class="container-fluid" style=""id="contenidoEventos">
-			<div class="row">
-				<div class="col-lg-12" id="eventos">
-					<div>
-						<ul>
-							<a href="?class=IndexHome&method=paquetesbautizo">
-							<li>
-								<P>Bautizo</P>
-								<img src="Assets/img/Bautizo.jpg"
-								>
-							</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetesMatrimonio">
-								<li>	
-									<p>Boda</p>
-									<img src="Assets/img/Boda.jpg">
-								</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetes15anos">
-							<li>
-								<p>15 años</p>
-								<img src="Assets/img/15.jpg">
-							</li>
-							</a>
-						</ul>
+		</div>
+	</div>
+	<!-----------------------   FIN MODAL  ------------------------------------>
+	<section class="contenedor-eventos-paquetes">
+		<div class="row m-0">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 blanco">
+				<h1 class=" mb-4">Selecciona una opcion</h1>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center blanco" id="">
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" id="">
+				<button class="bubbly-button"><i class="fas fa-th"></i>EVENTOS</button>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" id="">
+				<button class="bubbly-button"><i class="fas fa-th-large"></i>PEDIDOS</button>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center blanco" id="">
+			</div>
+		</div>
+	</section>
+	<section class="center">
+		<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<h2 class="titulo-paquetes">Eventos</h2>
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 contenedor-eventos" id="contenedor-eventos">
+				<div class="row">
+					<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
 					</div>
-					<div>
-						<ul>
-							<a href="?class=IndexHome&method=paquetesGrados">
-							<li>
-								<p>Grados</p>
-								<img src="Assets/img/Grados.jpg">
-							</li>
+					<div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="caja-paquete">
+						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-right mb-4">
+							<a href="?class=Eventos&method=crearEventos">
+								<button class="btn verde evento-crear" > Agregar  <i class="fas fa-plus add"></i></button>
 							</a>
-							<a href="?class=IndexHome&method=paquetesprimeracomunion">
-							<li>
-								<p>Primera Comunion</p>
-								<img src="Assets/img/Primera Comunion.jpg">
-							</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetesdespedidasolteros">
-							<li>
-								<p>Despedida de solteros</p>
-								<img src="Assets/img/eventos2.jpg"></li>
-							</a>
-							</ul>
-
+						</div>
+						<div class="row">
+							<?php foreach(Eventos::getEventos() AS $ResponseGetEventos){ ?>
+								<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center" id="eventos">
+									<div class="row">
+										<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto">
+											<p><?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?></p>
+										</div>
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+											<img src="Files/img/<?php echo $ResponseGetEventos->IMAGEN; ?>">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+											<button class="btn btn-sm azul">Editar</button>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+											<button class="btn btn-sm rojo" onclick="borrarEvento(1,'<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>');">Eliminar</button>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
 						</div>
 					</div>
-						</div>
+					<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
 					</div>
-
 				</div>
 			</div>
-
-
-		<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
-		<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	
-		<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
-		<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
-		<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-		<script type="text/javascript" src="Assets/js/generales.js"></script>
-        <script type="text/javascript">
-            $('#div-menu').click(function(){
-                
-                var menu = document.getElementById("men"),
-                    estilo = document.head.appendChild(document.createElement("style"));
-
-                if (menu.className =="men ocultar_menu") {
-                    estilo.innerHTML = "#contenidoEventos{margin-top: 3%;}";
-                }else if(menu.className =="men"){
-                    estilo.innerHTML = "#contenidoEventos{margin-top: 50%;}";
-                }
-
-            });
-        </script>
+			
+		</div>
+	</section>
+	<section class="center">
+		<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<h2 class="titulo-paquetes">Paquetes</h2>
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="row">
+					<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
+					</div>
+					<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8" style="padding: 0;">
+						<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm adminMenuEventos p-0">
+							<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarNav">
+								<div class="navbar-nav text-center mr-auto ml-auto borde-gris">
+								<?php foreach(Eventos::getEventos() AS $ResponseGetEventos){ ?>
+									<a class="nav-item nav-link seleccionarEvento" evento="<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>" idevento="idEvento<?php echo $ResponseGetEventos->ID_EVENTO; ?>"><?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?></a>
+								<?php } ?>
+								</div>
+							</div>
+						</nav>
+					</div>
+					<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="contenedor-tabla-paquetes">
+				<div class="row">
+					<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
+					</div>
+					<div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="caja-paquete">
+						<?php foreach(Eventos::getEventos() AS $CantidadEventos){ ?>
+							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar" id="idEvento<?php echo $CantidadEventos->ID_EVENTO; ?>">
+								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-right mb-4">
+									<a href="?class=paquetes&method=crearPedido&TIPO_DE_EVENTO=<?php echo $CantidadEventos->TIPO_DE_EVENTO ?>">
+										<button class="btn verde evento-crear" evento-crear="<?php echo $CantidadEventos->TIPO_DE_EVENTO; ?>"> Agregar  <i class="fas fa-plus add"></i></button>
+									</a>
+								</div>
+								<div class="row">
+									<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
+										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center m-auto">
+											<div class="contenedorPaquetes cajas-paquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
+												<h3 class="font-italic pl-2 pr-2">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
+												<br>
+												<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
+												<br>
+												<h5>NUESTRO PLAN INCLUYE</h5>
+												<br>
+												<ul class="text-muted p-0 mb-4 text-left">
+													<?php foreach(Paquetes::getPaquete($ResponseGetEventoPaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
+														<li><?php echo $ResponseGetPaquete->INVENTARIO; ?></li>
+													<?php } ?>
+												</ul>
+												<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center ml-auto mr-auto mb-1 nombre-paquete">
+													<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>
+													</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1">
+													<button class="btn azul">Editar</button>
+												</div>
+												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1">
+													<button class="btn rojo">Eliminar</button>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							</div>	
+						<?php } ?>
+					</div>
+					<div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	<section class="center footer-page">
+		<div cla ss="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+			<div class="row">
+				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+					<a href="?class=administrador&method=index">
+						<img src="Assets/img/izquierda.png">
+					</a>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+					<a href="?class=administrador&method=index">
+						<img src="Assets/img/casa.png">
+					</a>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/tether.min.js"></script>
+	<script type="text/javascript" src="Assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	<script type="text/javascript" src="Assets/js/generales.js"></script>
 </body>
+
 </html>

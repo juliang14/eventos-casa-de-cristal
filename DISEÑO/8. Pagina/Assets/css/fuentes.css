@@ -2,6 +2,10 @@
 	font-family: 'Righteous', cursive;
 	src: url(Assets/Fonts/Righteous-Regular.ttf);
 }
+@font-face{
+	font-family: 'Berkshire Swash', cursive;
+	src: url(Assets/Fonts/BerkshireSwash-Regular.ttf);
+}
 .main-admin p{
 	font-family: 'Righteous', cursive;
 	font-size: 25px;
@@ -15,7 +19,9 @@
 	font-family: 'Righteous', cursive;
 	font-size: 12px;
 }
-#personaPedido{
-	/*font-family: 'Righteous', cursive;
-	font-size: 10px;*/
+.titulo-paquetes{
+	font-family: 'Berkshire Swash', cursive;
+	font-size: 40px;
+	padding: 5% 0;
 }
+

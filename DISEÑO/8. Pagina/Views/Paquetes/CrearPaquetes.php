@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>
-			Ver turno
+			Crear paquete
 		</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,41 +66,46 @@
 					</div>
 				</div>
 				<main>
-				<?php
-					$Response = Turnos::getTurno($_GET['ID_TURNO']);
-				?>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="row" id="event_2">
 								<div class="col-lg-12" STYLE="">
 									<div style="text-align: center; margin-top: 5%;">
-										<h2>Ver Turno <?php echo $Response->ID_TURNO ?></h2>
+										<h2>Crear Paquete</h2>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar2">
-											<div class="row sombra contenedorVerTurno">
+											<div class="row sombra">
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="inputCiudadEvento">Ciudad</label>
+													<label>
+														Paquete
+													</label>
 													<br>
-													<input class="boton_desabilitado" type="text" id="inputCiudadEvento" disabled="disabled" value="<?php echo $Response->CIUDAD_EVENTO ?>"/>					
+													<input type="number" name="" placeholder="0">
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="inputBarrioEvento">Barrio</label>
+													<label>
+														Objeto
+													</label>
 													<br>
-													<input class="boton_desabilitado" type="datatime" id="inputBarrioEvento" disabled="disabled" value="<?php echo $Response->BARRIO_EVENTO ?>" />
+													<select>
+														<option>Selecciona inventario</option>
+														<option> Mesas </option>
+														<option> Sillas </option>
+														<option> Cucharas </option>
+													</select>
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="inputFechaInicioEvento">Fecha inicio evento</label>
+													<label>
+														Cantidad
+													</label>
 													<br>
-													<input class="boton_desabilitado" type="text" id="inputFechaInicioEvento" disabled="disabled" value="<?php echo $Response->FECHA_INICIO_EVENTO ?>"/>
+													<input type="input" name="" value="" placeholder="0" id="">
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="inputFechaFinEvento">Fecha fin evento</label>
+													<label>
+														Valor
+													</label>
 													<br>
-													<input class="boton_desabilitado" type="datatime" id="inputFechaFinEvento" disabled="disabled" value="<?php echo $Response->FECHA_FIN_EVENTO ?>" />
-												</div>
-												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 margen-abajo" style="text-align:center;">
-													<label for="inputDireccionEvento">Direccion</label>
-													<br>
-													<input class="boton_desabilitado" type="text" id="inputDireccionEvento" name="" placeholder="total" disabled="disabled" value="<?php echo $Response->DIRECCION_EVENTO ?>">
+													<input type="number" name="" placeholder="$ 0">
 												</div>
 											</div>
 										</div>
@@ -109,8 +114,8 @@
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 												</div>
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-													<a href="?class=turnos&method=index">
-														<button class="btn rojo">volver</button>
+													<a href="?class=administrador&method=indexPaquetes">
+														<button class="btn verde">Crear</button>
 													</a>
 												</div>
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
@@ -121,7 +126,7 @@
 										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 										<div class="row">
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<a href="?class=turnos&method=index">
+												<a href="?class=administrador&method=indexPaquetes">
 													<img src="Assets/img/izquierda.png">
 												</a>
 											</div>

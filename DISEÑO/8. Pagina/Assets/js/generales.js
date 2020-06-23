@@ -257,7 +257,7 @@ $('#num-Reportes').click(function(){
     window.location.href="?class=Reportes&method=Index";
 });
 $('#num-Paquetes').click(function(){
-    window.location.href="?class=IndexHome&method=administradorPaquetes";
+    window.location.href="?class=Eventos&method=Index";
 });
 /* FIN REDIRECCION BOTONES MENU INICIO ADMINISTRADOR */
 
@@ -450,37 +450,106 @@ function generarBotonTurnos(){
 
 //CREAR turno
 function crearTurnoAdmin(){
-console.log('respondiendo desde crear turno');
-  var idPedido          = $("#inputIdPedidoTurno").val(),
-      tipoDocumento     = $("#inputTipoDocumento").val(),
-      documentoEmpleado = $("#inputEmpleadoTurno").val();
-console.log(idPedido+' '+tipoDocumento+' '+documentoEmpleado);
-if(idPedido!='' && tipoDocumento !='' && documentoEmpleado !=''){
-  $.ajax({
-    type: 'GET',
-    url : '?class=Turnos&method=insertCrearTurno',
-    data: { userIdPedido: idPedido, userTipoDocumento: tipoDocumento, userDocumento: documentoEmpleado},
-    success: function (response) {
-      $('.modal-body').html('Se creo el turno exitosamente.');
-      $('.refrescarPagina').attr('onClick', "window.location.href='?class=turnos&method=index'");
-      $('#modalCenter').modal('show');
-      //console.log('Responde el ajax con Exito!!!');
-      //console.log('rta:' + response);
-    },
-    error: function (response) {
-        console.log('Responde el ajax con Error!!!');
-        console.log(response);
-    }
+  console.log('respondiendo desde crear turno');
+    var idPedido          = $("#inputIdPedidoTurno").val(),
+        tipoDocumento     = $("#inputTipoDocumento").val(),
+        documentoEmpleado = $("#inputEmpleadoTurno").val();
+  console.log(idPedido+' '+tipoDocumento+' '+documentoEmpleado);
+  if(idPedido!='' && tipoDocumento !='' && documentoEmpleado !=''){
+    $.ajax({
+      type: 'GET',
+      url : '?class=Turnos&method=insertCrearTurno',
+      data: { userIdPedido: idPedido, userTipoDocumento: tipoDocumento, userDocumento: documentoEmpleado},
+      success: function (response) {
+        $('.modal-body').html('Se creo el turno exitosamente.');
+        $('.refrescarPagina').attr('onClick', "window.location.href='?class=turnos&method=index'");
+        $('#modalCenter').modal('show');
+        //console.log('Responde el ajax con Exito!!!');
+        //console.log('rta:' + response);
+      },
+      error: function (response) {
+          console.log('Responde el ajax con Error!!!');
+          console.log(response);
+      }
   });
   /**/
 
-}else{
-  $('.modal-body').html('Verifica todos los campos del formulario.');
-  $('#modalCenter').modal('show');
-}
+  }else{
+    $('.modal-body').html('Verifica todos los campos del formulario.');
+    $('#modalCenter').modal('show');
+  }
 };
+
+// BORRAR TURNO
+function borrarTurno(accion, id_empleado, id_turno){
+  var id_control = $(this).attr('data-control-user'),
+      botones=` <button type="button" class="btn btn-primary" onClick="borrarTurno(0,`+id_empleado+`,`+id_turno+`);">Borrar</button>
+                <button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>`,
+      boton  =` <button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>`;
+
+  if(accion==1 && id_empleado > 0 && id_turno > 0){
+    $('.modal-body').html('Estas seguro de que deseas quitar el empleado del turno.');
+    $('.modal-footer').html(botones);
+    $('#modalCenter').modal('show');
+  }else if(accion ==0 && id_empleado > 0 && id_turno > 0){
+    console.log('borrando usuario '+id_empleado+' del turno '+id_turno);
+    $.ajax({
+      type: 'GET',
+      url : '?class=Turnos&method=borrarTurno',
+      data: { userIdEmpleado: id_empleado, userIdTurno: id_turno},
+      success(response){
+        $('.modal-footer').html(boton);
+        $('.accionEvento').attr('onClick','generales.refrescarPagina();');
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      },
+      error(){
+        $('.modal-body').html('Error al eliminar el turno.');
+        $('#modalCenter').modal('show');
+      }
+    });
+    //$('.accionEvento').attr('onClick','generales.refrescarPagina();');
+  }
+
+};
+
+
 //-----------------------------------------------------------------------------------
 
+//------------------------- SECCION EVENTOS ----------------------------------------------
+
+// BORRAR EVENTO
+function borrarEvento(accion, nombreEvento){
+  var botones=` <button type="button" class="btn btn-danger" onClick="borrarEvento(0,'`+nombreEvento+`');">Borrar</button>
+                <button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>`,
+      boton  =` <button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>`;
+  if(accion==1 && nombreEvento !='' ){
+    $('.modal-body').html('Estas seguro de que deseas eliminar el evento <b>'+nombreEvento+'</b>.');
+    $('.modal-footer').html(botones);
+    $('#modalCenter').modal('show');
+  }else if(accion ==0 && nombreEvento !=''){
+    console.log('borrando evento '+nombreEvento);
+    $.ajax({
+      type: 'POST',
+      url : '?class=Eventos&method=delete_store',
+      data: { nombreEvento: nombreEvento},
+      success(response){
+        $('.modal-footer').html(boton);
+        $('.accionEvento').attr('onClick','generales.refrescarPagina();');
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+      },
+      error(){
+        $('.modal-body').html('Error al eliminar el turno.');
+        $('#modalCenter').modal('show');
+      }
+    });
+    //$('.accionEvento').attr('onClick','generales.refrescarPagina();');
+  }
+
+};
+
+//-----------------------------------------------------------------------------------
 /***************INICIO DATEPICKER **********************************/
 $('.datepicker').datetimepicker({
     timepicker: true,
@@ -494,6 +563,23 @@ $('.datepicker').datetimepicker({
     //language: 'es'
 });
 /***************** FIN DATEPICKER **********************************/
+
+
+/***************INICIO BOTON ESPARCIDO **********************************/
+var animateButton = function(e) {
+  e.preventDefault;
+  //reset animation
+  e.target.classList.remove('animate');
+  e.target.classList.add('animate');
+  setTimeout(function(){
+    e.target.classList.remove('animate');
+  },700);
+};
+var bubblyButtons = document.getElementsByClassName("bubbly-button");
+for (var i = 0; i < bubblyButtons.length; i++) {
+  bubblyButtons[i].addEventListener('click', animateButton, false);
+}
+/***************** FIN BOTON ESPARCIDO **********************************/
 
 
 /*************************************************************************************************************************************** */

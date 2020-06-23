@@ -122,14 +122,14 @@ values
 (038, 'socorroar12', 		'socorroar12', 		null, 'ACTIVO', null, 14);
 
 -- -------------------------------------------------------------------------
-insert into Evento(Id_evento, Tipo_de_evento)
+insert into Evento(Id_evento, Tipo_de_evento, tipo_imagen, imagen, Estado)
 values
-(1,	'Matrimonio'),
-(2,	'Bautizo'),
-(3,	'15 Años'),
-(4,	'Despedida de soltero'),
-(5,	'Primeras comuniones'),
-(6,	'Grados');
+(1,	'Matrimonio', 'image/jpg' , 'Boda.jpg', 'ACTIVO'),
+(2,	'Bautizo'	, 'image/jpg' , 'Bautizo.jpg', 'ACTIVO'),
+(3,	'15 Años'	, 'image/jpg' , '15.jpg', 'ACTIVO'),
+(4,	'Despedida de soltero', 'image/jpg' , 'eventos2.jpg', 'ACTIVO'),
+(5,	'Primeras comuniones', 'image/jpg' , 'Primera Comunion.jpg', 'ACTIVO'),
+(6,	'Grados'	, 'image/jpg' , 'Grados.jpg', 'ACTIVO');
 -- -------------------------------------------------------------------------
 
 insert into Paquete(Id_paquete, valor_paquete, valor_iva, valor_total, Tipo_de_paquete, Cantidad_Personas, Estado, EventoId_evento)

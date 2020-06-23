@@ -25,7 +25,7 @@
    require_once('models/Turnos.php');
 
    /*-----------------------------------------------------*/
-
+   // se declara variable $controller = si existe la clase se deja la clase (?), sino(:) deja por default Index
    $controller=isset($_REQUEST['class']) ? $_REQUEST['class']: 'Index';
    $method=isset($_REQUEST['method']) ? $_REQUEST['method']: 'index';
 

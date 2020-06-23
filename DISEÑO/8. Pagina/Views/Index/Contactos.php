@@ -74,7 +74,7 @@
 											<a href="?class=Index&method=index">Inicio</a>
 										</li>
 										<li class="">
-											<a href="?class=Eventos&method=index">Eventos</a>
+											<a href="?class=Eventos&method=Eventos">Eventos</a>
 										</li>
 										<li class="">
 											<a href="?class=Index&method=acercaDeNosotros">Acerca de nosotros</a>

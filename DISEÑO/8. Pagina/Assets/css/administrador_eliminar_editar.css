@@ -154,3 +154,7 @@ select{
 	width: 150px;
 }
 /************************/
+/*****VER TURNO*****/
+.contenedorVerTurno label{
+	font-weight: bold;
+}

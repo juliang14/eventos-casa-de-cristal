@@ -143,6 +143,9 @@ primary key (Id_factura)
 create table Evento(
 Id_evento	 						int 		 auto_increment not null,
 Tipo_de_evento	 					varchar	(50) not null,
+tipo_imagen							varchar	(20) not null,
+imagen								LONGBLOB,
+Estado								varchar	(20) not null,
 primary key (Id_evento)
 );
 

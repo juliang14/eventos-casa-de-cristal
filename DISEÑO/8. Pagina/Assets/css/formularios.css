@@ -192,11 +192,18 @@ h3{
 	justify-content: center;
 	height: 0;
 }
-.formulario-genial .contenedorPaquetes{
+.formulario-genial .contenedorPaquetes,
+.cajas-paquetes{
 	border: solid black 3px; 
 	text-align: center; 
 	border-radius: 14px;
+	background: linear-gradient(to bottom, pink, white); 
 	background-color:pink;
+}
+.text-muted {
+    list-style: none;
+    width: 70%;
+    margin: auto;
 }
 .formulario-genial .contenCajaEvento{
 	background-color: #fff;

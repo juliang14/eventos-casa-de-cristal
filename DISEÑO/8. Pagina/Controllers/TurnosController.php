@@ -44,6 +44,15 @@ class TurnosController extends Turnos{
         require_once('Views/Turno/VerTurno.php');
     }
 
+    //Borrar turno
+	public function borrarTurno(){
+		Security::validate();
+        $RTurnos = parent::getTurno($_REQUEST['userIdTurno']);
+        $RTurnos ->ACCION = 'ELIMINAR';
+		parent::deleteTurno($_REQUEST['userIdEmpleado'], $_REQUEST['userIdTurno']);
+		require_once('views/Modal/Index.php');
+	}
+
 }
 
 

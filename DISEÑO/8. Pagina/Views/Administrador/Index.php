@@ -104,7 +104,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 cantidad" id="num-Paquetes">
-							<p id="Paquetes">Paquetes</p>
+							<p id="Paquetes">Eventos y Paquetes</p>
 						</div>
 						<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 						</div>
