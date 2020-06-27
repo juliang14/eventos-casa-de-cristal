@@ -58,6 +58,23 @@ class Eventos extends DB{
 		}
 	}
 
+	// Actualizar evento
+	public function editarEvento( $idEvento, $nombreEvento, $tipo, $imagen){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" CALL PR_ACTUALIZAR_EVENTO ( ?, ?, ?, ?)");
+			//ejecutar consulta o sentencia
+			$query->bindParam(1, $idEvento,PDO::PARAM_INT);
+			$query->bindParam(2, $nombreEvento,PDO::PARAM_STR);
+			$query->bindParam(3, $tipo,PDO::PARAM_STR);
+			$query->bindParam(4, $imagen,PDO::PARAM_STR);
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
 }
 
 ?>

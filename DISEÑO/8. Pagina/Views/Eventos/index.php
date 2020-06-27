@@ -146,7 +146,9 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
-											<button class="btn btn-sm azul">Editar</button>
+											<a href="?class=Eventos&method=editarEventos&tipo_de_evento=<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>">
+												<button class="btn btn-sm azul">Editar</button>
+											</a>
 										</div>
 										<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
 											<button class="btn btn-sm rojo" onclick="borrarEvento(1,'<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>');">Eliminar</button>
