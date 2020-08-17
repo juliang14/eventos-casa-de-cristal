@@ -198,7 +198,7 @@
 						<?php foreach(Eventos::getEventos() AS $CantidadEventos){ ?>
 							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar" id="idEvento<?php echo $CantidadEventos->ID_EVENTO; ?>">
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-right mb-4">
-									<a href="?class=paquetes&method=crearPedido&TIPO_DE_EVENTO=<?php echo $CantidadEventos->TIPO_DE_EVENTO ?>">
+									<a href="?class=paquetes&method=crearPaquete&tipo_de_evento=<?php echo $CantidadEventos->TIPO_DE_EVENTO ?>">
 										<button class="btn verde evento-crear" evento-crear="<?php echo $CantidadEventos->TIPO_DE_EVENTO; ?>"> Agregar  <i class="fas fa-plus add"></i></button>
 									</a>
 								</div>

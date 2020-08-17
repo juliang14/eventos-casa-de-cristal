@@ -66,57 +66,60 @@
 					</div>
 				</div>
 				<main>
+					<?php 
+						$ResponseGetUltimoPaquete = Paquetes::getLastPaquete($_GET['tipo_de_evento']);
+						$Cantidad	= $ResponseGetUltimoPaquete->CANTIDAD+1;
+						$Nombre	= $_GET['tipo_de_evento'].' '.$Cantidad;
+					?>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="row" id="event_2">
 								<div class="col-lg-12" STYLE="">
 									<div style="text-align: center; margin-top: 5%;">
 										<h2>Crear Paquete</h2>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="eliminar2">
+										<form class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " id="eliminar2">
 											<div class="row sombra">
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Paquete
+													<label for="nombrePaquete">
+														NOMBRE PAQUETE 
 													</label>
 													<br>
-													<input type="number" name="" placeholder="0">
+													<input type="text" class="form-control" name="nombrePaquete"  id="nombrePaquete" placeholder="0" value="<?php echo  $Nombre; ?>" required disabled="disabled">
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Objeto
+													<label for="Valor_total">
+														VALOR 
 													</label>
 													<br>
-													<select>
-														<option>Selecciona inventario</option>
-														<option> Mesas </option>
-														<option> Sillas </option>
-														<option> Cucharas </option>
+													<input type="text" class="form-control valorNumerico" name="Valor_total" id="Valor_total" data-thousands="." data-decimal="," data-precision="0" data-prefix="$ "  value="0" required disabled="disabled">
+												</div>
+												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
+													<label for="inventario_paquete">
+														ARTICULO
+													</label>
+													<br>
+													<select type="text" class="form-control" name="inventario_paquete"  id="inventario_paquete"  required >
+														<option value="">Selecciona un articulo</option>
+														<?php foreach(Inventarios::getInventarios() AS $ResponseInventario){ ?>
+															<option value=""><?php echo $ResponseInventario->Inventario; ?></option>
+														<?php } ?>
 													</select>
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Cantidad
+													<label for="cantidad_inventario">
+														CANTIDAD 
 													</label>
 													<br>
-													<input type="input" name="" value="" placeholder="0" id="">
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label>
-														Valor
-													</label>
-													<br>
-													<input type="number" name="" placeholder="$ 0">
+													<input type="text" class="form-control valorNumerico" name="cantidad_inventario" id="cantidad_inventario" required>
 												</div>
 											</div>
-										</div>
+										</form>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 											<div class="row">
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 												</div>
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-													<a href="?class=administrador&method=indexPaquetes">
-														<button class="btn verde">Crear</button>
-													</a>
+													<button class="btn verde" onClick="crearPaqueteEvento();">Crear</button>
 												</div>
 												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 												</div>
@@ -126,7 +129,7 @@
 										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 										<div class="row">
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												<a href="?class=administrador&method=indexPaquetes">
+												<a href="?class=eventos&method=index">
 													<img src="Assets/img/izquierda.png">
 												</a>
 											</div>

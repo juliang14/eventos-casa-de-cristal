@@ -12,7 +12,7 @@ class PedidosController extends Pedidos{
         security::validate();
 		$user = parent::getPedido($_REQUEST['userId']);
 		parent::editPedido( $_REQUEST['userId'], $_REQUEST['userCiudad'], $_REQUEST['userBarrio'], $_REQUEST['userDireccion'], $_REQUEST['userData'], $_REQUEST['userDateIni'], $_REQUEST['userDateFin']);
-		require_once('views/Modal/Index.php');
+        require_once('views/Modal/Index.php');
     }
     
     //Pagina crear pedido

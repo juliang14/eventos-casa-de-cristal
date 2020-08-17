@@ -46,6 +46,20 @@ class Paquetes extends DB{
 			echo 'Linea: '.$e->getLine();
 		}
 	}
+	public function getLastPaquete($evento){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_OBTENER_ULTIMO_PAQUETE( ? );");
+			//CALL PR_ACTUALIZAR_PEDIDO( 1, 'Realizado');
+			$query->bindParam(1,$evento,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 
 }
 

@@ -44,6 +44,7 @@ SELECT * FROM VW_VER_TURNO;
 SELECT * FROM VW_VER_PAQUETE WHERE TIPO_DE_EVENTO='Matrimonio';
 SELECT * FROM VW_VER_PEDIDOS ORDER BY 1 DESC LIMIT 1;
 
+
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------
 CALL PR_TIPO_DOCUMENTO(); -- <-- Lista todos los tipos de documento disponibles
 CALL PR_ROLES(); -- <-- Lista todos los roles distintos a usuario
@@ -73,6 +74,7 @@ CALL PR_ELIMINAR_TURNO( 10, 1); -- ELIMINAR TURNO
 CALL PR_CREAR_EVENTOS( P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- CREAR EVENTOS
 CALL PR_ELIMINAR_EVENTO('bien'); -- ELIMINAR EVENTOS
 CALL PR_ACTUALIZAR_EVENTO( P_ID_EVENTO, P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- ACTUALIZAR EVENTO
+CALL PR_OBTENER_ULTIMO_PAQUETE('matrimonio');
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

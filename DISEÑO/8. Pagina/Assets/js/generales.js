@@ -581,6 +581,15 @@ for (var i = 0; i < bubblyButtons.length; i++) {
 }
 /***************** FIN BOTON ESPARCIDO **********************************/
 
+/***************INICIO CREAR PAQUETES DE EVENTOS **********************************/
+
+function crearPaqueteEvento(){
+
+  alert('creando paquete');
+
+};
+
+/***************FIN CREAR PAQUETES DE EVENTOS **********************************/
 
 /*************************************************************************************************************************************** */
 /*  INICIO CONSULTAS GENERALES*/
