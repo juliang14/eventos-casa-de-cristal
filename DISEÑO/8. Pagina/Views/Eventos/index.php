@@ -114,7 +114,7 @@
 				<button class="bubbly-button" onClick="controlMenuSeccionEventos(1);"><i class="fas fa-th"></i>EVENTOS</button>
 			</div>
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" id="">
-				<button class="bubbly-button" onClick="controlMenuSeccionEventos(2);"><i class="fas fa-th-large"></i>PEDIDOS</button>
+				<button class="bubbly-button" onClick="controlMenuSeccionEventos(2);"><i class="fas fa-th-large"></i>PAQUETES</button>
 			</div>
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center blanco" id="">
 			</div>
@@ -223,10 +223,14 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1">
-													<button class="btn azul">Editar</button>
+													<a href="?class=paquetes&method=editarPaquetes&tipo_de_paquete=<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>">
+														<button class="btn azul">Editar</button>
+													</a>
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1">
-													<button class="btn rojo">Eliminar</button>
+													<a onClick="eliminarPaquete('<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>');">	
+														<button class="btn rojo">Eliminar</button>
+													</a>	
 												</div>
 											</div>
 										</div>

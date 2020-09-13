@@ -89,6 +89,33 @@ class Paquetes extends DB{
 		}
 	}
 
+	public function crearInventarioPaquete($idPaquete, $idInventario, $cantidad){
+		try {
+			//Preparar la consulta que se va a realizar
+			$query = parent::conectDatabase()->prepare("CALL PR_CREAR_INVENTARIO_PAQUETES( ?, ?, ?);");
+			$query->bindParam(1,$idPaquete,PDO::PARAM_INT);
+			$query->bindParam(2,$idInventario,PDO::PARAM_INT);
+			$query->bindParam(3,$cantidad,PDO::PARAM_INT);
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+	//Borrar inventario de paquete
+	public function deleteInventarioPaquete($idPaquete, $idInventario){
+		try {
+			$query = parent::conectDatabase()->prepare('CALL PR_ELIMINAR_INVENTARIO_PAQUETE( ?, ?)');
+			$query->bindParam(1,$idPaquete,PDO::PARAM_INT);
+			$query->bindParam(2,$idInventario,PDO::PARAM_INT);
+			// Ejecutar sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 
 }
 

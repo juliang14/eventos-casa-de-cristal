@@ -83,6 +83,12 @@
 
 					if($ACCION=='CREAR'){
 						echo "Se creo el paquete: ".$REpaquetes->TIPO_DE_PAQUETE;
+					}else if($ACCION=='AGREGAR'){
+						echo "Se agregaron ".$_REQUEST['cantidad']." cantidades del inventario ".$REpaquetes->ID_INVENTARIO." - ".$REpaquetes->INVENTARIO." al paquete.";
+					}else if($ACCION=='ELIMINAR'){
+						echo "Se elimino el inventario ".$REpaquetes->ID_INVENTARIO." - ".$REpaquetes->INVENTARIO." del paquete.";
+					}else if($ACCION=='ELIMINAR PAQUETE'){
+						echo "Se elimino el paquete ".$_REQUEST['tipoPaquete'];
 					}else{
 						echo 'Accion no configurada';
 					}

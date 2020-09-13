@@ -11,6 +11,7 @@ UPDATE EVENTO SET TIPO_IMAGEN='image/jpg' ,IMAGEN='Grados.jpg' WHERE ID_EVENTO=6
 SELECT * FROM FACTURA;
 SELECT * FROM INVENTARIO;
 SELECT * FROM INVENTARIO_PAQUETE;
+SELECT * FROM INVENTARIO_PAQUETE where paqueteid_paquete = 17 AND INVENTARIOID_INVENTARIO = 3;
 SELECT * FROM LOG_DE_ERRORES;
 SELECT * FROM PAGOS;
 SELECT * FROM PAQUETE;
@@ -76,6 +77,8 @@ CALL PR_ELIMINAR_EVENTO('bien'); -- ELIMINAR EVENTOS
 CALL PR_ACTUALIZAR_EVENTO( P_ID_EVENTO, P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- ACTUALIZAR EVENTO
 CALL PR_OBTENER_ULTIMO_PAQUETE('matrimonio');
 CALL PR_CREAR_PAQUETES( 'matrimonio', 'matrimonio 5', 0, 10); -- Crear paquete de evento
+CALL PR_CREAR_INVENTARIO_PAQUETES(  0, 0, 0); -- Agregar inventario a paquetes
+CALL PR_ELIMINAR_INVENTARIO_PAQUETE( 17, 4); -- Quitar inventario a paquetes
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

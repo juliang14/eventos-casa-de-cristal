@@ -618,6 +618,58 @@ function crearPaqueteEvento(){
   });
 
 };
+function agregarInventarioPaquete(idPaquete){
+  var idInventario = $('#inventario_paquete').val(),
+      cantidad     = $('#cantidad_inventario').val();
+
+  $.ajax({
+    type: 'POST',
+    url : '?class=Paquetes&method=agregarInventarioPaquete',
+    data: { idPaquete: idPaquete, idInventario: idInventario, cantidad: cantidad},
+    success(response){
+      $('.accionEvento').attr('onClick','generales.refrescarPagina();');
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al eliminar inventario paquete de evento.');
+      $('#modalCenter').modal('show');
+    }
+  });
+};
+function eliminarInventarioPaquete(idPaquete,idInventario){
+  $.ajax({
+    type: 'POST',
+    url : '?class=Paquetes&method=eliminarInventarioPaquete',
+    data: { idPaquete: idPaquete, idInventario: idInventario},
+    success(response){
+      $('.accionEvento').attr('onClick','generales.refrescarPagina();');
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al eliminar inventario paquete de evento.');
+      $('#modalCenter').modal('show');
+    }
+  });
+}
+
+function eliminarPaquete(tipoPaquete){
+  $.ajax({
+    type: 'POST',
+    url : '?class=Paquetes&method=eliminarPaquete',
+    data: { tipoPaquete: tipoPaquete},
+    success(response){
+      $('.accionEvento').attr('onClick','generales.refrescarPagina();');
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al eliminar el paquete de evento.');
+      $('#modalCenter').modal('show');
+    }
+  });
+}
 
 /***************FIN CREAR PAQUETES DE EVENTOS **********************************/
 

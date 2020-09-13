@@ -14,6 +14,34 @@ class PaquetesController extends Paquetes{
         $ACCION ='CREAR';
         require_once('views/Modal/Index.php');
     }
+    public function editarPaquetes(){
+        security::validate();
+        require_once('views/paquetes/EditarPaquetes.php');
+    }
+
+    public function agregarInventarioPaquete(){
+        security::validate();
+        parent::crearInventarioPaquete( $_REQUEST['idPaquete'], $_REQUEST['idInventario'], $_REQUEST['cantidad']);
+        $REpaquetes = Inventarios::getInventario($_REQUEST['idInventario']);
+        $ACCION ='AGREGAR';
+        require_once('views/Modal/Index.php');
+    }
+
+    public function eliminarInventarioPaquete(){
+        Security::validate();
+        parent::deleteInventarioPaquete($_REQUEST['idPaquete'], $_REQUEST['idInventario']);
+        $REpaquetes = Inventarios::getInventario($_REQUEST['idInventario']);
+        $ACCION='ELIMINAR';
+        require_once('views/Modal/Index.php');
+    }
+
+    public function eliminarPaquete(){
+        Security::validate();
+        $REpaquetes = parent::getPaqueteDeEvento($_REQUEST['tipoPaquete']);
+        $ACCION='ELIMINAR PAQUETE';
+        //parent::deleteInventarioPaquete($_REQUEST['idPaquete'], $_REQUEST['idInventario']);
+        require_once('views/Modal/Index.php');
+    }
 
 }
 

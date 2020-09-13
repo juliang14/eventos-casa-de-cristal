@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>
-			Crear paquete
+			Editar paquete
 		</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -99,16 +99,14 @@
 				</div>
 				<main>
 					<?php 
-						$ResponseGetUltimoPaquete = Paquetes::getLastPaquete($_GET['tipo_de_evento']);
-						$Cantidad	= $ResponseGetUltimoPaquete->CANTIDAD+1;
-						$Nombre	= $_GET['tipo_de_evento'].' '.$Cantidad;
+						$ResponsePaquete = Paquetes::getPaqueteDeEvento($_GET['tipo_de_paquete']);
 					?>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="row" id="event_2">
 								<div class="col-lg-12" STYLE="">
 									<div style="text-align: center; margin-top: 5%;">
-										<h2>Crear Paquete</h2>
+										<h2>Editar Paquete</h2>
 										<form class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " id="eliminar2">
 											<div class="row sombra">
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
@@ -116,56 +114,75 @@
 														NOMBRE PAQUETE 
 													</label>
 													<br>
-													<input type="text" class="form-control" name="nombrePaquete"  id="nombrePaquete" placeholder="0" value="<?php echo  $Nombre; ?>" required disabled="disabled">
+													<input type="text" class="form-control" name="nombrePaquete"  id="nombrePaquete" placeholder="0" value="<?php echo  $ResponsePaquete->TIPO_DE_PAQUETE; ?>" required disabled="disabled">
 												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
 													<label for="Valor_total">
 														VALOR 
 													</label>
 													<br>
-													<input type="text" class="form-control valorNumerico" name="Valor_total" id="Valor_total" data-thousands="." data-decimal="," data-precision="0" data-prefix="$ "  value="0" required disabled="disabled">
+													<input type="text" class="form-control valorNumerico" name="Valor_total" id="Valor_total" data-thousands="." data-decimal="," data-precision="0" data-prefix="$ "  value="<?php echo  $ResponsePaquete->VALOR_TOTAL; ?>" required disabled="disabled">
 												</div>
 												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 margen-abajo">
 													<label for="cantidad_personas">
 														CANTIDAD PERSONAS
 													</label>
 													<br>
-													<input type="text" class="form-control inputDocumento" name="cantidad_personas" id="cantidad_personas" required>
+													<input type="text" class="form-control inputDocumento" name="cantidad_personas" id="cantidad_personas" value="<?php echo  $ResponsePaquete->CANTIDAD_PERSONAS; ?>" required disabled="disabled">
 												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="inventario_paquete">
-														ARTICULO
-													</label>
-													<br>
-													<select type="text" class="form-control" name="inventario_paquete"  id="inventario_paquete"  required >
-														<option value="">Selecciona un articulo</option>
-														<?php foreach(Inventarios::getInventarios() AS $ResponseInventario){ ?>
-															<option value=""><?php echo $ResponseInventario->Inventario; ?></option>
-														<?php } ?>
-													</select>
-												</div>
-												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
-													<label for="cantidad_inventario">
-														CANTIDAD INVENTARIO
-													</label>
-													<br>
-													<input type="text" class="form-control inputDocumento" name="cantidad_inventario" id="cantidad_inventario" required>
+												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="inventarioDePaquete">
+													<table class="table">
+														<thead class="thead-dark">
+															<tr>
+																<th>Inventario</th>
+																<th>Cantidad</th>
+																<th>Opciones</th>
+															</tr>
+														</thead>
+														<tbody>
+															<?php $cantidadInventario = count(parent::getPaquete($ResponsePaquete->ID_PAQUETE));  
+																if($cantidadInventario > 0){
+																	foreach(parent::getPaquete($ResponsePaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
+																		<tr>
+																			<td><?php echo $ResponseGetPaquete->INVENTARIO;?></td>
+																			<td><?php echo $ResponseGetPaquete->CANTIDAD; ?></td>
+																			<td>
+																				<a onClick="eliminarInventarioPaquete(<?php echo $ResponsePaquete->ID_PAQUETE; ?>, <?php echo $ResponseGetPaquete->ID_INVENTARIO; ?>);">
+																					<i class="fas fa-minus-circle text-danger" title="eliminar <?php echo $ResponseGetPaquete->INVENTARIO; ?>"></i>
+																				</a>
+																			</td>
+																		</tr>
+																	<?php } ?>
+																<?php }else{  ?>
+																	<tr>
+																		<td colspan="3" ><?php echo "No hay registros"; ?></td>
+																	</tr>
+																<?php }
+															?>
+															<tr>
+																<td>
+																	<select type="text" class="form-control" name="inventario_paquete"  id="inventario_paquete"  required >
+																		<option value="">Selecciona un articulo</option>
+																		<?php foreach(Inventarios::getInventarios() AS $ResponseInventario){ ?>
+																			<option value="<?php echo $ResponseInventario->Id_inventario; ?>"><?php echo $ResponseInventario->Inventario; ?></option>
+																		<?php } ?>
+																	</select>
+																</td>
+																<td>
+																	<input type="text" class="form-control inputDocumento" name="cantidad_inventario" id="cantidad_inventario" required>
+																</td>
+																<td>
+																	<a class="btn btn-success text-white" onClick="agregarInventarioPaquete(<?php echo $ResponsePaquete->ID_PAQUETE ; ?>);">
+																		<i class="fas fa-plus-circle text-white"></i> Agregar
+																	</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
 												</div>
 											</div>
 										</form>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="row">
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-													<button class="btn verde" onClick="crearPaqueteEvento();">Crear</button>
-												</div>
-												<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-												</div>
-											</div>
-										</div>
-										<div cla
-										ss="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
+										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 5%;">
 										<div class="row">
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 												<a href="?class=eventos&method=index">
