@@ -19,6 +19,37 @@
 
 	</head>
 	<body>
+		<!-----------------------   INICIO MODAL  ------------------------------------>
+		<!-- Button trigger modal -->
+		<!--
+			$('#modalCenter').modal('show'); // abrir
+			$('#modalCenter').modal('hide'); // cerrar
+		-->
+		<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+			Launch demo modal
+		</button-->
+
+		<!-- Modal -->
+		<div class="modal fade accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+				<button type="button" class="close accionEvento" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+				...
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>
+				<!--button type="button" class="btn btn-primary">Save changes</button-->
+				</div>
+			</div>
+			</div>
+		</div>
+		<!-----------------------   FIN MODAL  ------------------------------------>
 		<div class="center">
 			<div class="container-fluid" id="pag">
 				<div class="row">
@@ -72,37 +103,6 @@
 						$Cantidad	= $ResponseGetUltimoPaquete->CANTIDAD+1;
 						$Nombre	= $_GET['tipo_de_evento'].' '.$Cantidad;
 					?>
-					<!-----------------------   INICIO MODAL  ------------------------------------>
-					<!-- Button trigger modal -->
-					<!--
-						$('#modalCenter').modal('show'); // abrir
-						$('#modalCenter').modal('hide'); // cerrar
-					-->
-					<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
-						Launch demo modal
-					</button-->
-
-					<!-- Modal -->
-					<div class="modal fade accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
-							<button type="button" class="close accionEvento" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							</div>
-							<div class="modal-body">
-							...
-							</div>
-							<div class="modal-footer">
-							<button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>
-							<!--button type="button" class="btn btn-primary">Save changes</button-->
-							</div>
-						</div>
-						</div>
-					</div>
-					<!-----------------------   FIN MODAL  ------------------------------------>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="row" id="event_2">
@@ -111,9 +111,6 @@
 										<h2>Crear Paquete</h2>
 										<form class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " id="eliminar2">
 											<div class="row sombra">
-												<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-													<input type="hidden" class="form-control" name="nombreEvento"  id="nombreEvento" placeholder="0" value="<?php echo  $_GET['tipo_de_evento']; ?>" required disabled="disabled">
-												</div>
 												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
 													<label for="nombrePaquete">
 														NOMBRE PAQUETE 
@@ -134,6 +131,25 @@
 													</label>
 													<br>
 													<input type="text" class="form-control inputDocumento" name="cantidad_personas" id="cantidad_personas" required>
+												</div>
+												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
+													<label for="inventario_paquete">
+														ARTICULO
+													</label>
+													<br>
+													<select type="text" class="form-control" name="inventario_paquete"  id="inventario_paquete"  required >
+														<option value="">Selecciona un articulo</option>
+														<?php foreach(Inventarios::getInventarios() AS $ResponseInventario){ ?>
+															<option value=""><?php echo $ResponseInventario->Inventario; ?></option>
+														<?php } ?>
+													</select>
+												</div>
+												<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 margen-abajo">
+													<label for="cantidad_inventario">
+														CANTIDAD INVENTARIO
+													</label>
+													<br>
+													<input type="text" class="form-control inputDocumento" name="cantidad_inventario" id="cantidad_inventario" required>
 												</div>
 											</div>
 										</form>

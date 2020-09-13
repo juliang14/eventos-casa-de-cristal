@@ -78,6 +78,19 @@
 					echo "No hay datos en la respuesta.";
 				}
 				
+			}else if (isset($REpaquetes)) {
+				if(!empty($REpaquetes)){
+
+					if($ACCION=='CREAR'){
+						echo "Se creo el paquete: ".$REpaquetes->TIPO_DE_PAQUETE;
+					}else{
+						echo 'Accion no configurada';
+					}
+
+				}else{
+					echo "No hay datos en la respuesta.";
+				}
+				
 			}else{
 				echo "Esta variable no está definida";
 			}

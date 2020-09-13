@@ -75,6 +75,7 @@ CALL PR_CREAR_EVENTOS( P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- CREAR EVENTO
 CALL PR_ELIMINAR_EVENTO('bien'); -- ELIMINAR EVENTOS
 CALL PR_ACTUALIZAR_EVENTO( P_ID_EVENTO, P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- ACTUALIZAR EVENTO
 CALL PR_OBTENER_ULTIMO_PAQUETE('matrimonio');
+CALL PR_CREAR_PAQUETES( 'matrimonio', 'matrimonio 5', 0, 10); -- Crear paquete de evento
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

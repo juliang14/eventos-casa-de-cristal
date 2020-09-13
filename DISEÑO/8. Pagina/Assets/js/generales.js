@@ -581,11 +581,41 @@ for (var i = 0; i < bubblyButtons.length; i++) {
 }
 /***************** FIN BOTON ESPARCIDO **********************************/
 
+/*************** INICIO CONTROL BOTON ESPARCIDO **********************************/
+function controlMenuSeccionEventos(value){
+  if(value==1){ 
+    $('.seccion-cajas-eventos').removeClass('ocultar');
+    $('.seccion-cajas-paquetes').addClass('ocultar');
+  }else if(value==2){
+    $('.seccion-cajas-paquetes').removeClass('ocultar');
+    $('.seccion-cajas-eventos').addClass('ocultar');
+  }
+};
+/***************** FIN CONTROL BOTON ESPARCIDO **********************************/
+
 /***************INICIO CREAR PAQUETES DE EVENTOS **********************************/
 
 function crearPaqueteEvento(){
+  var cantidadElementos = 0,
+      nombreEvento      = $('#nombreEvento').val(), 
+      nombrePaquete     = $('#nombrePaquete').val(), 
+      Valor_total       = $('#Valor_total').val(), 
+      cantidad_personas = $('#cantidad_personas').val();
 
-  alert('creando paquete');
+  $.ajax({
+    type: 'POST',
+    url : '?class=Paquetes&method=store',
+    data: { nombreEvento: nombreEvento, nombrePaquete: nombrePaquete, Valor_total: Valor_total, cantidad_personas: cantidad_personas},
+    success(response){
+      $('.accionEvento').attr('onClick', "window.location.href='?class=eventos&method=index'");
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al crear paquete de evento.');
+      $('#modalCenter').modal('show');
+    }
+  });
 
 };
 

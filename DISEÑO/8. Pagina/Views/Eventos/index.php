@@ -111,16 +111,16 @@
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center blanco" id="">
 			</div>
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" id="">
-				<button class="bubbly-button"><i class="fas fa-th"></i>EVENTOS</button>
+				<button class="bubbly-button" onClick="controlMenuSeccionEventos(1);"><i class="fas fa-th"></i>EVENTOS</button>
 			</div>
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center" id="">
-				<button class="bubbly-button"><i class="fas fa-th-large"></i>PEDIDOS</button>
+				<button class="bubbly-button" onClick="controlMenuSeccionEventos(2);"><i class="fas fa-th-large"></i>PEDIDOS</button>
 			</div>
 			<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center blanco" id="">
 			</div>
 		</div>
 	</section>
-	<section class="center">
+	<section class="center seccion-cajas-eventos ocultar">
 		<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 			<h2 class="titulo-paquetes">Eventos</h2>
 			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 contenedor-eventos" id="contenedor-eventos">
@@ -165,7 +165,7 @@
 			
 		</div>
 	</section>
-	<section class="center">
+	<section class="center seccion-cajas-paquetes ocultar">
 		<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 			<h2 class="titulo-paquetes">Paquetes</h2>
 			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -204,7 +204,7 @@
 								</div>
 								<div class="row">
 									<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center m-auto">
+										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center m-auto pt-4">
 											<div class="contenedorPaquetes cajas-paquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
 												<h3 class="font-italic pl-2 pr-2">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
 												<br>
@@ -242,7 +242,7 @@
 			
 		</div>
 	</section>
-	<section class="center footer-page">
+	<section class="center footer-page pt-4">
 		<div cla ss="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 			<div class="row">
 				<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
