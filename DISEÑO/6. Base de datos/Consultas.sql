@@ -7,6 +7,7 @@ SELECT * FROM EMPLEADO;
 SELECT * FROM EMPLEADO_TURNO;
 SELECT * FROM ESTADO_PEDIDO;
 SELECT * FROM EVENTO;
+UPDATE EVENTO SET ESTADO = 'ACTIVO' WHERE ID_EVENTO = 7;
 UPDATE EVENTO SET TIPO_IMAGEN='image/jpg' ,IMAGEN='Grados.jpg' WHERE ID_EVENTO=6;
 SELECT * FROM FACTURA;
 SELECT * FROM INVENTARIO;
@@ -15,6 +16,7 @@ SELECT * FROM INVENTARIO_PAQUETE where paqueteid_paquete = 17 AND INVENTARIOID_I
 SELECT * FROM LOG_DE_ERRORES;
 SELECT * FROM PAGOS;
 SELECT * FROM PAQUETE;
+SELECT * FROM PAQUETE WHERE TIPO_DE_PAQUETE LIKE '%||Matrimonio';
 SELECT * FROM PEDIDO;
 Select fecha_pedido, DATE_ADD(fecha_pedido,INTERVAL 1 HOUR) from pedido;
 SELECT * FROM ROL;
@@ -70,6 +72,7 @@ CALL PR_CREAR_INVENTARIO('luces',30,20000,'utileria'); -- Crear pruductos de inv
 CALL PR_ACTUALIZAR_INVENTARIO(11,'luces',30,20000,'utileria'); -- ACTUALIZAR INVENTARIO
 CALL PR_ELIMINAR_INVENTARIO(11);-- Inactivar productos del inventario
 CALL PR_VER_TURNOS(); -- Obtener turnos
+CALL PR_VER_TURNO_EMPLEADO(2); -- Obtener turnos del empleado
 CALL PR_CREAR_TURNO(1,'CC',1065320855); -- CREAR TURNO
 CALL PR_ELIMINAR_TURNO( 10, 1); -- ELIMINAR TURNO
 CALL PR_CREAR_EVENTOS( P_NOMBRE_EVENTO , P_TIPO_IMAGEN, IMAGEN); -- CREAR EVENTOS
@@ -79,6 +82,7 @@ CALL PR_OBTENER_ULTIMO_PAQUETE('matrimonio');
 CALL PR_CREAR_PAQUETES( 'matrimonio', 'matrimonio 5', 0, 10); -- Crear paquete de evento
 CALL PR_CREAR_INVENTARIO_PAQUETES(  0, 0, 0); -- Agregar inventario a paquetes
 CALL PR_ELIMINAR_INVENTARIO_PAQUETE( 17, 4); -- Quitar inventario a paquetes
+CALL PR_ELIMINAR_PAQUETE(19); -- Eliminar paquete
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad

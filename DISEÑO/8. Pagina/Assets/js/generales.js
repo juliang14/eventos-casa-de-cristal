@@ -673,6 +673,20 @@ function eliminarPaquete(tipoPaquete){
 
 /***************FIN CREAR PAQUETES DE EVENTOS **********************************/
 
+
+/* cargar paquetes en modal */
+$('.seleccionarEventoHome').click(function(){
+  var evento    = $(this).attr('evento'),
+      idevento  = $(this).attr('idevento');
+  
+  $('#exampleModalLongTitle').html('');
+  $('#exampleModalLongTitle').html('Paquetes '+evento);
+  $('.contenCajaEvento').addClass('ocultar');
+  $('#'+idevento).removeClass('ocultar');
+  $('#modalCenter').modal('show');
+});
+
+
 /*************************************************************************************************************************************** */
 /*  INICIO CONSULTAS GENERALES*/
 var generales = {

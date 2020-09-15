@@ -7,9 +7,6 @@ class ReportesController extends Reportes{
         require_once('views/Reportes/Index.php');
     }
 
-
 }
-
-
 
 ?>

@@ -19,11 +19,58 @@
 </head>
 
 <body>
+	<!-- Modal -->
+	<div class="modal fade bd-example-modal-lg accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+			<button type="button" class="close accionEvento" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+				<div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 m-auto" id="caja-paquete">
+					<?php foreach(Eventos::getEventos() AS $CantidadEventos){ ?>
+						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center m-auto contenCajaEvento ocultar" id="idEvento<?php echo $CantidadEventos->ID_EVENTO; ?>">
+							<div class="row">
+								<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
+									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center m-auto pt-4">
+										<div class="contenedorPaquetes cajas-paquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
+											<h3 class="font-italic pl-2 pr-2">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
+											<br>
+											<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
+											<br>
+											<h5>NUESTRO PLAN INCLUYE</h5>
+											<br>
+											<ul class="text-muted p-0 mb-4 text-left">
+												<?php foreach(Paquetes::getPaquete($ResponseGetEventoPaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
+													<li><?php echo $ResponseGetPaquete->INVENTARIO; ?></li>
+												<?php } ?>
+											</ul>
+											<div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 text-center ml-auto mr-auto mb-1 nombre-paquete">
+												<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>
+											</div>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+						</div>	
+					<?php } ?>
+				</div>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-secondary accionEvento" data-dismiss="modal" onclick="">Cerrar</button>
+			<!--button type="button" class="btn btn-primary">Save changes</button-->
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-----------------------   FIN MODAL  ------------------------------------>
 	<div class="center">
 		<div class="container-fluid" id="pag">
 			<div class="row">
 				<div class="col-lg-12">
-
 					<div class="container-fluid">
 						<div class="row">
 
@@ -84,7 +131,6 @@
 										</li>
 									</ul>
 								</nav>
-
 							</div>
 						</div>
 					</div>
@@ -94,57 +140,24 @@
 
 		<div class="container-fluid" style="" id="contenidoEventos">
 			<div class="row">
-				<div class="col-lg-12" id="eventos">
-					<div>
-						<ul>
-							<a href="?class=IndexHome&method=paquetesbautizo">
-								<li>
-									<P>Bautizo</P>
-									<img src="Assets/img/Bautizo.jpg">
-								</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetesMatrimonio">
-								<li>
-									<p>Boda</p>
-									<img src="Assets/img/Boda.jpg">
-								</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetes15anos">
-								<li>
-									<p>15 años</p>
-									<img src="Assets/img/15.jpg">
-								</li>
-							</a>
-						</ul>
-					</div>
-					<div>
-						<ul>
-							<a href="?class=IndexHome&method=paquetesGrados">
-								<li>
-									<p>Grados</p>
-									<img src="Assets/img/Grados.jpg">
-								</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetesprimeracomunion">
-								<li>
-									<p>Primera Comunion</p>
-									<img src="Assets/img/Primera Comunion.jpg">
-								</li>
-							</a>
-							<a href="?class=IndexHome&method=paquetesdespedidasolteros">
-								<li>
-									<p>Despedida de solteros</p>
-									<img src="Assets/img/eventos2.jpg">
-								</li>
-							</a>
-						</ul>
-
+				<div class="col-lg-12 contenedor-eventos" id="eventos">
+					<div class="row p-4 m-4">
+						<?php foreach(Eventos::getEventos() AS $ResponseGetEventos){ ?>
+							<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center cajas-eventos">
+								<div class="row">
+									<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 m-auto">
+										<p><?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?></p>
+									</div>
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+										<img src="Files/img/<?php echo $ResponseGetEventos->IMAGEN; ?>" width="200px" height="200px" class=" seleccionarEventoHome" evento="<?php echo $ResponseGetEventos->TIPO_DE_EVENTO; ?>" idevento="idEvento<?php echo $ResponseGetEventos->ID_EVENTO; ?>">
+									</div>
+								</div>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	</div>
 	</div>
 
 

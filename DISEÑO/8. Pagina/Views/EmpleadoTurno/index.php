@@ -27,7 +27,7 @@
 						<div class="row">
 
 							<div class="col-lg-2" STYLE="">
-								<a href="?class=IndexHome&method=empleados&Id_empleado=<?php echo $resultado->ID_EMPLEADO; ?>">
+								<a href="?class=empleado&method=empleado&Id_empleado=<?php echo $_SESSION['UserAutenticate']->ID_EMPLEADO; ?>">
 									<IMG SRC="Assets/img/Logo.jpeg" STYLE="width: 90%;"></IMG>
 								</a>
 							</div>
@@ -49,7 +49,7 @@
 									</div>
 									<div class="col-lg-4" id="inicio-usuarios">
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba">
-											<p>Andrea Novoa</p>
+											<p><?php echo $_SESSION['UserAutenticate']->NOMBRE; ?></p>
 											<img src="Assets/img/emple.png">
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="usuario-arriba1">
@@ -69,10 +69,10 @@
 								<nav class="men" id="men">
 									<ul class="menu-pincipal">
 										<li class="">
-											<a href="?class=empleado&method=empleado&Id_empleado=<?php echo $resultado->ID_EMPLEADO; ?>">Inicio</a>
+											<a href="?class=empleado&method=empleado&Id_empleado=<?php echo $_SESSION['UserAutenticate']->ID_EMPLEADO; ?>">Inicio</a>
 										</li>
 										<li class="active">
-											<a href="?class=EmpleadoTurno&method=index&Id_turno=<?php echo $resultado->Id_turno; ?>">Turnos</a>
+											<a href="?class=EmpleadoTurno&method=index&Id_empleado=<?php echo $_SESSION['UserAutenticate']->ID_EMPLEADO; ?>">Turnos</a>
 										</li>
 									</ul>
 								</nav>
@@ -93,58 +93,70 @@
 											<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
 											</div>
 											<div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
-												<h2 id="titulo">Turnos</h2>
+												<h2 id="">Turnos</h2>
 											</div>
 											<div class="col-sm-12 col-md-5 col-lg-5 col-xl-5">
 											</div>
 										</div>
 									</div>
-									<table style="text-align:center;" id="table-empleados">
-										<thead>
-											<tr>
-												<th>Id</th>
-												<th>Pedido</th>
-												<th>Fecha Turno</th>
-												<th>Hora inicio</th>
-												<th>Hora Fin</th>
-											</tr>
-										</thead>
-												<?php  $resultado = parent::getTurno($_GET['Id_turno']); ?>
-                        					<tr>
-                           						 <td> <?php echo $resultado ->Id_turno ?> </td>
-                           						 <td> <?php echo $resultado ->Turno ?> </td>
-                           						 <td> <?php echo $resultado ->fecha_de_turno ?> </td>
-                           						 <td> <?php echo $resultado ->Hora_de_turno_inicio ?> </td>
-                           						 <td> <?php echo $resultado ->Hora_de_turno_fin ?> </td>
-                      						</tr>
-										
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4 pb-4">
+										<table id="tabla_empleados" class="display responsive nowrap tabla-jquery">
+											<thead> 
+												<tr style="color: #eb028b;">
+													<th>ID</th>
+													<th>NOMBRE EMPLEADO</th>
+													<th>CARGO</th>							                        
+													<th>PEDIDO</th>
+													<th>FECHA INICIO EVENTO</th>
+													<th>FECHA FIN EVENTO</th>
+													<th>CIUDAD</th>
+													<th>BARRIO</th>
+													<th>DIRECCION</th>
+												</tr>
+											</thead>
+											<tbody id="body_tabla_clientes">  
+												<?php   foreach (parent::getTurnosEmpleado($_SESSION['UserAutenticate']->ID_EMPLEADO) as $responseGetTurnos){ ?>
+															
+													<tr>
+														<td><?php echo $responseGetTurnos->ID_TURNO ?></td>
+														<td><?php echo $responseGetTurnos->NOMBRE ?></td>		
+														<td><?php echo $responseGetTurnos->NOMBRE_DE_CARGO ?></td>					                            
+														<td><?php echo $responseGetTurnos->ID_PEDIDO ?></td>
+														<td><?php echo $responseGetTurnos->FECHA_INICIO_EVENTO ?></td>
+														<td><?php echo $responseGetTurnos->FECHA_FIN_EVENTO ?></td>
+														<td><?php echo $responseGetTurnos->CIUDAD_EVENTO ?></td>
+														<td><?php echo $responseGetTurnos->BARRIO_EVENTO ?></td>
+														<td><?php echo $responseGetTurnos->DIRECCION_EVENTO ?></td>
+													</tr>
+													
+												<?php   } ?>             
+											</tbody>
+										</table>
+									</div>
+									<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 pt-4">
+										<div class="row">
+											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+												
+											</div>
+											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+												<a href="?class=empleado&method=empleado&Id_empleado=<?php echo $_SESSION['UserAutenticate']->ID_EMPLEADO; ?>">
+													<img src="Assets/img/casa.png">
+												</a>
+											</div>
+											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+												
+											</div>
 
-									</table>
-									<div cla
-									ss="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-									<div class="row">
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<img src="Assets/img/izquierda.png">
 										</div>
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<a href="?class=IndexHome&method=empleados">
-												<img src="Assets/img/casa.png">
-											</a>
-										</div>
-										<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-											<img src="Assets/img/derecha.png">
-										</div>
-
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</div>
 	</div>
-</div>
 	<script type="text/javascript" src="Assets/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="Assets/Utilitarios/Utilitarios/jquery.dataTables.min.js" ></script>
     <script type="text/javascript" src="Assets/Utilitarios/Utilitarios/dataTables.responsive.min.js" ></script>	

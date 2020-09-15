@@ -14,10 +14,13 @@ ul li{
 	display: inline-block;
 
 }
-ul li img{
+.contenedor-eventos{
+	padding-bottom: 10%;
+}
+#eventos .cajas-eventos img{
 	background-size: cover;
 	border-radius: 5px;
-	float: left;
+	/*float: left;*/
 	width: 200px;
 	height: 200px;
 	-webkit-transition-duration: 0.8s;
@@ -26,8 +29,10 @@ ul li img{
 	transition-duration: 0.8s;
 	
 }
-ul li img:hover{
-	opacity: 1,
+
+ul li img:hover,
+#eventos .cajas-eventos img:hover{
+	opacity: 1;
 	border-radius: 50px;
 	box-shadow: 0px 0px 20px white;
 	border-radius:50%;
@@ -38,7 +43,8 @@ ul li img:hover{
     -o-transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
     transform: rotate(-10deg);
-    -webkit-transform:rotate(360deg);
+	-webkit-transform:rotate(360deg);
+	cursor: pointer;
  }
  main p {
  	text-align: center;
@@ -57,6 +63,22 @@ ul li img:hover{
 	margin-top: 3%;
 }
 
+
+.cajas-paquetes {
+    border: solid black 3px;
+    text-align: center;
+    border-radius: 14px;
+    background: linear-gradient(to bottom, pink, white);
+    background-color: pink;
+}
+.cajas-paquetes .text-muted {
+    list-style: none;
+    width: 70%;
+    margin: auto;
+}
+.cajas-paquetes ul li{
+	display: block;
+}
 
 /*-------------- RESPONSIVE --------------*/
 

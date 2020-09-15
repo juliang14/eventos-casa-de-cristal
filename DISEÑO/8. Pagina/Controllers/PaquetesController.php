@@ -39,7 +39,7 @@ class PaquetesController extends Paquetes{
         Security::validate();
         $REpaquetes = parent::getPaqueteDeEvento($_REQUEST['tipoPaquete']);
         $ACCION='ELIMINAR PAQUETE';
-        //parent::deleteInventarioPaquete($_REQUEST['idPaquete'], $_REQUEST['idInventario']);
+        parent::deletePaquete($REpaquetes->ID_PAQUETE);
         require_once('views/Modal/Index.php');
     }
 

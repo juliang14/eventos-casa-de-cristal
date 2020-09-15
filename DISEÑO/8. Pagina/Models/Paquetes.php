@@ -117,6 +117,19 @@ class Paquetes extends DB{
 		}
 	}
 
+	public function deletePaquete($idPaquete){
+		try {
+			$query = parent::conectDatabase()->prepare('CALL PR_ELIMINAR_PAQUETE( ?)');
+			$query->bindParam(1,$idPaquete,PDO::PARAM_INT);
+			// Ejecutar sentencia
+			$query->execute();
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+	
+
 }
 
 ?>

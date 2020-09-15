@@ -178,7 +178,7 @@ input:checked + .slider:before {
   content: "";
   height: 2px;
   width: 55px;
-  background: #009688;
+  background: #ffc0cb;/*#009688;*/
   border-radius: 50%;
   bottom: 9px;
   left: 15px;
@@ -190,7 +190,8 @@ input:checked + .slider:before {
   justify-content: center;
   align-self: center;
   background-color: #1b55e2;
-  background: linear-gradient(to right, #3cba92 0%, #0ba360 100%);
+  background: linear-gradient(to right, #ffc0cb 0%, #ffc0cb 100%);
+  /*background: linear-gradient(to right, #3cba92 0%, #0ba360 100%);*/
   border-radius: 50%;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
 }
@@ -218,7 +219,7 @@ img {
   font-size: 20px;
   font-weight: 600;
   margin-top: 22px;
-  color: #009688;
+  color: #ffc0cb; /* #009688;*/
 }
 .user-profile .widget-content-area .user-info-list ul.contacts-block {
   border: none;
@@ -254,7 +255,7 @@ img {
 .user-profile .widget-content-area .user-info-list ul.contacts-block li a {
   font-weight: 600;
   font-size: 15px;
-  color: #009688!important;
+  color: #ffc0cb!important; /*#009688!important;*/
 }
 
 .user-profile .widget-content-area .user-info-list ul.contacts-block ul.list-inline div.social-icon {
@@ -266,6 +267,8 @@ img {
   justify-content: center;
   align-self: center;
 }
-
+.informacion-perfil-empleados{
+  padding-top: 10%;
+}
 
 /******************************/
