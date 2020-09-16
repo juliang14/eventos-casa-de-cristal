@@ -13,9 +13,10 @@ class SecurityController extends Security{
         if(!$ResponseAutenticate){
             header('location:?class=security&method=loginUsuario');
         }else if($ResponseAutenticate->ROL =='Cliente'){
-            var_dump($ResponseAutenticate);
-            //$_SESSION['UserAutenticate']=$ResponseAutenticate;
-            //require_once('views/usuarios/usuario.php');
+            //var_dump($ResponseAutenticate);
+            $_SESSION['UserAutenticate']=$ResponseAutenticate;
+            //require_once('views/usuario/usuario.php');
+            header('location:?class=usuario&method=usuario');
         }else{
             header('location:?class=security&method=loginUsuario');
         }       
@@ -62,6 +63,11 @@ class SecurityController extends Security{
         }else{
             header('location:?class=security&method=loginAdministrador');
         }    
+    }
+
+    //Pagina de registro
+	public function formularioRegistro(){
+		require_once('views/Security/FormularioRegistro.php');
     }
 
     public function closeSesion(){

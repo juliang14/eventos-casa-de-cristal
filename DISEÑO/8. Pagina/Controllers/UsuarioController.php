@@ -17,6 +17,17 @@ class UsuarioController extends Usuario{
         Security::validate();
 		parent::createCliente( $_POST['Primer_nombre'], $_POST['Segundo_nombre'], $_POST['Primer_apellido'], $_POST['Segundo_apellido'], $_POST['Tipo_documentoId_documento'], $_POST['Numero_documento'], $_POST['Edad'], $_POST['Telefono'], $_POST['Direccion'], $_POST['Email']);
 		header('location:?class=Usuario&method=Index');
+	}
+	
+	//Registrar usuario
+	public function registrarUsuario(){
+		/*parent::createCliente( $_REQUEST['Primer_nombre'], $_REQUEST['Segundo_nombre'], $_REQUEST['Primer_apellido']
+							, $_REQUEST['Segundo_apellido'], $_REQUEST['Tipo_documentoId_documento']
+							, $_REQUEST['Numero_documento'], $_REQUEST['Edad'], $_REQUEST['Telefono']
+							, $_REQUEST['Direccion'], $_REQUEST['Email']);*/
+		$RegistroUsuario = $_REQUEST['Primer_nombre']." ".$_REQUEST['Segundo_nombre']." ".$_REQUEST['Primer_apellido']." ".$_REQUEST['Segundo_apellido'];
+		$ACCION='REGISTRAR USUARIO';
+		require_once('views/Modal/Index.php');
     }
     
     //Pagina administrador usuarios ver
@@ -44,6 +55,24 @@ class UsuarioController extends Usuario{
 		parent::deleteCliente($_REQUEST['userId']);
 		require_once('views/Modal/Index.php');
 	}
+
+	//Pagina usuarios 
+	public function usuario(){
+        Security::validate();
+		require_once('views/Usuario/usuario.php');
+	}
+	
+	//Pagina eventos usuarios 
+	public function usuarioAcercaDeNosotros(){
+        Security::validate();
+		require_once('views/Usuario/usuario_acerca_de_nosotros.php');
+	}
+	
+	//Pagina eventos usuarios 
+	public function usuarioContactos(){
+        Security::validate();
+		require_once('views/Usuario/usuario_contactos.php');
+    }
 
 }
 

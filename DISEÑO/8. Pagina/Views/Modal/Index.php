@@ -97,6 +97,17 @@
 					echo "No hay datos en la respuesta.";
 				}
 				
+			}else if (isset($RegistroUsuario)) {
+				if(!empty($RegistroUsuario)){
+					if($ACCION=='REGISTRAR USUARIO'){
+						echo "Se registro correctamente el usuario: ".$RegistroUsuario;
+					}else{
+						echo 'Accion no configurada';
+					}
+				}else{
+					echo "No hay datos en la respuesta.";
+				}
+				
 			}else{
 				echo "Esta variable no está definida";
 			}

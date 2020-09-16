@@ -62,6 +62,12 @@ class EventosController extends eventos{
         }
     }
 
+    //Pagina eventos usuarios 
+	public function eventosUsuario(){
+        Security::validate();
+		require_once('views/Eventos/usuarioEventos.php');
+    }
+
 }
 
 ?>

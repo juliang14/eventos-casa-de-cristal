@@ -686,6 +686,40 @@ $('.seleccionarEventoHome').click(function(){
   $('#modalCenter').modal('show');
 });
 
+/**************************** Registro de cliente ********************************/
+function registrarCliente(){
+  var Primer_nombre = $('#Primer_nombre').val(),
+      Segundo_nombre = $('#Segundo_nombre').val(),
+      Primer_apellido = $('#Primer_apellido').val(),
+      Segundo_apellido = $('#Segundo_apellido').val(),
+      Tipo_documentoId_documento = $('#Tipo_documentoId_documento').val(),
+      Numero_documento = $('#Numero_documento').val(),
+      Edad = $('#Edad').val(),
+      Telefono = $('#Telefono').val(),
+      Direccion = $('#Direccion').val(),
+      Email = $('#Email').val();
+
+  $.ajax({
+    type: 'POST',
+    url : '?class=Usuario&method=registrarUsuario',
+    data: { Primer_nombre: Primer_nombre, Segundo_nombre: Segundo_nombre, Primer_apellido: Primer_apellido, Segundo_apellido: Segundo_apellido, Tipo_documentoId_documento: Tipo_documentoId_documento,
+            Numero_documento: Numero_documento, Edad: Edad, Telefono: Telefono, Direccion: Direccion, Email: Email},
+    success(response){
+      $('#exampleModalLongTitle').html('');
+			$('#exampleModalLongTitle').html('Registro Exitoso');
+      $('.accionEvento').attr('onClick', "window.location.href='?class=security&method=loginUsuario'");
+      $('.modal-body').html('');
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al eliminar el paquete de evento.');
+      $('#modalCenter').modal('show');
+    }
+  });
+}
+
+/**********************************************************************************/
 
 /*************************************************************************************************************************************** */
 /*  INICIO CONSULTAS GENERALES*/
