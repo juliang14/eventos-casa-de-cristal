@@ -19,6 +19,37 @@
 
 </head>
 <body>
+	<!-----------------------   INICIO MODAL  ------------------------------------>
+	<!-- Button trigger modal -->
+	<!--
+		$('#modalCenter').modal('show'); // abrir
+		$('#modalCenter').modal('hide'); // cerrar
+	-->
+	<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+		Launch demo modal
+	</button-->
+
+	<!-- Modal -->
+	<div class="modal fade bd-example-modal-lg" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">Importante</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+			...
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal" >Cerrar</button>
+			<!--button type="button" class="btn btn-primary">Save changes</button-->
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-----------------------   FIN MODAL  ------------------------------------>
 	<div class="center">
 		<div class="container-fluid" id="pag">
 			<div class="row">
@@ -117,15 +148,9 @@
 										<div class="row">
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 											</div>
-											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4" id="cajaDescargar">
-												<div class="row">
-													<div class="col-sm-12 col-md-5 col-lg-3 col-xl-3" style="text-align: right;">
-														<img src="Assets/img/download.png">
-													</div>
-													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7" style="text-align: left;">
-														<label>Descargar reporte</label>
-													</div>
-												</div>
+											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4" id="cajaDescargar" onClick="ejecutarModalReportes();">
+												<i class="fas fa-download"></i>
+												<label>Descargar reporte</label>
 											</div>
 											<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
 											</div>

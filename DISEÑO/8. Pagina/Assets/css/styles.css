@@ -236,8 +236,37 @@ table{
 	border-radius: 0;
 	cursor: pointer;
 }
+.contenedor-botones-reportes{
+	height: 150px;
+}
 .footer-page{
 	padding-bottom: 3%;
+}
+.PDF{
+	background-color: #fff;
+	border: 2px solid #ff0000;
+	border-radius: 20px;
+	color: #ff0000;
+	padding: 5px;
+	font-size: 25px;
+}
+.PDF:hover{
+	background-color: #ff0000;
+	color: #fff;
+	cursor: pointer;
+}
+.EXCEL{
+	background-color: #fff;
+	border: 2px solid #008000;
+	border-radius: 20px;
+	color: #008000;
+	padding: 5px;
+	font-size: 25px;
+}
+.EXCEL:hover{
+	background-color: #008000;
+	color: #fff;
+	cursor: pointer;
 }
 
 /***************INICIO BOTON ESPARCIDO **********************************/

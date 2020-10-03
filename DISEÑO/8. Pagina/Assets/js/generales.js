@@ -721,6 +721,46 @@ function registrarCliente(){
 
 /**********************************************************************************/
 
+/**************************** Descargar reportes ********************************/
+function ejecutarModalReportes(){
+  var reportes =  `<div class="row contenedor-botones-reportes">
+                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto PDF">
+                        <i class="fas fa-file-pdf"></i>
+                         Descargar PDF
+                      </div>
+                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto EXCEL" onclick="window.location.href='?class=Reportes&method=createReportExcel';">
+                        <i class="fas fa-file-excel"></i>
+                        Descargar Excel
+                      </div>
+                   </div>`;
+
+  $('#exampleModalLongTitle').html('');
+  $('#exampleModalLongTitle').html('Tipo de reporte');
+  $('.modal-body').html('');
+  $('.modal-body').html(reportes);
+  $('#modalCenter').modal('show');
+
+  /*$.ajax({
+    type: 'POST',
+    url : '?class=Reportes&method=createReportExcel',
+    //data: { Primer_nombre: Primer_nombre},
+    success(response){
+      $('#exampleModalLongTitle').html('');
+			$('#exampleModalLongTitle').html('Tipo de reporte');
+      $('.modal-body').html('');
+      $('.modal-body').html(response);
+      $('#modalCenter').modal('show');
+    },
+    error(){
+      $('.modal-body').html('Error al generar el reporte.');
+      $('#modalCenter').modal('show');
+    }
+  });*/
+}
+
+/**********************************************************************************/
+
+
 /*************************************************************************************************************************************** */
 /*  INICIO CONSULTAS GENERALES*/
 var generales = {

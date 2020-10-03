@@ -256,12 +256,17 @@ tbody img{
   background: #007efffa;
   color: white;
   padding: 3%;
+  font-size: 30px;
 }
 #cajaDescargar:hover{
   background: blue;
   border-radius: 20px;
+  cursor: pointer;
 }
-
+#cajaDescargar i:hover,
+#cajaDescargar label:hover{
+  cursor: pointer;
+}
 /* PAQUETES */
 
 #caja-paquete{
