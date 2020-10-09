@@ -729,7 +729,7 @@ function ejecutarModalReportes(){
 
       if(tipoReporte!='' && fechaInicio!='' && fechaFin !=''){
         var reportes =  `<div class="row contenedor-botones-reportes">
-                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto PDF">
+                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto PDF" onclick=" window.location.href='?class=reportes&method=createReportPdf&tipoReporte=`+tipoReporte+`&fechaInicio=`+fechaInicio+`&fechaFin=`+fechaFin+`';">
                               <i class="fas fa-file-pdf"></i>
                               Descargar PDF
                             </div>
@@ -752,22 +752,6 @@ function ejecutarModalReportes(){
         $('#modalCenter').modal('show');
       }
 }
-/*function descargarReporte(tipoReporte, fechaInicio, fechaFin){
-  console.log('cargando funcion descargarReporte');
-  $.ajax({
-    type: 'POST',
-    url : '?class=reportes&method=createReportExcel',
-    data: { tipoReporte: tipoReporte, fechaInicio: fechaInicio, fechaFin: fechaFin},
-    success(response){
-      $('#modalCenter').modal('hide');
-      console.log('respuesta exitosa ajax');
-    },
-    error(){
-      $('.modal-body').html('Error generando reporte.');
-      $('#modalCenter').modal('show');
-    }
-  });
-}*/
 
 /**********************************************************************************/
 

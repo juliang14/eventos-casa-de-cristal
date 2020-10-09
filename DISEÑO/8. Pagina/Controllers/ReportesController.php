@@ -17,6 +17,11 @@ class ReportesController extends Reportes{
         require_once('views/Reportes/ReporteExcel.php');
     }
 
+    public function createReportPdf(){
+        security::validate();
+        require_once('views/Reportes/ReportePdf.php');
+    }
+
 }
 
 ?>
