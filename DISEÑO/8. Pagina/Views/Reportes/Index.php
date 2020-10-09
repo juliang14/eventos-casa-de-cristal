@@ -112,11 +112,11 @@
 														<label>Tipo reporte</label>
 													</div>
 													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7" style="text-align: left;">
-														<select style="width: 100%;">
+														<select style="width: 100%;" name="tipoReporte" id="tipoReporte">
 															<option>Seleccione la opcion</option>
-															<option>Pedidos</option>
-															<option>Usuarios</option>
-															<option>Empleados</option>
+															<option value="Pedidos">Pedidos</option>
+															<option value="Usuarios">Usuarios</option>
+															<option value="Empleados">Empleados</option>
 														</select>
 													</div>
 												</div>
@@ -127,7 +127,7 @@
 														<label>Fecha inicio</label>
 													</div>
 													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7" style="text-align: left;">
-														<input type="date" name="" style="width: 100%;">
+														<input type="date" name="fechaInicio" id="fechaInicio" style="width: 100%;">
 													</div>
 												</div>
 											</div>
@@ -137,7 +137,7 @@
 														<label>Fecha final</label>
 													</div>
 													<div class="col-sm-12 col-md-7 col-lg-7 col-xl-7" style="text-align: left;">
-														<input type="date" name="" style="width: 100%;">
+														<input type="date" name="fechaFin" id="fechaFin" style="width: 100%;">
 													</div>
 												</div>
 											</div>

@@ -723,40 +723,51 @@ function registrarCliente(){
 
 /**************************** Descargar reportes ********************************/
 function ejecutarModalReportes(){
-  var reportes =  `<div class="row contenedor-botones-reportes">
-                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto PDF">
-                        <i class="fas fa-file-pdf"></i>
-                         Descargar PDF
-                      </div>
-                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto EXCEL" onclick="window.location.href='?class=Reportes&method=createReportExcel';">
-                        <i class="fas fa-file-excel"></i>
-                        Descargar Excel
-                      </div>
-                   </div>`;
+  var tipoReporte = $('#tipoReporte').val(),
+      fechaInicio = $('#fechaInicio').val(),
+      fechaFin    = $('#fechaFin').val();
 
-  $('#exampleModalLongTitle').html('');
-  $('#exampleModalLongTitle').html('Tipo de reporte');
-  $('.modal-body').html('');
-  $('.modal-body').html(reportes);
-  $('#modalCenter').modal('show');
+      if(tipoReporte!='' && fechaInicio!='' && fechaFin !=''){
+        var reportes =  `<div class="row contenedor-botones-reportes">
+                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto PDF">
+                              <i class="fas fa-file-pdf"></i>
+                              Descargar PDF
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 m-auto EXCEL" onclick=" window.location.href='?class=reportes&method=createReportExcel&tipoReporte=`+tipoReporte+`&fechaInicio=`+fechaInicio+`&fechaFin=`+fechaFin+`';">
+                              <i class="fas fa-file-excel"></i>
+                              Descargar Excel
+                            </div>
+                        </div>`;
 
-  /*$.ajax({
+        $('#exampleModalLongTitle').html('');
+        $('#exampleModalLongTitle').html('Tipo de reporte');
+        $('.modal-body').html('');
+        $('.modal-body').html(reportes);
+        $('#modalCenter').modal('show');
+      }else{
+        $('#exampleModalLongTitle').html('');
+        $('#exampleModalLongTitle').html('Importante');
+        $('.modal-body').html('');
+        $('.modal-body').html('Verifica los datos del formulario');
+        $('#modalCenter').modal('show');
+      }
+}
+/*function descargarReporte(tipoReporte, fechaInicio, fechaFin){
+  console.log('cargando funcion descargarReporte');
+  $.ajax({
     type: 'POST',
-    url : '?class=Reportes&method=createReportExcel',
-    //data: { Primer_nombre: Primer_nombre},
+    url : '?class=reportes&method=createReportExcel',
+    data: { tipoReporte: tipoReporte, fechaInicio: fechaInicio, fechaFin: fechaFin},
     success(response){
-      $('#exampleModalLongTitle').html('');
-			$('#exampleModalLongTitle').html('Tipo de reporte');
-      $('.modal-body').html('');
-      $('.modal-body').html(response);
-      $('#modalCenter').modal('show');
+      $('#modalCenter').modal('hide');
+      console.log('respuesta exitosa ajax');
     },
     error(){
-      $('.modal-body').html('Error al generar el reporte.');
+      $('.modal-body').html('Error generando reporte.');
       $('#modalCenter').modal('show');
     }
-  });*/
-}
+  });
+}*/
 
 /**********************************************************************************/
 

@@ -63,7 +63,7 @@ CALL PR_ACTUALIZAR_EMPLEADO( 1,'KAROL', '', 'gomez', 'avila', 'CE', 1015452884,'
 CALL PR_ELIMINAR_EMPLEADO(2);-- Elimina el registro del empleado
 CALL PR_VER_PEDIDOS(); -- Ver pedidos
 CALL PR_ESTADO_PEDIDO(); -- Listar estados de pedido disponibles
-CALL PR_ACTUALIZAR_PEDIDO( 1, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', 'Realizado',SYSDATE(),SYSDATE());
+CALL PR_ACTUALIZAR_PEDIDO( 1, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', 'Realizado',SYSDATE(),SYSDATE()); -- actualizar pedidos
 CALL PR_OBTENER_USUARIO_SISTEMA('USUARIO','Leonel2019','Leonel2019');-- Obtener usuario sistema Usuario
 CALL PR_OBTENER_USUARIO_SISTEMA('EMPLEADO','gustavo26','gustavo26');-- Obtener usuario sistema Empleado y administrador
 CALL PR_CREAR_PEDIDOS( 5, 3, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', SYSDATE(),SYSDATE()); -- Generar pedido
@@ -83,6 +83,8 @@ CALL PR_CREAR_PAQUETES( 'matrimonio', 'matrimonio 5', 0, 10); -- Crear paquete d
 CALL PR_CREAR_INVENTARIO_PAQUETES(  0, 0, 0); -- Agregar inventario a paquetes
 CALL PR_ELIMINAR_INVENTARIO_PAQUETE( 17, 4); -- Quitar inventario a paquetes
 CALL PR_ELIMINAR_PAQUETE(19); -- Eliminar paquete
+CALL PR_GENERAR_REPORTE('PEDIDOS',SYSDATE(),SYSDATE()); -- REPORTES
+
 
 -- FUNCIONES ------------------------------------------------------------------------------------------------------------------
 SELECT FN_CALCULAR_EDAD(1995) AS EDAD; -- <-- calcula edad
