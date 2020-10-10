@@ -685,9 +685,20 @@ $('.seleccionarEventoHome').click(function(){
   $('#'+idevento).removeClass('ocultar');
   $('#modalCenter').modal('show');
 });
+/**************************** validar formulario registro de cliente ********************************/
+function validarFormularioRegistroUsuario(Primer_nombre, Primer_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, terminos){
+  if(Primer_nombre != '' && Primer_apellido != '' && Tipo_documentoId_documento != '' && Numero_documento != '' && Edad != '' && Telefono != '' && Direccion != '' && Email != '' && terminos == true){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+/**************************** ************************************** ********************************/
 
 /**************************** Registro de cliente ********************************/
 function registrarCliente(){
+  //$('#Registrarse').attr('disabled',true);
   var Primer_nombre = $('#Primer_nombre').val(),
       Segundo_nombre = $('#Segundo_nombre').val(),
       Primer_apellido = $('#Primer_apellido').val(),
@@ -698,28 +709,101 @@ function registrarCliente(){
       Telefono = $('#Telefono').val(),
       Direccion = $('#Direccion').val(),
       Email = $('#Email').val();
+      terminos = $('#input_aceptar_TyC').prop('checked');
 
-  $.ajax({
-    type: 'POST',
-    url : '?class=Usuario&method=registrarUsuario',
-    data: { Primer_nombre: Primer_nombre, Segundo_nombre: Segundo_nombre, Primer_apellido: Primer_apellido, Segundo_apellido: Segundo_apellido, Tipo_documentoId_documento: Tipo_documentoId_documento,
-            Numero_documento: Numero_documento, Edad: Edad, Telefono: Telefono, Direccion: Direccion, Email: Email},
-    success(response){
-      $('#exampleModalLongTitle').html('');
-			$('#exampleModalLongTitle').html('Registro Exitoso');
-      $('.accionEvento').attr('onClick', "window.location.href='?class=security&method=loginUsuario'");
-      $('.modal-body').html('');
-      $('.modal-body').html(response);
-      $('#modalCenter').modal('show');
-    },
-    error(){
-      $('.modal-body').html('Error al eliminar el paquete de evento.');
-      $('#modalCenter').modal('show');
-    }
-  });
+  respuestaValidarForm = validarFormularioRegistroUsuario(Primer_nombre, Primer_apellido, Tipo_documentoId_documento, Numero_documento, Edad, Telefono, Direccion, Email, terminos);
+
+  if(respuestaValidarForm == true){
+    $.ajax({
+      type: 'POST',
+      url : '?class=Usuario&method=registrarUsuario',
+      data: { Primer_nombre: Primer_nombre, Segundo_nombre: Segundo_nombre, Primer_apellido: Primer_apellido, Segundo_apellido: Segundo_apellido, Tipo_documentoId_documento: Tipo_documentoId_documento,
+              Numero_documento: Numero_documento, Edad: Edad, Telefono: Telefono, Direccion: Direccion, Email: Email},
+      success(response){
+        
+        var nombreUsu = Primer_nombre+' '+Segundo_nombre+' '+Primer_apellido+' '+Segundo_apellido;
+        var respuesta = response.indexOf('El correo ya existe en el sistema, por favor ingresa otro.');
+        
+        if(respuesta == 0){
+          $('#exampleModalLongTitle').html('');
+          $('#exampleModalLongTitle').html('Registro Fallido');
+          //$('.accionEvento').attr('onClick', "window.location.href='?class=security&method=loginUsuario'");
+          //$('.modal-body').html('');
+          $('.modal-body').html(response);
+          $('#modalCenter').modal('show');
+          $('#Registrarse').attr('disabled',false);
+          
+        }else{
+          $.ajax({
+            type: 'POST',
+            url : '?class=Mail&method=index',
+            data: { tipo: 'RegistroUsuario', nombre: nombreUsu, Email: Email},
+            success(response){
+              console.log('respondiendo bien envio correo'+response);
+            },
+            error(){
+              $('.modal-body').html('Error al enviar correo.');
+              $('#modalCenter').modal('show');
+            }
+          });
+          $('#exampleModalLongTitle').html('');
+          $('#exampleModalLongTitle').html('Registro Exitoso');
+          $('.accionEvento').attr('onClick', "window.location.href='?class=security&method=loginUsuario'");
+          $('.modal-body').html('');
+          $('.modal-body').html(response);
+          $('#modalCenter').modal('show');
+        }
+      },
+      error(){
+        $('.modal-body').html('Error al eliminar el paquete de evento.');
+        $('#modalCenter').modal('show');
+      }
+    });
+  }else{
+    $('#exampleModalLongTitle').html('');
+    $('#exampleModalLongTitle').html('Importante');
+    $('.modal-body').html('');
+    $('.modal-body').html('Verifica los datos del formulario');
+    $('#modalCenter').modal('show');
+    $('#Registrarse').attr('disabled',false);
+  }
 }
 
 /**********************************************************************************/
+
+/**************************** validar formulario registro de cliente ********************************/
+function recuperarClave(tipoValidacion){
+  $('#RecuperarClave').attr('disabled',true);
+  var Email = $('#Email').val();
+  console.log('enviar clave');
+  if(Email !=''){
+    console.log('enviendo clave ..');
+    $.ajax({
+      type: 'POST',
+      url : '?class=Mail&method=index',
+      data: { tipo: 'RecuperarClave', Email: Email, tipoValidacion: tipoValidacion},
+      success(response){
+        console.log('respondiendo bien envio correo para recuperar clave'+response);
+        $('#exampleModalLongTitle').html('');
+        $('#exampleModalLongTitle').html('Envio Exitoso');
+        $('.accionEvento').attr('onClick', "window.location.href='?class=index&method=index'");
+        $('.modal-body').html('');
+        $('.modal-body').html(response);
+        $('#modalCenter').modal('show');
+        $('#RecuperarClave').attr('disabled',true);
+      },
+      error(){
+        $('.modal-body').html('Error al enviar correo.');
+        $('#modalCenter').modal('show');
+      }
+    });    
+  }else{
+    $('#RecuperarClave').attr('disabled',true);
+  }
+  
+
+}
+/**************************** ************************************** ********************************/
 
 /**************************** Descargar reportes ********************************/
 function ejecutarModalReportes(){

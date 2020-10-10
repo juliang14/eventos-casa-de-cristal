@@ -16,5 +16,18 @@ class TipoDocumento extends DB{
 		}
 	}
 
+	public function getUniqueTipoDocumento($id){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_TIPO_DOCUMENTO WHERE ID_DOCUMENTO = ?");
+			$query->bindParam(1,$id,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
 }
 ?>

@@ -126,6 +126,36 @@ class Usuario extends DB{
 		}
 	}
 
+	// validar si existe el correo
+	public function validarSiExisteCorreoCliente($email){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT COUNT(EMAIL) AS EMAIL FROM VW_VER_USUARIOS WHERE EMAIL= ?");
+			$query->bindParam(1,$email,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
+	// validar usuario por correo
+	public function validarUsuarioCorreoCliente($email){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_USUARIOS WHERE EMAIL= ?");
+			$query->bindParam(1,$email,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
 }
 
 

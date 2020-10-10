@@ -21,13 +21,22 @@ class UsuarioController extends Usuario{
 	
 	//Registrar usuario
 	public function registrarUsuario(){
-		/*parent::createCliente( $_REQUEST['Primer_nombre'], $_REQUEST['Segundo_nombre'], $_REQUEST['Primer_apellido']
-							, $_REQUEST['Segundo_apellido'], $_REQUEST['Tipo_documentoId_documento']
-							, $_REQUEST['Numero_documento'], $_REQUEST['Edad'], $_REQUEST['Telefono']
-							, $_REQUEST['Direccion'], $_REQUEST['Email']);*/
-		$RegistroUsuario = $_REQUEST['Primer_nombre']." ".$_REQUEST['Segundo_nombre']." ".$_REQUEST['Primer_apellido']." ".$_REQUEST['Segundo_apellido'];
-		$ACCION='REGISTRAR USUARIO';
-		require_once('views/Modal/Index.php');
+		$existeCorreo = parent::validarSiExisteCorreoCliente($_REQUEST['Email']);
+		$email = intval($existeCorreo->EMAIL);
+
+		if($email == 0){
+			$responseCreateUser = parent::createCliente( $_REQUEST['Primer_nombre'], $_REQUEST['Segundo_nombre'], $_REQUEST['Primer_apellido']
+								, $_REQUEST['Segundo_apellido'], $_REQUEST['Tipo_documentoId_documento']
+								, $_REQUEST['Numero_documento'], $_REQUEST['Edad'], $_REQUEST['Telefono']
+								, $_REQUEST['Direccion'], $_REQUEST['Email']);
+			
+			$RegistroUsuario = $_REQUEST['Primer_nombre']." ".$_REQUEST['Segundo_nombre']." ".$_REQUEST['Primer_apellido']." ".$_REQUEST['Segundo_apellido'];
+			$ACCION='REGISTRAR USUARIO';
+			require_once('views/Modal/Index.php');
+		}else if($email > 0){
+			echo 'El correo ya existe en el sistema, por favor ingresa otro.';
+		}
+		
     }
     
     //Pagina administrador usuarios ver

@@ -100,6 +100,7 @@
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center seccion" >
 									<label for="Tipo_documentoId_documento">Tipo de documento</label><br>
 									<select class="form-control" name="Tipo_documentoId_documento" id="Tipo_documentoId_documento" >
+										<option value="">Selecciona un valor</option>
 										<?php foreach (TipoDocumento::getTipoDocumento() as $responseGetTipoDocumento){ ?>
 											<option value="<?php echo $responseGetTipoDocumento->Id_documento ?>"><?php echo $responseGetTipoDocumento->Siglas ?></option>
 										<?php } ?>
@@ -127,14 +128,14 @@
 									<input type="email" class="form-control" name="Email" id="Email" placeholder="Correo electronico" value="" required>
 								</div>
 								<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 centrar seccion">
-									<input type="checkbox" name="">
+									<input type="checkbox" name="" id="input_aceptar_TyC">
 									<label onClick="cargarTyC();" id="aceptar_TyC">Aceptar terminos y condiciones</label>
 								</div>
 							    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 									<div class="row centrar">
 										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 seccion" id="">
-											<a onClick="registrarCliente();">
-												<input type="text" class="btn btn-success" name="Registrarse" value="Registrarse">
+											<a>
+												<input type="text" class="btn btn-success" name="Registrarse" value="Registrarse" id='Registrarse' onClick="registrarCliente();">
 											</a>
 										</div>
 										<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 seccion" id="">

@@ -248,6 +248,16 @@ h3{
 
 /*************************************************************************************/
 
+.contenedorFormularioRecuperarClave{
+	/*background-color: green;*/
+	margin: 10% 0 30% 0;
+	border: 2px solid #808080;
+}
+.contenedorFormularioRecuperarClave #email{
+	width: 50%;
+	text-align: center;
+	margin: auto;
+}
 /*-------------- RESPONSIVE --------------*/
 
 @media screen and (min-width: 300px) and (max-width: 575px){

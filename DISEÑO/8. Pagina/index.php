@@ -23,6 +23,7 @@
    require_once('models/Reportes.php');
    require_once('models/Inventarios.php');
    require_once('models/Turnos.php');
+   require_once('models/Mail.php');
 
    /*-----------------------------------------------------*/
    // se declara variable $controller = si existe la clase se deja la clase (?), sino(:) deja por default Index

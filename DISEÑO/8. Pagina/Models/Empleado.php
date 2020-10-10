@@ -129,6 +129,21 @@ class Empleado extends DB{
 		}
 	}
 
+	// validar empleado por correo
+	public function validarCorreoEmpleado($email){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_EMPLEADOS WHERE EMAIL= ?");
+			$query->bindParam(1,$email,PDO::PARAM_STR);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
 }
 
 ?>

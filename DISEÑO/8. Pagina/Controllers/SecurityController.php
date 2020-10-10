@@ -6,6 +6,9 @@ class SecurityController extends Security{
 	public function loginUsuario(){
 		require_once('views/Security/loginUsuario.php');
     }
+    public function recuperarClave(){
+        require_once('views/Security/FormularioRecuperarClave.php');
+    }
     
     //Pagina inicio usuario
     public function usuario(){

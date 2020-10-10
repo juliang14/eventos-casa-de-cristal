@@ -25,8 +25,10 @@ select * from TIPO_DOCUMENTO;
 select * from TIPOS_DE_PAGO;
 SELECT * FROM TURNO;
 select * from USUARIO;
+delete from USUARIO where id_usuario=36;
 select * from USUARIO_LOG;
 select * from USUARIO_SISTEMA;
+delete from USUARIO_SISTEMA where usuarioid_usuario=36;
 update USUARIO_SISTEMA set estado='ACTIVO' WHERE ID_USUARIOSISTEMA >0;
 
 -- VISTAS ----------------------------------------------------------------------------------------------------------------------
@@ -36,6 +38,7 @@ select * from VW_PAGO_PREFERIDO;
 select * from VW_PRODUCTOS_VENDIDOS;
 select * from VW_REPORTE_VENTAS;
 SELECT * FROM VW_VER_USUARIOS;
+select count(email) email FROM VW_VER_USUARIOS where email ='jsgomez488@misena.edu.co';
 SELECT * FROM VW_VER_EMPLEADOS;
 SELECT * FROM VW_CANTIDAD_REGISTROS_INICIO_ADMIN;
 SELECT * FROM VW_VER_PEDIDOS;
@@ -46,6 +49,7 @@ SELECT * FROM VW_VER_INVENTARIO;
 SELECT * FROM VW_VER_TURNO;
 SELECT * FROM VW_VER_PAQUETE WHERE TIPO_DE_EVENTO='Matrimonio';
 SELECT * FROM VW_VER_PEDIDOS ORDER BY 1 DESC LIMIT 1;
+SELECT * FROM VW_VER_TIPO_DOCUMENTO;
 
 
 -- PROCEDIMIENTOS -------------------------------------------------------------------------------------------------------------

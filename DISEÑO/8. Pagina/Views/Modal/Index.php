@@ -100,7 +100,7 @@
 			}else if (isset($RegistroUsuario)) {
 				if(!empty($RegistroUsuario)){
 					if($ACCION=='REGISTRAR USUARIO'){
-						echo "Se registro correctamente el usuario: ".$RegistroUsuario;
+						echo "Se registro correctamente el usuario: ".$RegistroUsuario.'<br><br> hemos enviado los datos de ingreso a tu correo.';
 					}else{
 						echo 'Accion no configurada';
 					}

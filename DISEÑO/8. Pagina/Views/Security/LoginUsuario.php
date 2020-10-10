@@ -79,7 +79,7 @@
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="olvide">
-								<a href="?class=IndexHome&method=restablecerContrasena">
+								<a href="?class=Security&method=recuperarClave&tipo=Usuario">
 									Olvide mi contraseña
 								</a>
 							</div>
