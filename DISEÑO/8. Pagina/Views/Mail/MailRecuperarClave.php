@@ -44,7 +44,7 @@ try {
     $mail->Subject = 'Recuperacion de cuenta';
     $mail->Body    = '
     <section>
-        <div class="section-correo-bienvenida" style="margin: auto;height: 500px;width: 60%;margin-top: 30px; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; background-color: #fff;">
+        <div class="section-correo-bienvenida" style="margin: auto;height: auto;width: 60%;margin-top: 30px; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; text-align: left; background-color: #fff;">
             <h1 class="text-center" style="text-align: center!important; font-size: 2.5rem; margin-bottom: .5rem; font-family: inherit; font-weight: 500; line-height: 1.2; color: inherit;">
                 #eventoscasadecristal
             </h1>
