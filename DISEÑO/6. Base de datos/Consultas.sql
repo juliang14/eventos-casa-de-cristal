@@ -25,10 +25,10 @@ select * from TIPO_DOCUMENTO;
 select * from TIPOS_DE_PAGO;
 SELECT * FROM TURNO;
 select * from USUARIO;
-delete from USUARIO where id_usuario=36;
+delete from USUARIO where id_usuario=38;
 select * from USUARIO_LOG;
 select * from USUARIO_SISTEMA;
-delete from USUARIO_SISTEMA where usuarioid_usuario=36;
+delete from USUARIO_SISTEMA where usuarioid_usuario=38;
 update USUARIO_SISTEMA set estado='ACTIVO' WHERE ID_USUARIOSISTEMA >0;
 
 -- VISTAS ----------------------------------------------------------------------------------------------------------------------
@@ -71,6 +71,7 @@ CALL PR_ACTUALIZAR_PEDIDO( 1, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', 'Reali
 CALL PR_OBTENER_USUARIO_SISTEMA('USUARIO','Leonel2019','Leonel2019');-- Obtener usuario sistema Usuario
 CALL PR_OBTENER_USUARIO_SISTEMA('EMPLEADO','gustavo26','gustavo26');-- Obtener usuario sistema Empleado y administrador
 CALL PR_CREAR_PEDIDOS( 5, 3, 'BOGOTA', 'AURES', 'carrera 123 # 82 - 41', SYSDATE(),SYSDATE()); -- Generar pedido
+CALL PR_CREAR_PAGO_CARRITO( 4, 2, 'BOGOTA', 'LIJACA', 'carrera 123 # 82 - 41', SYSDATE(),SYSDATE(), 2380000); -- CREAR PAGO
 CALL PR_VER_INVENTARIO();-- Obtener inventario
 CALL PR_CREAR_INVENTARIO('luces',30,20000,'utileria'); -- Crear pruductos de inventarios
 CALL PR_ACTUALIZAR_INVENTARIO(11,'luces',30,20000,'utileria'); -- ACTUALIZAR INVENTARIO

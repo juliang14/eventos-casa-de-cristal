@@ -770,7 +770,21 @@ function registrarCliente(){
 }
 
 /**********************************************************************************/
-
+/**************************** generar pago ********************************/
+function generarPago(){
+  var actualizarCiudad    = $('#inputCiudadEvento').val();
+  var actualizarBarrio    = $('#inputBarrioEvento').val();
+  var actualizarDireccion = $('#inputDireccionEvento').val();
+  var actualizarFechaIni  = $('#inputFechaInicioEvento').val();
+  var actualizarFechaFin  = $('#inputFechaFinEvento').val();
+  if(actualizarCiudad !='' && actualizarBarrio !='' && actualizarDireccion !='' && actualizarFechaIni !='' && actualizarFechaFin !=''){
+    $('#modalCenter').modal('show');
+  }else{
+    alert('verifica los datos');
+  }
+ 
+}
+/**************************** ************ ********************************/
 /**************************** validar formulario registro de cliente ********************************/
 function recuperarClave(tipoValidacion){
   $('#RecuperarClave').attr('disabled',true);

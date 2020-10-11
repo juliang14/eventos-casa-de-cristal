@@ -14,14 +14,17 @@
 #usuario-arriba1 label{
 	margin-top: 4%;
 }
-#busc > div >a:after{
+.cantidadCarrito{
+  padding-left: 5px;
+}
+/*#busc > div >a:after{
 	content: "0";
 	color: black;
 	font-size: 20px;
 	position: absolute;
     left: 63%;
     top: 10%;
-}
+}*/
 .men{
 	width: 70%;
 }
@@ -94,6 +97,28 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.contenedor-carrito{
+  width: 70%;
+  margin: auto;
+  padding: 100px 0;
+}
+.contenedor-carrito .titulo-carrito{
+  text-align: left;
+  border-bottom: 2px solid gray;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.contenedor-carrito .i-rojo{
+  color: #ff0000;
+  font-size: 20px;
+}
+.contenedor-carrito form{
+  margin: 0;
+}
+.contenedor-carrito form button{
+  background-color: transparent;
+  border: none;
+}
 /*-------------- RESPONSIVE --------------*/
 
 @media screen and (min-width: 300px) and (max-width: 575px){

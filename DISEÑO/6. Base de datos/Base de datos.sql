@@ -150,13 +150,16 @@ primary key (Id_evento)
 );
 
 create table pagos(
-Id_pago								Int 		 auto_increment not null,
-Usuarioid_usuario					Int 		 not null,
-PedidoID_pedido		 				Int 	 	 not null,
-Tipos_de_pagoId_tipo_pago			Int 		 not null,
+Id_pago								Int 		 	auto_increment not null,
+Usuarioid_usuario					Int 		 	not null,
+PedidoID_pedido		 				Int 	 	 	not null,
+Tipos_de_pagoId_tipo_pago			Int 		 	not null,
+Total_pago							int			 	not null,
+Clave_transaccional					varchar	(250)	not null,
+PaypalDatos							text			not null,
+estado								varchar	(200)	not null,
 primary key (Id_pago)
 );
-
 
 create table Tipos_de_pago(
 id_tipo_pago						Int 		  auto_increment not null,

@@ -24,6 +24,7 @@
    require_once('models/Inventarios.php');
    require_once('models/Turnos.php');
    require_once('models/Mail.php');
+   require_once('models/Carrito.php');
 
    /*-----------------------------------------------------*/
    // se declara variable $controller = si existe la clase se deja la clase (?), sino(:) deja por default Index

@@ -20,7 +20,7 @@
 
 <body>
 	<!-- Modal -->
-	<div class="modal fade bd-example-modal-lg accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
+	< class="modal fade bd-example-modal-lg accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
 		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -65,7 +65,7 @@
 			</div>
 		</div>
 		</div>
-	</div>
+	</>
 	<!-----------------------   FIN MODAL  ------------------------------------>
 	<div class="center">
 		<div class="container-fluid" id="pag">

@@ -16,7 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/usuario.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/eventos.css">
-
+<?php 
+	include 'views/Carrito/Carrito.php';
+?>
 </head>
 <body>
 	<div class="center">
@@ -34,8 +36,9 @@
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
 									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
-										<a href="?class=IndexHome&method=usuarioCarritoDeCompras">
-											<IMG SRC="Assets/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
+										<a href="?class=Carrito&method=index">
+											<img SRC="Assets/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras" />
+											<span class="cantidadCarrito">(<?php echo (empty($_SESSION['Carrito']))?0:count($_SESSION['Carrito']); ?>)</span>
 										</a>
 									</div>
 									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
@@ -92,6 +95,27 @@
 					</div>
 				</div>
 			</div>
+			<!-- Mensaje carrito de compras -->
+			<?php if($mensaje!=''){ ?>
+				<div class="alert alert-success table-success contenedor-mensaje-carrito" id="mensajeCarritoCompra">
+					<p class="contenedor-caja1"> 
+						<?php echo $mensaje; ?> 
+						<a href="?class=Carrito&method=index" class="badge badge-success"> ver carrito</a>
+					</p>
+					<p class="contenedor-caja2">
+						<!--a href=""><i class="fas fa-times-circle"></i></!--a-->
+					</p>
+				</div>
+			<?php }?>
+			<?php if($mensajeError!=''){ ?>
+				<div class="alert alert-danger contenedor-mensaje-carrito" id="mensajeCarritoCompra">
+					<p class="contenedor-caja1"> 
+						<?php echo $mensajeError; ?> 
+						<a href="?class=Carrito&method=index" class="badge badge-success"> ver carrito</a>
+					</p>
+				</div>
+			<?php }?>
+			<!-- ************************** -->
 			<!-- Modal -->
 			<div class="modal fade bd-example-modal-lg accionEvento" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" onclick="">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -109,22 +133,31 @@
 									<div class="row">
 										<?php foreach(Paquetes::getEventoPaquete($CantidadEventos->TIPO_DE_EVENTO) AS $ResponseGetEventoPaquete){ ?>
 											<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center m-auto pt-4">
-												<div class="contenedorPaquetes cajas-paquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
-													<h3 class="font-italic pl-2 pr-2">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
-													<br>
-													<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
-													<br>
-													<h5>NUESTRO PLAN INCLUYE</h5>
-													<br>
-													<ul class="text-muted p-0 mb-4 text-left">
-														<?php foreach(Paquetes::getPaquete($ResponseGetEventoPaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
-															<li><?php echo $ResponseGetPaquete->INVENTARIO; ?></li>
-														<?php } ?>
-													</ul>
-													<div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 text-center ml-auto mr-auto mb-1 nombre-paquete">
-														<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>
+												<form action="" method="POST">
+													<div class="contenedorPaquetes cajas-paquetes" id-paquete="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
+														<h3 class="font-italic pl-2 pr-2">PLAN TODO INCLUIDO <?php echo $ResponseGetEventoPaquete->CANTIDAD_PERSONAS; ?> PERSONAS</h3>
+														<br>
+														<h1 class="text-danger">$<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?></h1>
+														<input type="hidden" name="valorPaquete" id="valorPaquete" value="<?php echo $ResponseGetEventoPaquete->VALOR_TOTAL; ?>">
+														<br>
+														<h5>NUESTRO PLAN INCLUYE</h5>
+														<br>
+														<ul class="text-muted p-0 mb-4 text-left">
+															<?php foreach(Paquetes::getPaquete($ResponseGetEventoPaquete->ID_PAQUETE) AS $ResponseGetPaquete){ ?>
+																<li><?php echo $ResponseGetPaquete->INVENTARIO; ?></li>
+															<?php } ?>
+														</ul>
+														<div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 text-center ml-auto mr-auto mb-1 nombre-paquete">
+															<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>
+															<input type="hidden" name="tipoPaquete" id="tipoPaquete" value="<?php echo $ResponseGetEventoPaquete->TIPO_DE_PAQUETE; ?>">
+														</div>
 													</div>
-												</div>
+													<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2">
+														<input type="hidden" name="idPaquete" id="idPaquete" value="<?php echo $ResponseGetEventoPaquete->ID_PAQUETE; ?>">
+														<input type="hidden" name="cantidad" id="cantidad" value="1">
+														<button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit"> Comprar </button>
+													</div>
+												</form>
 											</div>
 										<?php } ?>
 									</div>

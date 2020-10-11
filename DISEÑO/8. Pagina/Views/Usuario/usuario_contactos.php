@@ -15,7 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="Assets/Utilitarios/datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="Assets/css/usuario.css">
-
+<?php 
+	include 'views/Carrito/Carrito.php';
+?>
 </head>
 <body>
 	<div class="center">
@@ -33,8 +35,9 @@
 							<div class="col-lg-10" STYLE="background-color: WHITE;">
 								<div class="row" id="busc">
 									<div class="col-lg-3" STYLE="margin:auto;text-align:center;">
-										<a href="?class=IndexHome&method=usuarioCarritoDeCompras">
-											<IMG SRC="Assets/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras"></IMG>
+										<a href="?class=Carrito&method=index">
+											<img SRC="Assets/img/boton-de-agregar-carrito-de-compras.png" STYLE="" title="Carrito de compras" />
+											<span class="cantidadCarrito">(<?php echo (empty($_SESSION['Carrito']))?0:count($_SESSION['Carrito']); ?>)</span>
 										</a>
 									</div>
 									<div class="col-lg-4" STYLE="margin:auto;text-align:center;">
