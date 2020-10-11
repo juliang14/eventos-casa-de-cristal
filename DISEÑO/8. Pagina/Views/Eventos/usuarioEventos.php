@@ -86,7 +86,7 @@
 											<a href="?class=usuario&method=usuarioContactos">Contactenos</a>
 										</li>
 										<li class="">
-											<a href="?class=usuario&method=usuarioPedidos">Pedidos</a>
+											<a href="?class=Pedidos&method=vistaPedidosUsuario">Pedidos</a>
 										</li>
 									</ul>
 								</nav>

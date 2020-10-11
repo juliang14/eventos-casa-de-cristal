@@ -119,6 +119,25 @@ input:checked + .slider:before {
   background-color: transparent;
   border: none;
 }
+.seccion-pedidos-usuario{
+  padding: 2% 5%;
+}
+.contenedor-pedidos-usuario{
+  border: 2px solid #808080;
+}
+.cajas-pedidos{
+  border: 2px solid #808080;
+  margin: 0 10% ;
+}
+.cajas-pedidos p{
+  padding-left: 40px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cajas-pedidos ol{
+  list-style: none;
+}
 /*-------------- RESPONSIVE --------------*/
 
 @media screen and (min-width: 300px) and (max-width: 575px){

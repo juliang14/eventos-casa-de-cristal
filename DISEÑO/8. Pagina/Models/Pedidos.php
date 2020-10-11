@@ -74,6 +74,21 @@ class Pedidos extends DB{
 		}
 	}
 
+	// Obtener pedido
+	public function getPedidoUsuario($Id_usuario){
+		try {
+			//Preparar la comsulta que se va a realizar
+			$query = parent::conectDatabase()->prepare(" SELECT * FROM VW_VER_PEDIDOS_USUARIO WHERE ID_USUARIO=?");
+			$query->bindParam(1,$Id_usuario,PDO::PARAM_INT);
+			//ejecutar consulta o sentencia
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_OBJ);
+		}catch (Exception $e) {
+			die('Error: '.$e->getMessage());
+			echo 'Linea: '.$e->getLine();
+		}
+	}
+
 
 }
 

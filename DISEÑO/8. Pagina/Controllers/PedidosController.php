@@ -36,6 +36,11 @@ class PedidosController extends Pedidos{
         header('location:?class=Pedidos&method=Index');
     }
 
+    public function vistaPedidosUsuario(){
+        Security::validate();
+        require_once('views/Pedidos/PedidoUsuario.php');
+    }
+
 }
 
 ?>
